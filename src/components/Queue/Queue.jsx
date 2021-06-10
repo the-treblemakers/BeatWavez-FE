@@ -13,7 +13,7 @@ const Queue = ({ queueItems }) => (
 );
 
 Queue.propTypes = {
-    queueItem: PropTypes.arrayOf(
+    queueItems: PropTypes.arrayOf(
         PropTypes.shape({
             title: PropTypes.string.isRequired,
             singer: PropTypes.string.isRequired,

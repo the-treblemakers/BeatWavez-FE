@@ -13,7 +13,7 @@ const GreenRoom = () => {
             <Queue />
             <Chat /> */}
         </div>
-    );
-};
+    )
+}
 
 export default GreenRoom;

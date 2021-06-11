@@ -6,11 +6,15 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    link: {
-       background: '#F96D10',
-       border: 'solid #060836 2px',
+    appShadow: {
+        boxShadow: '0px 0px 0px 0px rgb(0 0 0 / 0%)',   
+    },
+    selected: {
+        background: '#F96D10',
     },
     menu: {
-        borderRadius: 0,
+        border: 'solid #060836 2px',
+        borderRadius: '3px',
+        boxShadow: '0px 0px 0px 0px rgb(0 0 0 / 0%)',   
     }
 });

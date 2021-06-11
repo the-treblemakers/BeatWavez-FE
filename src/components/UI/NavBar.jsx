@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router';
 import { AppBar, Menu, MenuItem, Button, Grid, Typography} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
-import styles from '../styles/NavBar.module.css';
 
-const Navbar = () => { 
+const Navbar = (props) => { 
   const [anchorEl, setAnchorEl] = useState(null);
+  const { pathname } = props.location;
 
   const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
@@ -17,12 +17,9 @@ const Navbar = () => {
 
   return (
     <AppBar
-      // className={styles.appBar}
       position="static">
       <Grid container direction="row" justify="space-between" alignItems="center">
         <Button 
-          // className={styles.menuIcon}
-          // style={{ flex: 1 }}
           aria-haspopup="true"
           aria-owns={anchorEl ? 'menu' : null}
           onClick={handleClick}>
@@ -38,7 +35,7 @@ const Navbar = () => {
             component={Link}
             to='/'
             onClick={handleClose}
-            // selected={pathname === '/'}
+            selected={pathname === '/'}
             >
                 home
           </MenuItem>
@@ -46,7 +43,7 @@ const Navbar = () => {
             component={Link}
             to='/greenroom'
             onClick={handleClose}
-            // selected={pathname === '/greenroom'}
+            selected={pathname === '/greenroom'}
             >
                 green room
           </MenuItem>
@@ -54,7 +51,7 @@ const Navbar = () => {
             component={Link}
             to='/partyroom'
             onClick={handleClose}
-            // selected={pathname === '/partyroom'}
+            selected={pathname === '/partyroom'}
             >
                 party room
           </MenuItem>
@@ -62,7 +59,7 @@ const Navbar = () => {
             component={Link}
             to='/about'
             onClick={handleClose}
-            // selected={pathname === '/about'}
+            selected={pathname === '/about'}
             >
                 about
           </MenuItem>   

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SongbookItem from './SongbookItem';
 
 const Songbook = ({ songbookItems }) => (
-    <ul aria-label="songbookItems">
+    <ul aria-label='songbookItems'>
         {songbookItems.map((song) => (
             <li key={song.title}>
                 <SongbookItem {...SongbookItem} />

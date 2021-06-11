@@ -8,86 +8,86 @@ import { useStyles } from '../styles/styles';
 import '../styles/app.css';
 
 const Navbar = (props) => { 
-  const [anchorEl, setAnchorEl] = useState(null);
-  const { pathname } = props.location;
+    const [anchorEl, setAnchorEl] = useState(null);
+    const { pathname } = props.location;
 
-  const handleClick = (e) => {
-    setAnchorEl(e.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+    const handleClick = (e) => {
+        setAnchorEl(e.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
-  const classes = useStyles();
+    const classes = useStyles();
 
   
 
-  return (
+    return (
     // <StylesProvider injectFirst>
-    <AppBar
-      className={classes.appBar}
-      classes={{ paper: classes.appShadow }}
-      position="static">
-      <Grid container direction="row" justify="space-between" alignItems="center">
-        <Button 
-          aria-haspopup="true"
-          aria-owns={anchorEl ? 'menu' : null}
-          onClick={handleClick}>
-          <MenuIcon/>
-        </Button>
-        <Menu 
-          id="menu"
-          classes={{ paper: classes.menu }}
-          // className={classes.menu}
-          // PaperProps ={{
-          //   classes
-          // }}
-          anchorEl={anchorEl}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}>
-            <MenuItem 
-              classes={{ selected: classes.selected }}
-              className={classes.link}
-              component={Link}
-              to='/'
-              onClick={handleClose}
-              selected={pathname === '/'}
-              >
+        <AppBar
+            className={classes.appBar}
+            // classes={{ paper: classes.appShadow }}
+            position="static">
+            <Grid container direction="row" justify="space-between" alignItems="center">
+                <Button 
+                    aria-haspopup="true"
+                    aria-owns={anchorEl ? 'menu' : null}
+                    onClick={handleClick}>
+                    <MenuIcon/>
+                </Button>
+                <Menu 
+                    id="menu"
+                    // classes={{ paper: classes.menu }}
+                    // className={classes.menu}
+                    // PaperProps ={{
+                    //   classes
+                    // }}
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}>
+                    <MenuItem 
+                        classes={{ selected: classes.selected }}
+                        className={classes.link}
+                        component={Link}
+                        to='/'
+                        onClick={handleClose}
+                        selected={pathname === '/'}
+                    >
                   home
-            </MenuItem>
-            <MenuItem 
-              component={Link}
-              to='/greenroom'
-              onClick={handleClose}
-              selected={pathname === '/greenroom'}
-              >
+                    </MenuItem>
+                    <MenuItem 
+                        component={Link}
+                        to='/greenroom'
+                        onClick={handleClose}
+                        selected={pathname === '/greenroom'}
+                    >
                   green room
-            </MenuItem>
-            <MenuItem 
-              component={Link}
-              to='/partyroom'
-              onClick={handleClose}
-              selected={pathname === '/partyroom'}
-              >
+                    </MenuItem>
+                    <MenuItem 
+                        component={Link}
+                        to='/partyroom'
+                        onClick={handleClose}
+                        selected={pathname === '/partyroom'}
+                    >
                   party room
-            </MenuItem>
-            <MenuItem 
-              component={Link}
-              to='/about'
-              onClick={handleClose}
-              selected={pathname === '/about'}
-              >
+                    </MenuItem>
+                    <MenuItem 
+                        component={Link}
+                        to='/about'
+                        onClick={handleClose}
+                        selected={pathname === '/about'}
+                    >
                   about
-            </MenuItem> 
-        </Menu>
+                    </MenuItem> 
+                </Menu>
 
-        <Typography variant="h1">beatWaves🌴</Typography>
+                <Typography variant="h1">beatWaves🌴</Typography>
         
-      </Grid>
-    </AppBar>
+            </Grid>
+        </AppBar>
     // </StylesProvider>
-  );
+    );
 }; 
 
 export default withRouter(Navbar);

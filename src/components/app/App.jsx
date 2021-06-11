@@ -4,7 +4,7 @@ import NavBar from '../UI/NavBar';
 import Home from '../../containers/Home';
 import GreenRoom from '../../containers/GreenRoom';
 import PartyRoom from '../../containers/PartyRoom';
-import Abount from '../../containers/Abount';
+import Abount from '../../containers/About';
 import '../styles/app.css';
 import { ThemeProvider } from '@material-ui/core';
 import { theme } from '../styles/theme';

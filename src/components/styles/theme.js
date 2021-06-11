@@ -22,5 +22,16 @@ export const theme = createMuiTheme({
         secondary: {
             main: '#F96D10'
         }
+    },
+    overrides: {
+        MuiPopover: {
+            background: '#F96D10',
+        },
+        MuiPaper: {
+            background: '#F96D10',
+        },
     }
+    // menu: {
+    //     background = '#F96D10'
+    // }
   });

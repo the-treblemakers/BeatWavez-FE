@@ -6,7 +6,7 @@ const Chat = ({ chatMsgs }) => (
     <ul aria-label='chat'>
         {chatMsgs.map((msg) => (
             <li key={msg.message}>
-                <ChatMsg {...ChatMsg} />
+                <ChatMsg {...msg} />
             </li>
         ))}
     </ul>

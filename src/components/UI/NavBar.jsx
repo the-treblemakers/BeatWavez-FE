@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router';
-import { AppBar, Menu, MenuItem, Button, Grid, Typography} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
+import { AppBar, Menu, MenuItem, Button, Grid, Typography } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import { useStyles } from '../styles/styles';
 
 const Navbar = (props) => { 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -15,8 +16,11 @@ const Navbar = (props) => {
     setAnchorEl(null);
   };
 
+  const classes = useStyles();
+
   return (
     <AppBar
+      className={classes.appBar}
       position="static">
       <Grid container direction="row" justify="space-between" alignItems="center">
         <Button 
@@ -27,11 +31,13 @@ const Navbar = (props) => {
         </Button>
         <Menu 
           id="menu"
+          className={classes.menu}
           anchorEl={anchorEl}
           keepMounted
           open={Boolean(anchorEl)}
           onClose={handleClose}>
           <MenuItem 
+            className={classes.link}
             component={Link}
             to='/'
             onClick={handleClose}
@@ -65,7 +71,8 @@ const Navbar = (props) => {
           </MenuItem>   
         </Menu>
 
-        <Typography variant="h4">beatWaves🌴</Typography>
+        <Typography variant="h1">beatWaves🌴</Typography>
+        
       </Grid>
     </AppBar>
   );

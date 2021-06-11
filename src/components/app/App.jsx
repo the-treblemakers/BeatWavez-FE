@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../UI/NavBar';
 import Home from '../../containers/Home';
 import GreenRoom from '../../containers/GreenRoom';

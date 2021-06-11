@@ -7,19 +7,3 @@ body, html {
   font-size: 16px;
   font-family: 'Noto Sans JP', sans-serif;
 }
-
-/* .MuiPaper {
-  border-radius: 0;
-} */
-
-.MuiPaper-root {
-  color: greenyellow;
-  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  background-color: #fff;
-}
-
-/* .MuiPopover-paper {
-  border: greenyellow 2px solid;
-} */
-
-/* .MuiMenu-list */

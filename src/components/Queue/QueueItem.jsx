@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const QueueItem = ({ title, singer, thumbnail }) => (
+const QueueItem = ({ title, stageName, thumbnail }) => (
     <>
         <img src={thumbnail} alt={title} />
         <span>Song: {title}</span>
-        <span>Singer: {singer}</span>
+        <span>Singer: {stageName}</span>
     </>
 );
 
 QueueItem.propTypes = {
     title: PropTypes.string.isRequired,
-    singer: PropTypes.string.isRequired,
+    stageName: PropTypes.string.isRequired,
     thumbnail: PropTypes.string.isRequired,
 };
 

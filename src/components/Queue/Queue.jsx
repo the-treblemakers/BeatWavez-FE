@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import QueueItem from "./QueueItem";
 
 const Queue = ({ queueItems }) => (
-    <ul>
+    <ul aria-label="queue">
         {queueItems.map((item) => (
             <li key={item.title}>
                 <QueueItem {...QueueItem} />
@@ -16,7 +16,7 @@ Queue.propTypes = {
     queueItems: PropTypes.arrayOf(
         PropTypes.shape({
             title: PropTypes.string.isRequired,
-            singer: PropTypes.string.isRequired,
+            stageName: PropTypes.string.isRequired,
             thumbnail: PropTypes.string.isRequired,
         })
     ),

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from '../../containers/Home';
 import GreenRoom from '../../containers/GreenRoom';
 import PartyRoom from '../../containers/PartyRoom';
@@ -12,10 +12,23 @@ export default function App() {
     <Router>
       <NavBar />
       <Switch>
-        <Route path="/" exact render={(routerProps) => <Home {...routerProps} />} />
-        <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps} />}/>
-        <Route path="/partyroom" render={(routerProps) => <PartyRoom {...routerProps} />}/>
-        <Route path="/about" render={(routerProps) => <Abount {...routerProps} />}/>
+        <Route
+          path="/"
+          exact
+          render={(routerProps) => <Home {...routerProps} />}
+        />
+        <Route
+          path="/greenroom"
+          render={(routerProps) => <GreenRoom {...routerProps} />}
+        />
+        <Route
+          path="/partyroom"
+          render={(routerProps) => <PartyRoom {...routerProps} />}
+        />
+        <Route
+          path="/about"
+          render={(routerProps) => <Abount {...routerProps} />}
+        />
       </Switch>
     </Router>
   );
@@ -29,13 +42,12 @@ export default function App() {
 // import Button from '@material-ui/core/Button';
 // import MenuIcon from '@material-ui/icons/Menu';
 
-
 // const Navbar = () => {
 //   const [open, setOpen] = useState(false);
 
 //   return (
 //     <AppBar position="static">
-//       <Menu 
+//       <Menu
 //         // anchorEl={anchorEl}
 //         open={open}>
 //         <MenuIcon/>
@@ -51,7 +63,7 @@ export default function App() {
 //         <MenuItem>
 //               Abount
 //         </MenuItem>
-              
+
 //       </Menu>
 //     </AppBar>
 //   );
@@ -59,6 +71,7 @@ export default function App() {
 
 // export default Navbar;
 
+// eslint-disable-next-line max-len
 // <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
 //   Open Menu
 // </Button>

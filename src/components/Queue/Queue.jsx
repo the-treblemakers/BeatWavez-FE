@@ -6,7 +6,7 @@ const Queue = ({ queueItems }) => (
     <ul aria-label="queue">
         {queueItems.map((item) => (
             <li key={item.title}>
-                <QueueItem {...QueueItem} />
+                <QueueItem {...item} />
             </li>
         ))}
     </ul>

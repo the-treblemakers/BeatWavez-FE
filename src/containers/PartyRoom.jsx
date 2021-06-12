@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Video from '../components/Video/Video';
-import Chat from '../components/chat/Chat';
+import ChatList from '../components/chat/ChatList';
 import { Grid, Typography } from '@material-ui/core';
 
 const PartyRoom = () => {
@@ -42,10 +42,10 @@ const PartyRoom = () => {
                     Room Name: {roomName}
                 </Typography>
                 <Grid item style={{ border: '1px solid #000' }}>
-                    <Video embedId={ 'CgHNvCUSSvg'} />
+                    <Video embedId={'CgHNvCUSSvg'} />
                 </Grid>
                 <Grid item style={{ border: '1px solid #000' }}>
-                    <Chat chatMsgs={chatMessages} />
+                    <ChatList messageArray={chatMessages} />
                 </Grid>
 
             </Grid>

@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Login from '../components/UI/Login';
 
-const Home = () => {
+function Home() {
     return (
-        <div>
-            home
-        </div>
-    )
+        <>
+            <Login /> 
+        </>
+    );
 }
 
 export default Home;

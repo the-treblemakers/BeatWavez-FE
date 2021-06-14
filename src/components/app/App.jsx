@@ -4,13 +4,16 @@ import NavBar from '../UI/NavBar';
 import Home from '../../containers/Home';
 import GreenRoom from '../../containers/GreenRoom';
 import PartyRoom from '../../containers/PartyRoom';
-import Abount from '../../containers/Abount';
+import Abount from '../../containers/About';
 import '../styles/app.css';
 import { ThemeProvider } from '@material-ui/core';
 import { theme } from '../styles/theme';
 
 export default function App() {
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/dev
     return (
         <ThemeProvider theme={theme}>
             <Router>
@@ -24,5 +27,8 @@ export default function App() {
             </Router>
         </ThemeProvider>
     );
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/dev
 }

@@ -3,12 +3,11 @@ import React, { useState, useEffect } from "react";
 import ChatList from "../components/chat/ChatList";
 import io from "socket.io-client";
 
-// const socket = io('http://localhost:7890');
+// const socket = io('http://localhost:7890/');
 const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 // pass in name prop to attach to message
 // can add timestamp with new Date() at time in message handler
-//
 const TestRoom = () => {
     const [newMessage, setNewMessage] = useState('');
     const [stageName, setStageName] = useState('');
@@ -22,7 +21,6 @@ const TestRoom = () => {
     }, [newMessage, stageName, messageArray]);
 
     const handleNewMessage = () => {
-        console.log('CLICK HANDLE');
         socket.emit('MESSAGE', { message: newMessage, stageName, timeStamp: new Date() });
         setNewMessage('');
     };
@@ -39,19 +37,4 @@ const TestRoom = () => {
     );
 };
 
-fullArray.slice(a, b);
-
 export default TestRoom;
-
-
-// const sendMessage = () => {
-//     // socket.emit('SEND_MESSAGE', newMessage);
-
-//     setNewMessage('');
-// };
-
-// useEffect(() => {
-//     // socket.on('SEND_MESSAGE', (newMessage) => {
-//     //     setMessageArray(...messageArray, newMessage);
-//     // });
-// }, []);

@@ -1,26 +1,34 @@
-import React from "react";
-import PropTypes from "prop-types";
-import ChatMsg from './ChatMsg';
+import React, { useState, useEffect } from "react";
+import ChatList from './ChatList';
+// import { Socket } from "socket.io-client";
 
-const Chat = ({ chatMsgs }) => (
-    <ul aria-label='chat'>
-        {chatMsgs.map((msg) => (
-            <li key={msg.message}>
-                <ChatMsg {...msg} />
-            </li>
-        ))}
-    </ul>
-);
+// const socket = io.connect('http://localhost:7890');
 
-Chat.propTypes = {
-    chatMsgs: PropTypes.arrayOf(
-        PropTypes.shape({
-            stageName: PropTypes.string.isRequired,
-            message: PropTypes.string.isRequired,
-            timeStamp: PropTypes.string.isRequired,
-        })
-    )
+const Chat = () => {
+    const [newMessage, setNewMessage] = useState({ message: '', name: '' });
+    const [messageArray, setMessageArray] = useState([]);
+
+    const sendMessage = () => {
+        // socket.emit('SEND_MESSAGE', newMessage);
+
+        setNewMessage('');
+    };
+
+    useEffect(() => {
+        // socket.on('SEND_MESSAGE', (newMessage) => {
+        //     setMessageArray(...messageArray, newMessage);
+        // });
+    }, []);
+
+
+
+    return (
+        <>
+            <ChatList messageArray={messageArray} />
+            <input type="text" value={newMessage} onChange={({ target }) => setNewMessage(target.value)} />
+            <button onClick={sendMessage}>Send Message</button>
+        </>
+    );
 };
-
 
 export default Chat;

@@ -8,6 +8,7 @@ import Abount from '../../containers/About';
 import '../styles/app.css';
 import { ThemeProvider } from '@material-ui/core';
 import { theme } from '../styles/theme';
+import TestRoom from '../../containers/TestRoom';
 
 export default function App() {
     return (
@@ -16,9 +17,10 @@ export default function App() {
                 <NavBar />
                 <Switch>
                     <Route path="/" exact render={(routerProps) => <Home {...routerProps} />} />
-                    <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps} />}/>
-                    <Route path="/partyroom" render={(routerProps) => <PartyRoom {...routerProps} />}/>
-                    <Route path="/about" render={(routerProps) => <Abount {...routerProps} />}/>
+                    <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps} />} />
+                    <Route path="/partyroom" render={(routerProps) => <PartyRoom {...routerProps} />} />
+                    <Route path="/about" render={(routerProps) => <Abount {...routerProps} />} />
+                    <Route path="/test" render={(routerProps) => <TestRoom {...routerProps} />} />
                 </Switch>
             </Router>
         </ThemeProvider>

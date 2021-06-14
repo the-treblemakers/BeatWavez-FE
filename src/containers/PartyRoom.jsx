@@ -39,6 +39,10 @@ const PartyRoom = () => {
         console.log('next')
     }
 
+    const handleFullscreen = () => {
+        console.log('fullscreen')
+    }
+
     return (
         <div>
             <Grid
@@ -54,14 +58,14 @@ const PartyRoom = () => {
                 <Grid item>
                     <Video 
                         embedId={'CgHNvCUSSvg'} stagename={'Cher'}
-                        onPreviousClick={handlePrevious}
+                        onPrevious={handlePrevious}
                         onPlay={handlePlay}
-                        onNextClick={handleNext} />
+                        onNext={handleNext}
+                        onFullscreen={handleFullscreen} />
                 </Grid>
                 <Grid item style={{ border: '1px solid #000' }}>
                     <ChatList messageArray={chatMessages} />
                 </Grid>
-
             </Grid>
         </div>
     );

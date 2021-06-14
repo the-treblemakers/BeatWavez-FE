@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Card, CardContent, Typography, Button } from '@material-ui/core';
-import { SkipPreviousIcon, PlayArrowIcon, SkipNextIcon } from "@material-ui/icons";
-// import VideoControls from './VideoControls';
+import { Card, CardContent, Typography, IconButton, Icon } from '@material-ui/core';
+import VideoControls from './VideoControls';
 
-const Video = ({ embedId, stagename, onPreviousClick, onPlay, onNextClick }) => (
+const Video = ({ embedId, stagename, onPrevious, onPlay, onNext, onFullscreen }) => (
     <Card>
         <div className="video-responsive">
             <CardContent>
@@ -19,18 +18,11 @@ const Video = ({ embedId, stagename, onPreviousClick, onPlay, onNextClick }) => 
                     title="Embedded youtube"
                 />
             </CardContent>
-            <div>
-                <Button aria-label="previous" onClick={onPreviousClick}>
-                    previous
-                </Button>
-                <Button aria-label="play pause" onClick={onPlay}>
-                    play
-                </Button>
-                <Button aria-label="next" onClick={onNextClick}>
-                    next
-                </Button>
-            </div>
-            {/* <VideoControls onPreviousClick={onPreviousClick} onPlay={onPlay} onNextClick={onNextClick}/> */}
+            <VideoControls 
+                onPrevious={onPrevious} 
+                onPlay={onPlay} 
+                onNext={onNext}
+                onFullscreen={onFullscreen}/>
         </div>
     </Card>
 );
@@ -38,9 +30,10 @@ const Video = ({ embedId, stagename, onPreviousClick, onPlay, onNextClick }) => 
 Video.propTypes = {
     embedId: PropTypes.string.isRequired,
     stagename: PropTypes.string.isRequired,
-    onPreviousClick: PropTypes.func.isRequired,
+    onPrevious: PropTypes.func.isRequired,
     onPlay: PropTypes.func.isRequired,
-    onNextClick: PropTypes.func.isRequired,
+    onNext: PropTypes.func.isRequired,
+    onFullscreen: PropTypes.func.isRequired,
 };
 
 export default Video;

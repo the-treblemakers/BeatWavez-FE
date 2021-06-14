@@ -27,8 +27,6 @@ const PartyRoom = () => {
     // const [messages, setMessages] = useState('');
     // const [queue, setQueue] = useState([]);
 
-
-
     return (
         <div>
             <Grid

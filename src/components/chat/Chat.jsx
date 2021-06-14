@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import ChatList from './ChatList';
 // import { Socket } from "socket.io-client";
 
+// const socket = io.connect('http://localhost:7890');
+
 const Chat = () => {
-    const [newMessage, setNewMessage] = useState('');
+    const [newMessage, setNewMessage] = useState({ message: '', name: '' });
     const [messageArray, setMessageArray] = useState([]);
 
     const sendMessage = () => {

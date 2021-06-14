@@ -27,6 +27,18 @@ const PartyRoom = () => {
     // const [messages, setMessages] = useState('');
     // const [queue, setQueue] = useState([]);
 
+    const handlePrevious = () => {
+        console.log('previous')
+    }
+
+    const handlePlay = () => {
+        console.log('play/pause')
+    }
+
+    const handleNext = () => {
+        console.log('next')
+    }
+
     return (
         <div>
             <Grid
@@ -39,8 +51,12 @@ const PartyRoom = () => {
                 <Typography>
                     Room Name: {roomName}
                 </Typography>
-                <Grid item style={{ border: '1px solid #000' }}>
-                    <Video embedId={'CgHNvCUSSvg'} />
+                <Grid item>
+                    <Video 
+                        embedId={'CgHNvCUSSvg'} stagename={'Cher'}
+                        onPreviousClick={handlePrevious}
+                        onPlay={handlePlay}
+                        onNextClick={handleNext} />
                 </Grid>
                 <Grid item style={{ border: '1px solid #000' }}>
                     <ChatList messageArray={chatMessages} />

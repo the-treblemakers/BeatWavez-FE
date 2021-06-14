@@ -33,7 +33,7 @@ const Navbar = (props) => {
                 </Button>
                 <Menu 
                     id="menu"
-                    // classes={{ paper: classes.menu }}
+                    classes={{ paper: classes.menu }}
                     // className={classes.menu}
                     // PaperProps ={{
                     //   classes

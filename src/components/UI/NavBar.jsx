@@ -37,35 +37,24 @@ const Navbar = (props) => {
                 </Button>
                 <Menu 
                     id="menu"
-<<<<<<< HEAD
-                    className={classes.menu}
-=======
                     // classes={{ paper: classes.menu }}
                     // className={classes.menu}
                     // PaperProps ={{
                     //   classes
                     // }}
->>>>>>> origin/dev
                     anchorEl={anchorEl}
                     keepMounted
                     open={Boolean(anchorEl)}
                     onClose={handleClose}>
                     <MenuItem 
-<<<<<<< HEAD
-=======
                         classes={{ selected: classes.selected }}
->>>>>>> origin/dev
                         className={classes.link}
                         component={Link}
                         to='/'
                         onClick={handleClose}
                         selected={pathname === '/'}
                     >
-<<<<<<< HEAD
-                home
-=======
                   home
->>>>>>> origin/dev
                     </MenuItem>
                     <MenuItem 
                         component={Link}
@@ -73,11 +62,7 @@ const Navbar = (props) => {
                         onClick={handleClose}
                         selected={pathname === '/greenroom'}
                     >
-<<<<<<< HEAD
-                green room
-=======
                   green room
->>>>>>> origin/dev
                     </MenuItem>
                     <MenuItem 
                         component={Link}
@@ -85,11 +70,7 @@ const Navbar = (props) => {
                         onClick={handleClose}
                         selected={pathname === '/partyroom'}
                     >
-<<<<<<< HEAD
-                party room
-=======
                   party room
->>>>>>> origin/dev
                     </MenuItem>
                     <MenuItem 
                         component={Link}
@@ -97,23 +78,15 @@ const Navbar = (props) => {
                         onClick={handleClose}
                         selected={pathname === '/about'}
                     >
-<<<<<<< HEAD
-                about
-                    </MenuItem>   
-=======
                   about
                     </MenuItem> 
->>>>>>> origin/dev
                 </Menu>
 
                 <Typography variant="h1">beatWaves🌴</Typography>
         
             </Grid>
         </AppBar>
-<<<<<<< HEAD
-=======
     // </StylesProvider>
->>>>>>> origin/dev
     );
 }; 
 

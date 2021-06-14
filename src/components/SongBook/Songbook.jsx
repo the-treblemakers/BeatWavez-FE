@@ -17,8 +17,8 @@ const Songbook = () => {
 
     return (
         <ul aria-label='songs'>
-            {songs.map((song) => (
-                <li key={song.title}>
+            {songs.map((song, i) => (
+                <li key={song.title + i}>
                     <SongbookItem {...song} />
                 </li>
             ))}

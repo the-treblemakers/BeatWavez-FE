@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Video from '../components/Video/Video';
 import ChatList from '../components/chat/ChatList';
 import { Grid, Typography } from '@material-ui/core';
@@ -23,20 +23,50 @@ const PartyRoom = () => {
         },
     ];
 
+    const queue = [
+        {
+            id: 1,
+            stagename: 'Cher',
+            title: "Radiohead - No Surprises - Karaoke Version from Zoom Karaoke",
+            vidId: 'H8cNOHKKx7U'
+        },
+        {
+            id: 2,
+            stagename: 'Queen',
+            title: "Lost In The Woods - Frozen 2 Soundtrack - Karaoke Version from Zoom Karaoke",
+            vidId: 'GeEVHGtuZ68'
+        },
+        {
+            id: 3,
+            stagename: 'Brittany',
+            title: "YEBBA - My Mind  - Acoustative Piano Karaoke Version from Zoom Karaoke",
+            vidId: 'Q_jmz2oFCJM'
+        },
+    ]
+
     const [roomName, setRoomName] = useState('Frosty Darkness');
+    const [stagename, setStagename] = useState('');
+    const [embedId, setEmbedId] = useState('');
+    const [queueIndex, setQueueIndex] = useState(0);
     // const [messages, setMessages] = useState('');
     // const [queue, setQueue] = useState([]);
 
-    const handlePrevious = () => {
-        console.log('previous')
-    }
+    //dynamic stagename and vidId/embedId
+    useEffect(() => {
+        setStagename(queue[queueIndex].stagename)
+        setEmbedId(queue[queueIndex].vidId)
+    }, [queueIndex])
 
+    const handlePrevious = () => {
+        setQueueIndex((queueIndex - 1))
+    }
+    
     const handlePlay = () => {
         console.log('play/pause')
     }
-
-    const handleNext = () => {
-        console.log('next')
+    
+    const handleNext = (i) => {
+        setQueueIndex((queueIndex + 1))
     }
 
     const handleFullscreen = () => {
@@ -57,7 +87,8 @@ const PartyRoom = () => {
                 </Typography>
                 <Grid item>
                     <Video 
-                        embedId={'CgHNvCUSSvg'} stagename={'Cher'}
+                        embedId={embedId} 
+                        stagename={stagename}
                         onPrevious={handlePrevious}
                         onPlay={handlePlay}
                         onNext={handleNext}

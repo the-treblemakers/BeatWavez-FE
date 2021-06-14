@@ -10,10 +10,7 @@ import { ThemeProvider } from '@material-ui/core';
 import { theme } from '../styles/theme';
 
 export default function App() {
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/dev
     return (
         <ThemeProvider theme={theme}>
             <Router>
@@ -27,8 +24,5 @@ export default function App() {
             </Router>
         </ThemeProvider>
     );
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/dev
 }

@@ -4,6 +4,13 @@ import ChatList from '../components/chat/ChatList';
 import { Grid, Typography } from '@material-ui/core';
 
 const PartyRoom = () => {
+    const [roomName, setRoomName] = useState('Frosty Darkness');
+    const [stagename, setStagename] = useState('');
+    const [embedId, setEmbedId] = useState('');
+    const [title, setTitle] = useState('');
+    const [queueIndex, setQueueIndex] = useState(0);
+    // const [messages, setMessages] = useState('');
+    // const [queue, setQueue] = useState([]);
 
     const chatMessages = [
         {
@@ -22,7 +29,6 @@ const PartyRoom = () => {
             timeStamp: 'noon.2'
         },
     ];
-
     const queue = [
         {
             id: 1,
@@ -42,31 +48,26 @@ const PartyRoom = () => {
             title: "YEBBA - My Mind  - Acoustative Piano Karaoke Version from Zoom Karaoke",
             vidId: 'Q_jmz2oFCJM'
         },
-    ]
+    ];
 
-    const [roomName, setRoomName] = useState('Frosty Darkness');
-    const [stagename, setStagename] = useState('');
-    const [embedId, setEmbedId] = useState('');
-    const [queueIndex, setQueueIndex] = useState(0);
-    // const [messages, setMessages] = useState('');
-    // const [queue, setQueue] = useState([]);
-
-    //dynamic stagename and vidId/embedId
     useEffect(() => {
         setStagename(queue[queueIndex].stagename)
         setEmbedId(queue[queueIndex].vidId)
+        setTitle(queue[queueIndex].title)
     }, [queueIndex])
 
     const handlePrevious = () => {
         setQueueIndex((queueIndex - 1))
+        //add button disable
     }
     
-    const handlePlay = () => {
-        console.log('play/pause')
-    }
-    
-    const handleNext = (i) => {
+    // const handlePlay = () => {
+        //     console.log('play/pause')
+        // }
+        
+        const handleNext = (i) => {
         setQueueIndex((queueIndex + 1))
+        //add button disable
     }
 
     const handleFullscreen = () => {
@@ -87,10 +88,11 @@ const PartyRoom = () => {
                 </Typography>
                 <Grid item>
                     <Video 
+                        title={title}
                         embedId={embedId} 
                         stagename={stagename}
                         onPrevious={handlePrevious}
-                        onPlay={handlePlay}
+                        // onPlay={handlePlay}
                         onNext={handleNext}
                         onFullscreen={handleFullscreen} />
                 </Grid>

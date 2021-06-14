@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Video from '../components/Video/Video';
 import ChatList from '../components/chat/ChatList';
 import { Grid, Typography } from '@material-ui/core';
+// import screenfull from 'screenfull';
 
 const PartyRoom = () => {
+    const [roomName, setRoomName] = useState('Frosty Darkness');
+    const [stagename, setStagename] = useState('');
+    const [embedId, setEmbedId] = useState('');
+    const [queueIndex, setQueueIndex] = useState(0);
+    const [playing, setPlaying] = useState(false);
+    // const [messages, setMessages] = useState('');
+    // const [queue, setQueue] = useState([]);
 
     const chatMessages = [
         {
@@ -22,10 +30,59 @@ const PartyRoom = () => {
             timeStamp: 'noon.2'
         },
     ];
+    const queue = [
+        {
+            id: 1,
+            stagename: 'Cher',
+            title: "Radiohead - No Surprises - Karaoke Version from Zoom Karaoke",
+            vidId: 'H8cNOHKKx7U'
+        },
+        {
+            id: 2,
+            stagename: 'Queen',
+            title: "Lost In The Woods - Frozen 2 Soundtrack - Karaoke Version from Zoom Karaoke",
+            vidId: 'GeEVHGtuZ68'
+        },
+        {
+            id: 3,
+            stagename: 'Brittany',
+            title: "YEBBA - My Mind  - Acoustative Piano Karaoke Version from Zoom Karaoke",
+            vidId: 'Q_jmz2oFCJM'
+        },
+    ];
 
-    const [roomName, setRoomName] = useState('Frosty Darkness');
-    // const [messages, setMessages] = useState('');
-    // const [queue, setQueue] = useState([]);
+    const videoRef = useRef();
+
+    useEffect(() => {
+        setStagename(queue[queueIndex].stagename);
+        setEmbedId(queue[queueIndex].vidId);
+    }, [queueIndex]);
+
+    const handlePrevious = () => {
+        setQueueIndex((queueIndex - 1));
+        //add button disable
+    };
+        
+    const handleNext = () => {
+        setQueueIndex((queueIndex + 1));
+        //add button disable
+    };
+
+    const handleFullscreen = () => {
+        console.log(videoRef);
+        // screenfull.request(videoRef);
+
+    };
+
+
+    const handlePlay = () => {        
+        if(playing === false) {
+            setPlaying(true);
+        } else {
+            setPlaying(false);
+        }
+     
+    };
 
     return (
         <div>
@@ -39,13 +96,20 @@ const PartyRoom = () => {
                 <Typography>
                     Room Name: {roomName}
                 </Typography>
-                <Grid item style={{ border: '1px solid #000' }}>
-                    <Video embedId={'CgHNvCUSSvg'} />
+                <Grid item>
+                    <Video 
+                        embedId={embedId} 
+                        stagename={stagename}
+                        onPrevious={handlePrevious}
+                        onPlay={handlePlay}
+                        onNext={handleNext}
+                        onFullscreen={handleFullscreen}
+                        playing={playing}
+                        videoRef={videoRef} />
                 </Grid>
                 <Grid item style={{ border: '1px solid #000' }}>
                     <ChatList messageArray={chatMessages} />
                 </Grid>
-
             </Grid>
         </div>
     );

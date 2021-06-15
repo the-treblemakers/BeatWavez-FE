@@ -30,8 +30,16 @@ export default function App() {
                         handleCreateRoom={handleCreateRoom}
                         handleJoinRoom={handleJoinRoom}
                     />} />
-                    <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps} />} />
-                    <Route path="/partyroom" render={(routerProps) => <PartyRoom {...routerProps} />} />
+                    <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps}
+                        roomInfo={roomInfo}
+                        messageArray={messageArray}
+                        handleNewMessage={handleNewMessage}
+                        newMessage={newMessage}
+                    />} />
+                    <Route path="/partyroom" render={(routerProps) => <PartyRoom {...routerProps}
+                        roomInfo={roomInfo}
+                        messageArray={messageArray}
+                    />} />
                     <Route path="/about" render={(routerProps) => <About {...routerProps} />} />
                     <Route path="/test" render={(routerProps) => <TestRoom {...routerProps} />} />
                 </Switch>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from '../components/Search/SearchBar';
 import SearchFilters from '../components/Search/SearchFilters';
 import Songbook from '../components/SongBook/Songbook';
@@ -6,11 +7,12 @@ import Songbook from '../components/SongBook/Songbook';
 import Chat from '../components/Chat/Chat';
 
 
-const GreenRoom = () => {
+const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray }) => {
 
 
     return (
         <div>
+            <h1>{roomInfo.roomName} {roomInfo.stageName}</h1>
             {/* 
             WELCOME MESSAGE 
             DISPLAY ROOM NAME, STAGE NAME
@@ -26,6 +28,12 @@ const GreenRoom = () => {
 
         </div>
     );
+};
+GreenRoom.propTypes = {
+    handleNewMessage: PropTypes.func.isRequired,
+    newMessage: PropTypes.string.isRequired,
+    roomInfo: PropTypes.object.isRequired,
+    messageArray: PropTypes.array.isRequired,
 };
 
 export default GreenRoom;

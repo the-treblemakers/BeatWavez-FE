@@ -1,10 +1,11 @@
 // import { SettingsInputSvideoRounded } from "@material-ui/icons";
 // import { TextField, Button, Grid } from '@material-ui/core';
-import React, { useState, useEffect } from "react";
 // import LoginForm from "../components/UI/LoginForm";
 // import ChatList from "../components/Chat/ChatList";
+import React, { useState, useEffect } from "react";
 import generateRoomNames from '../RoomNames/generateRoomNames.js';
 import io from "socket.io-client";
+import { useHistory, Redirect } from 'react-router-dom';
 
 const socket = io('http://localhost:7890/');
 // const socket = io('https://beatwavez-dev.herokuapp.com/');
@@ -14,6 +15,7 @@ export const useSocket = () => {
     const [messageArray, setMessageArray] = useState([]);  // *
     const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '' });  // *
     const [roomSelect, setRoomSelect] = useState(true);
+
 
     useEffect(() => {
         socket.on('MESSAGE', (message) => {
@@ -32,6 +34,11 @@ export const useSocket = () => {
 
     }, []);
 
+    const redirect = () => {
+        console.log(history);
+        history.push('/greenroom');
+    };
+
     const handleCreateRoom = (stageName) => {
         if (stageName !== '') {
             const roomName = generateRoomNames();
@@ -41,6 +48,7 @@ export const useSocket = () => {
         } else {
             alert('Enter Room & Stage Name to continue.');
         }
+
     };
 
     const handleJoinRoom = (stageName, roomName) => {

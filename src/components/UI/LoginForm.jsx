@@ -2,13 +2,19 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { TextField, Button, Grid } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 
 
 const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
     const [stageName, setStageName] = useState('');
     const [roomName, setRoomName] = useState('');
+    const history = useHistory();
     // const [newRoomCode, setNewRoomCode] = useState('');
+
+    const redirect = () => {
+        history.push('/greenroom');
+    };
 
     const handleStageNameChange = (e) => {
         setStageName(e.target.value);
@@ -61,11 +67,9 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
                     color="primary"
                     disabled={roomName !== '' || stageName === ''}
                     // value={newRoomCode}
-                    onClick={() =>
-                        handleCreateRoom(stageName)
-                    }
+                    onClick={() => handleCreateRoom(stageName)}
                 >
-                    GET NEW ROOM CODE
+                    CREATE NEW ROOM
                 </Button>
                 {/* <p>Here is your room code: {newRoomCode}</p> */}
                 {/* add room code pop up when click on GET NEW ROOM CODE */}

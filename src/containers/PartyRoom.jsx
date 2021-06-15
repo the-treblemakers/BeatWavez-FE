@@ -3,33 +3,19 @@ import Video from '../components/Video/Video';
 import ChatList from '../components/Chat/ChatList';
 import { Grid, Typography } from '@material-ui/core';
 import screenfull from 'screenfull';
+import PropTypes from 'prop-types';
 
-const PartyRoom = () => {
-    const [roomName, setRoomName] = useState('Frosty Darkness');
+const PartyRoom = ({ roomInfo, messageArray }) => {
+    const [roomName, setRoomName] = useState(roomInfo.roomName);
     const [stagename, setStagename] = useState('');
     const [embedId, setEmbedId] = useState('');
     const [queueIndex, setQueueIndex] = useState(0);
     const [playing, setPlaying] = useState(false);
-    // const [messages, setMessages] = useState('');
+    const [messages, setMessages] = useState(messageArray);
     // const [queue, setQueue] = useState([]);
 
-    const chatMessages = [
-        {
-            stageName: 'soraya',
-            message: 'hi',
-            timeStamp: 'noon'
-        },
-        {
-            stageName: 'nicole',
-            message: 'hi',
-            timeStamp: 'noon.1'
-        },
-        {
-            stageName: 'soraya',
-            message: 'AHH',
-            timeStamp: 'noon.2'
-        },
-    ];
+
+
     const queue = [
         {
             id: 1,
@@ -56,13 +42,14 @@ const PartyRoom = () => {
     useEffect(() => {
         setStagename(queue[queueIndex].stagename);
         setEmbedId(queue[queueIndex].vidId);
-    }, [queueIndex]);
+        setMessages(messageArray);
+    }, [queueIndex, messageArray]);
 
     const handlePrevious = () => {
         setQueueIndex((queueIndex - 1));
         //add button disable
     };
-        
+
     const handleNext = () => {
         setQueueIndex((queueIndex + 1));
         //add button disable
@@ -70,20 +57,20 @@ const PartyRoom = () => {
 
     const handleFullscreen = () => {
         console.log(videoRef);
-        if(screenfull.isEnabled) {
+        if (screenfull.isEnabled) {
             screenfull.request(videoRef.current.wrapper);
         }
 
     };
 
 
-    const handlePlay = () => {        
-        if(playing === false) {
+    const handlePlay = () => {
+        if (playing === false) {
             setPlaying(true);
         } else {
             setPlaying(false);
         }
-     
+
     };
 
     return (
@@ -97,10 +84,11 @@ const PartyRoom = () => {
                 spacing={5}>
                 <Typography>
                     Room Name: {roomName}
+                    Stage Name: {roomInfo.stageName}
                 </Typography>
                 <Grid item>
-                    <Video 
-                        embedId={embedId} 
+                    <Video
+                        embedId={embedId}
                         stagename={stagename}
                         onPrevious={handlePrevious}
                         onPlay={handlePlay}
@@ -110,11 +98,16 @@ const PartyRoom = () => {
                         videoRef={videoRef} />
                 </Grid>
                 <Grid item style={{ border: '1px solid #000' }}>
-                    <ChatList messageArray={chatMessages} />
+                    <ChatList messageArray={messages} />
                 </Grid>
             </Grid>
         </div>
     );
+};
+
+PartyRoom.propTypes = {
+    messageArray: PropTypes.array.isRequired,
+    roomInfo: PropTypes.object.isRequired,
 };
 
 export default PartyRoom;

@@ -1,10 +1,11 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
+import PropTypes from "prop-types";
 import { TextField, Button, Grid } from '@material-ui/core';
 
 
 
-const LoginForm = () => {
+const LoginForm = (handleCreateRoom, handleJoinRoom) => {
     const [stageName, setStageName] = useState('');
     const [roomName, setRoomName] = useState('');
     // const [newRoomCode, setNewRoomCode] = useState('');
@@ -16,6 +17,8 @@ const LoginForm = () => {
     const handleRoomNameChange = (e) => {
         setRoomName(e.target.value);
     };
+
+
 
     return (
         <>
@@ -43,28 +46,33 @@ const LoginForm = () => {
                     variant="contained"
                     color="primary"
                     style={{ marginBottom: '1em' }}
-                    disabled={!stageName || !roomName}
-                    
+                    // disabled={!stageName || !roomName}
+                    onClick={handleCreateRoom(stageName, roomName)}
                 >
-          JOIN THE PARTY!
+                    JOIN THE PARTY!
                 </Button>
 
                 <Button
                     size="large"
                     variant="contained"
                     color="primary"
-                    disabled={!stageName || roomName}
+                    // disabled={!stageName || roomName}
                     // value={newRoomCode}
-                    // onClick={}
+                    onClick={handleJoinRoom(stageName, roomName)}
                 >
-          GET NEW ROOM CODE
+                    GET NEW ROOM CODE
                 </Button>
                 {/* <p>Here is your room code: {newRoomCode}</p> */}
                 {/* add room code pop up when click on GET NEW ROOM CODE */}
             </Grid>
-            
+
         </>
     );
+};
+
+LoginForm.propTypes = {
+    handleCreateRoom: PropTypes.func.isRequired,
+    handleJoinRoom: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

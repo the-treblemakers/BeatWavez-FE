@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Card, CardContent, Typography } from '@material-ui/core';
 import VideoControls from './VideoControls';
@@ -6,8 +6,7 @@ import ReactPlayer from 'react-player';
  
 
 const Video = ({ embedId, stagename, onPrevious, onPlay, onNext, onFullscreen, playing, videoRef }) => {
-    
-   
+       
     return  (
         <Card>
             <div className="video-responsive">

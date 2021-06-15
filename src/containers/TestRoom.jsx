@@ -1,7 +1,8 @@
 // import { SettingsInputSvideoRounded } from "@material-ui/icons";
 import React, { useState, useEffect } from "react";
-import ChatList from "../components/Chat/ChatList";
+import ChatList from "../components/chat/ChatList";
 import io from "socket.io-client";
+import Spinner from '../components/UI/Spinner';
 
 // const socket = io('http://localhost:7890/');
 const socket = io('https://beatwavez-dev.herokuapp.com/');
@@ -23,6 +24,7 @@ const TestRoom = () => {
         socket.emit('MESSAGE', { message: newMessage, stageName, timeStamp: new Date() });
         setNewMessage('');
     };
+
     return (
         <div>
             <h1>TESTING</h1>

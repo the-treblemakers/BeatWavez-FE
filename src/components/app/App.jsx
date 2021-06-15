@@ -25,9 +25,4 @@ export default function App() {
             </Router>
         </ThemeProvider>
     );
-<<<<<<< HEAD
 }
-=======
-
->>>>>>> f033ffe0bde85e3d73bcfacf23641a292b08d50e
-

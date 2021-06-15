@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import PropTypes from 'prop-types';
 import SongbookItem from './SongbookItem';
+import Spinner from '../UI/Spinner';
 import { getAllSongs } from '../../services/apiUtils';
 
 const Songbook = () => {
@@ -30,7 +31,7 @@ const Songbook = () => {
         setQueue(...queue, song);
     };
 
-    if(loading) return <h1>Loading...</h1>;
+    if(loading) return <Spinner />;
 
     return (
         <ul aria-label='songs'>

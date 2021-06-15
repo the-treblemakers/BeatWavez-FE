@@ -84,6 +84,10 @@ module.exports = {
           options: { limit: 1000 },
         },
       },
+      {
+        test: /\.gif/,
+        type: 'asset/resource'
+      }
     ],
   },
 };

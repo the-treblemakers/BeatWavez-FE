@@ -2,13 +2,12 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { TextField, Button, Grid } from '@material-ui/core';
-import generateRoomNames from '../../RoomNames/generateRoomNames.js';
-
+import { useHistory } from 'react-router-dom';
 
 const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
     const [stageName, setStageName] = useState('');
     const [roomName, setRoomName] = useState('');
-    // const [newRoomCode, setNewRoomCode] = useState('');
+    const history = useHistory();
 
     const handleStageNameChange = (e) => {
         setStageName(e.target.value);
@@ -18,8 +17,6 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
         setRoomName(e.target.value);
 
     };
-
-
 
     return (
         <>
@@ -43,31 +40,34 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
                 />
 
                 <Button
+                    name='join'
                     size="large"
                     variant="contained"
                     color="primary"
                     style={{ marginBottom: '1em' }}
-                    // disabled={!stageName || !roomName}
-                    onClick={() => handleJoinRoom(stageName, roomName)}
+                    disabled={roomName === '' || stageName === ''}
+                    onClick={() => {
+                        handleJoinRoom(stageName, roomName);
+                        history.push('/greenroom');
+                    }}
                 >
                     JOIN THE PARTY!
                 </Button>
 
                 <Button
+                    name='create'
                     size="large"
                     variant="contained"
                     color="primary"
-                    // disabled={!stageName || roomName}
-                    // value={newRoomCode}
+
+                    disabled={roomName !== '' || stageName === ''}
                     onClick={() => {
-                        setRoomName(generateRoomNames());
-                        handleCreateRoom(stageName, roomName);
-                    } }
+                        handleCreateRoom(stageName);
+                        history.push('/greenroom');
+                    }}
                 >
-                    GET NEW ROOM CODE
+                    CREATE NEW ROOM
                 </Button>
-                {/* <p>Here is your room code: {newRoomCode}</p> */}
-                {/* add room code pop up when click on GET NEW ROOM CODE */}
             </Grid>
 
         </>

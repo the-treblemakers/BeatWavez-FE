@@ -42,6 +42,7 @@ const Songbook = () => {
                 <li key={song.title + i}>
                     <SongbookItem {...song} />
                     <button 
+
                         onClick={handleAddToQueue}>Add to queue</button>
                     {/* <button>Flag as a bad video</button> */}
                 </li>

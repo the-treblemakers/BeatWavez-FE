@@ -9,16 +9,37 @@ import '../styles/app.css';
 import { ThemeProvider } from '@material-ui/core';
 import { theme } from '../styles/theme';
 import TestRoom from '../../containers/TestRoom';
+import { useSocket } from '../../hooks/useSocket';
 
 export default function App() {
+    const {
+        handleJoinRoom,
+        handleCreateRoom,
+        handleNewMessage,
+        roomInfo,
+        messageArray,
+        newMessage,
+    } = useSocket();
+
     return (
         <ThemeProvider theme={theme}>
             <Router>
                 <NavBar />
                 <Switch>
-                    <Route path="/" exact render={(routerProps) => <Home {...routerProps} />} />
-                    <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps} />} />
-                    <Route path="/partyroom" render={(routerProps) => <PartyRoom {...routerProps} />} />
+                    <Route path="/" exact render={(routerProps) => <Home {...routerProps}
+                        handleCreateRoom={handleCreateRoom}
+                        handleJoinRoom={handleJoinRoom}
+                    />} />
+                    <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps}
+                        roomInfo={roomInfo}
+                        messageArray={messageArray}
+                        handleNewMessage={handleNewMessage}
+                        newMessage={newMessage}
+                    />} />
+                    <Route path="/partyroom" render={(routerProps) => <PartyRoom {...routerProps}
+                        roomInfo={roomInfo}
+                        messageArray={messageArray}
+                    />} />
                     <Route path="/about" render={(routerProps) => <About {...routerProps} />} />
                     <Route path="/test" render={(routerProps) => <TestRoom {...routerProps} />} />
                 </Switch>

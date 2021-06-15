@@ -7,8 +7,8 @@ import ChatList from "../components/Chat/ChatList";
 import io from "socket.io-client";
 import Spinner from '../components/UI/Spinner';
 
-// const socket = io('http://localhost:7890/');
-const socket = io('https://beatwavez-dev.herokuapp.com/');
+const socket = io('http://localhost:7890/');
+// const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 const TestRoom = () => {
     const [newMessage, setNewMessage] = useState('');
@@ -58,6 +58,7 @@ const TestRoom = () => {
         setNewMessage('');
     };
 
+<<<<<<< HEAD
     if(roomSelect) return (
         <div>
             <h1>TESTING</h1>
@@ -67,6 +68,30 @@ const TestRoom = () => {
             />
         </div >
     );
+=======
+    // if (roomSelect) return (
+    //     <div>
+    //         <h1>TESTING</h1>
+    //         <LoginForm
+    //             handleCreateRoom={handleCreateRoom}
+    //             handleJoinRoom={handleJoinRoom}
+    //         />
+    //     </div >
+    // );
+    // 
+    //     return (
+    //         <>
+    //             <div>
+    //                 <h1>TESTING</h1>
+    //                 <h3>{roomInfo.roomName} - {roomInfo.stageName}</h3>
+    //                 {/* <input type="text" value={stageName} placeholder="Enter Stage Name" onChange={({ target }) => setStageName(target.value)} /> */}
+    //                 <ChatList messageArray={messageArray} />
+    //                 <input type="text" value={newMessage} onChange={({ target }) => setNewMessage(target.value)} />
+    //                 <button onClick={handleNewMessage}>Send Message</button>
+    //             </div>
+    //         </>
+    //     );
+>>>>>>> 052948fc84d7317b8572902f2d68a9612e3daf0e
 
     return (
         <>

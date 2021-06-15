@@ -1,25 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/Search/SearchBar';
 import SearchFilters from '../components/Search/SearchFilters';
 import Songbook from '../components/SongBook/Songbook';
-
 // import Queue from '../components/Queue/Queue';
 import Chat from '../components/Chat/Chat';
 
 const GreenRoom = () => {
-
+    const [query, setQuery] = useState('');
+    const [channelFilter, setChannelFilter] = useState('');
+    const [filteredSongs, setFilteredSongs] = useState([]);
+    
+    function handleQueryChange(e){
+        setQuery(e.target.value);
+    }
+    
+    function handleSubmit(e){
+        e.preventDefault();
+    }
 
     return (
         <div>
-            GreenRoom
-            <SearchBar />
-            <SearchFilters />
-            <Songbook />
-            {/*<Queue /> */}
+            Welcome to the GreenRoom
+            <SearchBar 
+                query={query} 
+                setQuery={setQuery}
+                handleQueryChange={handleQueryChange}
+                handleSubmit={handleSubmit}
+            />
+            <SearchFilters 
+                channelFilter={channelFilter}
+                setCurrentSongs={setChannelFilter}
+            />
+            <Songbook 
+                currentSongs={filteredSongs}
+                setCurrentSongs={setFilteredSongs}
+            />
+            {/* <Queue /> */}
             <Chat />
 
         </div>
-    )
-}
+    );
+};
 
 export default GreenRoom;

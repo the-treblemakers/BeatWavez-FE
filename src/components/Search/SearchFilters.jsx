@@ -6,6 +6,8 @@ const SearchBar = () => {
 
     function handleDropdownChange(e){
         setChannelFilter(e.target.value);
+
+        console.log(channelFilter);
     }
 
     return (

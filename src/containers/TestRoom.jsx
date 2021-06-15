@@ -2,12 +2,14 @@
 
 // import { TextField, Button, Grid } from '@material-ui/core';
 import React, { useState, useEffect } from "react";
-import ChatList from "../components/chat/ChatList";
+import LoginForm from "../components/UI/LoginForm";
+
+import ChatList from "../components/Chat/ChatList";
 import io from "socket.io-client";
 import Spinner from '../components/UI/Spinner';
 
-// const socket = io('http://localhost:7890/');
-const socket = io('https://beatwavez-dev.herokuapp.com/');
+const socket = io('http://localhost:7890/');
+// const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 const TestRoom = () => {
     const [newMessage, setNewMessage] = useState('');
@@ -57,15 +59,28 @@ const TestRoom = () => {
         setNewMessage('');
     };
 
-    if (roomSelect) return (
-        <div>
-            <h1>TESTING</h1>
-            <LoginForm
-                handleCreateRoom={handleCreateRoom}
-                handleJoinRoom={handleJoinRoom}
-            />
-        </div >
-    );
+    // if (roomSelect) return (
+    //     <div>
+    //         <h1>TESTING</h1>
+    //         <LoginForm
+    //             handleCreateRoom={handleCreateRoom}
+    //             handleJoinRoom={handleJoinRoom}
+    //         />
+    //     </div >
+    // );
+    // 
+    //     return (
+    //         <>
+    //             <div>
+    //                 <h1>TESTING</h1>
+    //                 <h3>{roomInfo.roomName} - {roomInfo.stageName}</h3>
+    //                 {/* <input type="text" value={stageName} placeholder="Enter Stage Name" onChange={({ target }) => setStageName(target.value)} /> */}
+    //                 <ChatList messageArray={messageArray} />
+    //                 <input type="text" value={newMessage} onChange={({ target }) => setNewMessage(target.value)} />
+    //                 <button onClick={handleNewMessage}>Send Message</button>
+    //             </div>
+    //         </>
+    //     );
 
     return (
         <>

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 // import LoginForm from "../components/UI/LoginForm";
 // import ChatList from "../components/Chat/ChatList";
+import generateRoomNames from '../RoomNames/generateRoomNames.js';
 import io from "socket.io-client";
 
 const socket = io('http://localhost:7890/');
@@ -31,8 +32,9 @@ export const useSocket = () => {
 
     }, []);
 
-    const handleCreateRoom = (stageName, roomName) => {
-        if (stageName !== '' && roomName !== '') {
+    const handleCreateRoom = (stageName) => {
+        if (stageName !== '') {
+            const roomName = generateRoomNames();
             socket.emit('CREATE_ROOM', ({ stageName, roomName }));
             setRoomInfo({ stageName, roomName });
             setRoomSelect(false);

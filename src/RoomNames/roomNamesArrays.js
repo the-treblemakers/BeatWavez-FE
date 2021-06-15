@@ -39,6 +39,8 @@ export const ADJECTIVES = [
     'Ryan-tastic',
     'Metaphysical',
     'Checkered',
+    'Paisley',
+    'Glittering'
 ];
 
 export const NOUNS = [

@@ -19,8 +19,6 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
 
     };
 
-
-
     return (
         <>
             <Grid container direction="column" alignItems="center" justify="center">
@@ -59,10 +57,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
                     color="primary"
                     // disabled={!stageName || roomName}
                     // value={newRoomCode}
-                    onClick={() => {
-                        setRoomName(generateRoomNames());
-                        handleCreateRoom(stageName, roomName);
-                    } }
+                    onClick={() => handleCreateRoom(stageName, roomName)}
                 >
                     GET NEW ROOM CODE
                 </Button>

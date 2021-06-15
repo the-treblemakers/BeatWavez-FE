@@ -2,7 +2,8 @@
 
 // import { TextField, Button, Grid } from '@material-ui/core';
 import React, { useState, useEffect } from "react";
-import ChatList from "../components/chat/ChatList";
+import LoginForm from "../components/UI/LoginForm";
+import ChatList from "../components/Chat/ChatList";
 import io from "socket.io-client";
 import Spinner from '../components/UI/Spinner';
 
@@ -33,7 +34,7 @@ const TestRoom = () => {
     }, []);
 
     const handleCreateRoom = (stageName, roomName) => {
-        if (stageName !== '' && roomName !== '') {
+        if(stageName !== '' && roomName !== '') {
             socket.emit('CREATE_ROOM', ({ stageName, roomName }));
             setRoomInfo({ stageName, roomName });
             setRoomSelect(false);
@@ -43,7 +44,7 @@ const TestRoom = () => {
     };
 
     const handleJoinRoom = (stageName, roomName) => {
-        if (stageName !== '' && roomName !== '') {
+        if(stageName !== '' && roomName !== '') {
             socket.emit('JOIN_ROOM', ({ stageName, roomName }));
             setRoomInfo({ stageName, roomName });
             setRoomSelect(false);
@@ -57,7 +58,7 @@ const TestRoom = () => {
         setNewMessage('');
     };
 
-    if (roomSelect) return (
+    if(roomSelect) return (
         <div>
             <h1>TESTING</h1>
             <LoginForm

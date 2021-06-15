@@ -22,6 +22,7 @@ const GreenRoom = () => {
     return (
         <div>
             Welcome to the GreenRoom
+            {/* DISPLAY ROOM NAME, STAGE NAME INSTRUCTIONS TO INVITE FRIENDS ALSO ADD FLAVOR/GLITTER!!!! */}
             <SearchBar 
                 query={query} 
                 setQuery={setQuery}

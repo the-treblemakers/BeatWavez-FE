@@ -16,7 +16,7 @@ const Songbook = () => {
     //         .then((returnedSongs) => setSongs(returnedSongs))
     //         .then()    setCurrentSongs(returnedSongs.slice(0, 20))
     //             .finally(() => setLoading(false));
-      // }, [currentPage]);
+    // }, [currentPage]);
 
     const handlePageChange = (currentPage) => {
         setCurrentPage(currentPage + 1);
@@ -29,7 +29,7 @@ const Songbook = () => {
         setQueue(...queue, song);
     };
 
-    if(loading) return <Spinner />;
+    if (loading) return <Spinner />;
 
     return (
         <ul aria-label='songs'>
@@ -39,7 +39,7 @@ const Songbook = () => {
                     <li key={song.title + i}>
                         <SongbookItem {...song} />
                     </li>
-                    <button 
+                    <button
                         onClick={handleAddToQueue}>Add to queue</button>
                     {/* <button>Flag as a bad video</button> */}
                 </>

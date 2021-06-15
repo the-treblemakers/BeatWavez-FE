@@ -27,6 +27,10 @@ const Songbook = () => {
         console.log(songs.length, newPage);
     };
 
+    const handleAddToQueue = (song) => {
+        setQueue(song);
+    };
+
     if(loading) return <h1>Loading...</h1>;
 
     return (

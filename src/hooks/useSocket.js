@@ -1,65 +1,44 @@
-// import { SettingsInputSvideoRounded } from "@material-ui/icons";
-// import { TextField, Button, Grid } from '@material-ui/core';
-// import LoginForm from "../components/UI/LoginForm";
-// import ChatList from "../components/Chat/ChatList";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import generateRoomNames from '../RoomNames/generateRoomNames.js';
 import io from "socket.io-client";
-
 
 const socket = io('http://localhost:7890/');
 // const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 export const useSocket = () => {
     const [newMessage, setNewMessage] = useState('');
-    const [messageArray, setMessageArray] = useState([]);  // *
-    const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '' });  // *
-    // const [roomSelect, setRoomSelect] = useState(true);
-
-
+    const [messageArray, setMessageArray] = useState([]);
+    const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '' });
 
     useEffect(() => {
         socket.on('MESSAGE', (message) => {
             setMessageArray([...messageArray, message]);
         });
-
-
     }, [roomInfo, messageArray]);
 
     useEffect(() => {
-
         return () => {
             console.log('disconnect fire');
             socket.disconnect();
         };
-
     }, []);
-
-    // const redirect = () => {
-    //     console.log(history);
-    //     history.push('/greenroom');
-    // };
 
     const handleCreateRoom = (stageName) => {
         if (stageName !== '') {
             const roomName = generateRoomNames();
             socket.emit('CREATE_ROOM', ({ stageName, roomName }));
             setRoomInfo({ stageName, roomName });
-            // console.log(history);
-            // // history.push('/greenroom');
         } else {
-            alert('Enter Room & Stage Name to continue.');
+            // add logic to check for room name (rooms/:id), generate and insert different if exists already
         }
-
     };
 
     const handleJoinRoom = (stageName, roomName) => {
         if (stageName !== '' && roomName !== '') {
             socket.emit('JOIN_ROOM', ({ stageName, roomName }));
             setRoomInfo({ stageName, roomName });
-            setRoomSelect(false);
         } else {
-            alert('Enter Room & Stage Name to continue.');
+            // add in message for if room doesn't exist
         }
     };
 
@@ -68,29 +47,6 @@ export const useSocket = () => {
         setNewMessage('');
     };
 
-    // if (roomSelect) return (
-    //     <div>
-    //         <h1>TESTING</h1>
-    //         <LoginForm
-    //             handleCreateRoom={handleCreateRoom}
-    //             handleJoinRoom={handleJoinRoom}
-    //         />
-    //     </div >
-    // );
-    // 
-    //     return (
-    //         <>
-    //             <div>
-    //                 <h1>TESTING</h1>
-    //                 <h3>{roomInfo.roomName} - {roomInfo.stageName}</h3>
-    //                 {/* <input type="text" value={stageName} placeholder="Enter Stage Name" onChange={({ target }) => setStageName(target.value)} /> */}
-    //                 <ChatList messageArray={messageArray} />
-    //                 <input type="text" value={newMessage} onChange={({ target }) => setNewMessage(target.value)} />
-    //                 <button onClick={handleNewMessage}>Send Message</button>
-    //             </div>
-    //         </>
-    //     );
-
     return {
         handleJoinRoom,
         handleCreateRoom,
@@ -98,6 +54,5 @@ export const useSocket = () => {
         roomInfo,
         messageArray,
         newMessage,
-        history
     };
 };

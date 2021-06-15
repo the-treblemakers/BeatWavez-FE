@@ -19,7 +19,6 @@ export default function App() {
         roomInfo,
         messageArray,
         newMessage,
-        history
     } = useSocket();
 
     return (
@@ -30,7 +29,6 @@ export default function App() {
                     <Route path="/" exact render={(routerProps) => <Home {...routerProps}
                         handleCreateRoom={handleCreateRoom}
                         handleJoinRoom={handleJoinRoom}
-                        history={history}
                     />} />
                     <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps}
                         roomInfo={roomInfo}

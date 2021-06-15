@@ -6,8 +6,7 @@ import ReactPlayer from 'react-player';
  
 
 const Video = ({ embedId, stagename, onPrevious, onPlay, onNext, onFullscreen, playing, videoRef }) => {
-    
-   
+       
     return  (
         <Card>
             <div className="video-responsive">

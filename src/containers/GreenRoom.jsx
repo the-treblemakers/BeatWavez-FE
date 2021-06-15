@@ -19,7 +19,7 @@ const GreenRoom = () => {
             <Chat />
 
         </div>
-    );
-};
+    )
+}
 
 export default GreenRoom;

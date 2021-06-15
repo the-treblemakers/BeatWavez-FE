@@ -29,7 +29,6 @@ const Chat = () => {
             <ChatList messageArray={messageArray} />
             <input type="text" value={newMessage} onChange={({ target }) => setNewMessage(target.value)} />
             <button onClick={handleNewMessage}>Send Message</button>
-           
         </>
     );
 };

@@ -1,14 +1,14 @@
 // import { SettingsInputSvideoRounded } from "@material-ui/icons";
 // import { TextField, Button, Grid } from '@material-ui/core';
 import React, { useState, useEffect } from "react";
-import LoginForm from "../components/UI/LoginForm";
-import ChatList from "../components/Chat/ChatList";
+// import LoginForm from "../components/UI/LoginForm";
+// import ChatList from "../components/Chat/ChatList";
 import io from "socket.io-client";
 
 const socket = io('http://localhost:7890/');
 // const socket = io('https://beatwavez-dev.herokuapp.com/');
 
-const TestRoom = () => {
+export const useSocket = () => {
     const [newMessage, setNewMessage] = useState('');
     const [messageArray, setMessageArray] = useState([]);  // *
     const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '' });  // *
@@ -82,8 +82,9 @@ const TestRoom = () => {
     return {
         handleJoinRoom,
         handleCreateRoom,
-        handleNewMessage
+        handleNewMessage,
+        roomInfo,
+        messageArray,
+        newMessage
     };
 };
-
-export default TestRoom;

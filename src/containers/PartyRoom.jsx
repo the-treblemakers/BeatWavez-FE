@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Video from '../components/Video/Video';
 import ChatList from '../components/chat/ChatList';
 import { Grid, Typography } from '@material-ui/core';
-// import screenfull from 'screenfull';
+import screenfull from 'screenfull';
 
 const PartyRoom = () => {
     const [roomName, setRoomName] = useState('Frosty Darkness');
@@ -51,7 +51,7 @@ const PartyRoom = () => {
         },
     ];
 
-    const videoRef = useRef();
+    const videoRef = useRef(null);
 
     useEffect(() => {
         setStagename(queue[queueIndex].stagename);
@@ -70,7 +70,9 @@ const PartyRoom = () => {
 
     const handleFullscreen = () => {
         console.log(videoRef);
-        // screenfull.request(videoRef);
+        if(screenfull.isEnabled) {
+            screenfull.request(videoRef.current.wrapper);
+        }
 
     };
 

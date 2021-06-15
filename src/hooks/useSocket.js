@@ -5,7 +5,7 @@
 import React, { useState, useEffect } from "react";
 import generateRoomNames from '../RoomNames/generateRoomNames.js';
 import io from "socket.io-client";
-import { useHistory, Redirect } from 'react-router-dom';
+
 
 const socket = io('http://localhost:7890/');
 // const socket = io('https://beatwavez-dev.herokuapp.com/');
@@ -14,7 +14,8 @@ export const useSocket = () => {
     const [newMessage, setNewMessage] = useState('');
     const [messageArray, setMessageArray] = useState([]);  // *
     const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '' });  // *
-    const [roomSelect, setRoomSelect] = useState(true);
+    // const [roomSelect, setRoomSelect] = useState(true);
+
 
 
     useEffect(() => {
@@ -34,17 +35,18 @@ export const useSocket = () => {
 
     }, []);
 
-    const redirect = () => {
-        console.log(history);
-        history.push('/greenroom');
-    };
+    // const redirect = () => {
+    //     console.log(history);
+    //     history.push('/greenroom');
+    // };
 
     const handleCreateRoom = (stageName) => {
         if (stageName !== '') {
             const roomName = generateRoomNames();
             socket.emit('CREATE_ROOM', ({ stageName, roomName }));
             setRoomInfo({ stageName, roomName });
-            setRoomSelect(false);
+            // console.log(history);
+            // // history.push('/greenroom');
         } else {
             alert('Enter Room & Stage Name to continue.');
         }
@@ -95,6 +97,7 @@ export const useSocket = () => {
         handleNewMessage,
         roomInfo,
         messageArray,
-        newMessage
+        newMessage,
+        history
     };
 };

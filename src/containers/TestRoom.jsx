@@ -1,7 +1,9 @@
 // import { SettingsInputSvideoRounded } from "@material-ui/icons";
+
 // import { TextField, Button, Grid } from '@material-ui/core';
 import React, { useState, useEffect } from "react";
 import LoginForm from "../components/UI/LoginForm";
+
 import ChatList from "../components/Chat/ChatList";
 import io from "socket.io-client";
 import Spinner from '../components/UI/Spinner';
@@ -11,8 +13,8 @@ const socket = io('http://localhost:7890/');
 
 const TestRoom = () => {
     const [newMessage, setNewMessage] = useState('');
-    const [messageArray, setMessageArray] = useState([]);  // *
-    const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '' });  // *
+    const [messageArray, setMessageArray] = useState([]);
+    const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '' });
     const [roomSelect, setRoomSelect] = useState(true);
 
     useEffect(() => {
@@ -80,10 +82,18 @@ const TestRoom = () => {
     //         </>
     //     );
 
-    return {
-        handleJoinRoom,
-        handleCreateRoom,
-        handleNewMessage
-    };
+    return (
+        <>
+            <div>
+                <h1>TESTING</h1>
+                <h3>{roomInfo.roomName} - {roomInfo.stageName}</h3>
+                {/* <input type="text" value={stageName} placeholder="Enter Stage Name" onChange={({ target }) => setStageName(target.value)} /> */}
+                <ChatList messageArray={messageArray} />
+                <input type="text" value={newMessage} onChange={({ target }) => setNewMessage(target.value)} />
+                <button onClick={handleNewMessage}>Send Message</button>
+            </div>
+        </>
+
+    );
 };
 export default TestRoom;

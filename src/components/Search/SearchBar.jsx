@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from "prop-types";
 
-const SearchBar = () => {
-    const [query, setQuery] = useState(''); 
-
-    function handleQueryChange(e){
-        setQuery(e.target.value);
-    }
-
-    function handleSubmit(e){
-        e.preventDefault();
-    }
+const SearchBar = ({ handleSubmit, handleQueryChange, query }) => {
+    // const [query, setQuery] = useState(''); 
 
     return (
         <form aria-label="searchBar" onSubmit={handleSubmit}>
@@ -20,5 +13,10 @@ const SearchBar = () => {
     );
 };
 
+SearchBar.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    handleQueryChange: PropTypes.func.isRequired,
+    query: PropTypes.string
+};
 
 export default SearchBar;

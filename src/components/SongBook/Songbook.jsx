@@ -10,14 +10,12 @@ const Songbook = () => {
     const [currentSongs, setCurrentSongs] = useState([]);
     const [queue, setQueue] = useState([]);
 
-    useEffect(() => {
-        getAllSongs()
-            .then((returnedSongs) => {
-                setSongs(returnedSongs);
-                setCurrentSongs(returnedSongs.slice(0, 20));
-            })
-            .finally(() => setLoading(false));
-    }, [currentPage, currentSongs]);
+    // useEffect(() => {
+    //     getAllSongs()
+    //         .then((returnedSongs) => setSongs(returnedSongs))
+    //         .then()    setCurrentSongs(returnedSongs.slice(0, 20))
+    //             .finally(() => setLoading(false));
+      // }, [currentPage]);
 
     const handlePageChange = (currentPage) => {
         setCurrentPage(currentPage + 1);
@@ -30,7 +28,7 @@ const Songbook = () => {
         setQueue(...queue, song);
     };
 
-    if(loading) return <h1>Loading...</h1>;
+    if (loading) return <h1>Loading...</h1>;
 
     return (
         <ul aria-label='songs'>

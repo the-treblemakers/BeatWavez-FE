@@ -5,6 +5,7 @@ import SongbookItem from './SongbookItem';
 const Songbook = () => {
     const [songs, setSongs] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [queue, setQueue] = useState([]);
 
     useEffect(() => {
         fetch('https://beatwavez-dev.herokuapp.com/api/v1/songs/')
@@ -13,27 +14,27 @@ const Songbook = () => {
             .finally(() => setLoading(false));
     }, []);
 
+    const handleAddToQueue = (video) => {
+        setQueue(video);
+    };
+
     if(loading) return <h1>Loading...</h1>;
 
     return (
         <ul aria-label='songs'>
             {songs.map((song, i) => (
-                <li key={song.title + i}>
-                    <SongbookItem {...song} />
-                </li>
+                <>
+                    <li key={song.title + i}>
+                        <SongbookItem {...song} />
+                    </li>
+                    <button 
+                        onClick={handleAddToQueue}
+                    >Add to queue</button>
+                    {/* <button>Flag as a bad video</button> */}
+                </>
             ))}
         </ul>
     );
 };
-
-// Songbook.propTypes = {
-//     songbookItems: PropTypes.arrayOf(
-//         PropTypes.shape({
-//             title: PropTypes.string.isRequired,
-//             thumbnail: PropTypes.string.isRequired,
-//             channelName: PropTypes.string.isRequired,
-//         })
-//     ),
-// };
 
 export default Songbook;

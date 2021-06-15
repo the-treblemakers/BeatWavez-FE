@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { TextField, Button, Grid } from '@material-ui/core';
+import generateRoomNames from '../../RoomNames/generateRoomNames.js';
 
 
 const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
@@ -15,6 +16,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
 
     const handleRoomNameChange = (e) => {
         setRoomName(e.target.value);
+
     };
 
 
@@ -57,7 +59,10 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
                     color="primary"
                     // disabled={!stageName || roomName}
                     // value={newRoomCode}
-                    onClick={() => handleCreateRoom(stageName, roomName)}
+                    onClick={() => {
+                        setRoomName(generateRoomNames());
+                        handleCreateRoom(stageName, roomName);
+                    }}
                 >
                     GET NEW ROOM CODE
                 </Button>

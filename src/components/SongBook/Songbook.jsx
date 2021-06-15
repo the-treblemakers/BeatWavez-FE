@@ -11,15 +11,19 @@ const Songbook = () => {
 
     useEffect(() => {
         getAllSongs()
-            // .then((returnedSongs) => setSongs(returnedSongs))
-            .then(returnedSongs => setCurrentSongs(returnedSongs.slice(0, 20)))
+            .then((returnedSongs) => {
+                setSongs(returnedSongs);
+                setCurrentSongs(returnedSongs.slice(0, 20));
+            })
             .finally(() => setLoading(false));
 
     }, [currentPage, currentSongs]);
 
     const handlePageChange = (currentPage) => {
-        setCurrentSongs(songs.slice(currentPage * 20, currentPage * 20 + 20));
         setCurrentPage(currentPage + 1);
+        const newPage = songs.slice(20, 40);
+        setCurrentSongs(newPage);
+        console.log(songs.length, newPage);
     };
 
     if (loading) return <h1>Loading...</h1>;

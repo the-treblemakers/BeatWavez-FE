@@ -1,6 +1,6 @@
 import { SettingsInputSvideoRounded } from "@material-ui/icons";
 import React, { useState, useEffect } from "react";
-import ChatList from "../components/chat/ChatList";
+import ChatList from "../components/Chat/ChatList";
 import io from "socket.io-client";
 
 // const socket = io('http://localhost:7890/');

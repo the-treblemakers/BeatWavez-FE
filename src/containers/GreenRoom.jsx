@@ -5,7 +5,6 @@ import Songbook from '../components/SongBook/Songbook';
 // import Queue from '../components/Queue/Queue';
 import Chat from '../components/chat/Chat';
 
-
 const GreenRoom = () => {
     const [query, setQuery] = useState('');
     const [channelFilter, setChannelFilter] = useState('');
@@ -22,7 +21,7 @@ const GreenRoom = () => {
     return (
         <div>
             Welcome to the GreenRoom
-            {/* DISPLAY ROOM NAME, STAGE NAME INSTRUCTIONS TO INVITE FRIENDS ALSO ADD FLAVOR/GLITTER!!!! */}
+            {/* DISPLAY ROOM NAME, STAGE NAME INSTRUCTIONS TO INVITE FRIENDS ALSO ADD FLAVOR/GLITTER!!!! In an alert? Or just on the page somewhere? */}
             <SearchBar 
                 query={query} 
                 setQuery={setQuery}

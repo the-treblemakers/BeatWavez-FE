@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Video from '../components/Video/Video';
-import ChatList from '../components/chat/ChatList';
+import ChatList from '../components/Chat/ChatList';
 import { Grid, Typography } from '@material-ui/core';
 
 const PartyRoom = () => {

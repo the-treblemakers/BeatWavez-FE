@@ -11,7 +11,6 @@ import { theme } from '../styles/theme';
 import TestRoom from '../../containers/TestRoom';
 
 export default function App() {
-
     return (
         <ThemeProvider theme={theme}>
             <Router>
@@ -26,5 +25,9 @@ export default function App() {
             </Router>
         </ThemeProvider>
     );
-
+<<<<<<< HEAD
 }
+=======
+
+>>>>>>> f033ffe0bde85e3d73bcfacf23641a292b08d50e
+

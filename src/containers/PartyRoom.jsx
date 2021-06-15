@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Video from '../components/Video/Video';
-import ChatList from '../components/chat/ChatList';
+import ChatList from '../components/Chat/ChatList';
 import { Grid, Typography } from '@material-ui/core';
+import screenfull from 'screenfull';
 
 const PartyRoom = () => {
     const [roomName, setRoomName] = useState('Frosty Darkness');
     const [stagename, setStagename] = useState('');
     const [embedId, setEmbedId] = useState('');
-    const [title, setTitle] = useState('');
     const [queueIndex, setQueueIndex] = useState(0);
+    const [playing, setPlaying] = useState(false);
     // const [messages, setMessages] = useState('');
     // const [queue, setQueue] = useState([]);
 
@@ -50,29 +51,40 @@ const PartyRoom = () => {
         },
     ];
 
+    const videoRef = useRef(null);
+
     useEffect(() => {
-        setStagename(queue[queueIndex].stagename)
-        setEmbedId(queue[queueIndex].vidId)
-        setTitle(queue[queueIndex].title)
-    }, [queueIndex])
+        setStagename(queue[queueIndex].stagename);
+        setEmbedId(queue[queueIndex].vidId);
+    }, [queueIndex]);
 
     const handlePrevious = () => {
-        setQueueIndex((queueIndex - 1))
+        setQueueIndex((queueIndex - 1));
         //add button disable
-    }
-    
-    // const handlePlay = () => {
-        //     console.log('play/pause')
-        // }
+    };
         
-        const handleNext = (i) => {
-        setQueueIndex((queueIndex + 1))
+    const handleNext = () => {
+        setQueueIndex((queueIndex + 1));
         //add button disable
-    }
+    };
 
     const handleFullscreen = () => {
-        console.log('fullscreen')
-    }
+        console.log(videoRef);
+        if(screenfull.isEnabled) {
+            screenfull.request(videoRef.current.wrapper);
+        }
+
+    };
+
+
+    const handlePlay = () => {        
+        if(playing === false) {
+            setPlaying(true);
+        } else {
+            setPlaying(false);
+        }
+     
+    };
 
     return (
         <div>
@@ -88,13 +100,14 @@ const PartyRoom = () => {
                 </Typography>
                 <Grid item>
                     <Video 
-                        title={title}
                         embedId={embedId} 
                         stagename={stagename}
                         onPrevious={handlePrevious}
-                        // onPlay={handlePlay}
+                        onPlay={handlePlay}
                         onNext={handleNext}
-                        onFullscreen={handleFullscreen} />
+                        onFullscreen={handleFullscreen}
+                        playing={playing}
+                        videoRef={videoRef} />
                 </Grid>
                 <Grid item style={{ border: '1px solid #000' }}>
                     <ChatList messageArray={chatMessages} />

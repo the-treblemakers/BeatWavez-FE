@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IconButton, Grid } from '@material-ui/core'
+import { IconButton, Grid } from '@material-ui/core';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import SkipPreviousOutlinedIcon from '@material-ui/icons/SkipPreviousOutlined';
 import SkipNextOutlinedIcon from '@material-ui/icons/SkipNextOutlined';
@@ -13,9 +13,9 @@ const VideoControls = ({ onPrevious, onPlay, onNext, onFullscreen }) => (
         alignItems="center"
         direction="row">
         <Grid item>
-                <IconButton aria-label="previous" onClick={onPrevious}>
-                    <SkipPreviousOutlinedIcon />
-                </IconButton>
+            <IconButton aria-label="previous" onClick={onPrevious}>
+                <SkipPreviousOutlinedIcon />
+            </IconButton>
         </Grid>
         <Grid item>
             <IconButton aria-label="play pause" onClick={onPlay}>
@@ -32,7 +32,7 @@ const VideoControls = ({ onPrevious, onPlay, onNext, onFullscreen }) => (
                 <FullscreenOutlinedIcon />
             </IconButton>
         </Grid>
-</Grid>
+    </Grid>
 );
 
 
@@ -41,6 +41,6 @@ VideoControls.propTypes = {
     onPlay: PropTypes.func.isRequired,
     onNext: PropTypes.func.isRequired,
     onFullscreen: PropTypes.func.isRequired,
-}
+};
 
 export default VideoControls;

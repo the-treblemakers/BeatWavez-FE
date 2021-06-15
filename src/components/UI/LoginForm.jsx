@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 import { TextField, Button, Grid } from '@material-ui/core';
 
 
-
-const LoginForm = (handleCreateRoom, handleJoinRoom) => {
+const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
     const [stageName, setStageName] = useState('');
     const [roomName, setRoomName] = useState('');
     // const [newRoomCode, setNewRoomCode] = useState('');
@@ -47,7 +46,7 @@ const LoginForm = (handleCreateRoom, handleJoinRoom) => {
                     color="primary"
                     style={{ marginBottom: '1em' }}
                     // disabled={!stageName || !roomName}
-                    onClick={handleCreateRoom(stageName, roomName)}
+                    onClick={() => handleJoinRoom(stageName, roomName)}
                 >
                     JOIN THE PARTY!
                 </Button>
@@ -58,7 +57,7 @@ const LoginForm = (handleCreateRoom, handleJoinRoom) => {
                     color="primary"
                     // disabled={!stageName || roomName}
                     // value={newRoomCode}
-                    onClick={handleJoinRoom(stageName, roomName)}
+                    onClick={() => handleCreateRoom(stageName, roomName)}
                 >
                     GET NEW ROOM CODE
                 </Button>

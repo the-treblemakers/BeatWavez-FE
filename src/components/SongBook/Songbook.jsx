@@ -9,15 +9,13 @@ const Songbook = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [currentSongs, setCurrentSongs] = useState([]);
 
-    useEffect(() => {
-        getAllSongs()
-            .then((returnedSongs) => {
-                setSongs(returnedSongs);
-                setCurrentSongs(returnedSongs.slice(0, 20));
-            })
-            .finally(() => setLoading(false));
+    // useEffect(() => {
+    //     getAllSongs()
+    //         .then((returnedSongs) => setSongs(returnedSongs))
+    //         .then()    setCurrentSongs(returnedSongs.slice(0, 20))
+    //             .finally(() => setLoading(false));
 
-    }, [currentPage, currentSongs]);
+    // }, [currentPage]);
 
     const handlePageChange = (currentPage) => {
         setCurrentPage(currentPage + 1);

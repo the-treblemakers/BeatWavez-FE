@@ -17,7 +17,6 @@ const Songbook = () => {
                 setCurrentSongs(returnedSongs.slice(0, 20));
             })
             .finally(() => setLoading(false));
-
     }, [currentPage, currentSongs]);
 
     const handlePageChange = (currentPage) => {
@@ -28,7 +27,7 @@ const Songbook = () => {
     };
 
     const handleAddToQueue = (song) => {
-        setQueue(song);
+        setQueue(...queue, song);
     };
 
     if(loading) return <h1>Loading...</h1>;

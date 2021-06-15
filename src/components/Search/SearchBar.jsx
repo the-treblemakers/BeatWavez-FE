@@ -10,8 +10,6 @@ const SearchBar = () => {
     function handleSubmit(e){
         e.preventDefault();
 
-    }
-
     return (
         <form aria-label="searchBar" onSubmit={handleSubmit}>
             <input placeholder="Query" value={query}

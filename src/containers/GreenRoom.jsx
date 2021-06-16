@@ -88,14 +88,14 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         </div>
     );
 };
-GreenRoom.propTypes = {
-    handleNewMessage: PropTypes.func.isRequired,
-    newMessage: PropTypes.string.isRequired,
-    roomInfo: PropTypes.object.isRequired,
-    messageArray: PropTypes.array.isRequired,
-    setNewMessage: PropTypes.func.isRequired,
-    queue: PropTypes.array.isRequired,
-    handleAddToQueue: PropTypes.func.isRequired
-};
+// GreenRoom.propTypes = {
+//     handleNewMessage: PropTypes.func.isRequired,
+//     newMessage: PropTypes.string.isRequired,
+//     roomInfo: PropTypes.object.isRequired,
+//     messageArray: PropTypes.array.isRequired,
+//     setNewMessage: PropTypes.func.isRequired,
+//     queue: PropTypes.array.isRequired,
+//     handleAddToQueue: PropTypes.func.isRequired
+// };
 
 export default GreenRoom;

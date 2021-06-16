@@ -62,10 +62,12 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
                 direction="column"
                 style={{ minHeight: '100vh' }}
                 spacing={5}>
-                <Typography>
-                    Room Name: {roomName}
-                    Stage Name: {roomInfo.stageName}
-                </Typography>
+            
+                <Grid item>
+                    <Typography variant="h2">
+                        {roomName} Room
+                    </Typography>
+                </Grid>
                 <Grid item>
                     <Video
                         embedId={embedId}

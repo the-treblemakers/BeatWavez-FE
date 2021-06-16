@@ -54,5 +54,6 @@ export const useSocket = () => {
         roomInfo,
         messageArray,
         newMessage,
+        setNewMessage
     };
 };

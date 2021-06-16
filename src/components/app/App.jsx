@@ -19,6 +19,7 @@ export default function App() {
         roomInfo,
         messageArray,
         newMessage,
+        setNewMessage
     } = useSocket();
 
     return (
@@ -35,6 +36,7 @@ export default function App() {
                         messageArray={messageArray}
                         handleNewMessage={handleNewMessage}
                         newMessage={newMessage}
+                        setNewMessage={setNewMessage}
                     />} />
                     <Route path="/partyroom" render={(routerProps) => <PartyRoom {...routerProps}
                         roomInfo={roomInfo}

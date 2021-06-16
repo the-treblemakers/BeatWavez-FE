@@ -43,6 +43,16 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     function handleQueryChange(e) {
         setLoading(true);
         setQuery(e.target.value);
+    }        
+      
+    function handleDropdownChange(e){
+        setChannelFilter(e.target.value);
+    }
+    
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        setLoading(true);
         
         const search = () => {
             if(query === '') return songbook;
@@ -55,32 +65,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setTimeout(() => {setCurrentSongs(searchResults);
             setLoading(false);
         }, 100);
-    }        
-      
-    function handleDropdownChange(e){
-        setChannelFilter(e.target.value);
     }
-    
-    
-
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-
-    //     setLoading(true);
-        
-    //     const search = () => {
-    //         if(query === '') return songbook;
-    //         return songbook.filter((song) => {
-    //             const title = song.title.toLowerCase();
-    //             return title.includes(query.toLowerCase());
-    //         });
-    //     };
-    //     const searchResults = search();
-        
-    //     setCurrentSongs(searchResults);
-
-    //     setLoading(false);
-    // }
 
     return (
         <div>
@@ -108,21 +93,17 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 loading={loading}
                 songbook={songbook}
             />}
-
-
             {queue.length > 0 ?
                 <Queue
                     queue={queue}
                 />
                 : null}
-
             <Chat
                 messageArray={messageArray}
                 setNewMessage={setNewMessage}
                 handleNewMessage={handleNewMessage}
                 newMessage={newMessage} 
             />
-
         </div>
     );
 };
@@ -136,7 +117,10 @@ GreenRoom.propTypes = {
     queue: PropTypes.array.isRequired,
     handleAddToQueue: PropTypes.func.isRequired,
     handleDropdownChange: PropTypes.func.isRequired,
-    songbook: PropTypes.array.isRequired
+    songbook: PropTypes.array.isRequired,
+    query: PropTypes.string.isRequired,
+    handleQueryChange: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired
 };
 
 export default GreenRoom;

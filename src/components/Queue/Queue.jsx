@@ -6,7 +6,9 @@ import { List, ListItem } from '@material-ui/core';
 const Queue = ({ queue }) => {
 
     return (
-        <List aria-label="queue">
+        <List 
+            aria-label="queue"
+            style={{ maxHeight: 200, overflow: 'auto' }}>>
             {queue.map((item, i) => (
                 <ListItem key={item.title + i}>
                     <QueueItem {...item} />

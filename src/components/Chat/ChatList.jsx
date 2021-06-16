@@ -7,7 +7,9 @@ const ChatList = ({ messageArray }) => {
 
     return (
         <>
-            <List aria-label='chat'>
+            <List 
+                aria-label='chat' 
+                style={{ maxHeight: 300, overflow: 'auto' }}>
                 {messageArray.map((msg, i) => (
                     <ListItem key={msg.message + i}>
                         <ChatMsg {...msg} />

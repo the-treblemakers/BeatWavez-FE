@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import SongbookItem from './SongbookItem';
 import Spinner from '../UI/Spinner';
 import PropTypes from 'prop-types';
-// import { getAllSongs } from '../../services/apiUtils';
 
-const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs }) => {
+const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook }) => {
     useEffect(() => {
 
     }, [loading]);
 
     const handlePageChange = () => {
         setCurrentPage(currentPage + 1);
-
+        console.log(songbook, 'handle page change');
         const sliceMathStart = currentPage * 20;
         const sliceMathEnd = sliceMathStart + 20;
-        const newPage = currentSongs.slice(sliceMathStart, sliceMathEnd);
+        const newPage = songbook.slice(sliceMathStart, sliceMathEnd);
 
         setCurrentSongs(newPage);
     };
@@ -44,7 +43,8 @@ Songbook.propTypes = {
     currentPage: PropTypes.number.isRequired,
     setCurrentPage: PropTypes.func.isRequired,
     currentSongs: PropTypes.array.isRequired,
-    setCurrentSongs: PropTypes.func.isRequired
+    setCurrentSongs: PropTypes.func.isRequired,
+    songbook: PropTypes.array.isRequired
 };
 
 export default Songbook;

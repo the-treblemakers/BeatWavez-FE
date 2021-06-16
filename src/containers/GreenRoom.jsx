@@ -6,14 +6,15 @@ import Songbook from '../components/SongBook/Songbook';
 import Queue from '../components/Queue/Queue';
 import Chat from '../components/Chat/Chat';
 import { getAllSongs } from '../services/apiUtils';
+import Spinner from '../components/UI/Spinner';
 
 const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
-    const [channelFilter, setChannelFilter] = useState('');
     const [songbook, setSongbook] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentSongs, setCurrentSongs] = useState([]);
+    const [channelFilter, setChannelFilter] = useState('');
     // const [filteredSongs, setFilteredSongs] = useState([]);
 
     useEffect(() => {
@@ -25,11 +26,24 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             .finally(() => setLoading(false));
     }, []);
 
+    useEffect(() => {
+        const filter = () => {
+            const filteredSongs = songbook.filter((song) => {
+                const channelName = song.channelName;
+                return channelName.includes(channelFilter);
+            });
+           
+            return filteredSongs;
+        };
+        const filteredResults = filter();
+        console.log(filteredResults, 'results');
+        return filteredResults;
+    }, [channelFilter]);
+
     function handleQueryChange(e) {
-        setQuery(e.target.value);
-
         setLoading(true);
-
+        setQuery(e.target.value);
+        
         const search = () => {
             if(query === '') return songbook;
             return songbook.filter((song) => {
@@ -38,10 +52,16 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             });
         };
         const searchResults = search();
-                
-        setCurrentSongs(searchResults);
-        setLoading(false);
+        setTimeout(() => {setCurrentSongs(searchResults);
+            setLoading(false);
+        }, 100);
+    }        
+      
+    function handleDropdownChange(e){
+        setChannelFilter(e.target.value);
     }
+    
+    
 
     // function handleSubmit(e) {
     //     e.preventDefault();
@@ -74,9 +94,10 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 // handleSubmit={handleSubmit}
             />
             <SearchFilters
-                channelFilter={channelFilter}
-                setCurrentSongs={setChannelFilter}
+                handleDropdownChange={handleDropdownChange}
             />
+            {loading && <Spinner />}
+            {!loading && 
             <Songbook
                 handleAddToQueue={handleAddToQueue}
                 stageName={roomInfo.stageName}
@@ -85,7 +106,9 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
                 loading={loading}
-            />
+                songbook={songbook}
+            />}
+
 
             {queue.length > 0 ?
                 <Queue
@@ -111,7 +134,9 @@ GreenRoom.propTypes = {
     messageArray: PropTypes.array.isRequired,
     setNewMessage: PropTypes.func.isRequired,
     queue: PropTypes.array.isRequired,
-    handleAddToQueue: PropTypes.func.isRequired
+    handleAddToQueue: PropTypes.func.isRequired,
+    handleDropdownChange: PropTypes.func.isRequired,
+    songbook: PropTypes.array.isRequired
 };
 
 export default GreenRoom;

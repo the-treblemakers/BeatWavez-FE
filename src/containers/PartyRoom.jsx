@@ -5,6 +5,7 @@ import { Grid, Typography } from '@material-ui/core';
 import screenfull from 'screenfull';
 import PropTypes from 'prop-types';
 import Queue from '../components/Queue/Queue';
+import PartyRoomAccordion from '../components/UI/PartyRoomAccordion';
 
 const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const [roomName, setRoomName] = useState(roomInfo.roomName);
@@ -38,13 +39,13 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     };
 
     const handleFullscreen = () => {
-        if (screenfull.isEnabled) {
+        if(screenfull.isEnabled) {
             screenfull.request(videoRef.current.wrapper);
         }
     };
 
     const handlePlay = () => {
-        if (playing === false) {
+        if(playing === false) {
             setPlaying(true);
         } else {
             setPlaying(false);
@@ -76,15 +77,13 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
                         playing={playing}
                         videoRef={videoRef} 
                         queue={queue}
-                        queueIndex={queueIndex}/>
-                        
-                </Grid>
-                <Grid item style={{ border: '1px solid #000' }}>
-                    <ChatList messageArray={messages} />
+                        queueIndex={queueIndex}/>      
                 </Grid>
                 <Grid item>
-                    <Queue queue={queue} />
-                </Grid>
+                    <PartyRoomAccordion
+                        messages={messages}
+                        queue={queue} />
+                </Grid>      
             </Grid>
         </div>
     );

@@ -41,13 +41,14 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     }, [channelFilter]);
 
     function handleQueryChange(e) {
+        setLoading(true);
         setQuery(e.target.value);
     }        
       
     function handleDropdownChange(e){
         setChannelFilter(e.target.value);
     }
-
+    
     function handleSubmit(e) {
         e.preventDefault();
 
@@ -75,7 +76,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 query={query}
                 setQuery={setQuery}
                 handleQueryChange={handleQueryChange}
-                handleSubmit={handleSubmit}
+                // handleSubmit={handleSubmit}
             />
             <SearchFilters
                 handleDropdownChange={handleDropdownChange}

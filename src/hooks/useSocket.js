@@ -2,20 +2,42 @@ import { useState, useEffect } from "react";
 import generateRoomNames from '../RoomNames/generateRoomNames.js';
 import io from "socket.io-client";
 
-// const socket = io('http://localhost:7890/');
-const socket = io('https://beatwavez-dev.herokuapp.com/');
+const socket = io('http://localhost:7890/');
+// const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 export const useSocket = () => {
     const [newMessage, setNewMessage] = useState('');
     const [messageArray, setMessageArray] = useState([]);
     const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '' });
     const [queue, setQueue] = useState([]);
+    const [host, setHost] = useState('');
 
     useEffect(() => {
         socket.on('MESSAGE', (message) => {
             setMessageArray([...messageArray, message]);
         });
-    }, [roomInfo, messageArray]);
+
+        socket.on('HOST', (hostId, sender) => {
+            if (!hostId && host !== '') {
+                socket.emit('HOST', host, sender);
+            } else if (host === '' && hostId) {
+                setHost(hostId);
+                socket.emit('SONG_QUEUE', queue, hostId);
+            }
+            console.log(host, 'HOST');
+        });
+
+        socket.on('SONG_QUEUE', (queueRequest, sender) => {
+            if (queueRequest.length === 0 && queue.length !== 0) {
+                socket.emit('SONG_QUEUE', queue, sender);
+            } else if (queueRequest === 1 && sender !== host) {
+                setQueue(...queue, queueRequest);
+                socket.emit('SONG_QUEUE', queue, host, roomInfo.roomName);
+            } else if (sender === host) {
+                setQueue(queueRequest);
+            }
+        });
+    }, [roomInfo, messageArray, host, queue]);
 
     useEffect(() => {
         return () => {

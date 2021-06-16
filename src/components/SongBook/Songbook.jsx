@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import SongbookItem from './SongbookItem';
 import Spinner from '../UI/Spinner';
+import PropTypes from 'prop-types';
 import { getAllSongs } from '../../services/apiUtils';
 
-const Songbook = () => {
+const Songbook = ({ handleAddToQueue, stageName }) => {
     const [songs, setSongs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentSongs, setCurrentSongs] = useState([]);
-    const [queue, setQueue] = useState([]);
+    // const [queue, setQueue] = useState([]);
 
     useEffect(() => {
         getAllSongs()
@@ -29,9 +30,9 @@ const Songbook = () => {
         setCurrentSongs(newPage);
     };
 
-    const handleAddToQueue = (song) => {
-        setQueue(...queue, song);
-    };
+    // const handleAddToQueue = (song) => {
+    //     setQueue(...queue, song);
+    // };
 
     if(loading) return <Spinner />;
 
@@ -41,14 +42,19 @@ const Songbook = () => {
             {currentSongs.map((song, i) => (
                 <li key={song.title + i}>
                     <SongbookItem {...song} />
-                    <button 
+                    <button
 
-                        onClick={handleAddToQueue}>Add to queue</button>
+                        onClick={() => handleAddToQueue(song)}>Add to queue</button>
                     {/* <button>Flag as a bad video</button> */}
                 </li>
             ))}
         </ul>
     );
+};
+
+Songbook.propTypes = {
+    handleAddToQueue: PropTypes.func.isRequired,
+    stageName: PropTypes.string.isRequired
 };
 
 export default Songbook;

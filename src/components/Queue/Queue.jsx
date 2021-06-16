@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import QueueItem from "./QueueItem";
 
-const Queue = ({ queueItems }) => {
+const Queue = ({ queue }) => {
 
     return (
         <ul aria-label="queue">
-            {queueItems.map((item) => (
-                <li key={item.title}>
+            {queue.map((item, i) => (
+                <li key={item.title + i}>
                     <QueueItem {...item} />
                 </li>
             ))}
@@ -16,12 +16,10 @@ const Queue = ({ queueItems }) => {
 };
 
 Queue.propTypes = {
-    queueItems: PropTypes.arrayOf(
+    queue: PropTypes.arrayOf(
         PropTypes.shape({
             title: PropTypes.string.isRequired,
             stageName: PropTypes.string.isRequired,
-            thumbnail: PropTypes.string.isRequired,
-            channelName: PropTypes.string.isRequired,
         })
     ),
 };

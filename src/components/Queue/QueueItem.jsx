@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 
 const QueueItem = ({ title, stageName }) => (
     <>
-        <span>Singer: {stageName}</span>
-        <span>Song: {title}</span>
+        <p>{stageName}: {title}</p>
     </>
 );
 

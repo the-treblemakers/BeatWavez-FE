@@ -6,37 +6,35 @@ import screenfull from 'screenfull';
 import PropTypes from 'prop-types';
 import Queue from '../components/Queue/Queue';
 
-const PartyRoom = ({ roomInfo, messageArray }) => {
+const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const [roomName, setRoomName] = useState(roomInfo.roomName);
     const [stageName, setStageName] = useState('');
     const [embedId, setEmbedId] = useState('');
     const [queueIndex, setQueueIndex] = useState(0);
     const [playing, setPlaying] = useState(false);
     const [messages, setMessages] = useState(messageArray);
-    // const [queue, setQueue] = useState([]);
+    const [queue, setQueue] = useState(queueArray);
 
-
-
-    const queue = [
-        {
-            id: 1,
-            stageName: 'Cher',
-            title: "Radiohead - No Surprises - Karaoke Version from Zoom Karaoke",
-            vidId: 'H8cNOHKKx7U'
-        },
-        {
-            id: 2,
-            stageName: 'Queen',
-            title: "Lost In The Woods - Frozen 2 Soundtrack - Karaoke Version from Zoom Karaoke",
-            vidId: 'GeEVHGtuZ68'
-        },
-        {
-            id: 3,
-            stageName: 'Brittany',
-            title: "YEBBA - My Mind  - Acoustative Piano Karaoke Version from Zoom Karaoke",
-            vidId: 'Q_jmz2oFCJM'
-        },
-    ];
+    // const queue = [
+    //     {
+    //         id: 1,
+    //         stageName: 'Cher',
+    //         title: "Radiohead - No Surprises - Karaoke Version from Zoom Karaoke",
+    //         vidId: 'H8cNOHKKx7U'
+    //     },
+    //     {
+    //         id: 2,
+    //         stageName: 'Queen',
+    //         title: "Lost In The Woods - Frozen 2 Soundtrack - Karaoke Version from Zoom Karaoke",
+    //         vidId: 'GeEVHGtuZ68'
+    //     },
+    //     {
+    //         id: 3,
+    //         stageName: 'Brittany',
+    //         title: "YEBBA - My Mind  - Acoustative Piano Karaoke Version from Zoom Karaoke",
+    //         vidId: 'Q_jmz2oFCJM'
+    //     },
+    // ];
 
     const videoRef = useRef(null);
 
@@ -44,7 +42,8 @@ const PartyRoom = ({ roomInfo, messageArray }) => {
         setStageName(queue[queueIndex].stageName);
         setEmbedId(queue[queueIndex].vidId);
         setMessages(messageArray);
-    }, [queueIndex, messageArray]);
+        setQueue(queueArray)
+    }, [queueIndex, messageArray, queueArray]);
 
     const handlePrevious = () => {
         setQueueIndex((queueIndex - 1));
@@ -102,7 +101,7 @@ const PartyRoom = ({ roomInfo, messageArray }) => {
                     <ChatList messageArray={messages} />
                 </Grid>
                 <Grid item>
-                    <Queue />
+                    <Queue queue={queue}/>
                 </Grid>
             </Grid>
         </div>
@@ -111,6 +110,7 @@ const PartyRoom = ({ roomInfo, messageArray }) => {
 
 PartyRoom.propTypes = {
     messageArray: PropTypes.array.isRequired,
+    queueArray: PropTypes.array.isRequired,
     roomInfo: PropTypes.object.isRequired,
 };
 

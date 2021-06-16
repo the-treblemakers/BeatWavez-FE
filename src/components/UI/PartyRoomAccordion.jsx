@@ -24,20 +24,16 @@ export default function PartyRoomAccordion({ messages, queue }) {
             <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
                 >
                     <Typography className={classes.heading}>Chat</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <ChatList messageArray={messages} />
+                    <ChatList messageArray={messages}/>
                 </AccordionDetails>
             </Accordion>
             <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
                 >
                     <Typography className={classes.heading}>Queue</Typography>
                 </AccordionSummary>

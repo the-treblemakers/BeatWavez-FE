@@ -31,7 +31,7 @@ const About = () => {
                 <p>
                     <h2>BRANDON</h2>
                     <img src=""/>
-                    Brandon is a badass karaoke-afficianado.
+                    Hello, my name's Brandon, and I'm a full stack software engineer in Portland, OR. I enjoy applying my curiosity to figuring out how things work, and then using that knowledge to create something awesome for the people & communities I love. I probably don't dance or sing very well, but I commit to the performance. My first karaoke song was Careless Whisper; Tribute, Gin & Juice, and Rebel Yell are my go-to's.
                 LinkedIn: https://www.linkedin.com/in/brandonperard/
 
                 Github: https://github.com/bperard

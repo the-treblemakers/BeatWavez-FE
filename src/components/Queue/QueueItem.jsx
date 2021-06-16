@@ -5,10 +5,17 @@ import { Typography, Grid } from '@material-ui/core';
 const QueueItem = ({ title, stageName }) => (
     <Grid container 
         direction="row" 
-        justify="flex-start" 
-        alignItems="center">
-        <Typography variant="body1" align="left">{stageName}: </Typography>
-        <Typography variant="body1" align="left">{title}</Typography>
+        justify="flex-start"
+        spacing={1}>
+        <Grid item>
+            <Typography 
+                variant="body1" 
+                align="left" 
+                style={{ fontWeight: 500, }}>{stageName}:</Typography>
+        </Grid>
+        <Grid item>
+            <Typography variant="body1" align="left">{title}</Typography>
+        </Grid>
     </Grid>
 );
 

@@ -1,17 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import QueueItem from "./QueueItem";
+import { List, ListItem } from '@material-ui/core';
 
 const Queue = ({ queue }) => {
 
     return (
-        <ul aria-label="queue">
+        <List aria-label="queue">
             {queue.map((item, i) => (
-                <li key={item.title + i}>
+                <ListItem key={item.title + i}>
                     <QueueItem {...item} />
-                </li>
+                </ListItem>
             ))}
-        </ul>
+        </List>
     );
 };
 

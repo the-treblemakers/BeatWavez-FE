@@ -39,6 +39,10 @@ export const useSocket = () => {
         });
     }, [roomInfo, messageArray, host, queue]);
 
+    // add SONG_QUEUE socket event for queue add button (sends song as queue, host as hostId)
+    // decide if host can be used outside of hook (maybe to determine song/queue controls)
+    // check room availability logic and create_room insert/add delete on host disconnnect
+
     useEffect(() => {
         return () => {
             console.log('disconnect fire');

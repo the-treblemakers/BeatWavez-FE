@@ -70,7 +70,7 @@ export const useSocket = () => {
     };
 
     const handleNewMessage = () => {
-        socket.emit('MESSAGE', { message: newMessage, timeStamp: new Date(), ...roomInfo });
+        socket.emit('MESSAGE', { message: newMessage, timeStamp: new Date().toLocaleTimeString(), ...roomInfo });
         setNewMessage('');
     };
 

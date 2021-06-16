@@ -2,37 +2,23 @@ import React, { useEffect, useState } from 'react';
 import SongbookItem from './SongbookItem';
 import Spinner from '../UI/Spinner';
 import PropTypes from 'prop-types';
-import { getAllSongs } from '../../services/apiUtils';
+// import { getAllSongs } from '../../services/apiUtils';
 
-const Songbook = ({ handleAddToQueue, stageName }) => {
-    const [songs, setSongs] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [currentSongs, setCurrentSongs] = useState([]);
-    // const [queue, setQueue] = useState([]);
+const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs }) => {
 
     useEffect(() => {
-        getAllSongs()
-            .then((returnedSongs) => {
-                setSongs(returnedSongs);
-                setCurrentSongs(returnedSongs.slice(0, 20));
-            })
-            .finally(() => setLoading(false));
-    }, []);
+
+    }, [loading]);
 
     const handlePageChange = () => {
         setCurrentPage(currentPage + 1);
 
         const sliceMathStart = currentPage * 20;
         const sliceMathEnd = sliceMathStart + 20;
-        const newPage = songs.slice(sliceMathStart, sliceMathEnd);
+        const newPage = currentSongs.slice(sliceMathStart, sliceMathEnd);
 
         setCurrentSongs(newPage);
     };
-
-    // const handleAddToQueue = (song) => {
-    //     setQueue(...queue, song);
-    // };
 
     if(loading) return <Spinner />;
 
@@ -54,7 +40,12 @@ const Songbook = ({ handleAddToQueue, stageName }) => {
 
 Songbook.propTypes = {
     handleAddToQueue: PropTypes.func.isRequired,
-    stageName: PropTypes.string.isRequired
+    stageName: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+    currentPage: PropTypes.number.isRequired,
+    setCurrentPage: PropTypes.func.isRequired,
+    currentSongs: PropTypes.array.isRequired,
+    setCurrentSongs: PropTypes.func.isRequired
 };
 
 export default Songbook;

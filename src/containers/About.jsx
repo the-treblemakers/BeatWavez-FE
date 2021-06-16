@@ -42,7 +42,7 @@ const About = () => {
                 <p>
                     <h2>SORAYA</h2>
                     <img src=""/>
-                    Soraya is a perfect talented angel.
+                    Oh hi, I’m Soraya, a full-stack engineer in Portland, OR. I adore interactive storytelling, accessible design, and creating things with rad people. My go to karaoke song is ‘The One That I Want’ from Grease :zap:.
                 LinkedIn: https://www.linkedin.com/in/soraya-benson/
 
                 Github: https://github.com/sorayabenson

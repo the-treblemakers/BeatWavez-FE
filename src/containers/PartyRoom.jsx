@@ -35,11 +35,9 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     };
 
     const handleFullscreen = () => {
-        console.log(videoRef);
         if (screenfull.isEnabled) {
             screenfull.request(videoRef.current.wrapper);
         }
-
     };
 
     const handlePlay = () => {

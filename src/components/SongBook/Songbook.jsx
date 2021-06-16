@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // import { getAllSongs } from '../../services/apiUtils';
 
 const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs }) => {
-
     useEffect(() => {
 
     }, [loading]);

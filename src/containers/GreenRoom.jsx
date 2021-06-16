@@ -27,13 +27,9 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     function handleQueryChange(e) {
         setQuery(e.target.value);
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault();
 
         setLoading(true);
-        
+
         const search = () => {
             if(query === '') return songbook;
             return songbook.filter((song) => {
@@ -42,10 +38,29 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             });
         };
         const searchResults = search();
-        
+                
         setCurrentSongs(searchResults);
         setLoading(false);
     }
+
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+
+    //     setLoading(true);
+        
+    //     const search = () => {
+    //         if(query === '') return songbook;
+    //         return songbook.filter((song) => {
+    //             const title = song.title.toLowerCase();
+    //             return title.includes(query.toLowerCase());
+    //         });
+    //     };
+    //     const searchResults = search();
+        
+    //     setCurrentSongs(searchResults);
+
+    //     setLoading(false);
+    // }
 
     return (
         <div>
@@ -56,7 +71,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 query={query}
                 setQuery={setQuery}
                 handleQueryChange={handleQueryChange}
-                handleSubmit={handleSubmit}
+                // handleSubmit={handleSubmit}
             />
             <SearchFilters
                 channelFilter={channelFilter}
@@ -88,14 +103,15 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         </div>
     );
 };
-// GreenRoom.propTypes = {
-//     handleNewMessage: PropTypes.func.isRequired,
-//     newMessage: PropTypes.string.isRequired,
-//     roomInfo: PropTypes.object.isRequired,
-//     messageArray: PropTypes.array.isRequired,
-//     setNewMessage: PropTypes.func.isRequired,
-//     queue: PropTypes.array.isRequired,
-//     handleAddToQueue: PropTypes.func.isRequired
-// };
+
+GreenRoom.propTypes = {
+    handleNewMessage: PropTypes.func.isRequired,
+    newMessage: PropTypes.string.isRequired,
+    roomInfo: PropTypes.object.isRequired,
+    messageArray: PropTypes.array.isRequired,
+    setNewMessage: PropTypes.func.isRequired,
+    queue: PropTypes.array.isRequired,
+    handleAddToQueue: PropTypes.func.isRequired
+};
 
 export default GreenRoom;

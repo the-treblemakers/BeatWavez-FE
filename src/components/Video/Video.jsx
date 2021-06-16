@@ -13,7 +13,7 @@ const Video = ({ embedId, stageName, onPrevious, onPlay, onNext, onFullscreen, p
             <div className="video-responsive">
                 <CardContent>
                     <Typography  variant="h6">now on stage: {stageName}</Typography>
-                    <ReactPlayer
+                    <ReactPlayer style={{ maxWidth: '90vw', height: 'auto' }}
                         url={`https://www.youtube-nocookie.com/embed/${embedId}?rel=0&controls=0`}
                         playing={playing}
                         ref={videoRef} />

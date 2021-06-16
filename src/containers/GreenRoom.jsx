@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import SearchBar from '../components/Search/SearchBar';
 import SearchFilters from '../components/Search/SearchFilters';
 import Songbook from '../components/SongBook/Songbook';
-// import Queue from '../components/Queue/Queue';
+import Queue from '../components/Queue/Queue';
 import Chat from '../components/Chat/Chat';
 
-const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage }) => {
+const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
     const [channelFilter, setChannelFilter] = useState('');
     const [filteredSongs, setFilteredSongs] = useState([]);
@@ -35,10 +35,18 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 setCurrentSongs={setChannelFilter}
             />
             <Songbook 
-                currentSongs={filteredSongs}
-                setCurrentSongs={setFilteredSongs}
+                // currentSongs={filteredSongs}
+                handleAddToQueue={handleAddToQueue}
+                stageName={roomInfo.stageName}
+                // setCurrentSongs={setFilteredSongs}
             />
-            {/* <Queue /> */}
+            
+            { queue.length > 0 ?
+                <Queue 
+                    queue={queue}
+                />
+                : null }
+            
             <Chat
                 messageArray={messageArray}
                 setNewMessage={setNewMessage}
@@ -55,7 +63,9 @@ GreenRoom.propTypes = {
     newMessage: PropTypes.string.isRequired,
     roomInfo: PropTypes.object.isRequired,
     messageArray: PropTypes.array.isRequired,
-    setNewMessage: PropTypes.func.isRequired
+    setNewMessage: PropTypes.func.isRequired,
+    queue: PropTypes.array.isRequired,
+    handleAddToQueue: PropTypes.func.isRequired
 };
 
 export default GreenRoom;

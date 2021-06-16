@@ -1,10 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Typography } from "@material-ui/core";
+
 
 const QueueItem = ({ title, stageName }) => (
-    <>
-        <p>{stageName}: {title}</p>
-    </>
+    
+    <Typography variant='p'>
+        {stageName}: {title}
+    </Typography>
+    
 );
 
 QueueItem.propTypes = {

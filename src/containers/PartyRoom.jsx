@@ -4,6 +4,7 @@ import ChatList from '../components/Chat/ChatList';
 import { Grid, Typography } from '@material-ui/core';
 import screenfull from 'screenfull';
 import PropTypes from 'prop-types';
+import Queue from '../components/Queue/Queue';
 
 const PartyRoom = ({ roomInfo, messageArray }) => {
     const [roomName, setRoomName] = useState(roomInfo.roomName);
@@ -99,6 +100,9 @@ const PartyRoom = ({ roomInfo, messageArray }) => {
                 </Grid>
                 <Grid item style={{ border: '1px solid #000' }}>
                     <ChatList messageArray={messages} />
+                </Grid>
+                <Grid item>
+                    <Queue />
                 </Grid>
             </Grid>
         </div>

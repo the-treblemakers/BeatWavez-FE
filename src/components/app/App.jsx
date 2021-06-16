@@ -16,9 +16,13 @@ export default function App() {
         handleJoinRoom,
         handleCreateRoom,
         handleNewMessage,
+        setNewMessage,
+        handleAddToQueue,
         roomInfo,
         messageArray,
         newMessage,
+        queue
+        
     } = useSocket();
 
     return (
@@ -33,8 +37,11 @@ export default function App() {
                     <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps}
                         roomInfo={roomInfo}
                         messageArray={messageArray}
-                        handleNewMessage={handleNewMessage}
                         newMessage={newMessage}
+                        queue={queue}
+                        setNewMessage={setNewMessage}
+                        handleNewMessage={handleNewMessage}
+                        handleAddToQueue={handleAddToQueue}
                     />} />
                     <Route path="/partyroom" render={(routerProps) => <PartyRoom {...routerProps}
                         roomInfo={roomInfo}

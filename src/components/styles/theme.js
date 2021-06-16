@@ -1,4 +1,5 @@
 import { createMuiTheme } from '@material-ui/core';
+import { ArrowRight } from '@material-ui/icons';
 
 export const theme = createMuiTheme({
     typography: {
@@ -19,6 +20,9 @@ export const theme = createMuiTheme({
         },
         h3: {
             fontSize: 18,
+        },
+        body1: {
+            fontSize: 16,
         }
     },
     palette: {

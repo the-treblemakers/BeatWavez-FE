@@ -64,7 +64,7 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
                 spacing={5}>
             
                 <Grid item>
-                    <Typography variant="h2">
+                    <Typography variant="h2" align="center">
                         {roomName} Room
                     </Typography>
                 </Grid>

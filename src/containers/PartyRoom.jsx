@@ -15,27 +15,6 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const [messages, setMessages] = useState(messageArray);
     const [queue, setQueue] = useState(queueArray);
 
-    // const queue = [
-    //     {
-    //         id: 1,
-    //         stageName: 'Cher',
-    //         title: "Radiohead - No Surprises - Karaoke Version from Zoom Karaoke",
-    //         vidId: 'H8cNOHKKx7U'
-    //     },
-    //     {
-    //         id: 2,
-    //         stageName: 'Queen',
-    //         title: "Lost In The Woods - Frozen 2 Soundtrack - Karaoke Version from Zoom Karaoke",
-    //         vidId: 'GeEVHGtuZ68'
-    //     },
-    //     {
-    //         id: 3,
-    //         stageName: 'Brittany',
-    //         title: "YEBBA - My Mind  - Acoustative Piano Karaoke Version from Zoom Karaoke",
-    //         vidId: 'Q_jmz2oFCJM'
-    //     },
-    // ];
-
     const videoRef = useRef(null);
 
     useEffect(() => {
@@ -62,7 +41,6 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
         }
 
     };
-
 
     const handlePlay = () => {
         if (playing === false) {

@@ -1,8 +1,7 @@
 import React  from "react";
 import ChatList from './ChatList';
 import PropTypes from 'prop-types';
-
-
+import { TextField, Button, Grid } from '@material-ui/core';
 
 const Chat = ({ messageArray, setNewMessage, handleNewMessage, newMessage }) => {
     // const [newMessage, setNewMessage] = useState('');
@@ -23,16 +22,34 @@ const Chat = ({ messageArray, setNewMessage, handleNewMessage, newMessage }) => 
 
 
     return (
-        <>
+        <Grid container
+        direction="column" 
+        alignItems="center" 
+        justify="center">
             <ChatList 
                 messageArray={messageArray} />
-
-            <input 
-                type="text" 
+            <Grid container
+                direction="row"
+                alignItems="center" 
+                justify="center">
+            <TextField 
+                variant="filled" 
+                label="message"
+                fullWidth
+                style={{ marginBottom: '1em' }}
                 value={newMessage} 
                 onChange={({ target }) => setNewMessage(target.value)} />
-            <button onClick={handleNewMessage}>Send Message</button>
-        </>
+
+            <Button 
+                name="send message"
+                size="small"
+                color="primary"
+                style={{ marginBottom: '1em' }}
+                onClick={handleNewMessage}>
+                    Send Message
+            </Button>
+            </Grid>
+        </Grid>
     );
 };
 

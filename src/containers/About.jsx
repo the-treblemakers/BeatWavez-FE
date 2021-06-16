@@ -9,7 +9,7 @@ const About = () => {
                 <p>
                     <h2>KB</h2>
                     <img src=""/>
-                    KB is cool af and wonderful all around.
+                    My name is KB and I'm a full stack software engineer in Portland, OR. I like travelling, dancing, video games, and reading. The first karaoke song I sang was "It's Oh So Quiet" by Bjork.
                 LinkedIn: https://www.linkedin.com/in/katy-boyles/
 
                 Github: https://github.com/katrinkajb
@@ -20,7 +20,7 @@ const About = () => {
                 <p>
                     <h2>NICOLE</h2>
                     <img src=""/>
-                    Nicole is amazing and the best pup parent.
+                    Hi I’m Nicole! I am a full stack software engineer located in Portland, OR. I enjoy working with computers and collaborating on fun and impactful projects that will help the planet, animals, and all humans. Also a huge fan of vegan food, coffee and being outside in the beautiful Pacific Northwest with my dog, Cooper. My favorite karaoke songs to sing are Cherry Bomb by The Runaways and Sunday Morning by No Doubt.
                 LinkedIn: https://www.linkedin.com/in/nicolemartinpdx/
 
                 Github: https://github.com/nicole-m-martin

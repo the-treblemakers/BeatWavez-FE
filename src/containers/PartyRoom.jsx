@@ -85,9 +85,6 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
                         queueIndex={queueIndex}/>
                         
                 </Grid>
-                <Grid item style={{ border: '1px solid #000' }}>
-                    <ChatList messageArray={messages} />
-                </Grid>
                 <Grid item>
                     <PartyRoomAccordion
                         messages={messages}

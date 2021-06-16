@@ -5,7 +5,7 @@ import VideoControls from './VideoControls';
 import ReactPlayer from 'react-player';
  
 
-const Video = ({ embedId, stageName, onPrevious, onPlay, onNext, onFullscreen, playing, videoRef }) => {
+const Video = ({ embedId, stageName, onPrevious, onPlay, onNext, onFullscreen, playing, videoRef, queue, queueIndex }) => {
     
    
     return  (
@@ -23,7 +23,9 @@ const Video = ({ embedId, stageName, onPrevious, onPlay, onNext, onFullscreen, p
                     onPrevious={onPrevious} 
                     onPlay={onPlay} 
                     onNext={onNext}
-                    onFullscreen={onFullscreen}/>
+                    onFullscreen={onFullscreen}
+                    queue={queue}
+                    queueIndex={queueIndex} />
             </div>
         </Card>
     );
@@ -37,7 +39,9 @@ Video.propTypes = {
     onNext: PropTypes.func.isRequired,
     onFullscreen: PropTypes.func.isRequired,
     playing: PropTypes.bool.isRequired,
-    videoRef: PropTypes.object.isRequired
+    videoRef: PropTypes.object.isRequired,
+    queue: PropTypes.array.isRequired,
+    queueIndex: PropTypes.number.isRequired,
 };
 
 export default Video;

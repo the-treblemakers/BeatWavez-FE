@@ -21,8 +21,7 @@ export default function App() {
         roomInfo,
         messageArray,
         newMessage,
-        queue
-        
+        queue   
     } = useSocket();
 
     return (
@@ -46,6 +45,7 @@ export default function App() {
                     <Route path="/partyroom" render={(routerProps) => <PartyRoom {...routerProps}
                         roomInfo={roomInfo}
                         messageArray={messageArray}
+                        queueArray={queue}
                     />} />
                     <Route path="/about" render={(routerProps) => <About {...routerProps} />} />
                     <Route path="/test" render={(routerProps) => <TestRoom {...routerProps} />} />

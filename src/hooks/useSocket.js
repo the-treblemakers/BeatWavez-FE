@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import generateRoomNames from '../RoomNames/generateRoomNames.js';
 import io from "socket.io-client";
 
-const socket = io('http://localhost:7890/');
-// const socket = io('https://beatwavez-dev.herokuapp.com/');
+// const socket = io('http://localhost:7890/');
+const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 export const useSocket = () => {
     const [newMessage, setNewMessage] = useState('');
@@ -49,7 +49,7 @@ export const useSocket = () => {
     };
 
     const handleAddToQueue = (song) => {
-        setQueue([...queue, song]);
+        setQueue([...queue, {title: song.title, vidId: song.vidId, stageName: roomInfo.stageName}]);
     };
 
     return {

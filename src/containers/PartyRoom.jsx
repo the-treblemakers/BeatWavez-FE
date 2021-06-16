@@ -82,7 +82,8 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
                         playing={playing}
                         videoRef={videoRef} 
                         queue={queue}
-                        queueIndex={queueIndex}/>      
+                        queueIndex={queueIndex}/>
+                        
                 </Grid>
                 <Grid item>
                     <PartyRoomAccordion

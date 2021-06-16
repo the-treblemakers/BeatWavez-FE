@@ -10,12 +10,12 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const [query, setQuery] = useState('');
     const [channelFilter, setChannelFilter] = useState('');
     const [filteredSongs, setFilteredSongs] = useState([]);
-    
-    function handleQueryChange(e){
+
+    function handleQueryChange(e) {
         setQuery(e.target.value);
     }
-    
-    function handleSubmit(e){
+
+    function handleSubmit(e) {
         e.preventDefault();
     }
 
@@ -24,29 +24,29 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             <h1>Welcome to the GreenRoom</h1>
             <h2>{roomInfo.roomName} {roomInfo.stageName}</h2>
             {/* DISPLAY ROOM NAME, STAGE NAME INSTRUCTIONS TO INVITE FRIENDS ALSO ADD FLAVOR/GLITTER!!!! In an alert? Or just on the page somewhere? */}
-            <SearchBar 
-                query={query} 
+            <SearchBar
+                query={query}
                 setQuery={setQuery}
                 handleQueryChange={handleQueryChange}
                 handleSubmit={handleSubmit}
             />
-            <SearchFilters 
+            <SearchFilters
                 channelFilter={channelFilter}
                 setCurrentSongs={setChannelFilter}
             />
-            <Songbook 
+            <Songbook
                 // currentSongs={filteredSongs}
                 handleAddToQueue={handleAddToQueue}
                 stageName={roomInfo.stageName}
-                // setCurrentSongs={setFilteredSongs}
+            // setCurrentSongs={setFilteredSongs}
             />
-            
-            { queue.length > 0 ?
-                <Queue 
+
+            {queue.length > 0 ?
+                <Queue
                     queue={queue}
                 />
-                : null }
-            
+                : null}
+
             <Chat
                 messageArray={messageArray}
                 setNewMessage={setNewMessage}

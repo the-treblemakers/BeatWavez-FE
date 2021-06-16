@@ -9,6 +9,7 @@ export const useSocket = () => {
     const [newMessage, setNewMessage] = useState('');
     const [messageArray, setMessageArray] = useState([]);
     const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '' });
+    const [queue, setQueue] = useState([]);
 
     useEffect(() => {
         socket.on('MESSAGE', (message) => {
@@ -47,6 +48,10 @@ export const useSocket = () => {
         setNewMessage('');
     };
 
+    const handleAddToQueue = (song) => {
+        setQueue([...queue, { title: song.title, vidId: song.vidId, stageName: roomInfo.stageName }]);
+    };
+
     return {
         handleJoinRoom,
         handleCreateRoom,
@@ -54,5 +59,8 @@ export const useSocket = () => {
         roomInfo,
         messageArray,
         newMessage,
+        setNewMessage,
+        handleAddToQueue,
+        queue
     };
 };

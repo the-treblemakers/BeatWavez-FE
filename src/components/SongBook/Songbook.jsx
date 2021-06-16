@@ -1,33 +1,39 @@
 import React, { useEffect, useState } from 'react';
-// import PropTypes from 'prop-types';
 import SongbookItem from './SongbookItem';
 import Spinner from '../UI/Spinner';
+import PropTypes from 'prop-types';
 import { getAllSongs } from '../../services/apiUtils';
 
-const Songbook = () => {
+const Songbook = ({ handleAddToQueue, stageName }) => {
     const [songs, setSongs] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [currentPage, setCurrentPage] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
     const [currentSongs, setCurrentSongs] = useState([]);
-    const [queue, setQueue] = useState([]);
+    // const [queue, setQueue] = useState([]);
 
-    // useEffect(() => {
-    //     getAllSongs()
-    //         .then((returnedSongs) => setSongs(returnedSongs))
-    //         .then()    setCurrentSongs(returnedSongs.slice(0, 20))
-    //             .finally(() => setLoading(false));
-    // }, [currentPage]);
+    useEffect(() => {
+        getAllSongs()
+            .then((returnedSongs) => {
+                setSongs(returnedSongs);
+                setCurrentSongs(returnedSongs.slice(0, 20));
+            })
+            .finally(() => setLoading(false));
+    }, []);
 
-    const handlePageChange = (currentPage) => {
+
+    const handlePageChange = () => {
         setCurrentPage(currentPage + 1);
-        const newPage = songs.slice(20, 40);
+
+        const sliceMathStart = currentPage * 20;
+        const sliceMathEnd = sliceMathStart + 20;
+        const newPage = songs.slice(sliceMathStart, sliceMathEnd);
+
         setCurrentSongs(newPage);
-        console.log(songs.length, newPage);
     };
 
-    const handleAddToQueue = (song) => {
-        setQueue(...queue, song);
-    };
+    // const handleAddToQueue = (song) => {
+    //     setQueue(...queue, song);
+    // };
 
     if (loading) return <Spinner />;
 
@@ -35,17 +41,21 @@ const Songbook = () => {
         <ul aria-label='songs'>
             <button onClick={handlePageChange}>Next Page</button>
             {currentSongs.map((song, i) => (
-                <>
-                    <li key={song.title + i}>
-                        <SongbookItem {...song} />
-                    </li>
+                <li key={song.title + i}>
+                    <SongbookItem {...song} />
                     <button
-                        onClick={handleAddToQueue}>Add to queue</button>
+
+                        onClick={() => handleAddToQueue(song)}>Add to queue</button>
                     {/* <button>Flag as a bad video</button> */}
-                </>
+                </li>
             ))}
         </ul>
     );
+};
+
+Songbook.propTypes = {
+    handleAddToQueue: PropTypes.func.isRequired,
+    stageName: PropTypes.string.isRequired
 };
 
 export default Songbook;

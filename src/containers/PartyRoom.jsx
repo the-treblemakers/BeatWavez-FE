@@ -18,20 +18,23 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const videoRef = useRef(null);
 
     useEffect(() => {
-        setStageName(queue[queueIndex].stageName);
-        setEmbedId(queue[queueIndex].vidId);
-        setMessages(messageArray);
-        setQueue(queueArray);
+        if(queue.length === 0){
+            setMessages(messageArray);
+            setQueue(queueArray);
+        } else {
+            setStageName(queue[queueIndex].stageName);
+            setEmbedId(queue[queueIndex].vidId);
+            setMessages(messageArray);
+            setQueue(queueArray);
+        }
     }, [queueIndex, messageArray, queueArray]);
 
     const handlePrevious = () => {
         setQueueIndex((queueIndex - 1));
-        //add button disable
     };
 
     const handleNext = () => {
         setQueueIndex((queueIndex + 1));
-        //add button disable
     };
 
     const handleFullscreen = () => {

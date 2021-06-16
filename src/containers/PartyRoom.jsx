@@ -8,7 +8,7 @@ import Queue from '../components/Queue/Queue';
 
 const PartyRoom = ({ roomInfo, messageArray }) => {
     const [roomName, setRoomName] = useState(roomInfo.roomName);
-    const [stagename, setStagename] = useState('');
+    const [stageName, setStageName] = useState('');
     const [embedId, setEmbedId] = useState('');
     const [queueIndex, setQueueIndex] = useState(0);
     const [playing, setPlaying] = useState(false);
@@ -20,19 +20,19 @@ const PartyRoom = ({ roomInfo, messageArray }) => {
     const queue = [
         {
             id: 1,
-            stagename: 'Cher',
+            stageName: 'Cher',
             title: "Radiohead - No Surprises - Karaoke Version from Zoom Karaoke",
             vidId: 'H8cNOHKKx7U'
         },
         {
             id: 2,
-            stagename: 'Queen',
+            stageName: 'Queen',
             title: "Lost In The Woods - Frozen 2 Soundtrack - Karaoke Version from Zoom Karaoke",
             vidId: 'GeEVHGtuZ68'
         },
         {
             id: 3,
-            stagename: 'Brittany',
+            stageName: 'Brittany',
             title: "YEBBA - My Mind  - Acoustative Piano Karaoke Version from Zoom Karaoke",
             vidId: 'Q_jmz2oFCJM'
         },
@@ -41,7 +41,7 @@ const PartyRoom = ({ roomInfo, messageArray }) => {
     const videoRef = useRef(null);
 
     useEffect(() => {
-        setStagename(queue[queueIndex].stagename);
+        setStageName(queue[queueIndex].stageName);
         setEmbedId(queue[queueIndex].vidId);
         setMessages(messageArray);
     }, [queueIndex, messageArray]);
@@ -90,7 +90,7 @@ const PartyRoom = ({ roomInfo, messageArray }) => {
                 <Grid item>
                     <Video
                         embedId={embedId}
-                        stagename={stagename}
+                        stageName={stageName}
                         onPrevious={handlePrevious}
                         onPlay={handlePlay}
                         onNext={handleNext}

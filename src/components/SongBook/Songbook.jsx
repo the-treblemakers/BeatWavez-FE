@@ -45,9 +45,7 @@ const Songbook = ({ handleAddToQueue, stageName }) => {
                     <SongbookItem {...song} />
                     <button 
 
-                        onClick={handleAddToQueue({
-                            song, stageName
-                        })}>Add to queue</button>
+                        onClick={() => handleAddToQueue(song)}>Add to queue</button>
                     {/* <button>Flag as a bad video</button> */}
                 </li>
             ))}

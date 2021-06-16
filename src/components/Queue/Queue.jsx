@@ -6,8 +6,8 @@ const Queue = ({ queue }) => {
 
     return (
         <ul aria-label="queue">
-            {queue.map((item) => (
-                <li key={item.title}>
+            {queue.map((item, i) => (
+                <li key={item.title + i}>
                     <QueueItem {...item} />
                 </li>
             ))}
@@ -20,8 +20,6 @@ Queue.propTypes = {
         PropTypes.shape({
             title: PropTypes.string.isRequired,
             stageName: PropTypes.string.isRequired,
-            thumbnail: PropTypes.string.isRequired,
-            channelName: PropTypes.string.isRequired,
         })
     ),
 };

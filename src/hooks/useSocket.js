@@ -49,7 +49,7 @@ export const useSocket = () => {
     };
 
     const handleAddToQueue = (song) => {
-        setQueue([...queue, song]);
+        setQueue([...queue, {title: song.title, vidId: song.vidId, stageName: roomInfo.stageName}]);
     };
 
     return {

@@ -57,6 +57,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         </div>
     );
 };
+
 GreenRoom.propTypes = {
     handleNewMessage: PropTypes.func.isRequired,
     newMessage: PropTypes.string.isRequired,

@@ -8,7 +8,7 @@ import ChatList from "../components/Chat/ChatList";
 import io from "socket.io-client";
 import Spinner from '../components/UI/Spinner';
 
-const socket = io('http://localhost:7890/');
+// const socket = io('http://localhost:7890/');
 // const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 const TestRoom = () => {

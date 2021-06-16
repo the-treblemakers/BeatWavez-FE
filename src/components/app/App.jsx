@@ -21,7 +21,7 @@ export default function App() {
         roomInfo,
         messageArray,
         newMessage,
-        queue   
+        queue
     } = useSocket();
 
     return (

@@ -21,7 +21,7 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
         setStageName(queue[queueIndex].stageName);
         setEmbedId(queue[queueIndex].vidId);
         setMessages(messageArray);
-        setQueue(queueArray)
+        setQueue(queueArray);
     }, [queueIndex, messageArray, queueArray]);
 
     const handlePrevious = () => {
@@ -35,11 +35,9 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     };
 
     const handleFullscreen = () => {
-        console.log(videoRef);
         if (screenfull.isEnabled) {
             screenfull.request(videoRef.current.wrapper);
         }
-
     };
 
     const handlePlay = () => {
@@ -73,13 +71,16 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
                         onNext={handleNext}
                         onFullscreen={handleFullscreen}
                         playing={playing}
-                        videoRef={videoRef} />
+                        videoRef={videoRef} 
+                        queue={queue}
+                        queueIndex={queueIndex}/>
+                        
                 </Grid>
                 <Grid item style={{ border: '1px solid #000' }}>
                     <ChatList messageArray={messages} />
                 </Grid>
                 <Grid item>
-                    <Queue queue={queue}/>
+                    <Queue queue={queue} />
                 </Grid>
             </Grid>
         </div>

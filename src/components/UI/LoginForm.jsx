@@ -59,7 +59,6 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
                     size="large"
                     variant="contained"
                     color="primary"
-
                     disabled={roomName !== '' || stageName === ''}
                     onClick={() => {
                         handleCreateRoom(stageName);

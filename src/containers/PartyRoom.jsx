@@ -21,7 +21,7 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
         setStageName(queue[queueIndex].stageName);
         setEmbedId(queue[queueIndex].vidId);
         setMessages(messageArray);
-        setQueue(queueArray)
+        setQueue(queueArray);
     }, [queueIndex, messageArray, queueArray]);
 
     const handlePrevious = () => {
@@ -77,7 +77,7 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
                     <ChatList messageArray={messages} />
                 </Grid>
                 <Grid item>
-                    <Queue queue={queue}/>
+                    <Queue queue={queue} />
                 </Grid>
             </Grid>
         </div>

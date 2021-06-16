@@ -2,20 +2,46 @@ import { useState, useEffect } from "react";
 import generateRoomNames from '../RoomNames/generateRoomNames.js';
 import io from "socket.io-client";
 
-// const socket = io('http://localhost:7890/');
-const socket = io('https://beatwavez-dev.herokuapp.com/');
+const socket = io('http://localhost:7890/');
+// const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 export const useSocket = () => {
     const [newMessage, setNewMessage] = useState('');
     const [messageArray, setMessageArray] = useState([]);
     const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '' });
     const [queue, setQueue] = useState([]);
+    const [host, setHost] = useState('');
 
     useEffect(() => {
         socket.on('MESSAGE', (message) => {
             setMessageArray([...messageArray, message]);
         });
-    }, [roomInfo, messageArray]);
+
+        socket.on('HOST', (hostId, sender) => {
+            if (!hostId && host !== '') {
+                socket.emit('HOST', host, sender);
+            } else if (host === '' && hostId) {
+                setHost(hostId);
+                socket.emit('SONG_QUEUE', queue, hostId);
+            }
+            console.log(host, 'HOST');
+        });
+
+        socket.on('SONG_QUEUE', (queueRequest, sender) => {
+            if (queueRequest.length === 0 && queue.length !== 0) {
+                socket.emit('SONG_QUEUE', queue, sender);
+            } else if (queueRequest === 1 && sender !== host) {
+                setQueue(...queue, queueRequest);
+                socket.emit('SONG_QUEUE', queue, host, roomInfo.roomName);
+            } else if (sender === host) {
+                setQueue(queueRequest);
+            }
+        });
+    }, [roomInfo, messageArray, host, queue]);
+
+    // add SONG_QUEUE socket event for queue add button (sends song as queue, host as hostId)
+    // decide if host can be used outside of hook (maybe to determine song/queue controls)
+    // check room availability logic and create_room insert/add delete on host disconnnect
 
     useEffect(() => {
         return () => {
@@ -49,7 +75,7 @@ export const useSocket = () => {
     };
 
     const handleAddToQueue = (song) => {
-        setQueue([...queue, {title: song.title, vidId: song.vidId, stageName: roomInfo.stageName}]);
+        setQueue([...queue, { title: song.title, vidId: song.vidId, stageName: roomInfo.stageName }]);
     };
 
     return {
@@ -60,7 +86,7 @@ export const useSocket = () => {
         messageArray,
         newMessage,
         setNewMessage,
-        handleAddToQueue, 
+        handleAddToQueue,
         queue
     };
 };

@@ -43,7 +43,7 @@ const Songbook = ({ handleAddToQueue, stageName }) => {
             {currentSongs.map((song, i) => (
                 <li key={song.title + i}>
                     <SongbookItem {...song} />
-                    <button 
+                    <button
 
                         onClick={() => handleAddToQueue(song)}>Add to queue</button>
                     {/* <button>Flag as a bad video</button> */}

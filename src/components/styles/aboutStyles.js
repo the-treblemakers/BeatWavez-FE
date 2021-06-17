@@ -2,8 +2,8 @@ import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
     media: {
-        height: 0,
-        paddingTop: '100%', 
+        width: "15rem",
+        height: 'auto',
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -14,5 +14,8 @@ export const useStyles = makeStyles((theme) => ({
     },
     expandOpen: {
         transform: 'rotate(180deg)',
+    },
+    bio: {
+        width: "20rem"
     },
 }));

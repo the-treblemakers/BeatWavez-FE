@@ -57,17 +57,16 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
         <div>
             <Grid
                 container
-                justify="center"
+                justify="space-between"
                 alignItems="center"
                 direction="column"
-                style={{ minHeight: '100vh' }}
-                spacing={5}>
+                style={{ minHeight: '93.5vh' }}>
 
                 <Grid item>
                     <Typography
                         variant="h2"
                         align="center"
-                        style={{ margin: '1rem' }}>
+                        style={{ margin: '1.5rem' }}>
                         {roomName} Room
                     </Typography>
                 </Grid>

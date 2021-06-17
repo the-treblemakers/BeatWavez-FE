@@ -39,16 +39,14 @@ const theme = createMuiTheme({
             fontWeight: 600,
         },
         h3: {
-
             fontSize: 16,
         },
         body1: {
             fontSize: 14,
-
         },
         body2: {
-            fontSize: 14,
-            fontWeight: 300,
+          fontSize: 14,
+          fontWeight: 300,
         }
     },
 });

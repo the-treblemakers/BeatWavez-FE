@@ -44,12 +44,12 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setLoading(true);
         setQuery(e.target.value);
 
-    }        
-      
-    function handleDropdownChange(e){
+    }
+
+    function handleDropdownChange(e) {
         setChannelFilter(e.target.value);
     }
-   
+
     function handleSubmit(e) {
         e.preventDefault();
 
@@ -84,17 +84,17 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 handleDropdownChange={handleDropdownChange}
             />
             {loading && <Spinner />}
-            {!loading && 
-            <Songbook
-                handleAddToQueue={handleAddToQueue}
-                stageName={roomInfo.stageName}
-                currentSongs={currentSongs}
-                setCurrentSongs={setCurrentSongs}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                loading={loading}
-                songbook={songbook}
-            />}
+            {!loading &&
+                <Songbook
+                    handleAddToQueue={handleAddToQueue}
+                    stageName={roomInfo.stageName}
+                    currentSongs={currentSongs}
+                    setCurrentSongs={setCurrentSongs}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    loading={loading}
+                    songbook={songbook}
+                />}
             {queue.length > 0 ?
                 <Queue
                     queue={queue}

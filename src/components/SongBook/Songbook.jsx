@@ -2,6 +2,11 @@ import React, { useEffect } from 'react';
 import SongbookItem from './SongbookItem';
 import Spinner from '../UI/Spinner';
 import PropTypes from 'prop-types';
+import { List, ListItem, IconButton, Grid } from '@material-ui/core';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import AddIcon from '@material-ui/icons/Add';
+
 
 const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook }) => {
     useEffect(() => {
@@ -20,18 +25,29 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
     if (loading) return <Spinner />;
 
     return (
-        <ul aria-label='songs'>
-            <button onClick={handlePageChange}>Next Page</button>
+        <List aria-label='songs'>
+            <Grid container
+            direction="row"
+            alignItems="center"
+            justify="space-between">
+                <IconButton onClick={handlePageChange}>
+                    <NavigateBeforeIcon />
+                </IconButton>
+                <IconButton onClick={handlePageChange}>
+                    <NavigateNextIcon />
+                </IconButton>
+            </Grid>
             {currentSongs.map((song, i) => (
-                <li key={song.title + i}>
+                <ListItem key={song.title + i}>
                     <SongbookItem {...song} />
-                    <button
-
-                        onClick={() => handleAddToQueue(song)}>Add to queue</button>
+                    <IconButton
+                        onClick={() => handleAddToQueue(song)}>
+                            <AddIcon />
+                        </IconButton>
                     {/* <button>Flag as a bad video</button> */}
-                </li>
+                </ListItem>
             ))}
-        </ul>
+        </List>
     );
 };
 

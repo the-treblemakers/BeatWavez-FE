@@ -99,28 +99,34 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 <AccordionDetails>
                     <Grid container
                         direction="column" alignItems="center" justify="center">
+                            <Grid container
+                                direction="row"
+                                alignItems="center"
+                                justify="space-between">
+                        <SearchFilters
+                            handleDropdownChange={handleDropdownChange}
+                        />
                         <SearchBar
                             query={query}
                             setQuery={setQuery}
                             handleQueryChange={handleQueryChange}
                             handleSubmit={handleSubmit}
                         />
-                        <SearchFilters
-                            handleDropdownChange={handleDropdownChange}
-                        />
+                        </Grid>
                         {loading && <Spinner />}
                         {!loading &&
-                <Songbook
-                    handleAddToQueue={handleAddToQueue}
-                    stageName={roomInfo.stageName}
-                    currentSongs={currentSongs}
-                    setCurrentSongs={setCurrentSongs}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    loading={loading}
-                    songbook={filteredSongs}
+                            <Songbook
+                                handleAddToQueue={handleAddToQueue}
+                                stageName={roomInfo.stageName}
+                                currentSongs={currentSongs}
+                                setCurrentSongs={setCurrentSongs}
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                loading={loading}
+                                songbook={filteredSongs}
 
-                />}
+                            />
+                        }
                     </Grid>
                 </AccordionDetails>
             </Accordion>

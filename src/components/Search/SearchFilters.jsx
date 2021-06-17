@@ -3,10 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SearchFilters = ({ handleDropdownChange }) => {
-    
+
     return (
         <select onChange={handleDropdownChange} >
-            <option value="">Filter by Channel</option>
+            <option value="">All Channels</option>
             <option value="Zoom Karaoke">Zoom Karaoke</option>
             <option value="Vocal Star Karaoke">Vocal Star Karaoke</option>
             <option value="CC Karaoke">CC Karaoke</option>

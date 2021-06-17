@@ -21,10 +21,17 @@ export const theme = createMuiTheme({
         },
         h3: {
             fontSize: 18,
+<<<<<<< HEAD
         },
         body1: {
             fontSize: 16,
         },
+=======
+
+        body1: {
+            fontSize: 16,
+        }
+>>>>>>> ae8c7af7a5cf00deb43a3bbfa7df27cab99b7ab7
     },
     palette: {
         primary: {

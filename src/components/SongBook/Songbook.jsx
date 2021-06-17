@@ -2,6 +2,11 @@ import React, { useEffect } from 'react';
 import SongbookItem from './SongbookItem';
 import Spinner from '../UI/Spinner';
 import PropTypes from 'prop-types';
+import { List, ListItem, IconButton, Grid, Card } from '@material-ui/core';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import AddIcon from '@material-ui/icons/Add';
+
 
 const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook }) => {
     useEffect(() => {
@@ -17,21 +22,48 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
         setCurrentSongs(newPage);
     };
 
-    if (loading) return <Spinner />;
+    if(loading) return <Spinner />;
 
     return (
-        <ul aria-label='songs'>
-            <button onClick={handlePageChange}>Next Page</button>
-            {currentSongs.map((song, i) => (
-                <li key={song.title + i}>
-                    <SongbookItem {...song} />
-                    <button
-
-                        onClick={() => handleAddToQueue(song)}>Add to queue</button>
-                    {/* <button>Flag as a bad video</button> */}
-                </li>
-            ))}
-        </ul>
+        <Grid container 
+            direction="column"
+            alignItems="center">
+            <Grid container
+                direction="row"
+                alignItems="center"
+                justify="space-between">
+                <IconButton onClick={handlePageChange}>
+                    <NavigateBeforeIcon />
+                </IconButton>
+                <IconButton onClick={handlePageChange}>
+                    <NavigateNextIcon />
+                </IconButton>
+            </Grid>
+            <List 
+                style={{ maxHeight: 400, overflow: 'auto' }}
+                aria-label='songs'>
+                {currentSongs.map((song, i) => (
+                    <ListItem key={song.title + i}>
+                        <Card variant="outlined">
+                            <Grid container
+                                direction="row"
+                                alignItems="center">
+                                <Grid item xs={10}>
+                                    <SongbookItem {...song} />
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <IconButton
+                                        onClick={() => handleAddToQueue(song)}>
+                                        <AddIcon />
+                                    </IconButton>
+                                </Grid>
+                                {/* <button>Flag as a bad video</button> */}
+                            </Grid>
+                        </Card>
+                    </ListItem>
+                ))}
+            </List>
+        </Grid>
     );
 };
 

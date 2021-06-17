@@ -48,7 +48,7 @@ export default function App() {
                         queueArray={queue}
                     />} />
                     <Route path="/about" render={(routerProps) => <About {...routerProps} />} />
-                    <Route path="/test" render={(routerProps) => <TestRoom {...routerProps} />} />
+                    {/* <Route path="/test" render={(routerProps) => <TestRoom {...routerProps} />} /> */}
                 </Switch>
             </Router>
         </ThemeProvider>

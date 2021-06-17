@@ -10,33 +10,62 @@ export const useSocket = () => {
     const [messageArray, setMessageArray] = useState([]);
     const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '' });
     const [queue, setQueue] = useState([]);
-    const [host, setHost] = useState('');
+    const [host, setHost] = useState({ hostId: '', isHost: false });
 
     useEffect(() => {
         socket.on('MESSAGE', (message) => {
             setMessageArray([...messageArray, message]);
         });
 
-        socket.on('HOST', (hostId, sender) => {
-            if (!hostId && host !== '') {
-                socket.emit('HOST', host, sender);
-            } else if (host === '' && hostId) {
-                setHost(hostId);
-                socket.emit('SONG_QUEUE', queue, hostId);
-            }
-            console.log(host, 'HOST');
+        socket.on('SET_HOST', ({ hostId }) => {
+            setHost({ hostId, isHost: true });
         });
 
-        socket.on('SONG_QUEUE', (queueRequest, sender) => {
-            if (queueRequest.length === 0 && queue.length !== 0) {
-                socket.emit('SONG_QUEUE', queue, sender);
-            } else if (queueRequest === 1 && sender !== host) {
-                setQueue(...queue, queueRequest);
-                socket.emit('SONG_QUEUE', queue, host, roomInfo.roomName);
-            } else if (sender === host) {
-                setQueue(queueRequest);
+        socket.on('REQUEST_HOST', ({ sender }) => {
+            if (host.isHost) {
+                socket.emit('SEND_HOST', ({ hostId: host.hostId, queue, sender }));
             }
         });
+
+        socket.on('RECEIVE_HOST_QUEUE', ({ hostId, queue }) => {
+            setHost({ hostId, isHost: false });
+            setQueue(queue);
+        });
+
+        socket.on('ADD_TO_QUEUE', ({ title, vidId, stageName, thumbnail }) => {
+            setQueue([...queue, { title, vidId, stageName, thumbnail }]);
+            socket.emit('UPDATE_QUEUE', { queue, roomName: roomInfo.roomName });
+        });
+
+        socket.on('UPDATE_QUEUE', ({ queue }) => {
+            setQueue(queue);
+        });
+
+        // socket.on('HOST', ({ hostId, sender }) => {
+        //     if (!hostId && host !== '') {
+        //         socket.emit('HOST', { hostId: host, sender });
+        //         console.log(host, 'HOST new');
+        //     } else if (host === '' && hostId) {
+        //         setHost(hostId);
+        //         socket.emit('SONG_QUEUE', { queue, hostId });
+        //         console.log(host, 'HOST queue');
+        //     }
+
+        // });
+
+        // socket.on('SONG_QUEUE', ({ queueRequest, sender }) => {
+        //     if (queueRequest.length === 0 && queue.length !== 0) {
+        //         socket.emit('SONG_QUEUE', { queue, hostId: sender });
+        //         console.log(queueRequest, sender, 'QUEUE newFE');
+        //     } else if (queueRequest === 1 && sender !== host) {
+        //         setQueue(...queue, queueRequest);
+        //         socket.emit('SONG_QUEUE', { queue, hostId: host, roomName: roomInfo.roomName });
+        //         console.log(queueRequest, sender, 'QUEUE songFE');
+        //     } else if (sender === host && queueRequest.length !== 0) {
+        //         setQueue(queueRequest); console.log(queueRequest, sender, 'QUEUE allFE');
+        //     }
+
+        // });
     }, [roomInfo, messageArray, host, queue]);
 
     // add SONG_QUEUE socket event for queue add button (sends song as queue, host as hostId)
@@ -75,18 +104,26 @@ export const useSocket = () => {
     };
 
     const handleAddToQueue = (song) => {
-        setQueue([...queue, { title: song.title, vidId: song.vidId, stageName: roomInfo.stageName }]);
+        console.log(song);
+        if (!host.isHost) {
+            console.log(roomInfo.stageName, 'REQ ADD');
+            socket.emit('ADD_TO_QUEUE', ({ title: song.title, vidId: song.vidId, stageName: roomInfo.stageName, thumbnail: song.thumbnail, hostId: host.hostId }));
+        } else if (host.isHost) {
+            console.log(roomInfo.stageName, 'HOST ADD');
+            setQueue([...queue, { title: song.title, vidId: song.vidId, stageName: roomInfo.stageName, thumbnail: song.thumbnail, hostId: host.hostId }]);
+        }
+
     };
 
     return {
-        handleJoinRoom,
         handleCreateRoom,
         handleNewMessage,
-        roomInfo,
+        handleAddToQueue,
+        handleJoinRoom,
+        setNewMessage,
         messageArray,
         newMessage,
-        setNewMessage,
-        handleAddToQueue,
+        roomInfo,
         queue
     };
 };

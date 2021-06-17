@@ -25,13 +25,13 @@ export const theme = createMuiTheme({
         body1: {
             fontSize: 16,
         },
-        palette: {
-            primary: {
-                main: '#8838BC'
-            },
-            secondary: {
-                main: '#F96D10'
-            }
+    },
+    palette: {
+        primary: {
+            main: '#8838BC'
+        },
+        secondary: {
+            main: '#F96D10'
         }
     }
 });

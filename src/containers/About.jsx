@@ -13,23 +13,23 @@ import SORAYA from '../../public/assets/SORAYA.png';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      maxWidth: 345,
+        maxWidth: 345,
     },
     media: {
-      height: 0,
-      paddingTop: '100%', // 16:9
+        height: 0,
+        paddingTop: '100%', // 16:9
     },
     expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
+        transform: 'rotate(0deg)',
+        marginLeft: 'auto',
+        transition: theme.transitions.create('transform', {
+            duration: theme.transitions.duration.shortest,
+        }),
     },
     expandOpen: {
-      transform: 'rotate(180deg)',
+        transform: 'rotate(180deg)',
     },
-  }));
+}));
   
 
 const About = () => {
@@ -56,7 +56,7 @@ const About = () => {
                         image={KB} 
                         title="kb"/>
                     <CardActions>
-                    <Grid container
+                        <Grid container
                             direction="row"
                             justify="space-between"
                             alignItems="center">
@@ -76,12 +76,12 @@ const About = () => {
                                 <TwitterIcon />
                             </IconButton>
                             <IconButton
-                            className={clsx(classes.expand, {
-                                [classes.expandOpen]: expanded,
-                            })}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
+                                className={clsx(classes.expand, {
+                                    [classes.expandOpen]: expanded,
+                                })}
+                                onClick={handleExpandClick}
+                                aria-expanded={expanded}
+                                aria-label="show more"
                             >
                                 <ExpandMoreIcon />
                             </IconButton>
@@ -108,36 +108,36 @@ const About = () => {
                         image={NICOLE} 
                         title="nicole"/>
                     <CardActions>
-                    <Grid container
-                        direction="row"
-                        justify="space-between"
-                        alignItems="center">
-                        <IconButton
-                        target="_blank"
-                        href='https://www.linkedin.com/in/nicolemartinpdx/'>
-                            <LinkedInIcon />
-                        </IconButton>
-                        <IconButton
-                        target="_blank"
-                        href='https://github.com/nicole-m-martin'>
-                            <GitHubIcon />
-                        </IconButton>
-                        <IconButton 
-                        target="_blank"
-                        href='https://twitter.com/nmartinpdx'>
-                            <TwitterIcon />
-                        </IconButton>
-                        <IconButton
-                            className={clsx(classes.expand, {
-                                [classes.expandOpen]: expanded,
-                            })}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
+                        <Grid container
+                            direction="row"
+                            justify="space-between"
+                            alignItems="center">
+                            <IconButton
+                                target="_blank"
+                                href='https://www.linkedin.com/in/nicolemartinpdx/'>
+                                <LinkedInIcon />
+                            </IconButton>
+                            <IconButton
+                                target="_blank"
+                                href='https://github.com/nicole-m-martin'>
+                                <GitHubIcon />
+                            </IconButton>
+                            <IconButton 
+                                target="_blank"
+                                href='https://twitter.com/nmartinpdx'>
+                                <TwitterIcon />
+                            </IconButton>
+                            <IconButton
+                                className={clsx(classes.expand, {
+                                    [classes.expandOpen]: expanded,
+                                })}
+                                onClick={handleExpandClick}
+                                aria-expanded={expanded}
+                                aria-label="show more"
                             >
                                 <ExpandMoreIcon />
-                        </IconButton>
-                    </Grid>
+                            </IconButton>
+                        </Grid>
                     </CardActions>
                     <Collapse
                         in={expanded} 
@@ -158,36 +158,36 @@ const About = () => {
                         image={BRANDON} 
                         title="brandon"/>  
                     <CardActions>
-                    <Grid container
-                        direction="row"
-                        justify="space-between"
-                        alignItems="center">
-                        <IconButton 
-                        target="_blank"
-                        href='https://www.linkedin.com/in/brandonperard/'>
-                            <LinkedInIcon />
-                        </IconButton>
-                        <IconButton 
-                        target="_blank"
-                        href='https://github.com/bperard'>
-                            <GitHubIcon />
-                        </IconButton>
-                        <IconButton 
-                        target="_blank"
-                        href='https://twitter.com/SayYesToExcess'>
-                            <TwitterIcon />
-                        </IconButton>
-                        <IconButton
-                            className={clsx(classes.expand, {
-                                [classes.expandOpen]: expanded,
-                            })}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
+                        <Grid container
+                            direction="row"
+                            justify="space-between"
+                            alignItems="center">
+                            <IconButton 
+                                target="_blank"
+                                href='https://www.linkedin.com/in/brandonperard/'>
+                                <LinkedInIcon />
+                            </IconButton>
+                            <IconButton 
+                                target="_blank"
+                                href='https://github.com/bperard'>
+                                <GitHubIcon />
+                            </IconButton>
+                            <IconButton 
+                                target="_blank"
+                                href='https://twitter.com/SayYesToExcess'>
+                                <TwitterIcon />
+                            </IconButton>
+                            <IconButton
+                                className={clsx(classes.expand, {
+                                    [classes.expandOpen]: expanded,
+                                })}
+                                onClick={handleExpandClick}
+                                aria-expanded={expanded}
+                                aria-label="show more"
                             >
                                 <ExpandMoreIcon />
-                        </IconButton>
-                    </Grid>
+                            </IconButton>
+                        </Grid>
                     </CardActions>
                     <Collapse
                         in={expanded} 
@@ -213,30 +213,30 @@ const About = () => {
                             justify="space-between"
                             alignItems="center">
                             <IconButton 
-                            target="_blank"
-                            href='https://www.linkedin.com/in/soraya-benson/'>
+                                target="_blank"
+                                href='https://www.linkedin.com/in/soraya-benson/'>
                                 <LinkedInIcon />
                             </IconButton>
                             <IconButton 
-                            target="_blank"
-                            href='https://github.com/sorayabenson'>
+                                target="_blank"
+                                href='https://github.com/sorayabenson'>
                                 <GitHubIcon />
                             </IconButton>
                             <IconButton 
-                            target="_blank"
-                            href='https://twitter.com/sorayamajd'>
+                                target="_blank"
+                                href='https://twitter.com/sorayamajd'>
                                 <TwitterIcon />
                             </IconButton>
                             <IconButton
-                            className={clsx(classes.expand, {
-                                [classes.expandOpen]: expanded,
-                            })}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
+                                className={clsx(classes.expand, {
+                                    [classes.expandOpen]: expanded,
+                                })}
+                                onClick={handleExpandClick}
+                                aria-expanded={expanded}
+                                aria-label="show more"
                             >
                                 <ExpandMoreIcon />
-                        </IconButton>
+                            </IconButton>
                         </Grid>
                     </CardActions>
                     <Collapse
@@ -259,36 +259,36 @@ const About = () => {
                         title="lori"/>
                         
                     <CardActions>
-                    <Grid container
-                        direction="row"
-                        justify="space-between"
-                        alignItems="center">
-                        <IconButton 
-                        target="_blank"
-                        href='https://www.linkedin.com/in/loriwinston/'>
-                            <LinkedInIcon />
-                        </IconButton>
-                        <IconButton 
-                        target="_blank"
-                        href='https://github.com/LoriWinston'>
-                            <GitHubIcon />
-                        </IconButton>
-                        <IconButton 
-                        target="_blank"
-                        href='https://twitter.com/LoriWinston8'>
-                            <TwitterIcon />
-                        </IconButton>
-                        <IconButton
-                            className={clsx(classes.expand, {
-                                [classes.expandOpen]: expanded,
-                            })}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
+                        <Grid container
+                            direction="row"
+                            justify="space-between"
+                            alignItems="center">
+                            <IconButton 
+                                target="_blank"
+                                href='https://www.linkedin.com/in/loriwinston/'>
+                                <LinkedInIcon />
+                            </IconButton>
+                            <IconButton 
+                                target="_blank"
+                                href='https://github.com/LoriWinston'>
+                                <GitHubIcon />
+                            </IconButton>
+                            <IconButton 
+                                target="_blank"
+                                href='https://twitter.com/LoriWinston8'>
+                                <TwitterIcon />
+                            </IconButton>
+                            <IconButton
+                                className={clsx(classes.expand, {
+                                    [classes.expandOpen]: expanded,
+                                })}
+                                onClick={handleExpandClick}
+                                aria-expanded={expanded}
+                                aria-label="show more"
                             >
                                 <ExpandMoreIcon />
-                        </IconButton>
-                    </Grid>
+                            </IconButton>
+                        </Grid>
                     </CardActions>
                     <Collapse
                         in={expanded} 

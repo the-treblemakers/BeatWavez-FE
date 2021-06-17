@@ -27,6 +27,7 @@ const Navbar = (props) => {
             <Grid container direction="row" justify="space-between" alignItems="center">
                 <Button 
                     aria-haspopup="true"
+                    color="secondary"
                     aria-owns={anchorEl ? 'menu' : null}
                     onClick={handleClick}>
                     <MenuIcon/>

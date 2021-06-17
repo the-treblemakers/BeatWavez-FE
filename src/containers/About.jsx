@@ -30,7 +30,7 @@ const About = () => {
             <Typography
                 variant="h2" align="center" style={{ margin: "1rem" }}>Meet the KJs</Typography>
             <Grid item>
-                <Card>
+                <Card variant="outlined">
                     <Typography variant="h3" align="center">Katy Boyles</Typography>
                     <CardMedia
                         className={classes.media} 

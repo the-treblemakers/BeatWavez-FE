@@ -16,7 +16,7 @@ export default function PartyRoomAccordion({ messages, queue }) {
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
             >
-                <Typography className={classes.heading}>Chat</Typography>
+                <Typography variant="h3">Chat</Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <ChatList messageArray={messages}/>
@@ -25,7 +25,7 @@ export default function PartyRoomAccordion({ messages, queue }) {
         <Accordion className={classes.accordion}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.heading}>
+                <Typography variant="h3">
                     Queue
                 </Typography>
             </AccordionSummary>

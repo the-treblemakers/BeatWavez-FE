@@ -25,7 +25,9 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
     if (loading) return <Spinner />;
 
     return (
-        <List aria-label='songs'>
+        <Grid container 
+            direction="column"
+            alignItems="center">
             <Grid container
             direction="row"
             alignItems="center"
@@ -37,24 +39,31 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
                     <NavigateNextIcon />
                 </IconButton>
             </Grid>
-            {currentSongs.map((song, i) => (
-                <ListItem key={song.title + i}>
-                    <Card>
-                    <Grid container
-                        direction="row"
-                        alignItems="center"
-                        justify="space-between">
-                        <SongbookItem {...song} />
-                        <IconButton
-                            onClick={() => handleAddToQueue(song)}>
-                                <AddIcon />
-                            </IconButton>
-                        {/* <button>Flag as a bad video</button> */}
-                    </Grid>
-                    </Card>
-                </ListItem>
-            ))}
-        </List>
+            <List 
+                style={{ maxHeight: 400, overflow: 'auto' }}
+                aria-label='songs'>
+                {currentSongs.map((song, i) => (
+                    <ListItem key={song.title + i}>
+                        <Card variant="outlined">
+                        <Grid container
+                            direction="row"
+                            alignItems="center">
+                            <Grid item xs={10}>
+                                <SongbookItem {...song} />
+                            </Grid>
+                            <Grid item xs={2}>
+                                <IconButton
+                                    onClick={() => handleAddToQueue(song)}>
+                                        <AddIcon />
+                                    </IconButton>
+                            </Grid>
+                            {/* <button>Flag as a bad video</button> */}
+                        </Grid>
+                        </Card>
+                    </ListItem>
+                ))}
+            </List>
+        </Grid>
     );
 };
 

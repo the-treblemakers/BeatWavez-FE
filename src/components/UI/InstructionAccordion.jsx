@@ -21,7 +21,7 @@ function InstructionAccordion() {
 
     return (
         <div className={classes.root}>
-            <Typography>
+            <Typography variant="h3" style={{ margin: '1em' }}>
                 How To Play:
             </Typography>
             <Accordion>
@@ -30,12 +30,12 @@ function InstructionAccordion() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
-                    <Typography className={classes.heading}>
+                    <Typography variant="h3">
             Join a Karaoke Room 
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
+                    <Typography variant="body1">
             Enter your Stage Name and the Karaoke Room Name to join your friends
             and start singing!
                     </Typography>
@@ -47,12 +47,12 @@ function InstructionAccordion() {
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                 >
-                    <Typography className={classes.heading}>
+                    <Typography variant="h3">
             Start a New Karaoke Room
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
+                    <Typography variant="body1">
             Enter your Stage Name and click New Room to start a new Karaoke
             Party, then give your friends the code to join you.
                     </Typography>

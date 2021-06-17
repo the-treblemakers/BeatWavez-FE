@@ -44,7 +44,7 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
                 aria-label='songs'>
                 {currentSongs.map((song, i) => (
                     <ListItem key={song.title + i}>
-                        <Card variant="outlined">
+                        <Card variant="outlined" style={{ border: "#FD2C7B 3px solid", borderRadius: "1px", }}>
                         <Grid container
                             direction="row"
                             alignItems="center">

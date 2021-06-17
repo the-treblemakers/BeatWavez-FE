@@ -6,5 +6,8 @@ export const useStyles = makeStyles({
     },
     gridIten: {
         width: "100%"
+    },
+    snackbar: {
+        top: '90',
     }
 });

@@ -47,10 +47,6 @@ const About = () => {
                 <Typography
                     variant="body1">
                     Hi I’m Nicole! I am a full stack software engineer located in Portland, OR. I enjoy working with computers and collaborating on fun and impactful projects that will help the planet, animals, and all humans. Also a huge fan of vegan food, coffee and being outside in the beautiful Pacific Northwest with my dog, Cooper. My favorite karaoke songs to sing are Cherry Bomb by The Runaways and Sunday Morning by No Doubt.
-                
-                Github: https://github.com/nicole-m-martin
-
-                Twitter: https://twitter.com/nmartinpdx
                 </Typography>
                 <Grid container
                     direction="row"
@@ -63,10 +59,12 @@ const About = () => {
                     </IconButton>
                     <IconButton
                      target="_blank"
-                     href='https://www.linkedin.com/in/nicolemartinpdx/'>
+                     href='https://github.com/nicole-m-martin'>
                         <GitHubIcon />
                     </IconButton>
-                    <IconButton>
+                    <IconButton 
+                    target="_blank"
+                     href='https://twitter.com/nmartinpdx'>
                         <TwitterIcon />
                     </IconButton>
                 </Grid>
@@ -77,23 +75,24 @@ const About = () => {
                 <Typography
                     variant="body1">
                     Hello, my name's Brandon, and I'm a full stack software engineer in Portland, OR. I enjoy applying my curiosity to figuring out how things work, and then using that knowledge to create something awesome for the people & communities I love. I probably don't dance or sing very well, but I commit to the performance. My first karaoke song was Careless Whisper; Tribute, Gin & Juice, and Rebel Yell are my go-to's.
-                LinkedIn: https://www.linkedin.com/in/brandonperard/
-
-                Github: https://github.com/bperard
-
-                Twitter: https://twitter.com/SayYesToExcess
                 </Typography>
                 <Grid container
                     direction="row"
                     justify="space-between"
                     alignItems="center">
-                    <IconButton>
+                    <IconButton 
+                    target="_blank"
+                     href='https://www.linkedin.com/in/brandonperard/'>
                         <LinkedInIcon />
                     </IconButton>
-                    <IconButton>
+                    <IconButton 
+                    target="_blank"
+                     href='https://github.com/bperard'>
                         <GitHubIcon />
                     </IconButton>
-                    <IconButton>
+                    <IconButton 
+                    target="_blank"
+                     href='https://twitter.com/SayYesToExcess'>
                         <TwitterIcon />
                     </IconButton>
                 </Grid>
@@ -103,24 +102,25 @@ const About = () => {
                 <img src=""/>
                 <Typography
                     variant="body1">
-                    Oh hi, I’m Soraya, a full-stack engineer in Portland, OR. I adore interactive storytelling, accessible design, and creating things with rad people. My go to karaoke song is ‘The One That I Want’ from Grease :zap:.
-                LinkedIn: https://www.linkedin.com/in/soraya-benson/
-
-                Github: https://github.com/sorayabenson
-
-                Twitter: https://twitter.com/sorayamajd
+                    Oh hi, I’m Soraya, a full-stack engineer in Portland, OR. I adore interactive storytelling, accessible design, and creating things with rad people. My go to karaoke song is ‘The One That I Want’ from Grease ⚡.
                 </Typography>
                 <Grid container
                     direction="row"
                     justify="space-between"
                     alignItems="center">
-                    <IconButton>
+                    <IconButton 
+                    target="_blank"
+                     href='https://www.linkedin.com/in/soraya-benson/'>
                         <LinkedInIcon />
                     </IconButton>
-                    <IconButton>
+                    <IconButton 
+                    target="_blank"
+                     href='https://github.com/sorayabenson'>
                         <GitHubIcon />
                     </IconButton>
-                    <IconButton>
+                    <IconButton 
+                    target="_blank"
+                     href='https://twitter.com/sorayamajd'>
                         <TwitterIcon />
                     </IconButton>
                 </Grid>
@@ -133,23 +133,24 @@ const About = () => {
                 Lori is a software engineer who loves hiking, cooking, and petting dogs. 
                 She has a soft spot for Electric Light Orchestra at karaoke despite Jeff
                 Lynne's angelic voice being far out of her vocal range. 
-                LinkedIn: https://www.linkedin.com/in/loriwinston/
-
-                Github: https://github.com/LoriWinston
-
-                Twitter: https://twitter.com/LoriWinston8
                 </Typography>
                 <Grid container
                     direction="row"
                     justify="space-between"
                     alignItems="center">
-                    <IconButton>
+                    <IconButton 
+                    target="_blank"
+                     href='https://www.linkedin.com/in/loriwinston/'>
                         <LinkedInIcon />
                     </IconButton>
-                    <IconButton>
+                    <IconButton 
+                    target="_blank"
+                     href='https://github.com/LoriWinston'>
                         <GitHubIcon />
                     </IconButton>
-                    <IconButton>
+                    <IconButton 
+                    target="_blank"
+                     href='https://twitter.com/LoriWinston8'>
                         <TwitterIcon />
                     </IconButton>
                 </Grid>

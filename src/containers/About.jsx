@@ -19,25 +19,24 @@ const About = () => {
                 <Typography
                     variant="body1">
                     My name is KB and I'm a full stack software engineer in Portland, OR. I like travelling, dancing, video games, and reading. The first karaoke song I sang was "It's Oh So Quiet" by Bjork.
-                LinkedIn: https://www.linkedin.com/in/katy-boyles/
-
-                Github: https://github.com/katrinkajb
-
-                Twitter: https://twitter.com/KBtrizay
                 </Typography>
                 <Grid container
                     direction="row"
                     justify="space-between"
                     alignItems="center">
                     <IconButton
-                        component={Link}
-                        to='https://www.linkedin.com/in/katy-boyles/'>
+                        target="_blank"
+                        href='https://www.linkedin.com/in/katy-boyles/'>
                         <LinkedInIcon />
                     </IconButton>
-                    <IconButton>
+                    <IconButton
+                        target="_blank"
+                        href='https://github.com/katrinkajb'>
                         <GitHubIcon />
                     </IconButton>
-                    <IconButton>
+                    <IconButton
+                        target="_blank"
+                        href='https://twitter.com/KBtrizay'>
                         <TwitterIcon />
                     </IconButton>
                 </Grid>
@@ -48,8 +47,7 @@ const About = () => {
                 <Typography
                     variant="body1">
                     Hi I’m Nicole! I am a full stack software engineer located in Portland, OR. I enjoy working with computers and collaborating on fun and impactful projects that will help the planet, animals, and all humans. Also a huge fan of vegan food, coffee and being outside in the beautiful Pacific Northwest with my dog, Cooper. My favorite karaoke songs to sing are Cherry Bomb by The Runaways and Sunday Morning by No Doubt.
-                LinkedIn: https://www.linkedin.com/in/nicolemartinpdx/
-
+                
                 Github: https://github.com/nicole-m-martin
 
                 Twitter: https://twitter.com/nmartinpdx
@@ -58,10 +56,14 @@ const About = () => {
                     direction="row"
                     justify="space-between"
                     alignItems="center">
-                    <IconButton>
+                    <IconButton
+                     target="_blank"
+                     href='https://www.linkedin.com/in/nicolemartinpdx/'>
                         <LinkedInIcon />
                     </IconButton>
-                    <IconButton>
+                    <IconButton
+                     target="_blank"
+                     href='https://www.linkedin.com/in/nicolemartinpdx/'>
                         <GitHubIcon />
                     </IconButton>
                     <IconButton>

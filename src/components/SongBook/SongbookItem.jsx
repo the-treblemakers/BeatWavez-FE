@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Grid, Typography, Card, CardMedia, CardContent  } from '@material-ui/core';
 
 const SongbookItem = ({ title, thumbnail }) => (
-    <>
+    <CardContent>
+        <Grid container direction="row">
         <img src={thumbnail} alt={title} />
-        <span>{title} </span>
-        {/* <span>Channel: {channelName} </span> */}
-    </>
+        <Typography variant="body2">{title} </Typography>
+        </Grid>
+    </CardContent>
 );
 
 SongbookItem.propTypes = {

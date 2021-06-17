@@ -1,19 +1,21 @@
-/* eslint-disable react/jsx-key */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TextField, MenuItem } from '@material-ui/core';
 
 const SearchFilters = ({ handleDropdownChange }) => {
-
     return (
-        <select onChange={handleDropdownChange} >
-            <option value="">All Channels</option>
-            <option value="Zoom Karaoke">Zoom Karaoke</option>
-            <option value="Vocal Star Karaoke">Vocal Star Karaoke</option>
-            <option value="CC Karaoke">CC Karaoke</option>
-            <option value="Funbox Karaoke">Funbox Karaoke</option>
-            <option value="Good Karaoke Songs">Good Karaoke Songs</option>
-            <option value="ObsKure Karaoke">ObsKure Karaoke</option>
-        </select>
+        <TextField 
+            select
+            label="select channels"
+            onChange={handleDropdownChange} >
+            <MenuItem value="">All Channels</MenuItem>
+            <MenuItem value="Zoom Karaoke">Zoom Karaoke</MenuItem>
+            <MenuItem value="Vocal Star Karaoke">Vocal Star Karaoke</MenuItem>
+            <MenuItem value="CC Karaoke">CC Karaoke</MenuItem>
+            <MenuItem value="Funbox Karaoke">Funbox Karaoke</MenuItem>
+            <MenuItem value="Good Karaoke Songs">Good Karaoke Songs</MenuItem>
+            <MenuItem value="ObsKure Karaoke">ObsKure Karaoke</MenuItem>
+        </TextField>
     );
 };
 

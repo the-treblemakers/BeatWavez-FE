@@ -30,8 +30,13 @@ export const theme = createMuiTheme({
         primary: {
             main: '#8838BC'
         },
-        secondary: {
-            main: '#F96D10'
+        palette: {
+            primary: {
+                main: '#8838BC'
+            },
+            secondary: {
+                main: '#F96D10'
+            }
         }
     }
 });

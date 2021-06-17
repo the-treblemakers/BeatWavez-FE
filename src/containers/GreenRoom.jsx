@@ -76,14 +76,16 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             {roomInfo.roomName ?
                 <Typography
                     variant="h2"
-                    align="center">
-            Welcome to the {roomInfo.roomName} room!
+                    align="center"
+                    style={{ margin: '1rem' }}>
+                    Welcome to the {roomInfo.roomName} room!
                 </Typography>
                 : 
                 <Typography
                     variant="h2"
-                    align="center">
-                Welcome to the Green room!
+                    align="center"
+                    style={{ margin: '1rem' }}>
+                    Welcome to the Greenroom!
                 </Typography>
             }
             {/* DISPLAY ROOM NAME, STAGE NAME INSTRUCTIONS TO INVITE FRIENDS ALSO ADD FLAVOR/GLITTER!!!! In an alert? Or just on the page somewhere? */}
@@ -91,27 +93,33 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                    <Typography
-                        variant="h3">
+                    <Typography variant="h3">
                         Songbook
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Grid container
-                        direction="column" alignItems="center" justify="center">
+                        direction="column" 
+                        alignItems="center" 
+                        justify="center">
                             <Grid container
                                 direction="row"
                                 alignItems="center"
-                                justify="space-between">
-                        <SearchFilters
-                            handleDropdownChange={handleDropdownChange}
-                        />
-                        <SearchBar
-                            query={query}
-                            setQuery={setQuery}
-                            handleQueryChange={handleQueryChange}
-                            handleSubmit={handleSubmit}
-                        />
+                                justify="space-between"
+                                spacing={1}>
+                                <Grid item xs={4}>
+                                    <SearchFilters
+                                        handleDropdownChange={handleDropdownChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={8}>
+                                    <SearchBar
+                                        query={query}
+                                        setQuery={setQuery}
+                                        handleQueryChange={handleQueryChange}
+                                        handleSubmit={handleSubmit}
+                                    />
+                                </Grid>
                         </Grid>
                         {loading && <Spinner />}
                         {!loading &&
@@ -130,6 +138,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     </Grid>
                 </AccordionDetails>
             </Accordion>
+            
             <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}>
@@ -169,6 +178,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         </Grid>
     );
 };
+
 GreenRoom.propTypes = {
     handleNewMessage: PropTypes.func.isRequired,
     newMessage: PropTypes.string.isRequired,

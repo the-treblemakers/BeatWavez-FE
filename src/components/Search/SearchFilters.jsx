@@ -8,7 +8,10 @@ const SearchFilters = ({ handleDropdownChange }) => {
     return (
         <TextField 
             select
-            label="select channels"
+            fullWidth
+            margin="dense"
+            style={{ paddingBottom: "0.5rem" }}
+            label="channels"
             onChange={handleDropdownChange} >
             <MenuItem value="">All Channels</MenuItem>
             <MenuItem value="Zoom Karaoke">Zoom Karaoke</MenuItem>

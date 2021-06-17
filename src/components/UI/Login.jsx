@@ -11,31 +11,31 @@ import InstructionAccordion from '../UI/InstructionAccordion';
 
 function Login({ handleJoinRoom, handleCreateRoom }) {
     return (
-            <Grid
-                container
-                justify="center"
-                alignItems="center"
-                direction="column"
-                style={{ minHeight: '100vh' }}
-                spacing={5}
-            >
-                <Grid item>
-                    <Typography variant="h2" color="secondary">
+        <Grid
+            container
+            justify="center"
+            alignItems="center"
+            direction="column"
+            style={{ minHeight: '100vh' }}
+            spacing={5}
+        >
+            <Grid item>
+                <Typography variant="h2" color="secondary">
                         Welcome To BeatWavez!
-                    </Typography>
-                </Grid>
-
-                <Grid item style={{ border: '1px solid #000' }}>
-                    <LoginForm
-                        handleJoinRoom={handleJoinRoom}
-                        handleCreateRoom={handleCreateRoom}
-                    />
-                </Grid>
-
-                <Grid item>
-                    <InstructionAccordion />
-                </Grid>
+                </Typography>
             </Grid>
+
+            <Grid item>
+                <LoginForm
+                    handleJoinRoom={handleJoinRoom}
+                    handleCreateRoom={handleCreateRoom}
+                />
+            </Grid>
+
+            <Grid item>
+                <InstructionAccordion />
+            </Grid>
+        </Grid>
     );
 }
 

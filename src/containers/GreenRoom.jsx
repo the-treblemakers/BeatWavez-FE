@@ -100,29 +100,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 </Typography>
             }
             {/* DISPLAY ROOM NAME, STAGE NAME INSTRUCTIONS TO INVITE FRIENDS ALSO ADD FLAVOR/GLITTER!!!! In an alert? Or just on the page somewhere? */}
-<<<<<<< HEAD
-            <SearchFilters
-                handleDropdownChange={handleDropdownChange}
-            />
-            <SearchBar
-                query={query}
-                setQuery={setQuery}
-                handleQueryChange={handleQueryChange}
-                handleSubmit={handleSubmit}
-            />
-          
-            {loading && <Spinner />}
-            {!loading &&
-                <Songbook
-                    handleAddToQueue={handleAddToQueue}
-                    stageName={roomInfo.stageName}
-                    currentSongs={currentSongs}
-                    setCurrentSongs={setCurrentSongs}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    loading={loading}
-                    songbook={filteredSongs}
-=======
             <Accordion 
                 className={classes.accordion}
                 defaultExpanded>
@@ -138,24 +115,24 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                         direction="column" 
                         alignItems="center" 
                         justify="center">
-                            <Grid container
-                                direction="row"
-                                alignItems="center"
-                                justify="space-between"
-                                spacing={1}>
-                                <Grid item xs={4}>
-                                    <SearchFilters
-                                        handleDropdownChange={handleDropdownChange}
-                                    />
-                                </Grid>
-                                <Grid item xs={8}>
-                                    <SearchBar
-                                        query={query}
-                                        setQuery={setQuery}
-                                        handleQueryChange={handleQueryChange}
-                                        handleSubmit={handleSubmit}
-                                    />
-                                </Grid>
+                        <Grid container
+                            direction="row"
+                            alignItems="center"
+                            justify="space-between"
+                            spacing={1}>
+                            <Grid item xs={4}>
+                                <SearchFilters
+                                    handleDropdownChange={handleDropdownChange}
+                                />
+                            </Grid>
+                            <Grid item xs={8}>
+                                <SearchBar
+                                    query={query}
+                                    setQuery={setQuery}
+                                    handleQueryChange={handleQueryChange}
+                                    handleSubmit={handleSubmit}
+                                />
+                            </Grid>
                         </Grid>
                         {loading && <Spinner />}
                         {!loading &&
@@ -168,7 +145,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                                 setCurrentPage={setCurrentPage}
                                 loading={loading}
                                 songbook={filteredSongs}
->>>>>>> 15d07da484e38632bbede434b24af2a5f6a49a2f
 
                             />
                         }

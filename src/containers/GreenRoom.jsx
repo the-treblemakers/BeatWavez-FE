@@ -36,7 +36,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             return filteredSongs;
         };
         const filteredResults = filter();
-        console.log(filteredResults, 'results');
         return filteredResults;
     }, [channelFilter]);
 

@@ -10,7 +10,6 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
 
     const handlePageChange = () => {
         setCurrentPage(currentPage + 1);
-        console.log(songbook, 'handle page change');
         const sliceMathStart = currentPage * 20;
         const sliceMathEnd = sliceMathStart + 20;
         const newPage = songbook.slice(sliceMathStart, sliceMathEnd);

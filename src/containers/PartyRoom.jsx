@@ -64,7 +64,10 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
                 spacing={5}>
             
                 <Grid item>
-                    <Typography variant="h2">
+                    <Typography 
+                        variant="h2" 
+                        align="center" 
+                        style={{ margin: '1rem' }}>
                         {roomName} Room
                     </Typography>
                 </Grid>
@@ -79,7 +82,8 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
                         playing={playing}
                         videoRef={videoRef} 
                         queue={queue}
-                        queueIndex={queueIndex}/>      
+                        queueIndex={queueIndex}/>
+                        
                 </Grid>
                 <Grid item>
                     <PartyRoomAccordion

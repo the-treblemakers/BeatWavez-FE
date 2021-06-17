@@ -22,7 +22,7 @@ export const useSocket = () => {
         });
 
         socket.on('REQUEST_HOST', ({ sender }) => {
-            if (host.isHost) {
+            if(host.isHost) {
                 socket.emit('SEND_HOST', ({ hostId: host.hostId, queue, sender }));
             }
         });
@@ -78,10 +78,10 @@ export const useSocket = () => {
 
     const handleAddToQueue = (song) => {
         console.log(song);
-        if (!host.isHost) {
+        if(!host.isHost) {
             console.log(roomInfo.stageName, 'REQ ADD');
             socket.emit('ADD_TO_QUEUE', ({ title: song.title, vidId: song.vidId, stageName: roomInfo.stageName, thumbnail: song.thumbnail, hostId: host.hostId }));
-        } else if (host.isHost) {
+        } else if(host.isHost) {
             console.log(roomInfo.stageName, 'HOST ADD');
             setQueue([...queue, { title: song.title, vidId: song.vidId, stageName: roomInfo.stageName, thumbnail: song.thumbnail, hostId: host.hostId }]);
         }

@@ -9,6 +9,7 @@ import Queue from '../components/Queue/Queue';
 import Chat from '../components/Chat/Chat';
 import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
+import { useStyles } from '../components/styles/greenroomStyles';
 
 const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
@@ -18,6 +19,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const [currentSongs, setCurrentSongs] = useState([]);
     const [channelFilter, setChannelFilter] = useState('');
     const [filteredSongs, setFilteredSongs] = useState([]);
+
+    const classes = useStyles();
 
     useEffect(() => {
         getAllSongs()
@@ -89,7 +92,9 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 </Typography>
             }
             {/* DISPLAY ROOM NAME, STAGE NAME INSTRUCTIONS TO INVITE FRIENDS ALSO ADD FLAVOR/GLITTER!!!! In an alert? Or just on the page somewhere? */}
-            <Accordion defaultExpanded>
+            <Accordion 
+                className={classes.accordion}
+                defaultExpanded>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
@@ -138,8 +143,9 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     </Grid>
                 </AccordionDetails>
             </Accordion>
-            
-            <Accordion>
+
+            <Accordion 
+                className={classes.accordion}> 
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}>
                     <Typography
@@ -156,7 +162,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 </AccordionDetails>
             </Accordion>
             
-            <Accordion>
+            <Accordion 
+                className={classes.accordion}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >

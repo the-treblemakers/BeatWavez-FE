@@ -21,6 +21,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         getAllSongs()
             .then((songbook) => {
                 setSongbook(songbook);
+                setFilteredSongs(songbook);
                 setCurrentSongs(songbook.slice(0, 20));
             })
             .finally(() => setLoading(false));
@@ -36,8 +37,13 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             return filteredResults;
         };
         setFilteredSongs(filter());
-        setCurrentSongs(filteredSongs);
+        
     }, [channelFilter]);
+
+    useEffect(() => {
+        setCurrentSongs(filteredSongs);
+        
+    }, [filteredSongs]);
 
     function handleQueryChange(e) {
         setQuery(e.target.value);
@@ -45,6 +51,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     function handleDropdownChange(e) {
         setChannelFilter(e.target.value);
+        setQuery('');
     }
 
     function handleSubmit(e) {
@@ -53,7 +60,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setLoading(true);
 
         const search = () => {
-            if (query === '') return filteredSongs;
+            if(query === '') return filteredSongs;
             return filteredSongs.filter((song) => {
                 const title = song.title.toLowerCase();
                 return title.includes(query.toLowerCase());
@@ -64,6 +71,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             setCurrentSongs(searchResults);
             setLoading(false);
         }, 100);
+
     }
 
     return (
@@ -71,15 +79,16 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             <h1>Welcome to the GreenRoom</h1>
             <h2>{roomInfo.roomName} {roomInfo.stageName}</h2>
             {/* DISPLAY ROOM NAME, STAGE NAME INSTRUCTIONS TO INVITE FRIENDS ALSO ADD FLAVOR/GLITTER!!!! In an alert? Or just on the page somewhere? */}
+            <SearchFilters
+                handleDropdownChange={handleDropdownChange}
+            />
             <SearchBar
                 query={query}
                 setQuery={setQuery}
                 handleQueryChange={handleQueryChange}
                 handleSubmit={handleSubmit}
             />
-            <SearchFilters
-                handleDropdownChange={handleDropdownChange}
-            />
+          
             {loading && <Spinner />}
             {!loading &&
                 <Songbook

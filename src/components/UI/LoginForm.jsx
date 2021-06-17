@@ -15,7 +15,6 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
 
     const handleRoomNameChange = (e) => {
         setRoomName(e.target.value);
-
     };
 
     return (

@@ -19,7 +19,7 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const videoRef = useRef(null);
 
     useEffect(() => {
-        if(queue.length === 0){
+        if (queue.length === 0) {
             setMessages(messageArray);
             setQueue(queueArray);
         } else {
@@ -39,13 +39,13 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     };
 
     const handleFullscreen = () => {
-        if(screenfull.isEnabled) {
+        if (screenfull.isEnabled) {
             screenfull.request(videoRef.current.wrapper);
         }
     };
 
     const handlePlay = () => {
-        if(playing === false) {
+        if (playing === false) {
             setPlaying(true);
         } else {
             setPlaying(false);
@@ -62,11 +62,11 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
                 direction="column"
                 style={{ minHeight: '100vh' }}
                 spacing={5}>
-            
+
                 <Grid item>
-                    <Typography 
-                        variant="h2" 
-                        align="center" 
+                    <Typography
+                        variant="h2"
+                        align="center"
                         style={{ margin: '1rem' }}>
                         {roomName} Room
                     </Typography>
@@ -80,15 +80,16 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
                         onNext={handleNext}
                         onFullscreen={handleFullscreen}
                         playing={playing}
-                        videoRef={videoRef} 
+                        videoRef={videoRef}
                         queue={queue}
-                        queueIndex={queueIndex}/>      
+                        queueIndex={queueIndex} />
+
                 </Grid>
                 <Grid item>
                     <PartyRoomAccordion
                         messages={messages}
                         queue={queue} />
-                </Grid>      
+                </Grid>
             </Grid>
         </div>
     );

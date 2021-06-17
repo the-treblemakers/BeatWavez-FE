@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"
 import { Typography, Grid } from '@material-ui/core';
 
 const QueueItem = ({ title, stageName }) => (

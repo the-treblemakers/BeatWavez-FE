@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import { Grid, Typography, IconButton, Card, CardHeader, CardMedia, CardContent, CardActions, Collapse, makeStyles  } from '@material-ui/core';
+import { Grid, Typography, IconButton, Card, CardHeader, CardMedia, CardContent, CardActions, Collapse  } from '@material-ui/core';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -10,27 +10,7 @@ import KB from '../../public/assets/KB.png';
 import NICOLE from '../../public/assets/NICOLE.png';
 import LORI from '../../public/assets/LORI.png';
 import SORAYA from '../../public/assets/SORAYA.png';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        maxWidth: 345,
-    },
-    media: {
-        height: 0,
-        paddingTop: '100%', // 16:9
-    },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-    expandOpen: {
-        transform: 'rotate(180deg)',
-    },
-}));
-  
+import { useStyles } from '../components/styles/aboutStyles';
 
 const About = () => {
     const classes = useStyles();
@@ -45,9 +25,10 @@ const About = () => {
         <Grid container
             direction="column"
             alignItems="center"
+            justify="center"
             spacing={2}>
             <Typography
-                variant="h2" align="center">Meet the KJs</Typography>
+                variant="h2" align="center" style={{ margin: "1rem" }}>Meet the KJs</Typography>
             <Grid item>
                 <Card>
                     <Typography variant="h3" align="center">Katy Boyles</Typography>

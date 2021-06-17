@@ -73,21 +73,22 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     return (
         <Grid container  
-            direction="column" 
-            alignItems="center" 
-            justify="center">
+            justify="space-between"
+            alignItems="center"
+            direction="column"
+            style={{ minHeight: '90vh' }}>
             {roomInfo.roomName ?
                 <Typography
                     variant="h2"
                     align="center"
-                    style={{ margin: '1rem' }}>
+                    style={{ margin: '1.5rem' }}>
                     Welcome to the {roomInfo.roomName} room!
                 </Typography>
                 : 
                 <Typography
                     variant="h2"
                     align="center"
-                    style={{ margin: '1rem' }}>
+                    style={{ margin: '1.5rem' }}>
                     Welcome to the Greenroom!
                 </Typography>
             }

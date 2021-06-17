@@ -6,12 +6,10 @@ import { theme } from '../components/styles/theme';
 
 function Home({ handleJoinRoom, handleCreateRoom }) {
     return (
-        <ThemeProvider theme={theme}>
             <Login
                 handleJoinRoom={handleJoinRoom}
                 handleCreateRoom={handleCreateRoom}
             />
-        </ThemeProvider >
     );
 }
 

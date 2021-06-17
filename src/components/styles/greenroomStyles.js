@@ -4,4 +4,7 @@ export const useStyles = makeStyles({
     accordion: {
         width: "100%"
     },
+    gridIten: {
+        width: "100%"
+    }
 });

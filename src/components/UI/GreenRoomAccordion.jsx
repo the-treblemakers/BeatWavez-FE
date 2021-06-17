@@ -1,12 +1,13 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PropTypes from 'prop-types';
-import ChatList from '../Chat/ChatList';
+import Chat from '../Chat/Chat';
 import Queue from '../Queue/Queue';
-import { useStyles } from '../styles/partyroomStyles';
+import { useStyles } from '../styles/greenroomStyles';
 
-export default function PartyRoomAccordion({ messages, queue }) {
+export default function GreenRoomAccordion({ messages, queue }) {
     const classes = useStyles();
 
     return (
@@ -29,14 +30,14 @@ export default function PartyRoomAccordion({ messages, queue }) {
                 <Typography variant="h3">Chat</Typography>
             </AccordionSummary>
             <AccordionDetails>
-                <ChatList messageArray={messages}/>
+                <Chat messageArray={messages}/>
             </AccordionDetails>
         </Accordion>
         </div>
     );
 }
 
-PartyRoomAccordion.propTypes = {
+GreenRoomAccordion.propTypes = {
     messages: PropTypes.array.isRequired,
     queue: PropTypes.array.isRequired
 };

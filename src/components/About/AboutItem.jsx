@@ -17,12 +17,28 @@ const AboutItem = ({ name, image, linkedIn, github, twitter, bio}) => {
     };
 
     return (
-        <Card variant="outlined">
-            <Typography variant="h3" align="center" style={{ margin: '0.5rem' }}>{name}</Typography>
-            <CardMedia
-                className={classes.media} 
-                image={image} 
-                title={name}/>
+        <Card 
+            variant="outlined" 
+            style={{ border: "#FD2C7B 3px solid", borderRadius: "1px", }}
+            className={classes.bio}>
+            <Grid container
+                direction="column"
+                justify="center"
+                alignItems="center">
+                <Grid item>
+                    <Typography 
+                        variant="h1" 
+                        align="center"
+                        style={{ margin: '0.5rem' }}>{name}</Typography>
+                </Grid>
+                <Grid item>        
+                    <img
+                        style={{ borderRadius: "1px", boxShadow: "#13FBD0 8px 8px" }}
+                        className={classes.media} 
+                        src={image} 
+                        alt={name}/>
+                </Grid>
+            </Grid>
             <CardActions>
                 <Grid container
                     direction="row"

@@ -91,6 +91,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     setCurrentPage={setCurrentPage}
                     loading={loading}
                     songbook={filteredSongs}
+
                 />}
             {queue.length > 0 ?
                 <Queue

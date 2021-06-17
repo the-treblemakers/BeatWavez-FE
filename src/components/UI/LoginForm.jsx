@@ -64,7 +64,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
                         history.push('/greenroom');
                     }}
                 >
-                    CREATE NEW ROOM
+                    CREATE NEW ROOM!
                 </Button>
             </Grid>
 

@@ -19,7 +19,7 @@ const AboutItem = ({ name, image, linkedIn, github, twitter, bio}) => {
     return (
         <Card 
             variant="outlined" 
-            style={{ border: "#FD2C7B 3px solid", borderRadius: "1px", }}
+            style={{ border: "#FD2C7B 3px solid", borderRadius: "1px", boxShadow: "#FD2C7B 0px 0px 10px"}}
             className={classes.bio}>
             <Grid container
                 direction="column"
@@ -33,7 +33,7 @@ const AboutItem = ({ name, image, linkedIn, github, twitter, bio}) => {
                 </Grid>
                 <Grid item>        
                     <img
-                        style={{ borderRadius: "1px", boxShadow: "#13FBD0 8px 8px" }}
+                        style={{ borderRadius: "1px", boxShadow: "#13FBD0 8px 8px 7px", }}
                         className={classes.media} 
                         src={image} 
                         alt={name}/>

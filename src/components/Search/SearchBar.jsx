@@ -12,7 +12,7 @@ const SearchBar = ({ handleQueryChange, query, handleSubmit }) => {
 };
 
 SearchBar.propTypes = {
-    handleSubmit: PropTypes.func.isRequired,
+    // handleSubmit: PropTypes.func.isRequired,
     handleQueryChange: PropTypes.func.isRequired,
     query: PropTypes.string
 };

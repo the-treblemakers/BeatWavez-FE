@@ -40,6 +40,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     }, [channelFilter]);
 
     function handleQueryChange(e) {
+        setLoading(true);
         setQuery(e.target.value);
     }        
       
@@ -51,7 +52,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         e.preventDefault();
 
         setLoading(true);
-        
+
         const search = () => {
             if(query === '') return songbook;
             return songbook.filter((song) => {
@@ -80,17 +81,17 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 handleDropdownChange={handleDropdownChange}
             />
             {loading && <Spinner />}
-            {!loading && 
-            <Songbook
-                handleAddToQueue={handleAddToQueue}
-                stageName={roomInfo.stageName}
-                currentSongs={currentSongs}
-                setCurrentSongs={setCurrentSongs}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                loading={loading}
-                songbook={songbook}
-            />}
+            {!loading &&
+                <Songbook
+                    handleAddToQueue={handleAddToQueue}
+                    stageName={roomInfo.stageName}
+                    currentSongs={currentSongs}
+                    setCurrentSongs={setCurrentSongs}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    loading={loading}
+                    songbook={songbook}
+                />}
             {queue.length > 0 ?
                 <Queue
                     queue={queue}
@@ -105,7 +106,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         </div>
     );
 };
-
 GreenRoom.propTypes = {
     handleNewMessage: PropTypes.func.isRequired,
     newMessage: PropTypes.string.isRequired,

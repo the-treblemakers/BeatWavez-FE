@@ -9,15 +9,8 @@ import LoginForm from '../UI/LoginForm';
 import PropTypes from 'prop-types';
 import InstructionAccordion from '../UI/InstructionAccordion';
 
-const theme = createMuiTheme({
-    typography: {
-        fontFamily: ['Gugi', 'cursive'].join(','),
-    },
-});
-
 function Login({ handleJoinRoom, handleCreateRoom }) {
     return (
-        <ThemeProvider theme={theme}>
             <Grid
                 container
                 justify="center"
@@ -27,7 +20,7 @@ function Login({ handleJoinRoom, handleCreateRoom }) {
                 spacing={5}
             >
                 <Grid item>
-                    <Typography variant="h4" color="primary">
+                    <Typography variant="h2" color="secondary">
                         Welcome To BeatWavez!
                     </Typography>
                 </Grid>
@@ -43,7 +36,6 @@ function Login({ handleJoinRoom, handleCreateRoom }) {
                     <InstructionAccordion />
                 </Grid>
             </Grid>
-        </ThemeProvider>
     );
 }
 

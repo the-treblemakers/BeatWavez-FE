@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Accordion, AccordionSummary, AccordionDetails, Typography, Grid } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SearchBar from '../components/Search/SearchBar';
 import SearchFilters from '../components/Search/SearchFilters';
 import Songbook from '../components/SongBook/Songbook';
@@ -7,6 +9,7 @@ import Queue from '../components/Queue/Queue';
 import Chat from '../components/Chat/Chat';
 import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
+import { useStyles } from '../components/styles/greenroomStyles';
 
 const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
@@ -16,6 +19,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const [currentSongs, setCurrentSongs] = useState([]);
     const [channelFilter, setChannelFilter] = useState('');
     const [filteredSongs, setFilteredSongs] = useState([]);
+
+    const classes = useStyles();
 
     useEffect(() => {
         getAllSongs()
@@ -75,10 +80,27 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     }
 
     return (
-        <div>
-            <h1>Welcome to the GreenRoom</h1>
-            <h2>{roomInfo.roomName} {roomInfo.stageName}</h2>
+        <Grid container  
+            direction="column" 
+            alignItems="center" 
+            justify="center">
+            {roomInfo.roomName ?
+                <Typography
+                    variant="h2"
+                    align="center"
+                    style={{ margin: '1rem' }}>
+                    Welcome to the {roomInfo.roomName} room!
+                </Typography>
+                : 
+                <Typography
+                    variant="h2"
+                    align="center"
+                    style={{ margin: '1rem' }}>
+                    Welcome to the Greenroom!
+                </Typography>
+            }
             {/* DISPLAY ROOM NAME, STAGE NAME INSTRUCTIONS TO INVITE FRIENDS ALSO ADD FLAVOR/GLITTER!!!! In an alert? Or just on the page somewhere? */}
+<<<<<<< HEAD
             <SearchFilters
                 handleDropdownChange={handleDropdownChange}
             />
@@ -100,22 +122,102 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     setCurrentPage={setCurrentPage}
                     loading={loading}
                     songbook={filteredSongs}
+=======
+            <Accordion 
+                className={classes.accordion}
+                defaultExpanded>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                >
+                    <Typography variant="h3">
+                        Songbook
+                    </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Grid container
+                        direction="column" 
+                        alignItems="center" 
+                        justify="center">
+                            <Grid container
+                                direction="row"
+                                alignItems="center"
+                                justify="space-between"
+                                spacing={1}>
+                                <Grid item xs={4}>
+                                    <SearchFilters
+                                        handleDropdownChange={handleDropdownChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={8}>
+                                    <SearchBar
+                                        query={query}
+                                        setQuery={setQuery}
+                                        handleQueryChange={handleQueryChange}
+                                        handleSubmit={handleSubmit}
+                                    />
+                                </Grid>
+                        </Grid>
+                        {loading && <Spinner />}
+                        {!loading &&
+                            <Songbook
+                                handleAddToQueue={handleAddToQueue}
+                                stageName={roomInfo.stageName}
+                                currentSongs={currentSongs}
+                                setCurrentSongs={setCurrentSongs}
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                loading={loading}
+                                songbook={filteredSongs}
+>>>>>>> 15d07da484e38632bbede434b24af2a5f6a49a2f
 
-                />}
-            {queue.length > 0 ?
-                <Queue
-                    queue={queue}
-                />
-                : null}
-            <Chat
-                messageArray={messageArray}
-                setNewMessage={setNewMessage}
-                handleNewMessage={handleNewMessage}
-                newMessage={newMessage}
-            />
-        </div>
+                            />
+                        }
+                    </Grid>
+                </AccordionDetails>
+            </Accordion>
+
+            <Accordion 
+                className={classes.accordion}> 
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}>
+                    <Typography
+                        variant="h3" >
+                            Queue
+                    </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    {queue.length > 0 ?
+                        <Queue
+                            queue={queue}
+                        />
+                        : null}
+                </AccordionDetails>
+            </Accordion>
+            
+            <Accordion 
+                className={classes.accordion}>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                >
+                    <Typography
+                        variant="h3">
+                        Chat
+                    </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Chat
+                        messageArray={messageArray}
+                        setNewMessage={setNewMessage}
+                        handleNewMessage={handleNewMessage}
+                        newMessage={newMessage}
+                    />
+                </AccordionDetails>
+            </Accordion>
+            
+        </Grid>
     );
 };
+
 GreenRoom.propTypes = {
     handleNewMessage: PropTypes.func.isRequired,
     newMessage: PropTypes.string.isRequired,

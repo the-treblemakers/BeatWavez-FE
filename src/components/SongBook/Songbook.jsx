@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import SongbookItem from './SongbookItem';
 import Spinner from '../UI/Spinner';
 import PropTypes from 'prop-types';
-import { List, ListItem, IconButton, Grid } from '@material-ui/core';
+import { List, ListItem, IconButton, Grid, Card } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import AddIcon from '@material-ui/icons/Add';
@@ -39,12 +39,19 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
             </Grid>
             {currentSongs.map((song, i) => (
                 <ListItem key={song.title + i}>
-                    <SongbookItem {...song} />
-                    <IconButton
-                        onClick={() => handleAddToQueue(song)}>
-                            <AddIcon />
-                        </IconButton>
-                    {/* <button>Flag as a bad video</button> */}
+                    <Card>
+                    <Grid container
+                        direction="row"
+                        alignItems="center"
+                        justify="space-between">
+                        <SongbookItem {...song} />
+                        <IconButton
+                            onClick={() => handleAddToQueue(song)}>
+                                <AddIcon />
+                            </IconButton>
+                        {/* <button>Flag as a bad video</button> */}
+                    </Grid>
+                    </Card>
                 </ListItem>
             ))}
         </List>

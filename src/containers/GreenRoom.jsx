@@ -28,6 +28,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         getAllSongs()
             .then((songbook) => {
                 setSongbook(songbook);
+                setFilteredSongs(songbook);
                 setCurrentSongs(songbook.slice(0, 20));
             })
             .finally(() => setLoading(false));
@@ -43,8 +44,13 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             return filteredResults;
         };
         setFilteredSongs(filter());
-        setCurrentSongs(filteredSongs);
+        
     }, [channelFilter]);
+
+    useEffect(() => {
+        setCurrentSongs(filteredSongs);
+        
+    }, [filteredSongs]);
 
     function handleQueryChange(e) {
         setQuery(e.target.value);
@@ -52,6 +58,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     function handleDropdownChange(e) {
         setChannelFilter(e.target.value);
+        setQuery('');
     }
 
     function handleSubmit(e) {
@@ -71,6 +78,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             setCurrentSongs(searchResults);
             setLoading(false);
         }, 100);
+
     }
 
     function handleClose() {

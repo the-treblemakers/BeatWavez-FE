@@ -22,16 +22,17 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
         setCurrentSongs(newPage);
     };
 
-    if (loading) return <Spinner />;
+    if(loading) return <Spinner />;
 
     return (
         <Grid container 
             direction="column"
             alignItems="center">
+
             <Grid container
-            direction="row"
-            alignItems="center"
-            justify="space-between">
+                direction="row"
+                alignItems="center"
+                justify="space-between">
                 <IconButton onClick={handlePageChange}>
                     <NavigateBeforeIcon />
                 </IconButton>
@@ -39,11 +40,11 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
                     <NavigateNextIcon />
                 </IconButton>
             </Grid>
-            <List 
-                style={{ maxHeight: 350, overflow: 'auto' }}
-                aria-label='songs'>
+
+            <List style={{ maxHeight: 350, overflow: 'auto' }} aria-label='songs'>
                 {currentSongs.map((song, i) => (
                     <ListItem key={song.title + i}>
+                        
                         <Card variant="outlined" style={{ border: "#FD2C7B 3px solid", borderRadius: "1px", boxShadow: "#FD2C7B 0px 0px 8px"}}>
                         <Grid container
                             direction="row"
@@ -60,6 +61,7 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
                             {/* <button>Flag as a bad video</button> */}
                         </Grid>
                         </Card>
+
                     </ListItem>
                 ))}
             </List>

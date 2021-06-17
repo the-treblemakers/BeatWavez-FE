@@ -4,23 +4,23 @@ const theme = createMuiTheme({
     palette: {
         type: 'dark',
         primary: {
-          main: '#13FBD0',
-          dark: '#1A6951',
+            main: '#13FBD0',
+            dark: '#1A6951',
         },
         secondary: {
-          main: '#FD2C7B',
+            main: '#FD2C7B',
         },
         background: {
-          default: '#10042B',
-          paper: '#10042B',
+            default: '#10042B',
+            paper: '#10042B',
         },
         divider: '#FD3F8B',
         text: {
-          primary: 'rgb(245, 255, 253)',
-          disabled: 'rgba(245, 255, 253, 0.5)',
-          secondary: 'rgba(245, 255, 253, 0.7)',
+            primary: 'rgb(245, 255, 253)',
+            disabled: 'rgba(245, 255, 253, 0.5)',
+            secondary: 'rgba(245, 255, 253, 0.7)',
         },
-      },
+    },
     typography: {
         fontFamily: [
             'Noto Sans JP',

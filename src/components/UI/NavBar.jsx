@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { AppBar, Menu, MenuItem, Button, Grid, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { useStyles } from '../styles/styles';
+import { useStyles } from '../styles/navbarStyles';
 import '../styles/app.css';
 
 const Navbar = (props) => { 
@@ -27,6 +27,7 @@ const Navbar = (props) => {
             <Grid container direction="row" justify="space-between" alignItems="center">
                 <Button 
                     aria-haspopup="true"
+                    color="secondary"
                     aria-owns={anchorEl ? 'menu' : null}
                     onClick={handleClick}>
                     <MenuIcon/>

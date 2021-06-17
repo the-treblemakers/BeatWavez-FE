@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import generateRoomNames from '../RoomNames/generateRoomNames.js';
 import io from "socket.io-client";
 
-const socket = io('http://localhost:7890/');
-// const socket = io('https://beatwavez-dev.herokuapp.com/');
+// const socket = io('http://localhost:7890/');
+const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 export const useSocket = () => {
     const [newMessage, setNewMessage] = useState('');
@@ -51,7 +51,7 @@ export const useSocket = () => {
     }, []);
 
     const handleCreateRoom = (stageName) => {
-        if (stageName !== '') {
+        if(stageName !== '') {
             const roomName = generateRoomNames();
             socket.emit('CREATE_ROOM', ({ stageName, roomName }));
             setRoomInfo({ stageName, roomName });
@@ -61,7 +61,7 @@ export const useSocket = () => {
     };
 
     const handleJoinRoom = (stageName, roomName) => {
-        if (stageName !== '' && roomName !== '') {
+        if(stageName !== '' && roomName !== '') {
             socket.emit('JOIN_ROOM', ({ stageName, roomName }));
             setRoomInfo({ stageName, roomName });
         } else {

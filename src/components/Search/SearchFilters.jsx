@@ -1,15 +1,9 @@
 /* eslint-disable react/jsx-key */
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const SearchBar = () => {
-    const [channelFilter, setChannelFilter] = useState('');
-
-    function handleDropdownChange(e){
-        setChannelFilter(e.target.value);
-
-        console.log(channelFilter);
-    }
-
+const SearchFilters = ({ handleDropdownChange }) => {
+    
     return (
         <select onChange={handleDropdownChange} >
             <option value="">Filter by Channel</option>
@@ -23,5 +17,8 @@ const SearchBar = () => {
     );
 };
 
+SearchFilters.propTypes = {
+    handleDropdownChange: PropTypes.func.isRequired
+};
 
-export default SearchBar;
+export default SearchFilters;

@@ -7,17 +7,17 @@ import { useStyles } from '../styles/styles';
 import '../styles/app.css';
 
 const Navbar = (props) => { 
-  const [anchorEl, setAnchorEl] = useState(null);
-  const { pathname } = props.location;
+    const [anchorEl, setAnchorEl] = useState(null);
+    const { pathname } = props.location;
 
-  const handleClick = (e) => {
-    setAnchorEl(e.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+    const handleClick = (e) => {
+        setAnchorEl(e.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
-  const classes = useStyles();
+    const classes = useStyles();
 
     return (
         <AppBar
@@ -78,7 +78,7 @@ const Navbar = (props) => {
                     </MenuItem> 
                 </Menu>
 
-        <Typography variant="h1">beatWaves🌴</Typography>
+                <Typography variant="h1">beatWaves🌴</Typography>
         
             </Grid>
         </AppBar>

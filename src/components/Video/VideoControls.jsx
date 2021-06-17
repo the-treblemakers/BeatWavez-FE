@@ -13,17 +13,25 @@ const VideoControls = ({ onPrevious, onPlay, onNext, onFullscreen, queue, queueI
         alignItems="center"
         direction="row">
         <Grid item>
-            <IconButton aria-label="previous" onClick={onPrevious} disabled={queueIndex === 0 }>
+            <IconButton 
+                aria-label="previous" 
+                onClick={onPrevious} 
+                disabled={queueIndex === 0 }>
                 <SkipPreviousOutlinedIcon />
             </IconButton>
         </Grid>
         <Grid item>
-            <IconButton aria-label="play pause" onClick={onPlay}>
+            <IconButton 
+                aria-label="play pause" 
+                onClick={onPlay}>
                 <PlayCircleOutlineIcon />
             </IconButton>
         </Grid>
         <Grid item>
-            <IconButton aria-label="next" onClick={onNext} disabled={queue.length === 0 || queueIndex + 1 === queue.length}>
+            <IconButton 
+                aria-label="next" 
+                onClick={onNext} 
+                disabled={queue.length === 0 || queueIndex + 1 === queue.length}>
                 <SkipNextOutlinedIcon />
             </IconButton>
         </Grid>

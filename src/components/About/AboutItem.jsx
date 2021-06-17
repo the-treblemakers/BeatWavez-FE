@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { Grid, Typography, IconButton, Card, CardHeader, CardMedia, CardContent, CardActions, Collapse  } from '@material-ui/core';
@@ -6,16 +6,19 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import BRANDON from '../../public/assets/BRANDON.png';
-import KB from '../../public/assets/KB.png';
-import NICOLE from '../../public/assets/NICOLE.png';
-import LORI from '../../public/assets/LORI.png';
-import SORAYA from '../../public/assets/SORAYA.png'
+import { useStyles } from '../styles/aboutStyles';
 
-const AboutItem = ({ name, image, linkedIn, github, twitter, }) => {
+const AboutItem = ({ name, image, linkedIn, github, twitter, bio}) => {
+    const classes = useStyles();
+    const [expanded, setExpanded] = useState(false);
+
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
+
     return (
-        <Card>
-            <Typography variant="h3" align="center">{name}</Typography>
+        <Card variant="outlined">
+            <Typography variant="h3" align="center" style={{ margin: '0.5rem' }}>{name}</Typography>
             <CardMedia
                 className={classes.media} 
                 image={image} 
@@ -59,7 +62,7 @@ const AboutItem = ({ name, image, linkedIn, github, twitter, }) => {
                 <CardContent>
                     <Typography
                         variant="body1">
-                        My name is KB and I'm a full stack software engineer in Portland, OR. I like travelling, dancing, video games, and reading. The first karaoke song I sang was "It's Oh So Quiet" by Bjork.
+                        {bio}
                     </Typography>
                 </CardContent>
             </Collapse>
@@ -68,7 +71,12 @@ const AboutItem = ({ name, image, linkedIn, github, twitter, }) => {
 }
 
 AboutItem.propTypes = {
-
+    name: PropTypes.string.isRequired, 
+    image: PropTypes.string.isRequired, 
+    linkedIn: PropTypes.string.isRequired, 
+    github: PropTypes.string.isRequired, 
+    twitter: PropTypes.string.isRequired, 
+    bio: PropTypes.string.isRequired
 }
 
 export default AboutItem

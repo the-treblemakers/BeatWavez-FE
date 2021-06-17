@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { List, ListItem } from '@material-ui/core';
+import aboutArray from './about.json';
+import AboutItem from './AboutItem';
 
-const AboutList = props => {
+const AboutList = () => {
     return (
         <List>
-            
+            {aboutArray.map((person, i) => (
+                <ListItem key={i}>
+                    <AboutItem {...person}/>
+                </ListItem>
+            ))}
         </List>
     )
-}
-
-AboutList.propTypes = {
-
 }
 
 export default AboutList

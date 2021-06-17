@@ -40,7 +40,7 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
                 </IconButton>
             </Grid>
             <List 
-                style={{ maxHeight: 400, overflow: 'auto' }}
+                style={{ maxHeight: 350, overflow: 'auto' }}
                 aria-label='songs'>
                 {currentSongs.map((song, i) => (
                     <ListItem key={song.title + i}>

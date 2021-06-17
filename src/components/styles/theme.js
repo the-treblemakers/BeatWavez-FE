@@ -39,6 +39,7 @@ const theme = createMuiTheme({
             fontWeight: 600,
         },
         h3: {
+<<<<<<< HEAD
 
             fontSize: 16,
         },
@@ -49,6 +50,12 @@ const theme = createMuiTheme({
         body2: {
             fontSize: 14,
             fontWeight: 300,
+=======
+            fontSize: 18,
+
+        body1: {
+            fontSize: 16,
+>>>>>>> ae8c7af7a5cf00deb43a3bbfa7df27cab99b7ab7
         }
     },
 });

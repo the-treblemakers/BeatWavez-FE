@@ -3,13 +3,12 @@
 // import { TextField, Button, Grid } from '@material-ui/core';
 import React, { useState, useEffect } from "react";
 import LoginForm from "../components/UI/LoginForm";
-
 import ChatList from "../components/Chat/ChatList";
 import io from "socket.io-client";
 import Spinner from '../components/UI/Spinner';
 
 // const socket = io('http://localhost:7890/');
-// const socket = io('https://beatwavez-dev.herokuapp.com/');
+const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 const TestRoom = () => {
     const [newMessage, setNewMessage] = useState('');

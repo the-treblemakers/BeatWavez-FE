@@ -5,15 +5,20 @@ import VideoControls from './VideoControls';
 import ReactPlayer from 'react-player';
  
 
-const Video = ({ embedId, stageName, onPrevious, onPlay, onNext, onFullscreen, playing, videoRef }) => {
+const Video = ({ embedId, stageName, onPrevious, onPlay, onNext, onFullscreen, playing, videoRef, queue, queueIndex }) => {
     
    
     return  (
         <Card>
             <div className="video-responsive">
                 <CardContent>
-                    <Typography  variant="h6">now on stage: {stageName}</Typography>
-                    <ReactPlayer
+                    <Typography  
+                        variant="h3" 
+                        align='center'
+                        style={{ marginBottom: '1em' }}>
+                        Now on stage: {stageName}
+                    </Typography>
+                    <ReactPlayer style={{ maxWidth: '90vw', height: 'auto' }}
                         url={`https://www.youtube-nocookie.com/embed/${embedId}?rel=0&controls=0`}
                         playing={playing}
                         ref={videoRef} />
@@ -23,7 +28,9 @@ const Video = ({ embedId, stageName, onPrevious, onPlay, onNext, onFullscreen, p
                     onPrevious={onPrevious} 
                     onPlay={onPlay} 
                     onNext={onNext}
-                    onFullscreen={onFullscreen}/>
+                    onFullscreen={onFullscreen}
+                    queue={queue}
+                    queueIndex={queueIndex} />
             </div>
         </Card>
     );
@@ -37,7 +44,9 @@ Video.propTypes = {
     onNext: PropTypes.func.isRequired,
     onFullscreen: PropTypes.func.isRequired,
     playing: PropTypes.bool.isRequired,
-    videoRef: PropTypes.object.isRequired
+    videoRef: PropTypes.object.isRequired,
+    queue: PropTypes.array.isRequired,
+    queueIndex: PropTypes.number.isRequired,
 };
 
 export default Video;

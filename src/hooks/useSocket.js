@@ -40,35 +40,8 @@ export const useSocket = () => {
         socket.on('UPDATE_QUEUE', ({ queue }) => {
             setQueue(queue);
         });
-
-        // socket.on('HOST', ({ hostId, sender }) => {
-        //     if (!hostId && host !== '') {
-        //         socket.emit('HOST', { hostId: host, sender });
-        //         console.log(host, 'HOST new');
-        //     } else if (host === '' && hostId) {
-        //         setHost(hostId);
-        //         socket.emit('SONG_QUEUE', { queue, hostId });
-        //         console.log(host, 'HOST queue');
-        //     }
-
-        // });
-
-        // socket.on('SONG_QUEUE', ({ queueRequest, sender }) => {
-        //     if (queueRequest.length === 0 && queue.length !== 0) {
-        //         socket.emit('SONG_QUEUE', { queue, hostId: sender });
-        //         console.log(queueRequest, sender, 'QUEUE newFE');
-        //     } else if (queueRequest === 1 && sender !== host) {
-        //         setQueue(...queue, queueRequest);
-        //         socket.emit('SONG_QUEUE', { queue, hostId: host, roomName: roomInfo.roomName });
-        //         console.log(queueRequest, sender, 'QUEUE songFE');
-        //     } else if (sender === host && queueRequest.length !== 0) {
-        //         setQueue(queueRequest); console.log(queueRequest, sender, 'QUEUE allFE');
-        //     }
-
-        // });
     }, [roomInfo, messageArray, host, queue]);
 
-    // add SONG_QUEUE socket event for queue add button (sends song as queue, host as hostId)
     // decide if host can be used outside of hook (maybe to determine song/queue controls)
     // check room availability logic and create_room insert/add delete on host disconnnect
 
@@ -99,7 +72,7 @@ export const useSocket = () => {
     };
 
     const handleNewMessage = () => {
-        socket.emit('MESSAGE', { message: newMessage, timeStamp: new Date(), ...roomInfo });
+        socket.emit('MESSAGE', { message: newMessage, timeStamp: new Date().toLocaleTimeString(), ...roomInfo });
         setNewMessage('');
     };
 

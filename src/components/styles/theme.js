@@ -4,13 +4,13 @@ import { ArrowRight } from '@material-ui/icons';
 export const theme = createMuiTheme({
     typography: {
         fontFamily: [
-            'Noto Sans JP', 
+            'Noto Sans JP',
             'sans-serif',
         ].join(','),
         fontSize: 16,
         h1: {
             fontFamily: [
-                'Monoton', 
+                'Monoton',
                 'cursive',
             ].join(','),
             fontSize: 26,
@@ -21,16 +21,17 @@ export const theme = createMuiTheme({
         },
         h3: {
             fontSize: 18,
-        body1: {
-            fontSize: 16,
-        }
-    },
-    palette: {
-        primary: {
-            main: '#8838BC'
+            body1: {
+                fontSize: 16,
+            }
         },
-        secondary: {
-            main: '#F96D10'
+        palette: {
+            primary: {
+                main: '#8838BC'
+            },
+            secondary: {
+                main: '#F96D10'
+            }
         }
     }
 });

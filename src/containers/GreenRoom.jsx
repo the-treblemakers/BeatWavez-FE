@@ -32,7 +32,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 const channelName = song.channelName;
                 return channelName.includes(channelFilter);
             });
-           
+
             return filteredSongs;
         };
         const filteredResults = filter();
@@ -43,26 +43,28 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     function handleQueryChange(e) {
         setLoading(true);
         setQuery(e.target.value);
+
     }        
       
     function handleDropdownChange(e){
         setChannelFilter(e.target.value);
     }
-    
+   
     function handleSubmit(e) {
         e.preventDefault();
 
         setLoading(true);
-        
+
         const search = () => {
-            if(query === '') return songbook;
+            if (query === '') return songbook;
             return songbook.filter((song) => {
                 const title = song.title.toLowerCase();
                 return title.includes(query.toLowerCase());
             });
         };
         const searchResults = search();
-        setTimeout(() => {setCurrentSongs(searchResults);
+        setTimeout(() => {
+            setCurrentSongs(searchResults);
             setLoading(false);
         }, 100);
     }
@@ -76,7 +78,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 query={query}
                 setQuery={setQuery}
                 handleQueryChange={handleQueryChange}
-                // handleSubmit={handleSubmit}
+            // handleSubmit={handleSubmit}
             />
             <SearchFilters
                 handleDropdownChange={handleDropdownChange}
@@ -102,12 +104,11 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 messageArray={messageArray}
                 setNewMessage={setNewMessage}
                 handleNewMessage={handleNewMessage}
-                newMessage={newMessage} 
+                newMessage={newMessage}
             />
         </div>
     );
 };
-
 GreenRoom.propTypes = {
     handleNewMessage: PropTypes.func.isRequired,
     newMessage: PropTypes.string.isRequired,

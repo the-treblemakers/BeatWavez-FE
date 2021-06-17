@@ -34,7 +34,7 @@ const TestRoom = () => {
     }, []);
 
     const handleCreateRoom = (stageName, roomName) => {
-        if(stageName !== '' && roomName !== '') {
+        if (stageName !== '' && roomName !== '') {
             socket.emit('CREATE_ROOM', ({ stageName, roomName }));
             setRoomInfo({ stageName, roomName });
             setRoomSelect(false);
@@ -44,7 +44,7 @@ const TestRoom = () => {
     };
 
     const handleJoinRoom = (stageName, roomName) => {
-        if(stageName !== '' && roomName !== '') {
+        if (stageName !== '' && roomName !== '') {
             socket.emit('JOIN_ROOM', ({ stageName, roomName }));
             setRoomInfo({ stageName, roomName });
             setRoomSelect(false);

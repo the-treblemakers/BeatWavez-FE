@@ -60,7 +60,7 @@ const theme = createMuiTheme({
                     background: "transparent",
                 },
             }
-        }
+        },
     }
 });
 

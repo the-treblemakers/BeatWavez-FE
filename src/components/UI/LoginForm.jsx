@@ -2,12 +2,17 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { TextField, Button, Grid, MenuItem, ButtonGroup } from '@material-ui/core';
+import StarRateIcon from '@material-ui/icons/StarRate';;
+import MicIcon from '@material-ui/icons/Mic';
+import { useStyles } from '../Styles/homeStyles';
 
 const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
     const [stageName, setStageName] = useState('');
     const [roomName, setRoomName] = useState('');
     const [inputPasscode, setInputPasscode] = useState('');
-    const [showHost, setShowHost] = useState(false);
+    const [showHost, setShowHost] = useState(true);
+
+    const classes = useStyles();
 
     const handleStageNameChange = (e) => {
         setStageName(e.target.value);
@@ -21,6 +26,14 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
         setShowHost(false);
     };
 
+    // const handleSwitch = () => { 
+    //     if (showHost) {
+    //         return (classes.selectedOutlineButton)
+    //     } else {
+    //         return (classes.outlineButton)
+    //     }
+    // };
+
     // const handleRoomNameChange = (e) => {
     //     setRoomName(e.target.value);
     // };
@@ -30,14 +43,19 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
             <ButtonGroup
                 size="large"
                 color="primary"
+                style={{ margin: '2em' }}
             >
                 <Button
+                    className={ showHost ? classes.selectedButton : classes.outlineButton}
                     onClick={handleHostButtonChange}>
+                    <MicIcon className={ showHost ? classes.selected : null }/>
                     Host
                 </Button>
 
                 <Button
+                    className={ !showHost ? classes.selectedButton : classes.outlineButton}
                     onClick={handleGuestButtonChange}>
+                    <StarRateIcon className={ !showHost ? classes.selected : null }/>
                     Guest
                 </Button>
             </ButtonGroup>
@@ -49,13 +67,14 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                         variant="outlined"
                         label="Enter Stage Name"
                         fullWidth
-                        style={{ marginBottom: '2em' }}
+                        style={{ marginBottom: '1em' }}
                         onChange={handleStageNameChange}
                         value={stageName}
                     />
 
 
                     <Button
+                        className={classes.solidButton}
                         name='create'
                         size="large"
                         variant="contained"
@@ -73,7 +92,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                         variant="outlined"
                         label="Enter Stage Name"
                         fullWidth
-                        style={{ marginBottom: '2em' }}
+                        style={{ marginBottom: '1em' }}
                         onChange={handleStageNameChange}
                         value={stageName}
                     />
@@ -82,7 +101,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                         select
                         fullWidth
                         margin="dense"
-                        style={{ paddingBottom: "1em" }}
+                        style={{ paddingBottom: "3em" }}
                         label="Party Rooms In Session"
                         onChange={({ target }) => setRoomName(target.value)}
                     >
@@ -95,7 +114,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
 
                     <TextField
                         variant="outlined"
-                        label="Join Room With Passcode"
+                        label="Enter Passcode"
                         type="password"
                         fullWidth
                         style={{ marginBottom: '1em' }}
@@ -104,6 +123,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                     />
 
                     <Button
+                        className={classes.solidButton}
                         name='join'
                         size="large"
                         variant="contained"
@@ -115,10 +135,6 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                     </Button>
                 </>
                 }
-
-
-
-
             </Grid>
 
         </>

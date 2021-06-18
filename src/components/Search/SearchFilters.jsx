@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Select, FormControl, InputLabel, MenuItem } from '@material-ui/core';
 import { useStyles } from '../Styles/greenroomStyles';
@@ -19,7 +19,7 @@ const SearchFilters = ({ channelFilter, handleDropdownChange }) => {
             }
           }
         }
-      };
+    };
       
     return (
         <FormControl

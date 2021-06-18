@@ -1,88 +1,91 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import {
     Accordion,
     AccordionSummary,
-    AccordionDetails
+    AccordionDetails,
+    Grid,
+    Typography
 } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        width: "100%"
-    },
-    heading: {
-        fontSize: theme.typography.pxToRem(15),
-        fontWeight: theme.typography.fontWeightRegular
-    }
-}));
+import StarRateIcon from '@material-ui/icons/StarRate';;
+import MicIcon from '@material-ui/icons/Mic';
+import { useStyles } from '../Styles/homeStyles';
 
 function InstructionAccordion() {
     const classes = useStyles();
 
-    return (
-        <div className={classes.root}>
-            <Typography variant="h3" style={{ margin: '1em' }}>
-                How To Play:
-            </Typography>
-            {/* <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content" 
-                >
-                    <Typography variant="h3">
-            Host VS Guest 
-                    </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography variant="body1">
-            Enter your Stage Name to become and the Karaoke Room Name to join your friends
-            and start singing!
-                    </Typography>
-                </AccordionDetails>
-            </Accordion> */}
+    const AccordionProps = {
+        PaperProps: {
+          style: {
+            color: '#10042B',
+            background: 'rgb(245, 255, 253)',
+            border: '#F96D10 3px solid',
+            boxShadow: "3px 0px 10px #F96D10",
+            borderRadius: '2px'
+          }
+        }
+    };
 
-            <Accordion>
+    return (
+        <div>
+            <Typography variant="h3" style={{ margin: '1em'  }}>
+                How To Play
+            </Typography>
+            <Accordion className={classes.root}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel3a-content"
                 >
-                    <Typography variant="h3">
-                        Start a New Karaoke Room
-                    </Typography>
+                    <Grid container direction="row" justify="flex-start" alignItems="center">
+                        <MicIcon className={classes.icon}/>
+                        <Typography variant="h3">
+                            Start a new karaoke room
+                        </Typography>
+                    </Grid>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography variant="body1" >
-                        1. Enter your Stage Name to become the host of your virtual karaoke party.
+                    <Grid container direction="column">
+                    <Typography 
+                        variant="body1" 
+                        display='block' 
+                        align='left'
+                        style={{ margin: "0.5rem" }}>
+                        Enter your Stage Name to become the host of your virtual karaoke party.
+                        Click create new room to enter the Green Room and add songs to the queue and chat with your guests.
                     </Typography>
-                    <Typography variant="body1">
-                        2. Click Create New Room to enter the green room and add songs to the cue and chat with your guests.
+                    <Typography 
+                        variant="body1" 
+                        display='block' 
+                        align='left'
+                        style={{ margin: "0.5rem" }}>
+                        Give your guests the room name and passcode for them to join you. Fire up the Party Room on a shared screen and start singing!
                     </Typography>
-                    <Typography variant='body1'>
-                        3. Give your guests the room name and passcode for them to join you.
-                    </Typography>
+                    </Grid>
                 </AccordionDetails>
             </Accordion>
 
-            <Accordion>
+            <Accordion className={classes.root}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                 >
-                    <Typography variant="h3">
-                        Join a Karaoke Room
-                    </Typography>
+                    <Grid container direction="row" justify="flex-start" alignItems="center">
+                        <StarRateIcon className={classes.icon}/>
+                        <Typography variant="h3">
+                            Join a karaoke room
+                        </Typography>
+                    </Grid>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography variant="body1">
-                        Enter your Stage Name and the Karaoke Room Name to join your friends
-                        and start singing!
+                    <Typography 
+                        variant="body1" 
+                        display='block' 
+                        align='left'
+                        style={{ margin: "0.5rem" }}>
+                        Enter your stage name, get the Karaoke Room name and the passcode from your host to join your friends in the Green Room to chat, select songs, and start singing!
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-
-
 
         </div>
 

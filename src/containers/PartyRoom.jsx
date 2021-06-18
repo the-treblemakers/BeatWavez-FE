@@ -19,7 +19,7 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const videoRef = useRef(null);
 
     useEffect(() => {
-        if (queue.length === 0) {
+        if(queue.length === 0) {
             setMessages(messageArray);
             setQueue(queueArray);
         } else {
@@ -39,13 +39,13 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     };
 
     const handleFullscreen = () => {
-        if (screenfull.isEnabled) {
+        if(screenfull.isEnabled) {
             screenfull.request(videoRef.current.wrapper);
         }
     };
 
     const handlePlay = () => {
-        if (playing === false) {
+        if(playing === false) {
             setPlaying(true);
         } else {
             setPlaying(false);

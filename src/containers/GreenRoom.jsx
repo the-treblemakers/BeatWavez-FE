@@ -31,6 +31,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         if (roomInfo.stageName === '' || roomInfo.roomName === '') {
             return <>{history.push('/')}</>;
         } else {
+            console.log('>>>', roomInfo.passcode, '<<< ROOM PASSCODE');
             getAllSongs()
                 .then((songbook) => {
                     setSongbook(songbook);
@@ -100,7 +101,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     variant="h2"
                     align="center"
                     style={{ margin: '1.5rem' }}>
-                    Welcome to the {roomInfo.roomName} room! <small>(code: {roomInfo.passcode})</small>
+                    Welcome to the {roomInfo.roomName} room!
+                    {/* <small>(code: {roomInfo.passcode})</small> */}
                 </Typography>
                 :
                 <Typography

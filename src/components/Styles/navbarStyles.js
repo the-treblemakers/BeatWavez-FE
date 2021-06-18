@@ -3,7 +3,7 @@ import { borderRadius } from '@material-ui/system';
 
 export const useStyles = makeStyles({
     appBar: {
-        minHeight: 55,
+        minHeight: 60,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -32,6 +32,10 @@ export const useStyles = makeStyles({
             // color: "#10042B",
             transition: "0.1s ease-in-out"
         }
+    },
+    logo: {
+        // height: "3rem",
+        // width: "auto"
     }
     // icon: {
     //     boxShadow: 'rgb(245, 255, 253) 0px 0px 10px',

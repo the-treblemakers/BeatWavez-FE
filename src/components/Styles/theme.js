@@ -61,6 +61,12 @@ const theme = createMuiTheme({
                 },
             }
         },
+        MuiAppBar: {
+            root: {
+                borderBottom: "#FFD904 3px solid",
+                boxShadow: "0px 0px 25px #FFD904"
+            }
+        }
     }
 });
 

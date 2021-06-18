@@ -11,6 +11,8 @@ import Chat from '../components/Chat/Chat';
 import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
 import { useStyles } from '../components/Styles/greenroomStyles';
+import { useHistory } from 'react-router-dom';
+
 
 const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
@@ -21,7 +23,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const [channelFilter, setChannelFilter] = useState('');
     const [filteredSongs, setFilteredSongs] = useState([]);
     const [open, setOpen] = useState(true);
-    
+
+    const history = useHistory();
     const classes = useStyles();
 
     useEffect(() => {
@@ -52,9 +55,9 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     function handleQueryChange(e) {
         setQuery(e.target.value);
-    }        
-      
-    function handleDropdownChange(e){
+    }
+
+    function handleDropdownChange(e) {
         setChannelFilter(e.target.value);
         setQuery('');
     }
@@ -72,7 +75,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             });
         };
         const searchResults = search();
-        setTimeout(() => {setCurrentSongs(searchResults);
+        setTimeout(() => {
+            setCurrentSongs(searchResults);
             setLoading(false);
         }, 100);
 
@@ -80,6 +84,10 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     function handleClose() {
         setOpen(false);
+    }
+
+    if(roomInfo.stageName === '' || roomInfo.roomName === '') {
+        return <>{history.push('/')}</>;
     }
 
     return (
@@ -93,7 +101,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     variant="h2"
                     align="center"
                     style={{ margin: '1.5rem' }}>
-                    Welcome to the {roomInfo.roomName} room!
+                    Welcome to the {roomInfo.roomName} room! <small>(code: {roomInfo.passcode})</small>
                 </Typography>
                 :
                 <Typography
@@ -104,7 +112,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 </Typography>
             }
 
-            <Snackbar
+            {/* <Snackbar
                 open={open}
                 className={classes.snackbar}
                 anchorOrigin={{
@@ -142,7 +150,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     <IconButton onClick={handleClose}>
                         <CloseSharpIcon color="primary" />
                     </IconButton>
-                } />
+                } /> */}
 
             <Accordion
                 className={classes.accordion}
@@ -155,8 +163,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Grid container 
-                        // xs={8} md={8} lg={10} xl={12}
+                    <Grid container
                         direction="column"
                         alignItems="center"
                         justify="center">

@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { TextField, Button, Grid, MenuItem, ButtonGroup } from '@material-ui/core';
+import StarRateIcon from '@material-ui/icons/StarRate';
+import MicIcon from '@material-ui/icons/Mic';
 
 const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateRoomsArray }) => {
     const [stageName, setStageName] = useState('');
@@ -30,14 +32,17 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
             <ButtonGroup
                 size="large"
                 color="primary"
+                style={{ margin: '2em' }}
             >
                 <Button
                     onClick={handleHostButtonChange}>
+                    <MicIcon />
                     Host
                 </Button>
 
                 <Button
                     onClick={() => handleUpdateRoomsArray()}>
+                    <StarRateIcon />
                     Guest
                 </Button>
             </ButtonGroup>
@@ -49,7 +54,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                         variant="outlined"
                         label="Enter Stage Name"
                         fullWidth
-                        style={{ marginBottom: '2em' }}
+                        style={{ marginBottom: '1em' }}
                         onChange={handleStageNameChange}
                         value={stageName}
                     />
@@ -73,7 +78,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                         variant="outlined"
                         label="Enter Stage Name"
                         fullWidth
-                        style={{ marginBottom: '2em' }}
+                        style={{ marginBottom: '1em' }}
                         onChange={handleStageNameChange}
                         value={stageName}
                     />
@@ -82,7 +87,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                         select
                         fullWidth
                         margin="dense"
-                        style={{ paddingBottom: "1em" }}
+                        style={{ paddingBottom: "3em" }}
                         label="Party Rooms In Session"
                         onChange={({ target }) => setRoomName(target.value)}
                     >
@@ -95,7 +100,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
 
                     <TextField
                         variant="outlined"
-                        label="Join Room With Passcode"
+                        label="Enter Passcode"
                         type="password"
                         fullWidth
                         style={{ marginBottom: '1em' }}
@@ -115,10 +120,6 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                     </Button>
                 </>
                 }
-
-
-
-
             </Grid>
 
         </>

@@ -13,6 +13,7 @@ function Home({ handleJoinRoom, handleCreateRoom, roomsArray, handleUpdateRoomsA
     );
 }
 
+
 Home.propTypes = {
     handleJoinRoom: PropTypes.func.isRequired,
     handleCreateRoom: PropTypes.func.isRequired,

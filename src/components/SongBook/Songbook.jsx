@@ -12,12 +12,25 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
 
     }, [loading]);
 
-    const handlePageChange = () => {
-        setCurrentPage(currentPage + 1);
+    const displayOnPage = () => {
         const sliceMathStart = currentPage * 20;
         const sliceMathEnd = sliceMathStart + 20;
         const newPage = songbook.slice(sliceMathStart, sliceMathEnd);
 
+        return newPage;
+    };
+
+    const handleNextPageChange = () => {
+        setCurrentPage(currentPage + 1);
+
+        const newPage = displayOnPage();
+        setCurrentSongs(newPage);
+    };
+
+    const handlePrevPageChange = () => {
+        setCurrentPage(currentPage - 1);
+
+        const newPage = displayOnPage();
         setCurrentSongs(newPage);
     };
 
@@ -32,10 +45,16 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                 direction="row"
                 alignItems="center"
                 justify="space-between">
-                <IconButton onClick={handlePageChange}>
+                <IconButton
+                    onClick={handlePrevPageChange}
+                    disabled={currentPage === 1}
+                >
                     <NavigateBeforeIcon />
                 </IconButton>
-                <IconButton onClick={handlePageChange}>
+                <IconButton
+                    onClick={handleNextPageChange}
+                    disabled={currentSongs < 20}
+                >
                     <NavigateNextIcon />
                 </IconButton>
             </Grid>
@@ -60,7 +79,6 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                                 {/* <button>Flag as a bad video</button> */}
                             </Grid>
                         </Card>
-
                     </ListItem>
                 ))}
             </List>

@@ -20,13 +20,34 @@ export const useStyles = makeStyles({
     outlineButton: {
         borderRadius: "2px",
         border: "#13FBD0 3px solid",
+        transition: "0.3s ease-in"
     },
     selectedButton: {
         borderRadius: "2px",
         border: "#13FBD0 3px solid",
-        color: "#13FBD0"
+        color: "#13FBD0",
+        transition: "0.3s ease-in"
     },
     selected: {
+        transition: "0.3s ease-in",
         color: "#F96D10"
+    },
+    logoContainer: {
+        width: "6rem",
+        height: "6rem",
+        background: "rgb(245, 255, 253)",
+        borderRadius: "50%",
+        boxShadow: "0px 0px 85px rgb(245, 255, 253)",
+        position: "absolute",
+        top: 26,
+        zIndex: 1,
+    },
+    logo: {
+        zIndex: 2,
+    },
+    logoFont: {
+        zIndex: 3,
+        fontSize: 40,
+        margin: "0.3rem"
     }
 });

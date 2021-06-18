@@ -5,7 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const SearchBar = ({ handleQueryChange, query, handleSubmit }) => {
     return (
-        <Grid 
+        <Grid
             container
             direction="row"
             justify="flex-end"
@@ -16,13 +16,13 @@ const SearchBar = ({ handleQueryChange, query, handleSubmit }) => {
             <Grid item xs={10}>
                 <TextField
                     variant="outlined"
-                    label="search" 
+                    label="search"
                     value={query}
                     size="small"
-                    onChange={handleQueryChange}/>
+                    onChange={handleQueryChange} />
             </Grid>
             <Grid item xs={2}>
-                <IconButton 
+                <IconButton
                     name="search"
                     size="small"
                     variant="contained"

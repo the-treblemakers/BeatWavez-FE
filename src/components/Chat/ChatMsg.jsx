@@ -8,34 +8,34 @@ const ChatMsg = ({ stageName, message, timeStamp }) => (
         justify="space-between"
         alignItems="flex-end"
         spacing={1}>
-            <Grid item>
-                <Grid container
-                    direction="row" 
-                    justify="flex-start"
-                    spacing={1}>
-                </Grid>
-                    <Grid item>
-                        <Typography 
-                            variant="body1"
-                            align="left" 
-                            style={{ fontWeight: 500, }}>
-                            {stageName}:
-                        </Typography>
-                    </Grid>
-                    <Grid item>        
-                        <Typography 
-                            variant="body1"
-                            align="left">
-                            {message}
-                        </Typography>
-                    </Grid>
+        <Grid item>
+            <Grid container
+                direction="row" 
+                justify="flex-start"
+                spacing={1}>
             </Grid>
             <Grid item>
                 <Typography 
-                    variant="body1" 
-                    align="right"
-                    style={{ fontSize: 12, }}>{timeStamp}</Typography>
+                    variant="body1"
+                    align="left" 
+                    style={{ fontWeight: 500, }}>
+                    {stageName}:
+                </Typography>
             </Grid>
+            <Grid item>        
+                <Typography 
+                    variant="body1"
+                    align="left">
+                    {message}
+                </Typography>
+            </Grid>
+        </Grid>
+        <Grid item>
+            <Typography 
+                variant="body1" 
+                align="right"
+                style={{ fontSize: 12, }}>{timeStamp}</Typography>
+        </Grid>
     </Grid>
 );
 

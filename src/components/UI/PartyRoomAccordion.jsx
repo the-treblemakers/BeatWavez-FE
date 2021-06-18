@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PropTypes from 'prop-types';
@@ -12,27 +11,27 @@ export default function PartyRoomAccordion({ messages, queue }) {
 
     return (
         <div className={classes.root}>
-        <Accordion className={classes.accordion}>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-            >
-                <Typography variant="h3">Chat</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <ChatList messageArray={messages}/>
-            </AccordionDetails>
-        </Accordion>
-        <Accordion className={classes.accordion}>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}>
-                <Typography variant="h3">
+            <Accordion className={classes.accordion}>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}>
+                    <Typography variant="h3">
                     Queue
-                </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <Queue queue={queue} />
-            </AccordionDetails>
-        </Accordion>
+                    </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Queue queue={queue} />
+                </AccordionDetails>
+            </Accordion>
+            <Accordion className={classes.accordion}>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                >
+                    <Typography variant="h3">Chat</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <ChatList messageArray={messages}/>
+                </AccordionDetails>
+            </Accordion>
         </div>
     );
 }

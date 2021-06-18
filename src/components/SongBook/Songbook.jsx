@@ -6,9 +6,12 @@ import { List, ListItem, IconButton, Grid, Card } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import AddIcon from '@material-ui/icons/Add';
+<<<<<<< HEAD
 
+=======
+>>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
 
-const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook }) => {
+const Songbook = ({ stageName, loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook }) => {
     useEffect(() => {
 
     }, [loading]);
@@ -25,9 +28,16 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
     if(loading) return <Spinner />;
 
     return (
+<<<<<<< HEAD
         <Grid container 
             direction="column"
             alignItems="center">
+=======
+        <Grid container
+            direction="column"
+            alignItems="center">
+
+>>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
             <Grid container
                 direction="row"
                 alignItems="center"
@@ -39,12 +49,21 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
                     <NavigateNextIcon />
                 </IconButton>
             </Grid>
+<<<<<<< HEAD
             <List 
                 style={{ maxHeight: 400, overflow: 'auto' }}
                 aria-label='songs'>
                 {currentSongs.map((song, i) => (
                     <ListItem key={song.title + i}>
                         <Card variant="outlined">
+=======
+
+            <List style={{ maxHeight: 350, overflow: 'auto' }} aria-label='songs'>
+                {currentSongs.map((song, i) => (
+                    <ListItem key={song.title + i}>
+
+                        <Card variant="outlined" style={{ border: "#FD2C7B 3px solid", borderRadius: "1px", boxShadow: "#FD2C7B 0px 0px 8px" }}>
+>>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
                             <Grid container
                                 direction="row"
                                 alignItems="center">
@@ -60,6 +79,10 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
                                 {/* <button>Flag as a bad video</button> */}
                             </Grid>
                         </Card>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
                     </ListItem>
                 ))}
             </List>
@@ -68,7 +91,7 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
 };
 
 Songbook.propTypes = {
-    handleAddToQueue: PropTypes.func.isRequired,
+    // handleAddToQueue: PropTypes.func.isRequired,
     stageName: PropTypes.string.isRequired,
     loading: PropTypes.bool.isRequired,
     currentPage: PropTypes.number.isRequired,

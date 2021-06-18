@@ -22,19 +22,19 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
 
     const handleNextPageChange = () => {
         setCurrentPage(currentPage + 1);
-        
+
         const newPage = displayOnPage();
         setCurrentSongs(newPage);
     };
 
     const handlePrevPageChange = () => {
         setCurrentPage(currentPage - 1);
-        
+
         const newPage = displayOnPage();
         setCurrentSongs(newPage);
     };
 
-    if(loading) return <Spinner />;
+    if (loading) return <Spinner />;
 
     return (
         <Grid container
@@ -45,13 +45,13 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                 direction="row"
                 alignItems="center"
                 justify="space-between">
-                <IconButton 
+                <IconButton
                     onClick={handlePrevPageChange}
                     disabled={currentPage === 1}
                 >
                     <NavigateBeforeIcon />
                 </IconButton>
-                <IconButton 
+                <IconButton
                     onClick={handleNextPageChange}
                     disabled={currentSongs < 20}
                 >
@@ -72,12 +72,13 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                                 </Grid>
                                 <Grid item xs={2}>
                                     <IconButton
+                                        aria-label="add to queue"
                                         onClick={() => handleAddToQueue(song)}>
                                         <AddIcon />
                                     </IconButton>
-                                </Grid>
-                                {/* <button>Flag as a bad video</button> */}
                             </Grid>
+                            {/* <button>Flag as a bad video</button> */}
+                        </Grid>
                         </Card>
                     </ListItem>
                 ))}

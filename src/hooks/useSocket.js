@@ -6,7 +6,7 @@ import io from "socket.io-client";
 const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 export const useSocket = () => {
-    const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '', isHost: false });
+    const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '', isHost: false, passcode: null });
     const [queueArray, setQueueArray] = useState([]);
     const [roomsArray, setRoomsArray] = useState([]);
     const [newMessage, setNewMessage] = useState('');
@@ -14,14 +14,9 @@ export const useSocket = () => {
     const history = useHistory();
 
     useEffect(() => {
-        socket.on('MESSAGE', ({ sender, message }) => {
-            setMessageArray([...messageArray, message]);
-            console.log(messageArray);
-        });
-
-        socket.on('ROOM_JOIN_RESULT', ({ roomJoined, stageName, roomName, isHost }) => {
-            if(roomJoined) {
-                setRoomInfo({ roomName, stageName, isHost });
+        socket.on('ROOM_JOIN_RESULT', ({ roomJoined, stageName, roomName, isHost, passcode }) => {
+            if (roomJoined) {
+                setRoomInfo({ roomName, stageName, isHost, passcode });
                 history.push('/greenroom');
             } else {
                 alert('Provided roomname or passcode is incorrect.');
@@ -32,28 +27,40 @@ export const useSocket = () => {
             setQueueArray(queueArray);
         });
 
-        socket.on('UPDATE_MESSAGE_ARRAY', ({ message, timeStamp, stageName }) => {
-            setMessageArray([...messageArray, { message, timeStamp, stageName }]);
+        socket.on('UPDATE_MESSAGE_ARRAY', ({ message, stageName }) => {
+            console.log(messageArray, message, stageName, 'UPDATE_MESSAGE');
+            setMessageArray([...messageArray, { message, stageName, timeStamp: new Date().toLocaleTimeString() }]);
+        });
+
+        socket.on('UPDATE_ROOMS_ARRAY', ({ roomsResults }) => {
+            if (roomsResults.length === 0) {
+                setRoomsArray(['No open rooms, host one!']);
+            } else {
+                setRoomsArray(roomsResults);
+            }
         });
 
     }, []);
 
-    const handleCreateRoom = (stageName) => {
-        if(stageName !== '') {
-            socket.emit('CREATE_ROOM', ({ stageName }));
+    const handleUpdateRoomsArray = () => {
+        socket.emit('UPDATE_ROOMS_ARRAY');
+    };
+
+    const handleCreateRoom = () => {
+        if (roomInfo.stageName !== '') {
+            socket.emit('CREATE_ROOM', ({ stageName: roomInfo.stageName }));
         }
     };
 
-    const handleJoinRoom = (stageName, roomName, inputPasscode) => {
-        if(stageName !== '' && roomName !== '') {
-            socket.emit('JOIN_ROOM', ({ stageName, roomName, inputPasscode }));
+    const handleJoinRoom = (inputPasscode) => {
+        if (roomInfo.stageName !== '' && roomInfo.roomName !== '') {
+            socket.emit('JOIN_ROOM', ({ stageName: roomInfo.stageName, roomName: roomInfo.roomName, inputPasscode }));
         }
     };
 
     const handleNewMessage = () => {
-        socket.emit('MESSAGE', { message: newMessage, timeStamp: new Date().toLocaleTimeString(), roomName: roomInfo.roomName, stageName: roomInfo.stageName });
+        socket.emit('MESSAGE', { message: newMessage, roomName: roomInfo.roomName, stageName: roomInfo.stageName });
         setNewMessage('');
-        console.log(messageArray, queue, 'CHECK MESSAGE & QUEUE');
     };
 
     const handleAddToQueue = ({ title, vidId, thumbnail }) => {
@@ -61,12 +68,13 @@ export const useSocket = () => {
     };
 
     return {
+        handleUpdateRoomsArray,
         handleCreateRoom,
         handleNewMessage,
         handleAddToQueue,
         handleJoinRoom,
-        setRoomsArray,
         setNewMessage,
+        setRoomInfo,
         messageArray,
         queueArray,
         roomsArray,
@@ -74,48 +82,3 @@ export const useSocket = () => {
         roomInfo,
     };
 };
-
-
-// return () => {
-//     console.log('disconnect fire');
-//     socket.disconnect();
-// };
-
-// socket.on('SET_HOST', ({ hostId }) => {
-//     setHost({ hostId, isHost: true });
-//     console.log('set host', hostId);
-// });
-
-// // After joining the room, this goes to room
-// socket.on('REQUEST_HOST', ({ sender }) => {
-//     if (host.isHost) {
-//         socket.emit('SEND_HOST', ({ hostId: host.hostId, queue, sender }));
-//         console.log('request host', host);
-//     }
-// });
-
-// socket.on('RECEIVE_HOST_QUEUE', ({ hostId, queue }) => {
-//     setHost({ hostId, isHost: false });
-//     setQueue(queue);
-//     console.log('receive queue host', hostId);
-// });
-
-// socket.on('ADD_TO_QUEUE', ({ title, vidId, stageName, thumbnail }) => {
-//     setQueue([...queue, { title, vidId, stageName, thumbnail }]);
-//     console.log('update queue');
-//     socket.emit('UPDATE_QUEUE', { queue, roomName: roomInfo.roomName });
-// });
-
-// socket.on('UPDATE_QUEUE', ({ queue }) => {
-//     setQueue(queue);
-// });
-
-// console.log('host', host);
-// if (!host.isHost) {
-//     console.log(roomInfo.stageName, 'REQ ADD');
-//     socket.emit('ADD_TO_QUEUE', ({ title: song.title, vidId: song.vidId, stageName: roomInfo.stageName, thumbnail: song.thumbnail, hostId: host.hostId }));
-// } else if (host.isHost) {
-//     console.log(roomInfo.stageName, 'HOST ADD');
-//     setQueue([...queue, { title: song.title, vidId: song.vidId, stageName: roomInfo.stageName, thumbnail: song.thumbnail, hostId: host.hostId }]);
-//     socket.emit('UPDATE_QUEUE', { queue, roomName: roomInfo.roomName });
-// }

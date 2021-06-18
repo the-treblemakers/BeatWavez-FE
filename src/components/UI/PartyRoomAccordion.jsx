@@ -10,26 +10,26 @@ export default function PartyRoomAccordion({ messages, queue }) {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <Accordion className={classes.accordion}>
+        <div className={classes.base}>
+            <Accordion className={classes.root}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}>
                     <Typography variant="h3">
-                    Queue
+                        Queue
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Queue queue={queue} />
                 </AccordionDetails>
             </Accordion>
-            <Accordion className={classes.accordion}>
+            <Accordion className={classes.root}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
                     <Typography variant="h3">Chat</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <ChatList messageArray={messages}/>
+                    <ChatList messageArray={messages} />
                 </AccordionDetails>
             </Accordion>
         </div>

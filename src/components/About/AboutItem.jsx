@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { Grid, Typography, IconButton, Card, CardContent, CardActions, Collapse  } from '@material-ui/core';
+import { Grid, Typography, IconButton, Card, CardContent, CardActions, Collapse } from '@material-ui/core';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -17,8 +17,9 @@ const AboutItem = ({ name, image, linkedIn, github, twitter, bio }) => {
     };
 
     return (
+
         <Card 
-            variant="outlined" 
+            variant="outlined"
             style={{ border: "#FD2C7B 3px solid", borderRadius: "1px", boxShadow: "#FD2C7B 0px 0px 10px" }}
             className={classes.bio}>
             <Grid container

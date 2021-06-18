@@ -100,7 +100,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
 
                     <TextField
                         variant="outlined"
-                        label="Join Room With Passcode"
+                        label="Enter Passcode"
                         type="password"
                         fullWidth
                         style={{ marginBottom: '1em' }}

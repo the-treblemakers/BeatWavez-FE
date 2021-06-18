@@ -20,7 +20,7 @@ export const useSocket = () => {
         });
 
         socket.on('ROOM_JOIN_RESULT', ({ roomJoined, stageName, roomName, isHost }) => {
-            if (roomJoined) {
+            if(roomJoined) {
                 setRoomInfo({ roomName, stageName, isHost });
                 history.push('/greenroom');
             } else {

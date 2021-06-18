@@ -8,7 +8,7 @@ import About from '../../containers/About';
 import '../Styles/app.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core';
-import theme from '../styles/theme';
+import theme from '../Styles/theme';
 import { useSocket } from '../../hooks/useSocket';
 
 export default function App() {

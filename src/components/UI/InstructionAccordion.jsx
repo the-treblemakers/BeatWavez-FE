@@ -51,8 +51,6 @@ function InstructionAccordion() {
                 </AccordionDetails>
             </Accordion>
 
-
-
         </div>
 
     );

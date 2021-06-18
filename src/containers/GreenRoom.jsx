@@ -42,15 +42,11 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     }, []);
 
     useEffect(() => {
-        const filter = () => {
-            const filteredSongs = songbook.filter((song) => {
-                const channelName = song.channelName;
-                return channelName.includes(channelFilter);
-            });
-            return filteredSongs;
-        };
-        const filteredResults = filter();
-        return filteredResults;
+        const filterMethod = songbook.filter((song) => {
+            const channelName = song.channelName;
+            return channelName.includes(channelFilter);
+        });
+        setFilteredSongs(filterMethod);
     }, [channelFilter]);
 
     useEffect(() => {

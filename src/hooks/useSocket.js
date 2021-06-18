@@ -6,7 +6,7 @@ import io from "socket.io-client";
 const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 export const useSocket = () => {
-    const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '', isHost: false, passcode: null });
+    const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '', isHost: false });
     const [queueArray, setQueueArray] = useState([]);
     const [roomsArray, setRoomsArray] = useState([]);
     const [newMessage, setNewMessage] = useState('');
@@ -14,9 +14,14 @@ export const useSocket = () => {
     const history = useHistory();
 
     useEffect(() => {
-        socket.on('ROOM_JOIN_RESULT', ({ roomJoined, stageName, roomName, isHost, passcode }) => {
+        socket.on('MESSAGE', ({ sender, message }) => {
+            setMessageArray([...messageArray, message]);
+            console.log(messageArray);
+        });
+
+        socket.on('ROOM_JOIN_RESULT', ({ roomJoined, stageName, roomName, isHost }) => {
             if(roomJoined) {
-                setRoomInfo({ roomName, stageName, isHost, passcode });
+                setRoomInfo({ roomName, stageName, isHost });
                 history.push('/greenroom');
             } else {
                 alert('Provided roomname or passcode is incorrect.');
@@ -27,36 +32,28 @@ export const useSocket = () => {
             setQueueArray(queueArray);
         });
 
-        socket.on('UPDATE_MESSAGE_ARRAY', ({ message, stageName }) => {
-            console.log(messageArray, { message, stageName });
-            setMessageArray([...messageArray, { message, stageName, timeStamp: new Date().toLocaleTimeString() }]);
-        });
-
-        socket.on('UPDATE_ROOMS_ARRAY', ({ roomsResults }) => {
-            setRoomsArray(roomsResults);
+        socket.on('UPDATE_MESSAGE_ARRAY', ({ message, timeStamp, stageName }) => {
+            setMessageArray([...messageArray, { message, timeStamp, stageName }]);
         });
 
     }, []);
 
-    const handleUpdateRoomsArray = () => {
-        socket.emit('UPDATE_ROOMS_ARRAY');
-    };
-
-    const handleCreateRoom = () => {
-        if(roomInfo.stageName !== '') {
-            socket.emit('CREATE_ROOM', ({ stageName: roomInfo.stageName }));
+    const handleCreateRoom = (stageName) => {
+        if(stageName !== '') {
+            socket.emit('CREATE_ROOM', ({ stageName }));
         }
     };
 
-    const handleJoinRoom = (inputPasscode) => {
-        if(roomInfo.stageName !== '' && roomInfo.roomName !== '') {
-            socket.emit('JOIN_ROOM', ({ stageName: roomInfo.stageName, roomName: roomInfo.roomName, inputPasscode }));
+    const handleJoinRoom = (stageName, roomName, inputPasscode) => {
+        if(stageName !== '' && roomName !== '') {
+            socket.emit('JOIN_ROOM', ({ stageName, roomName, inputPasscode }));
         }
     };
 
     const handleNewMessage = () => {
-        socket.emit('MESSAGE', { message: newMessage, roomName: roomInfo.roomName, stageName: roomInfo.stageName });
+        socket.emit('MESSAGE', { message: newMessage, timeStamp: new Date().toLocaleTimeString(), roomName: roomInfo.roomName, stageName: roomInfo.stageName });
         setNewMessage('');
+        console.log(messageArray, queue, 'CHECK MESSAGE & QUEUE');
     };
 
     const handleAddToQueue = ({ title, vidId, thumbnail }) => {
@@ -64,13 +61,12 @@ export const useSocket = () => {
     };
 
     return {
-        handleUpdateRoomsArray,
         handleCreateRoom,
         handleNewMessage,
         handleAddToQueue,
         handleJoinRoom,
+        setRoomsArray,
         setNewMessage,
-        setRoomInfo,
         messageArray,
         queueArray,
         roomsArray,

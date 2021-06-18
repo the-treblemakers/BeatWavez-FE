@@ -13,17 +13,11 @@ import { useSocket } from '../../hooks/useSocket';
 
 export default function App() {
     const {
-        handleUpdateRoomsArray,
         handleCreateRoom,
         handleNewMessage,
         handleAddToQueue,
         handleJoinRoom,
         setNewMessage,
-        setRoomInfo,
-        messageArray,
-        roomsArray,
-        queueArray,
-        newMessage,
         roomInfo,
     } = useSocket();
 
@@ -36,9 +30,6 @@ export default function App() {
                     handleCreateRoom={handleCreateRoom}
                     handleJoinRoom={handleJoinRoom}
                     roomsArray={roomsArray}
-                    handleUpdateRoomsArray={handleUpdateRoomsArray}
-                    roomInfo={roomInfo}
-                    setRoomInfo={setRoomInfo}
                 />} />
                 <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps}
                     roomInfo={roomInfo}

@@ -5,18 +5,14 @@ import { TextField, Button, Grid, MenuItem, ButtonGroup } from '@material-ui/cor
 import StarRateIcon from '@material-ui/icons/StarRate';
 import MicIcon from '@material-ui/icons/Mic';
 
-const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateRoomsArray, roomInfo, setRoomInfo }) => {
-    // const [stageName, setStageName] = useState('');
-    // const [roomName, setRoomName] = useState('');
+const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
+    const [stageName, setStageName] = useState('');
+    const [roomName, setRoomName] = useState('');
     const [inputPasscode, setInputPasscode] = useState('');
     const [showHost, setShowHost] = useState(true);
 
     const handleStageNameChange = (e) => {
-        setRoomInfo({ ...roomInfo, stageName: e.target.value });
-    };
-
-    const handleRoomNameChange = (e) => {
-        setRoomInfo({ ...roomInfo, roomName: e.target.value });
+        setStageName(e.target.value);
     };
 
     const handleHostButtonChange = () => {
@@ -45,10 +41,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                 </Button>
 
                 <Button
-                    onClick={() => {
-                        handleUpdateRoomsArray();
-                        handleGuestButtonChange();
-                    }}>
+                    onClick={handleGuestButtonChange}>
                     <StarRateIcon />
                     Guest
                 </Button>
@@ -63,7 +56,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                         fullWidth
                         style={{ marginBottom: '1em' }}
                         onChange={handleStageNameChange}
-                        value={roomInfo.stageName}
+                        value={stageName}
                     />
 
 
@@ -73,8 +66,8 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                         variant="contained"
                         color="primary"
                         style={{ marginBottom: '2em' }}
-                        disabled={showHost === false || roomInfo.stageName === ''}
-                        onClick={() => handleCreateRoom()}
+                        disabled={showHost === false || stageName === ''}
+                        onClick={() => handleCreateRoom({ stageName })}
                     >
                         CREATE NEW ROOM!
                     </Button>
@@ -87,7 +80,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                         fullWidth
                         style={{ marginBottom: '1em' }}
                         onChange={handleStageNameChange}
-                        value={roomInfo.stageName}
+                        value={stageName}
                     />
 
                     <TextField
@@ -96,7 +89,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                         margin="dense"
                         style={{ paddingBottom: "3em" }}
                         label="Party Rooms In Session"
-                        onChange={handleRoomNameChange}
+                        onChange={({ target }) => setRoomName(target.value)}
                     >
                         {roomsArray.map((room) => (
                             <MenuItem key={room} value={room}>{room}</MenuItem>
@@ -120,8 +113,8 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                         size="large"
                         variant="contained"
                         color="primary"
-                        disabled={roomInfo.roomName === '' || roomInfo.stageName === '' || inputPasscode === ''}
-                        onClick={() => handleJoinRoom(inputPasscode)}
+                        disabled={roomName === '' || stageName === '' || inputPasscode === ''}
+                        onClick={() => handleJoinRoom({ stageName, inputPasscode, roomName })}
                     >
                         JOIN THE PARTY!
                     </Button>
@@ -137,9 +130,6 @@ LoginForm.propTypes = {
     handleCreateRoom: PropTypes.func.isRequired,
     handleJoinRoom: PropTypes.func.isRequired,
     roomsArray: PropTypes.array.isRequired,
-    handleUpdateRoomsArray: PropTypes.func.isRequired,
-    roomInfo: PropTypes.object.isRequired,
-    setRoomInfo: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

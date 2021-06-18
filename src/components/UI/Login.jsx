@@ -7,7 +7,7 @@ import LoginForm from '../UI/LoginForm';
 import PropTypes from 'prop-types';
 import InstructionAccordion from '../UI/InstructionAccordion';
 
-function Login({ handleJoinRoom, handleCreateRoom }) {
+function Login({ handleJoinRoom, handleCreateRoom, roomsArray }) {
     return (
         <Grid
             container
@@ -19,7 +19,7 @@ function Login({ handleJoinRoom, handleCreateRoom }) {
         >
             <Grid item>
                 <Typography variant="h2" color="secondary">
-                        Welcome To BeatWavez!
+                    Welcome To BeatWavez!
                 </Typography>
             </Grid>
 
@@ -27,6 +27,7 @@ function Login({ handleJoinRoom, handleCreateRoom }) {
                 <LoginForm
                     handleJoinRoom={handleJoinRoom}
                     handleCreateRoom={handleCreateRoom}
+                    roomsArray={roomsArray}
                 />
             </Grid>
 
@@ -40,6 +41,7 @@ function Login({ handleJoinRoom, handleCreateRoom }) {
 Login.propTypes = {
     handleJoinRoom: PropTypes.func.isRequired,
     handleCreateRoom: PropTypes.func.isRequired,
+    roomsArray: PropTypes.array.isRequired,
 };
 
 export default Login;

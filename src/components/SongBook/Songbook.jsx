@@ -7,7 +7,8 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import AddIcon from '@material-ui/icons/Add';
 
-const Songbook = ({ stageName, loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook }) => {
+
+const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook }) => {
     useEffect(() => {
 
     }, [loading]);
@@ -21,7 +22,7 @@ const Songbook = ({ stageName, loading, currentPage, setCurrentPage, currentSong
         setCurrentSongs(newPage);
     };
 
-    if (loading) return <Spinner />;
+    if(loading) return <Spinner />;
 
     return (
         <Grid container
@@ -69,8 +70,8 @@ const Songbook = ({ stageName, loading, currentPage, setCurrentPage, currentSong
 };
 
 Songbook.propTypes = {
-    // handleAddToQueue: PropTypes.func.isRequired,
-    stageName: PropTypes.string.isRequired,
+    handleAddToQueue: PropTypes.func.isRequired,
+    // stageName: PropTypes.string.isRequired,
     loading: PropTypes.bool.isRequired,
     currentPage: PropTypes.number.isRequired,
     setCurrentPage: PropTypes.func.isRequired,

@@ -40,7 +40,9 @@ export const ADJECTIVES = [
     'Metaphysical',
     'Checkered',
     'Paisley',
-    'Glittering'
+    'Glittering',
+    'Ghastly',
+    'Swell'
 ];
 
 export const NOUNS = [
@@ -81,7 +83,6 @@ export const NOUNS = [
     'Parental Disappointment',
     'Juicer',
     'Microphone',
-    'Ryan',
     'Disco',
     'Rave',
 ];

@@ -11,7 +11,7 @@ const ChatMsg = ({ stageName, message, timeStamp }) => (
         <Grid item>
             <Grid container
                 direction="row" 
-                justify="flex-start"
+                justify="flex-start"ç
                 spacing={1}>
             </Grid>
             <Grid item>

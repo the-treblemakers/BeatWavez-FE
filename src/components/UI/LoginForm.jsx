@@ -2,22 +2,15 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { TextField, Button, Grid, MenuItem, ButtonGroup } from '@material-ui/core';
-import Typography from "@material-ui/core/Typography";
-import { useHistory } from 'react-router-dom';
 
-const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
+const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
     const [stageName, setStageName] = useState('');
     const [roomName, setRoomName] = useState('');
+    const [inputPasscode, setInputPasscode] = useState('');
     const [showHost, setShowHost] = useState(false);
-    const [showGuest, setShowGuest] = useState(false);
-    const history = useHistory();
 
     const handleStageNameChange = (e) => {
         setStageName(e.target.value);
-    };
-
-    const handleRoomNameChange = (e) => {
-        setRoomName(e.target.value);
     };
 
     const handleHostButtonChange = () => {
@@ -28,27 +21,29 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
         setShowHost(false);
     };
 
-    
+    // const handleRoomNameChange = (e) => {
+    //     setRoomName(e.target.value);
+    // };
 
     return (
         <>
-            <ButtonGroup 
-                size="large" 
-                color="primary" 
+            <ButtonGroup
+                size="large"
+                color="primary"
             >
                 <Button
                     onClick={handleHostButtonChange}>
-                        Host
+                    Host
                 </Button>
-                
+
                 <Button
                     onClick={handleGuestButtonChange}>
                     Guest
                 </Button>
             </ButtonGroup>
             <Grid container direction="column" alignItems="center" justify="center">
-                
-                
+
+
                 {showHost ? <>
                     <TextField
                         variant="outlined"
@@ -59,23 +54,20 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
                         value={stageName}
                     />
 
-                   
+
                     <Button
                         name='create'
                         size="large"
                         variant="contained"
                         color="primary"
                         style={{ marginBottom: '2em' }}
-                        disabled={showHost === true}
-                        onClick={() => {
-                            handleCreateRoom(stageName);
-                            history.push('/greenroom');
-                        }}
+                        disabled={showHost === false || stageName === ''}
+                        onClick={() => handleCreateRoom({ stageName })}
                     >
-                  CREATE NEW ROOM!
+                        CREATE NEW ROOM!
                     </Button>
                 </> : <>
-                   
+
 
                     <TextField
                         variant="outlined"
@@ -86,18 +78,20 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
                         value={stageName}
                     />
 
-                    <TextField 
+                    <TextField
                         select
                         fullWidth
                         margin="dense"
                         style={{ paddingBottom: "1em" }}
                         label="Party Rooms In Session"
-                    // onChange={handleDropdownChange} >
+                        onChange={({ target }) => setRoomName(target.value)}
                     >
-                        <MenuItem value="">Rooms Populate here</MenuItem>
+                        {roomsArray.map((room) => (
+                            <MenuItem key={room} value={room}>{room}</MenuItem>
+                        ))}
                     </TextField>
-                  
-            
+
+
 
                     <TextField
                         variant="outlined"
@@ -105,8 +99,8 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
                         type="password"
                         fullWidth
                         style={{ marginBottom: '1em' }}
-                        // onChange={handlePasscodeChange}
-                        value={''}
+                        onChange={({ target }) => setInputPasscode(target.value)}
+                        value={inputPasscode}
                     />
 
                     <Button
@@ -114,20 +108,17 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
                         size="large"
                         variant="contained"
                         color="primary"
-                        disabled={roomName === '' || stageName === ''}
-                        onClick={() => {
-                            handleJoinRoom(stageName, roomName);
-                            history.push('/greenroom');
-                        }}
+                        disabled={roomName === '' || stageName === '' || inputPasscode === ''}
+                        onClick={() => handleJoinRoom({ stageName, inputPasscode, roomName })}
                     >
-                    JOIN THE PARTY!
+                        JOIN THE PARTY!
                     </Button>
                 </>
                 }
 
-              
 
-                
+
+
             </Grid>
 
         </>
@@ -137,6 +128,8 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom }) => {
 LoginForm.propTypes = {
     handleCreateRoom: PropTypes.func.isRequired,
     handleJoinRoom: PropTypes.func.isRequired,
+    roomsArray: PropTypes.array.isRequired,
+    setRoomsArray: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

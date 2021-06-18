@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-<<<<<<< HEAD
-import { Accordion, AccordionSummary, AccordionDetails, Typography, Grid } from '@material-ui/core';
-=======
 import { Accordion, AccordionSummary, AccordionDetails, Typography, Grid, Snackbar, IconButton } from '@material-ui/core';
 import CloseSharpIcon from '@material-ui/icons/CloseSharp';
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SearchBar from '../components/Search/SearchBar';
 import SearchFilters from '../components/Search/SearchFilters';
@@ -14,9 +10,9 @@ import Queue from '../components/Queue/Queue';
 import Chat from '../components/Chat/Chat';
 import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
-import { useStyles } from '../components/styles/greenroomStyles';
+import { useStyles } from '../components/Styles/greenroomStyles';
 
-const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue }) => {
+const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
     const [songbook, setSongbook] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -28,7 +24,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     const classes = useStyles();
 
-    const classes = useStyles();
+
 
     useEffect(() => {
         getAllSongs()
@@ -46,32 +42,21 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 const channelName = song.channelName;
                 return channelName.includes(channelFilter);
             });
-
             return filteredSongs;
         };
-<<<<<<< HEAD
-        setFilteredSongs(filter());
-        
-=======
         const filteredResults = filter();
         return filteredResults;
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
     }, [channelFilter]);
 
     useEffect(() => {
         setCurrentSongs(filteredSongs);
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
     }, [filteredSongs]);
 
     function handleQueryChange(e) {
         setQuery(e.target.value);
-    }
-
-    function handleDropdownChange(e) {
+    }        
+      
+    function handleDropdownChange(e){
         setChannelFilter(e.target.value);
         setQuery('');
     }
@@ -89,20 +74,10 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             });
         };
         const searchResults = search();
-        setTimeout(() => {
-            setCurrentSongs(searchResults);
+        setTimeout(() => {setCurrentSongs(searchResults);
             setLoading(false);
         }, 100);
 
-<<<<<<< HEAD
-    }
-
-    return (
-        <Grid container  
-            direction="column" 
-            alignItems="center" 
-            justify="center">
-=======
     }
 
     function handleClose() {
@@ -115,26 +90,10 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             alignItems="center"
             direction="column"
             style={{ minHeight: '90vh' }}>
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
             {roomInfo.roomName ?
                 <Typography
                     variant="h2"
                     align="center"
-<<<<<<< HEAD
-                    style={{ margin: '1rem' }}>
-                    Welcome to the {roomInfo.roomName} room!
-                </Typography>
-                : 
-                <Typography
-                    variant="h2"
-                    align="center"
-                    style={{ margin: '1rem' }}>
-                    Welcome to the Greenroom!
-                </Typography>
-            }
-            {/* DISPLAY ROOM NAME, STAGE NAME INSTRUCTIONS TO INVITE FRIENDS ALSO ADD FLAVOR/GLITTER!!!! In an alert? Or just on the page somewhere? */}
-            <Accordion 
-=======
                     style={{ margin: '1.5rem' }}>
                     Welcome to the {roomInfo.roomName} room!
                 </Typography>
@@ -188,7 +147,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 } />
 
             <Accordion
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
                 className={classes.accordion}
                 defaultExpanded>
                 <AccordionSummary
@@ -200,13 +158,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 </AccordionSummary>
                 <AccordionDetails>
                     <Grid container
-<<<<<<< HEAD
-                        direction="column" 
-                        alignItems="center" 
-=======
                         direction="column"
                         alignItems="center"
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
                         justify="center">
                         <Grid container
                             direction="row"
@@ -245,22 +198,13 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 </AccordionDetails>
             </Accordion>
 
-<<<<<<< HEAD
-            <Accordion 
-                className={classes.accordion}> 
-=======
             <Accordion
                 className={classes.accordion}>
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}>
                     <Typography
                         variant="h3" >
-<<<<<<< HEAD
-                            Queue
-=======
                         Queue
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -271,13 +215,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                         : null}
                 </AccordionDetails>
             </Accordion>
-<<<<<<< HEAD
-            
-            <Accordion 
-=======
 
             <Accordion
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
                 className={classes.accordion}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -296,11 +235,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     />
                 </AccordionDetails>
             </Accordion>
-<<<<<<< HEAD
-            
-=======
-
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
         </Grid>
     );
 };
@@ -312,7 +246,7 @@ GreenRoom.propTypes = {
     messageArray: PropTypes.array.isRequired,
     setNewMessage: PropTypes.func.isRequired,
     queue: PropTypes.array.isRequired,
-    // handleAddToQueue: PropTypes.func.isRequired,
+    handleAddToQueue: PropTypes.func.isRequired,
 };
 
 export default GreenRoom;

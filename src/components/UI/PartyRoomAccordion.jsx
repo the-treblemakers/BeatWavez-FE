@@ -4,7 +4,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PropTypes from 'prop-types';
 import ChatList from '../Chat/ChatList';
 import Queue from '../Queue/Queue';
-import { useStyles } from '../styles/partyroomStyles';
+import { useStyles } from '../Styles/partyroomStyles';
 
 export default function PartyRoomAccordion({ messages, queue }) {
     const classes = useStyles();

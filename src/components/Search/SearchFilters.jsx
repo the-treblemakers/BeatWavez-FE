@@ -4,11 +4,7 @@ import { TextField, MenuItem } from '@material-ui/core';
 
 const SearchFilters = ({ handleDropdownChange }) => {
     return (
-<<<<<<< HEAD
-        <TextField 
-=======
         <TextField
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
             select
             fullWidth
             margin="dense"

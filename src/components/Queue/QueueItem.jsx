@@ -6,7 +6,8 @@ const QueueItem = ({ title, stageName }) => (
     <Grid container 
         direction="row" 
         justify="flex-start"
-        spacing={1}>
+        spacing={1}
+        styles={{ width: "100%" }}>
         <Grid item>
             <Typography 
                 variant="body1" 

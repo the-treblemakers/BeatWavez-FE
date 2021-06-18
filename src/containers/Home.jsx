@@ -3,6 +3,7 @@ import Login from '../components/UI/Login';
 import PropTypes from 'prop-types';
 
 function Home({ handleJoinRoom, handleCreateRoom, roomsArray, handleUpdateRoomsArray, roomInfo, setRoomInfo }) {
+
     return (
         <Login
             handleJoinRoom={handleJoinRoom}

@@ -13,7 +13,6 @@ import Spinner from '../components/UI/Spinner';
 import { useStyles } from '../components/Styles/greenroomStyles';
 import { useHistory } from 'react-router-dom';
 
-
 const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
     const [songbook, setSongbook] = useState([]);
@@ -40,7 +39,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         }
     }, []);
 
-    console.log('>>>', roomInfo.passcode, '<<< ROOM PASSCODE');
+    console.log('>>>', roomInfo.passcode, '<<< ROOM PASSCODE');  // FOR DEMO: DELETE AND UNCOMMENT LINE 100 AFTER
 
     useEffect(() => {
         const filterMethod = songbook.filter((song) => {
@@ -80,7 +79,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             setCurrentSongs(searchResults);
             setLoading(false);
         }, 100);
-
     }
 
     return (
@@ -126,25 +124,25 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                         direction="column"
                         alignItems="center"
                         justify="center">
-                            <Grid container
-                                direction="row"
-                                alignItems="center"
-                                justify="space-between"
-                                spacing={1}>
-                                <Grid item xs={4}>
-                                    <SearchFilters
-                                        channelFilter={channelFilter}
-                                        handleDropdownChange={handleDropdownChange}
-                                    />
-                                </Grid>
-                                <Grid item xs={8}>
-                                    <SearchBar
-                                        query={query}
-                                        setQuery={setQuery}
-                                        handleQueryChange={handleQueryChange}
-                                        handleSubmit={handleSubmit}
-                                    />
-                                </Grid>
+                        <Grid container
+                            direction="row"
+                            alignItems="center"
+                            justify="space-between"
+                            spacing={1}>
+                            <Grid item xs={4}>
+                                <SearchFilters
+                                    channelFilter={channelFilter}
+                                    handleDropdownChange={handleDropdownChange}
+                                />
+                            </Grid>
+                            <Grid item xs={8}>
+                                <SearchBar
+                                    query={query}
+                                    setQuery={setQuery}
+                                    handleQueryChange={handleQueryChange}
+                                    handleSubmit={handleSubmit}
+                                />
+                            </Grid>
                         </Grid>
                         {loading && <Spinner />}
                         {!loading &&
@@ -157,7 +155,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                                 setCurrentPage={setCurrentPage}
                                 loading={loading}
                                 songbook={filteredSongs}
-
                             />
                         }
                     </Grid>

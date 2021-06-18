@@ -1,8 +1,8 @@
 # BeatWavez
 
-[BeatWavez App](insert Netlify link here)
-[BeatWaves Server](insert heroku link here)
-[BeatWavez front-end repo](https://github.com/the-treblemakers/BeatWavez-FE)
+![beach128](https://user-images.githubusercontent.com/74560886/122595876-ed5f3200-d01d-11eb-900d-25997455ae79.png)
+[BeatWavez App](iwww.beatwavez.com) </br>
+[BeatWavez front-end repo](https://github.com/the-treblemakers/BeatWavez-FE) </br>
 [BeatWavez back-end repo](https://github.com/the-treblemakers/BeatWavez-BE)
 
 Project planning can be found on our Miro board (https://miro.com/app/board/o9J_lAEhh0A=/)
@@ -27,7 +27,7 @@ BeatWavez is a Jackbox-style karaoke party app that allows users to create and j
 - <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 <br>
     
-# The Team Behind BeatWavez
+# BeatWavez: A Treblemakers Production
 
 -  Nicole Martin
     -  [Github](https://github.com/nicole-m-martin) | [LinkedIn](https://www.linkedin.com/in/nicolemartinpdx/) | [Twitter](https://twitter.com/nmartinpdx)

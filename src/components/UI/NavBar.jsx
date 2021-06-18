@@ -26,59 +26,111 @@ const Navbar = (props) => {
             position="static">
             <Grid container direction="row" justify="space-between" alignItems="center">
                 <Grid item>
+<<<<<<< HEAD
                     <Button 
+=======
+                    <Button
+>>>>>>> 9950027bd50d4a2f5e6012fdbfa5878f2806893f
                         className={classes.menuButton}
                         aria-haspopup="true"
                         // color="#F96D10"
                         aria-owns={anchorEl ? 'menu' : null}
                         onClick={handleClick}>
+<<<<<<< HEAD
                         <MenuIcon className={classes.icon}/>
                     </Button>
                     <Menu 
+=======
+                        <MenuIcon className={classes.icon} />
+                    </Button>
+                    <Menu
+>>>>>>> 9950027bd50d4a2f5e6012fdbfa5878f2806893f
                         id="menu"
                         classes={{ paper: classes.menu }}
                         anchorEl={anchorEl}
                         keepMounted
                         open={Boolean(anchorEl)}
                         onClose={handleClose}>
+<<<<<<< HEAD
                         <MenuItem 
+=======
+                        <MenuItem
+>>>>>>> 9950027bd50d4a2f5e6012fdbfa5878f2806893f
                             className={classes.menuItem}
                             component={Link}
                             to='/'
                             onClick={handleClose}
                             selected={pathname === '/'}
                         >
+<<<<<<< HEAD
                     home
                         </MenuItem>
                         <MenuItem
                             className={classes.menuItem} 
+=======
+                            home
+                        </MenuItem>
+                        <MenuItem
+                            className={classes.menuItem}
+>>>>>>> 9950027bd50d4a2f5e6012fdbfa5878f2806893f
                             component={Link}
                             to='/greenroom'
                             onClick={handleClose}
                             selected={pathname === '/greenroom'}
                         >
+<<<<<<< HEAD
                     green room
                         </MenuItem>
                         <MenuItem
                             className={classes.menuItem} 
+=======
+                            green room
+                        </MenuItem>
+                        <MenuItem
+                            className={classes.menuItem}
+>>>>>>> 9950027bd50d4a2f5e6012fdbfa5878f2806893f
                             component={Link}
                             to='/partyroom'
                             onClick={handleClose}
                             selected={pathname === '/partyroom'}
                         >
+<<<<<<< HEAD
                     party room
                         </MenuItem>
                         <MenuItem
                             className={classes.menuItem} 
+=======
+                            party room
+                        </MenuItem>
+                        <MenuItem
+                            className={classes.menuItem}
+>>>>>>> 9950027bd50d4a2f5e6012fdbfa5878f2806893f
                             component={Link}
                             to='/about'
                             onClick={handleClose}
                             selected={pathname === '/about'}
                         >
+<<<<<<< HEAD
                     meet the KJs
                         </MenuItem> 
                     </Menu>
                 </Grid>
+=======
+                            meet the KJs
+                        </MenuItem>
+                    </Menu>
+                </Grid>
+
+                <Grid item>
+                    <Grid container
+                        direction="row"
+                        alignItems="center"
+                        justify="flex-end">
+                        <Typography variant="h1">beatWavez</Typography>
+                        <img src={"public/assets/beach32.png"} alt="beat wavez logo" className={classes.logo} style={{ marginRight: "1rem" }} />
+                    </Grid>
+                </Grid>
+>>>>>>> 9950027bd50d4a2f5e6012fdbfa5878f2806893f
 
                 <Grid item>
                     <Grid container 

@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import PartyRoomAccordion from '../components/UI/PartyRoomAccordion';
 import { useHistory } from 'react-router-dom';
 
-
 const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const [roomName, setRoomName] = useState(roomInfo.roomName);
     const [stageName, setStageName] = useState('');
@@ -32,7 +31,6 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
             setMessages(messageArray);
             setQueue(queueArray);
         }
-
     }, [queueIndex, messageArray, queueArray]);
 
     const handlePrevious = () => {

@@ -7,8 +7,6 @@ import MicIcon from '@material-ui/icons/Mic';
 import { useStyles } from '../Styles/homeStyles';
 
 const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateRoomsArray, roomInfo, setRoomInfo }) => {
-    // const [stageName, setStageName] = useState('');
-    // const [roomName, setRoomName] = useState('');
     const [inputPasscode, setInputPasscode] = useState('');
     const [showHost, setShowHost] = useState(true);
 
@@ -29,18 +27,6 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
     const handleGuestButtonChange = () => {
         setShowHost(false);
     };
-
-    // const handleSwitch = () => { 
-    //     if (showHost) {
-    //         return (classes.selectedOutlineButton)
-    //     } else {
-    //         return (classes.outlineButton)
-    //     }
-    // };
-
-    // const handleRoomNameChange = (e) => {
-    //     setRoomName(e.target.value);
-    // };
 
     return (
         <>

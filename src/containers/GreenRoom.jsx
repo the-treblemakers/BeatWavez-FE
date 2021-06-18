@@ -40,7 +40,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         }
     }, []);
 
-    console.log('>>>', roomInfo.passcode, '<<< ROOM PASSCODE');
+    console.log('>>>', roomInfo.passcode, '<<< ROOM PASSCODE');  // FOR DEMO: DELETE AND UNCOMMENT LINE 100 AFTER
 
     useEffect(() => {
         const filterMethod = songbook.filter((song) => {

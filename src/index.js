@@ -1,8 +1,11 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import React from 'react';
 import { render } from 'react-dom';
-import App from './components/app/App';
+import App from './components/App/App';
 
 render(
-  <App />,
-  document.getElementById('root')
+    <Router>
+        <App />,
+    </Router>,
+    document.getElementById('root')
 );

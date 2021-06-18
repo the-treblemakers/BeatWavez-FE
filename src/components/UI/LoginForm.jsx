@@ -51,7 +51,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
             >
                 <Button
                     onClick={handleHostButtonChange}>
-                    <MicIcon className={ showHost ? classes.selected : null }/>
+                    <MicIcon className={showHost ? classes.selected : null} />
                     Host
                 </Button>
 
@@ -60,7 +60,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                         handleUpdateRoomsArray();
                         handleGuestButtonChange();
                     }}>
-                    <StarRateIcon className={ !showHost ? classes.selected : null }/>
+                    <StarRateIcon className={!showHost ? classes.selected : null} />
                     Guest
                 </Button>
             </ButtonGroup>

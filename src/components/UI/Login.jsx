@@ -22,17 +22,17 @@ function Login({ handleJoinRoom, handleCreateRoom, roomsArray, handleUpdateRooms
             spacing={5}
         >
             <Grid item style={{ marginTop: "2rem" }}>
-                <Grid container 
-                    direction="column" 
-                    alignItems="center" 
+                <Grid container
+                    direction="column"
+                    alignItems="center"
                     justify="center"
                     style={{ position: "relative" }}
-                    >
-                    <img src={"public/assets/beach128.png"} alt="beach wavez logo" className={classes.logo}/>
-                    <Paper className={classes.logoContainer}/>
+                >
+                    <img src={"public/assets/beach128.png"} alt="beach wavez logo" className={classes.logo} />
+                    <Paper className={classes.logoContainer} />
                 </Grid>
                 <Typography variant="h1" color="secondary" className={classes.logoFont}>
-                        beatWavez
+                    beatWavez
                 </Typography>
             </Grid>
 

@@ -2,8 +2,8 @@ import { useState, useEffect, } from "react";
 import { useHistory } from 'react-router-dom';
 import io from "socket.io-client";
 
-const socket = io('http://localhost:7890/');
-// const socket = io('https://beatwavez-dev.herokuapp.com/');
+// const socket = io('http://localhost:7890/');
+const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 export const useSocket = () => {
     const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '', isHost: false, passcode: null });
@@ -33,7 +33,11 @@ export const useSocket = () => {
         });
 
         socket.on('UPDATE_ROOMS_ARRAY', ({ roomsResults }) => {
-            setRoomsArray(roomsResults);
+            if (roomsResults.length === 0) {
+                setRoomsArray(['No open rooms, host one!']);
+            } else {
+                setRoomsArray(roomsResults);
+            }
         });
 
     }, []);

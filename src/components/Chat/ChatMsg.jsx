@@ -18,8 +18,8 @@ const ChatMsg = ({ stageName, message, timeStamp }) => (
             <Grid item>
                 <Typography
                     variant="body1"
-                    align="left" 
-                    style={{ fontWeight: 500, marginTop: '0.4rem'}}>
+                    align="left"
+                    style={{ fontWeight: 500, marginTop: '0.4rem' }}>
                     {stageName}:
                 </Typography>
             </Grid>

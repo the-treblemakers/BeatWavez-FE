@@ -29,7 +29,7 @@ export const useSocket = () => {
 
         socket.on('UPDATE_MESSAGE_ARRAY', ({ message, stageName }) => {
             console.log(messageArray, message, stageName, 'UPDATE_MESSAGE');
-            setMessageArray([...messageArray, { message, stageName, timeStamp: new Date().toLocaleTimeString() }]);
+            setMessageArray((prevMessageArray) => ([...prevMessageArray, { message, stageName, timeStamp: new Date().toLocaleTimeString() }]));
         });
 
         socket.on('UPDATE_ROOMS_ARRAY', ({ roomsResults }) => {

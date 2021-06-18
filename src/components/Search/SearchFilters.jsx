@@ -1,12 +1,10 @@
-/* eslint-disable react/jsx-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField, MenuItem } from '@material-ui/core';
 
 const SearchFilters = ({ handleDropdownChange }) => {
-
     return (
-        <TextField 
+        <TextField
             select
             fullWidth
             margin="dense"

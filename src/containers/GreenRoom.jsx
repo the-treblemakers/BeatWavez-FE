@@ -12,7 +12,7 @@ import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
 import { useStyles } from '../components/Styles/greenroomStyles';
 
-const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue }) => {
+const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
     const [songbook, setSongbook] = useState([]);
     const [loading, setLoading] = useState(true);

@@ -47,9 +47,11 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                 alignItems="center"
                 justify="space-between">
                 <IconButton onClick={handlePrevPageChange}>
+                    {/* if currentPage === 1, disable */}
                     <NavigateBeforeIcon />
                 </IconButton>
                 <IconButton onClick={handleNextPageChange}>
+                    {/* If no more songs after what's on page, disable */}
                     <NavigateNextIcon />
                 </IconButton>
             </Grid>

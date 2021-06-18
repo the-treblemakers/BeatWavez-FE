@@ -155,7 +155,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Grid container
+                    <Grid container 
+                        // xs={8} md={8} lg={10} xl={12}
                         direction="column"
                         alignItems="center"
                         justify="center">
@@ -163,13 +164,16 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                             direction="row"
                             alignItems="center"
                             justify="space-between"
-                            spacing={1}>
-                            <Grid item xs={4}>
+                            // spacing={1}
+                        >
+                            <Grid item
+                                sm={4} md={5} lg={5} xl={5}
+                            >
                                 <SearchFilters
                                     handleDropdownChange={handleDropdownChange}
                                 />
                             </Grid>
-                            <Grid item xs={8}>
+                            <Grid item >
                                 <SearchBar
                                     query={query}
                                     setQuery={setQuery}
@@ -189,7 +193,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                                 setCurrentPage={setCurrentPage}
                                 loading={loading}
                                 songbook={filteredSongs}
-
                             />
                         }
                     </Grid>

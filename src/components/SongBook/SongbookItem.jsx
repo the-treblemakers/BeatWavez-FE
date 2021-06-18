@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Typography, Card, CardMedia, CardContent  } from '@material-ui/core';
+import { Grid, Typography, CardContent } from '@material-ui/core';
+import QueueMusicIcon from '@material-ui/icons/QueueMusic';
 
-const SongbookItem = ({ title, thumbnail }) => (
+const SongbookItem = ({ title }) => (
     <CardContent>
-        <Grid container direction="row">
-        <img src={thumbnail} alt={title} />
-        <Typography variant="body2">{title} </Typography>
+        <Grid container direction="column">
+            <QueueMusicIcon color="primary" />
+            <Typography variant="body2">{title} </Typography>
         </Grid>
     </CardContent>
 );
 
 SongbookItem.propTypes = {
     title: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired,
-    // channelName: PropTypes.string.isRequired,
 };
 
 export default SongbookItem;

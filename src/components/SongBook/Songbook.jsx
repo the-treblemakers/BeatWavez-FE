@@ -7,8 +7,7 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import AddIcon from '@material-ui/icons/Add';
 
-
-const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook }) => {
+const Songbook = ({ stageName, loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook }) => {
     useEffect(() => {
 
     }, [loading]);
@@ -22,14 +21,17 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
         setCurrentSongs(newPage);
     };
 
-    if (loading) return <Spinner />;
+    if(loading) return <Spinner />;
 
     return (
-        <List aria-label='songs'>
+        <Grid container
+            direction="column"
+            alignItems="center">
+
             <Grid container
-            direction="row"
-            alignItems="center"
-            justify="space-between">
+                direction="row"
+                alignItems="center"
+                justify="space-between">
                 <IconButton onClick={handlePageChange}>
                     <NavigateBeforeIcon />
                 </IconButton>
@@ -37,29 +39,37 @@ const Songbook = ({ handleAddToQueue, stageName, loading, currentPage, setCurren
                     <NavigateNextIcon />
                 </IconButton>
             </Grid>
-            {currentSongs.map((song, i) => (
-                <ListItem key={song.title + i}>
-                    <Card>
-                    <Grid container
-                        direction="row"
-                        alignItems="center"
-                        justify="space-between">
-                        <SongbookItem {...song} />
-                        <IconButton
-                            onClick={() => handleAddToQueue(song)}>
-                                <AddIcon />
-                            </IconButton>
-                        {/* <button>Flag as a bad video</button> */}
-                    </Grid>
-                    </Card>
-                </ListItem>
-            ))}
-        </List>
+
+            <List style={{ maxHeight: 350, overflow: 'auto' }} aria-label='songs'>
+                {currentSongs.map((song, i) => (
+                    <ListItem key={song.title + i}>
+
+                        <Card variant="outlined" style={{ border: "#FD2C7B 3px solid", borderRadius: "1px", boxShadow: "#FD2C7B 0px 0px 8px" }}>
+                            <Grid container
+                                direction="row"
+                                alignItems="center">
+                                <Grid item xs={10}>
+                                    <SongbookItem {...song} />
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <IconButton
+                                        onClick={() => handleAddToQueue(song)}>
+                                        <AddIcon />
+                                    </IconButton>
+                                </Grid>
+                                {/* <button>Flag as a bad video</button> */}
+                            </Grid>
+                        </Card>
+
+                    </ListItem>
+                ))}
+            </List>
+        </Grid>
     );
 };
 
 Songbook.propTypes = {
-    handleAddToQueue: PropTypes.func.isRequired,
+    // handleAddToQueue: PropTypes.func.isRequired,
     stageName: PropTypes.string.isRequired,
     loading: PropTypes.bool.isRequired,
     currentPage: PropTypes.number.isRequired,

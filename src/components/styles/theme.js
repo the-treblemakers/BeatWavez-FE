@@ -1,7 +1,26 @@
 import { createMuiTheme } from '@material-ui/core';
-import { ArrowRight } from '@material-ui/icons';
 
-export const theme = createMuiTheme({
+const theme = createMuiTheme({
+    palette: {
+        type: 'dark',
+        primary: {
+            main: '#13FBD0',
+            dark: '#1A6951',
+        },
+        secondary: {
+            main: '#FD2C7B',
+        },
+        background: {
+            default: '#10042B',
+            paper: '#10042B',
+        },
+        divider: '#FD3F8B',
+        text: {
+            primary: 'rgb(245, 255, 253)',
+            disabled: 'rgba(245, 255, 253, 0.5)',
+            secondary: 'rgba(245, 255, 253, 0.7)',
+        },
+    },
     typography: {
         fontFamily: [
             'Noto Sans JP',
@@ -20,23 +39,16 @@ export const theme = createMuiTheme({
             fontWeight: 600,
         },
         h3: {
-            fontSize: 18,
-        },
-        body1: {
             fontSize: 16,
         },
-    },
-    palette: {
-        primary: {
-            main: '#8838BC'
+        body1: {
+            fontSize: 14,
         },
-        palette: {
-            primary: {
-                main: '#8838BC'
-            },
-            secondary: {
-                main: '#F96D10'
-            }
+        body2: {
+            fontSize: 14,
+            fontWeight: 300,
         }
-    }
+    },
 });
+
+export default theme;

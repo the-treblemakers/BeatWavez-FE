@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import InstructionAccordion from '../UI/InstructionAccordion';
 import { useStyles } from '../Styles/homeStyles';
 
-function Login({ handleJoinRoom, handleCreateRoom, roomsArray }) {
+function Login({ handleJoinRoom, handleCreateRoom, roomsArray, handleUpdateRoomsArray, roomInfo, setRoomInfo }) {
     const classes = useStyles();
 
     return (
@@ -41,6 +41,9 @@ function Login({ handleJoinRoom, handleCreateRoom, roomsArray }) {
                     handleJoinRoom={handleJoinRoom}
                     handleCreateRoom={handleCreateRoom}
                     roomsArray={roomsArray}
+                    handleUpdateRoomsArray={handleUpdateRoomsArray}
+                    roomInfo={roomInfo}
+                    setRoomInfo={setRoomInfo}
                 />
             </Grid>
 
@@ -55,6 +58,9 @@ Login.propTypes = {
     handleJoinRoom: PropTypes.func.isRequired,
     handleCreateRoom: PropTypes.func.isRequired,
     roomsArray: PropTypes.array.isRequired,
+    handleUpdateRoomsArray: PropTypes.func.isRequired,
+    roomInfo: PropTypes.object.isRequired,
+    setRoomInfo: PropTypes.func.isRequired,
 };
 
 export default Login;

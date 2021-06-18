@@ -6,7 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { useStyles } from '../Styles/navbarStyles';
 import '../Styles/app.css';
 
-const Navbar = (props) => { 
+const Navbar = (props) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const { pathname } = props.location;
 
@@ -93,6 +93,6 @@ const Navbar = (props) => {
             </Grid>
         </AppBar>
     );
-}; 
+};
 
 export default withRouter(Navbar);

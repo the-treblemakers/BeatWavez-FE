@@ -15,7 +15,7 @@ export default function PartyRoomAccordion({ messages, queue }) {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}>
                     <Typography variant="h3">
-                    Queue
+                        Queue
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -29,7 +29,7 @@ export default function PartyRoomAccordion({ messages, queue }) {
                     <Typography variant="h3">Chat</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <ChatList messageArray={messages}/>
+                    <ChatList messageArray={messages} />
                 </AccordionDetails>
             </Accordion>
         </div>

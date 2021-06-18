@@ -10,11 +10,11 @@ export const useStyles = makeStyles({
         boxShadow: '0px 0px 0px 0px rgb(0 0 0 / 0%)',   
     },
     selected: {
-        background: '#F96D10',
+        color: '#F96D10',
     },
     menu: {
-        border: 'solid #060836 2px',
-        borderRadius: '3px',
-        boxShadow: '0px 0px 0px 0px rgb(0 0 0 / 0%)',   
+        border: 'solid #F96D10 2px',
+        borderRadius: '1px',
+        boxShadow: "#F96D10 0px 0px 5px",     
     }
 });

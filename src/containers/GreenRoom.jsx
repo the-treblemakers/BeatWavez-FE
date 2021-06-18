@@ -12,7 +12,7 @@ import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
 import { useStyles } from '../components/Styles/greenroomStyles';
 
-const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue }) => {
+const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
     const [songbook, setSongbook] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -36,7 +36,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     useEffect(() => {
         const filter = () => {
-            const filteredResults = songbook.filter((song) => {
+            const filteredSongs = songbook.filter((song) => {
                 const channelName = song.channelName;
                 return channelName.includes(channelFilter);
             });
@@ -105,7 +105,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 </Typography>
             }
 
-            <Snackbar
+            {/* <Snackbar
                 open={open}
                 className={classes.snackbar}
                 anchorOrigin={{
@@ -143,7 +143,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     <IconButton onClick={handleClose}>
                         <CloseSharpIcon color="primary" />
                     </IconButton>
-                } />
+                } /> */}
 
             <Accordion
                 className={classes.accordion}
@@ -167,6 +167,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                                 spacing={1}>
                                 <Grid item xs={4}>
                                     <SearchFilters
+                                        channelFilter={channelFilter}
                                         handleDropdownChange={handleDropdownChange}
                                     />
                                 </Grid>

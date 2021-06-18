@@ -79,7 +79,7 @@ const Navbar = (props) => {
                     </MenuItem> 
                 </Menu>
 
-                <Typography variant="h1">beatWaves🌴</Typography>
+                <Typography variant="h1">beatWavez🌴</Typography>
         
             </Grid>
         </AppBar>

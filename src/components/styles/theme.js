@@ -45,8 +45,8 @@ const theme = createMuiTheme({
             fontSize: 14,
         },
         body2: {
-          fontSize: 14,
-          fontWeight: 300,
+            fontSize: 14,
+            fontWeight: 300,
         }
     },
 });

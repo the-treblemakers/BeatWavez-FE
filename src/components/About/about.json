@@ -1,39 +1,39 @@
 [
     {
-        "name": "Katy Boylez",
-        "image": "public/assets/KB.png",
+        "name": "Katy Boyles",
+        "image": "/assets/KB.png",
         "linkedIn": "https://www.linkedin.com/in/katy-boyles/",
         "github": "https://github.com/katrinkajb",
         "twitter": "https://twitter.com/KBtrizay",
         "bio": "My name is KB and I'm a full stack software engineer in Portland, OR. I like travelling, dancing, video games, and reading. The first karaoke song I sang was 'It's Oh So Quiet' by Bjork and my go-to is 'Faith' by George Michael."
     },
     {
-        "name": "Nicole Martinz",
-        "image": "public/assets/NICOLE.png",
+        "name": "Nicole Martin",
+        "image": "/assets/NICOLE.png",
         "linkedIn": "https://www.linkedin.com/in/nicolemartinpdx/",
         "github": "https://github.com/nicole-m-martin",
         "twitter": "https://twitter.com/nmartinpdx",
         "bio": "Hi I’m Nicole! I am a full stack software engineer located in Portland, OR. I enjoy working with computers and collaborating on fun and impactful projects that will help the planet, animals, and all humans. Also a huge fan of vegan food, coffee and being outside in the beautiful Pacific Northwest with my dog, Cooper. My favorite karaoke songs to sing are Cherry Bomb by The Runaways and Sunday Morning by No Doubt."
     },
     {
-        "name": "Brandon Z Perard",
-        "image": "public/assets/BRANDON.png",
+        "name": "Brandon Perard",
+        "image": "/assets/BRANDON.png",
         "linkedIn": "https://www.linkedin.com/in/brandonperard/",
         "github": "https://github.com/bperard",
         "twitter": "https://twitter.com/SayYesToExcess",
         "bio": "Hello, my name's Brandon, and I'm a full stack software engineer in Portland, OR. I enjoy applying my curiosity to figuring out how things work, and then using that knowledge to create something awesome for the people & communities I love. I probably don't dance or sing very well, but I commit to the performance. My first karaoke song was Careless Whisper; Tribute, Gin & Juice, and Rebel Yell are my go-to's."
     },
     {
-        "name": "Soraya Benzon",
-        "image": "public/assets/SORAYA.png",
+        "name": "Soraya Benson",
+        "image": "/assets/SORAYA.png",
         "linkedIn": "https://www.linkedin.com/in/soraya-benson/",
         "github": "https://github.com/sorayabenson",
         "twitter": "https://twitter.com/sorayamajd",
         "bio": "Oh hi, I’m Soraya, a full-stack engineer in Portland, OR. I adore interactive storytelling and creating things with rad people. My go to karaoke song is ‘The One That I Want’ from Grease ⚡"
     },
     {
-        "name": "Lori Winzton",
-        "image": "public/assets/LORI.png",
+        "name": "Lori Winston",
+        "image": "/assets/LORI.png",
         "linkedIn": "https://www.linkedin.com/in/loriwinston/",
         "github": "https://github.com/LoriWinston",
         "twitter": "https://twitter.com/LoriWinston8",

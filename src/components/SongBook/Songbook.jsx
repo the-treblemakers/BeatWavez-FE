@@ -12,12 +12,25 @@ const Songbook = ({ stageName, loading, currentPage, setCurrentPage, currentSong
 
     }, [loading]);
 
-    const handlePageChange = () => {
-        setCurrentPage(currentPage + 1);
+    const displayOnPage = () => {
         const sliceMathStart = currentPage * 20;
         const sliceMathEnd = sliceMathStart + 20;
         const newPage = songbook.slice(sliceMathStart, sliceMathEnd);
 
+        return newPage;
+    };
+
+    const handleNextPageChange = () => {
+        setCurrentPage(currentPage + 1);
+        
+        const newPage = displayOnPage();
+        setCurrentSongs(newPage);
+    };
+
+    const handlePrevPageChange = () => {
+        setCurrentPage(currentPage - 1);
+        
+        const newPage = displayOnPage();
         setCurrentSongs(newPage);
     };
 
@@ -32,10 +45,10 @@ const Songbook = ({ stageName, loading, currentPage, setCurrentPage, currentSong
                 direction="row"
                 alignItems="center"
                 justify="space-between">
-                <IconButton onClick={handlePageChange}>
+                <IconButton onClick={handlePrevPageChange}>
                     <NavigateBeforeIcon />
                 </IconButton>
-                <IconButton onClick={handlePageChange}>
+                <IconButton onClick={handleNextPageChange}>
                     <NavigateNextIcon />
                 </IconButton>
             </Grid>

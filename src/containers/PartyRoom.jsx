@@ -23,7 +23,9 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
 
     useEffect(() => {
         // setMessages(messageArray);
-        if (queue.length === 0) {
+        if (roomInfo.stageName === '' || roomInfo.roomName === '') {
+            return <>{history.push('/')}</>;
+        } else if (queue.length === 0) {
             setMessages(messageArray);
             setQueue(queueArray);
         } else {
@@ -32,6 +34,7 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
             setMessages(messageArray);
             setQueue(queueArray);
         }
+
     }, [queueIndex, messageArray, queueArray]);
 
     const handlePrevious = () => {
@@ -56,11 +59,6 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
         }
 
     };
-
-    if (roomInfo.stageName === '' || roomInfo.roomName === '') {
-        return <>{history.push('/')}</>;
-    }
-
 
     return (
         <div>
@@ -104,9 +102,9 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
 };
 
 PartyRoom.propTypes = {
+    roomInfo: PropTypes.object.isRequired,
     messageArray: PropTypes.array.isRequired,
     queueArray: PropTypes.array.isRequired,
-    roomInfo: PropTypes.object.isRequired,
 };
 
 export default PartyRoom;

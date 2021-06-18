@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { TextField, Menu, MenuItem } from '@material-ui/core';
 import { useStyles } from '../Styles/greenroomStyles';
 
 const SearchFilters = ({ channelFilter, handleDropdownChange }) => {
+    const [anchorEl, setAnchorEl] = useState(null);
+
     const classes = useStyles();
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     return (
         <TextField
@@ -15,9 +21,15 @@ const SearchFilters = ({ channelFilter, handleDropdownChange }) => {
             label="channels"
             value={channelFilter}
             onChange={handleDropdownChange}
-            classes={{ paper: classes.filter }}
-            // className={classes.root}
+            aria-owns={anchorEl ? 'filter' : null}
             >
+                {/* <Menu
+                    id="filter"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={Boolean(anchorEl)}
+                    classes={{ paper: classes.filter}}
+                    onClose={handleClose}> */}
                 <MenuItem value="" default>All Channels</MenuItem>
                 <MenuItem value="Zoom Karaoke">Zoom Karaoke</MenuItem>
                 <MenuItem value="Vocal Star Karaoke">Vocal Star Karaoke</MenuItem>
@@ -25,6 +37,7 @@ const SearchFilters = ({ channelFilter, handleDropdownChange }) => {
                 <MenuItem value="Funbox Karaoke">Funbox Karaoke</MenuItem>
                 <MenuItem value="Good Karaoke Songs">Good Karaoke Songs</MenuItem>
                 <MenuItem value="ObsKure Karaoke">ObsKure Karaoke</MenuItem>
+                {/* </Menu> */}
         </TextField>
     );
 };

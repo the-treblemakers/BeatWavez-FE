@@ -26,8 +26,9 @@ const Navbar = (props) => {
             position="static">
             <Grid container direction="row" justify="space-between" alignItems="center">
                 <Button 
+                    className={classes.menuButton}
                     aria-haspopup="true"
-                    color="secondary"
+                    // color="#F96D10"
                     aria-owns={anchorEl ? 'menu' : null}
                     onClick={handleClick}>
                     <MenuIcon/>
@@ -35,10 +36,6 @@ const Navbar = (props) => {
                 <Menu 
                     id="menu"
                     classes={{ paper: classes.menu }}
-                    // className={classes.menu}
-                    // PaperProps ={{
-                    //   classes
-                    // }}
                     anchorEl={anchorEl}
                     keepMounted
                     open={Boolean(anchorEl)}
@@ -53,7 +50,8 @@ const Navbar = (props) => {
                     >
                   home
                     </MenuItem>
-                    <MenuItem 
+                    <MenuItem
+                        classes={{ selected: classes.selected }} 
                         component={Link}
                         to='/greenroom'
                         onClick={handleClose}
@@ -61,7 +59,8 @@ const Navbar = (props) => {
                     >
                   green room
                     </MenuItem>
-                    <MenuItem 
+                    <MenuItem
+                        classes={{ selected: classes.selected }} 
                         component={Link}
                         to='/partyroom'
                         onClick={handleClose}
@@ -69,13 +68,14 @@ const Navbar = (props) => {
                     >
                   party room
                     </MenuItem>
-                    <MenuItem 
+                    <MenuItem
+                        classes={{ selected: classes.selected }} 
                         component={Link}
                         to='/about'
                         onClick={handleClose}
                         selected={pathname === '/about'}
                     >
-                  about
+                  meet the KJs
                     </MenuItem> 
                 </Menu>
 

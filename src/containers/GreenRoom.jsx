@@ -93,14 +93,16 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 <Typography
                     variant="h2"
                     align="center"
-                    style={{ margin: '1.5rem' }}>
+                    style={{ margin: '1.5rem' }}
+                    color="secondary">
                     Welcome to the {roomInfo.roomName} room!
                 </Typography>
                 :
                 <Typography
                     variant="h2"
                     align="center"
-                    style={{ margin: '1.5rem' }}>
+                    style={{ margin: '1.5rem' }}
+                    color="secondary">
                     Welcome to the Greenroom!
                 </Typography>
             }

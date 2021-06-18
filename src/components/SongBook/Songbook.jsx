@@ -48,13 +48,13 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                 justify="space-between">
                 <IconButton 
                     onClick={handlePrevPageChange}
-                    // disabled={currentSongs < 20}
+                    disabled={currentPage === 1}
                 >
                     <NavigateBeforeIcon />
                 </IconButton>
                 <IconButton 
                     onClick={handleNextPageChange}
-                    disabled={currentPage}
+                    disabled={currentSongs < 20}
                 >
                     <NavigateNextIcon />
                 </IconButton>

@@ -54,16 +54,13 @@ function InstructionAccordion() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography variant="body1" >
-
-            1. Enter your Stage Name to become a host of your virtual karaoke party.
+                        1. Enter your Stage Name to become a host of your virtual karaoke party.
                     </Typography>
                     <Typography variant="body1">
-            2. Click Create New Room to enter the green room and add songs to the cue and chat with your guests. 
+                        2. Click Create New Room to enter the green room and add songs to the cue and chat with your guests.
                     </Typography>
                     <Typography variant='body1'>
-            3. Give your guests the room name and passcode for them to join you.
-            
-
+                        3. Give your guests the room name and passcode for them to join you.
                     </Typography>
                 </AccordionDetails>
             </Accordion>

@@ -28,7 +28,7 @@ export const useSocket = () => {
         });
 
         socket.on('UPDATE_MESSAGE_ARRAY', ({ message, stageName }) => {
-            console.log(messageArray, { message, stageName });
+            console.log(messageArray, message, stageName, 'UPDATE_MESSAGE');
             setMessageArray([...messageArray, { message, stageName, timeStamp: new Date().toLocaleTimeString() }]);
         });
 

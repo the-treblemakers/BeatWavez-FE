@@ -28,13 +28,17 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const classes = useStyles();
 
     useEffect(() => {
-        getAllSongs()
-            .then((songbook) => {
-                setSongbook(songbook);
-                setFilteredSongs(songbook);
-                setCurrentSongs(songbook.slice(0, 20));
-            })
-            .finally(() => setLoading(false));
+        if (roomInfo.stageName === '' || roomInfo.roomName === '') {
+            return <>{history.push('/')}</>;
+        } else {
+            getAllSongs()
+                .then((songbook) => {
+                    setSongbook(songbook);
+                    setFilteredSongs(songbook);
+                    // setCurrentSongs(songbook.slice(0, 20));
+                })
+                .finally(() => setLoading(false));
+        }
     }, []);
 
     useEffect(() => {
@@ -50,7 +54,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     }, [channelFilter]);
 
     useEffect(() => {
-        setCurrentSongs(filteredSongs);
+        setCurrentSongs(filteredSongs.slice(0, 20));
     }, [filteredSongs]);
 
     function handleQueryChange(e) {
@@ -86,9 +90,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setOpen(false);
     }
 
-    if (roomInfo.stageName === '' || roomInfo.roomName === '') {
-        return <>{history.push('/')}</>;
-    }
+
 
     return (
 

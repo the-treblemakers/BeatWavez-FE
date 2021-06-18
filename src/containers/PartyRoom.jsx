@@ -22,6 +22,7 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const videoRef = useRef(null);
 
     useEffect(() => {
+        // setMessages(messageArray);
         if (queue.length === 0) {
             setMessages(messageArray);
             setQueue(queueArray);

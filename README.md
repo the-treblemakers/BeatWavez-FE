@@ -24,7 +24,6 @@ BeatWavez is a Jackbox-style karaoke party app that allows users to create and j
 
 - <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 <br>
-
     
 # BeatWavez: A Treblemakers Production
 

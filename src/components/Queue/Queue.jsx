@@ -11,7 +11,7 @@ const Queue = ({ queue }) => {
     return (
         <List 
             aria-label="queue"
-            style={{ maxHeight: 200, overflow: 'auto' }}>
+            style={{ maxHeight: 200, overflow: 'auto', width: "100%" }}>
             {queue.map((item, i) => (
                 <ListItem 
                     key={item.title + i} 

@@ -2,10 +2,14 @@ import React from 'react';
 import PropTypes from "prop-types";
 import { TextField, IconButton, Grid } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import { useStyles } from '../Styles/greenroomStyles';
 
 const SearchBar = ({ handleQueryChange, query, handleSubmit }) => {
+    const classes = useStyles();
+
     return (
         <Grid
+            className={classes.root}
             container
             direction="row"
             justify="flex-end"

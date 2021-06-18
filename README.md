@@ -2,8 +2,8 @@
 
 ![beach128](https://user-images.githubusercontent.com/74560886/122595876-ed5f3200-d01d-11eb-900d-25997455ae79.png)
 
-[BeatWavez App](iwww.beatwavez.com)
-[BeatWavez front-end repo](https://github.com/the-treblemakers/BeatWavez-FE)
+[BeatWavez App](iwww.beatwavez.com) </br>
+[BeatWavez front-end repo](https://github.com/the-treblemakers/BeatWavez-FE) </br>
 [BeatWavez back-end repo](https://github.com/the-treblemakers/BeatWavez-BE)
 
 Project planning can be found on our Miro board (https://miro.com/app/board/o9J_lAEhh0A=/)

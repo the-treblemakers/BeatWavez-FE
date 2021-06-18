@@ -5,17 +5,10 @@ import Home from '../../containers/Home';
 import GreenRoom from '../../containers/GreenRoom';
 import PartyRoom from '../../containers/PartyRoom';
 import About from '../../containers/About';
-<<<<<<< HEAD
 import '../Styles/app.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core';
 import theme from '../Styles/theme';
-=======
-import '../styles/app.css';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core';
-import theme from '../styles/theme';
->>>>>>> 45561769d1f6b5847b5390319a235d59cdbcdf02
 import { useSocket } from '../../hooks/useSocket';
 
 export default function App() {

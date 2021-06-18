@@ -2,8 +2,8 @@ import { useState, useEffect, } from "react";
 import { useHistory } from 'react-router-dom';
 import io from "socket.io-client";
 
-// const socket = io('http://localhost:7890/');
-const socket = io('https://beatwavez-dev.herokuapp.com/');
+const socket = io('http://localhost:7890/');
+// const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 export const useSocket = () => {
     const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '', isHost: false });
@@ -36,7 +36,7 @@ export const useSocket = () => {
     }, []);
 
     const handleUpdateRoomsArray = () => {
-        socket.emit('UPDATE_ROOMS_ARRAY', null);
+        socket.emit('UPDATE_ROOMS_ARRAY');
     };
 
     const handleCreateRoom = (stageName) => {
@@ -64,7 +64,7 @@ export const useSocket = () => {
         handleUpdateRoomsArray,
         handleCreateRoom,
         handleNewMessage,
-        // handleAddToQueue,
+        handleAddToQueue,
         handleJoinRoom,
         setNewMessage,
         messageArray,

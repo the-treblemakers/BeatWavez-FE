@@ -7,7 +7,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
     const [stageName, setStageName] = useState('');
     const [roomName, setRoomName] = useState('');
     const [inputPasscode, setInputPasscode] = useState('');
-    const [showHost, setShowHost] = useState(false);
+    const [showHost, setShowHost] = useState(true);
 
     const handleStageNameChange = (e) => {
         setStageName(e.target.value);

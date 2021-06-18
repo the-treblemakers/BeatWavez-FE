@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 function Home({ handleJoinRoom, handleCreateRoom }) {
     return (
-            <Login
-                handleJoinRoom={handleJoinRoom}
-                handleCreateRoom={handleCreateRoom}
-            />
+        <Login
+            handleJoinRoom={handleJoinRoom}
+            handleCreateRoom={handleCreateRoom}
+        />
     );
 }
 

@@ -3,8 +3,8 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { AppBar, Menu, MenuItem, Button, Grid, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { useStyles } from '../styles/navbarStyles';
-import '../styles/app.css';
+import { useStyles } from '../Styles/navbarStyles';
+import '../Styles/app.css';
 
 const Navbar = (props) => { 
     const [anchorEl, setAnchorEl] = useState(null);

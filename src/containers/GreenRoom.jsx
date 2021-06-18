@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-<<<<<<< HEAD
-import { Accordion, AccordionSummary, AccordionDetails, Typography, Grid } from '@material-ui/core';
-=======
 import { Accordion, AccordionSummary, AccordionDetails, Typography, Grid, Snackbar, IconButton } from '@material-ui/core';
 import CloseSharpIcon from '@material-ui/icons/CloseSharp';
->>>>>>> a51710c9985d35b170b29d17cef2ff3878050dde
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SearchBar from '../components/Search/SearchBar';
 import SearchFilters from '../components/Search/SearchFilters';
@@ -14,7 +10,7 @@ import Queue from '../components/Queue/Queue';
 import Chat from '../components/Chat/Chat';
 import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
-import { useStyles } from '../components/styles/greenroomStyles';
+import { useStyles } from '../components/Styles/greenroomStyles';
 
 const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue }) => {
     const [query, setQuery] = useState('');

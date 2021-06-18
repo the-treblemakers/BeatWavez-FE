@@ -11,6 +11,8 @@ import Chat from '../components/Chat/Chat';
 import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
 import { useStyles } from '../components/Styles/greenroomStyles';
+import { useHistory } from 'react-router-dom';
+
 
 const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
@@ -21,40 +23,42 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const [channelFilter, setChannelFilter] = useState('');
     const [filteredSongs, setFilteredSongs] = useState([]);
     const [open, setOpen] = useState(true);
-    
+
+    const history = useHistory();
     const classes = useStyles();
 
     useEffect(() => {
-        getAllSongs()
-            .then((songbook) => {
-                setSongbook(songbook);
-                setFilteredSongs(songbook);
-                setCurrentSongs(songbook.slice(0, 20));
-            })
-            .finally(() => setLoading(false));
+        if (roomInfo.stageName === '' || roomInfo.roomName === '') {
+            return <>{history.push('/')}</>;
+        } else {
+            console.log('>>>', roomInfo.passcode, '<<< ROOM PASSCODE');
+            getAllSongs()
+                .then((songbook) => {
+                    setSongbook(songbook);
+                    setFilteredSongs(songbook);
+                    // setCurrentSongs(songbook.slice(0, 20));
+                })
+                .finally(() => setLoading(false));
+        }
     }, []);
 
     useEffect(() => {
-        const filter = () => {
-            const filteredSongs = songbook.filter((song) => {
-                const channelName = song.channelName;
-                return channelName.includes(channelFilter);
-            });
-            return filteredSongs;
-        };
-        const filteredResults = filter();
-        return filteredResults;
+        const filterMethod = songbook.filter((song) => {
+            const channelName = song.channelName;
+            return channelName.includes(channelFilter);
+        });
+        setFilteredSongs(filterMethod);
     }, [channelFilter]);
 
     useEffect(() => {
-        setCurrentSongs(filteredSongs);
+        setCurrentSongs(filteredSongs.slice(0, 20));
     }, [filteredSongs]);
 
     function handleQueryChange(e) {
         setQuery(e.target.value);
-    }        
-      
-    function handleDropdownChange(e){
+    }
+
+    function handleDropdownChange(e) {
         setChannelFilter(e.target.value);
         setQuery('');
     }
@@ -65,14 +69,15 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setLoading(true);
 
         const search = () => {
-            if(query === '') return filteredSongs;
+            if (query === '') return filteredSongs;
             return filteredSongs.filter((song) => {
                 const title = song.title.toLowerCase();
                 return title.includes(query.toLowerCase());
             });
         };
         const searchResults = search();
-        setTimeout(() => {setCurrentSongs(searchResults);
+        setTimeout(() => {
+            setCurrentSongs(searchResults);
             setLoading(false);
         }, 100);
 
@@ -82,7 +87,10 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setOpen(false);
     }
 
+
+
     return (
+
         <Grid container
             justify="space-between"
             alignItems="center"
@@ -94,6 +102,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     align="center"
                     style={{ margin: '1.5rem' }}>
                     Welcome to the {roomInfo.roomName} room!
+                    {/* <small>(code: {roomInfo.passcode})</small> */}
                 </Typography>
                 :
                 <Typography
@@ -104,7 +113,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 </Typography>
             }
 
-            <Snackbar
+            {/* <Snackbar
                 open={open}
                 className={classes.snackbar}
                 anchorOrigin={{
@@ -142,7 +151,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     <IconButton onClick={handleClose}>
                         <CloseSharpIcon color="primary" />
                     </IconButton>
-                } />
+                } /> */}
 
             <Accordion
                 className={classes.accordion}

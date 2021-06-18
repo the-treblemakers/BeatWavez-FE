@@ -6,6 +6,8 @@ import screenfull from 'screenfull';
 import PropTypes from 'prop-types';
 import Queue from '../components/Queue/Queue';
 import PartyRoomAccordion from '../components/UI/PartyRoomAccordion';
+import { useHistory } from 'react-router-dom';
+
 
 const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const [roomName, setRoomName] = useState(roomInfo.roomName);
@@ -16,10 +18,14 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const [messages, setMessages] = useState(messageArray);
     const [queue, setQueue] = useState(queueArray);
 
+    const history = useHistory();
     const videoRef = useRef(null);
 
     useEffect(() => {
-        if(queue.length === 0) {
+        // setMessages(messageArray);
+        if (roomInfo.stageName === '' || roomInfo.roomName === '') {
+            return <>{history.push('/')}</>;
+        } else if (queue.length === 0) {
             setMessages(messageArray);
             setQueue(queueArray);
         } else {
@@ -28,6 +34,7 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
             setMessages(messageArray);
             setQueue(queueArray);
         }
+
     }, [queueIndex, messageArray, queueArray]);
 
     const handlePrevious = () => {
@@ -39,13 +46,13 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     };
 
     const handleFullscreen = () => {
-        if(screenfull.isEnabled) {
+        if (screenfull.isEnabled) {
             screenfull.request(videoRef.current.wrapper);
         }
     };
 
     const handlePlay = () => {
-        if(playing === false) {
+        if (playing === false) {
             setPlaying(true);
         } else {
             setPlaying(false);
@@ -95,9 +102,9 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
 };
 
 PartyRoom.propTypes = {
+    roomInfo: PropTypes.object.isRequired,
     messageArray: PropTypes.array.isRequired,
     queueArray: PropTypes.array.isRequired,
-    roomInfo: PropTypes.object.isRequired,
 };
 
 export default PartyRoom;

@@ -6,7 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { useStyles } from '../Styles/navbarStyles';
 import '../Styles/app.css';
 
-const Navbar = (props) => { 
+const Navbar = (props) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const { pathname } = props.location;
 
@@ -25,14 +25,14 @@ const Navbar = (props) => {
             // classes={{ paper: classes.appShadow }}
             position="static">
             <Grid container direction="row" justify="space-between" alignItems="center">
-                <Button 
+                <Button
                     aria-haspopup="true"
                     color="secondary"
                     aria-owns={anchorEl ? 'menu' : null}
                     onClick={handleClick}>
-                    <MenuIcon/>
+                    <MenuIcon />
                 </Button>
-                <Menu 
+                <Menu
                     id="menu"
                     classes={{ paper: classes.menu }}
                     // className={classes.menu}
@@ -43,7 +43,7 @@ const Navbar = (props) => {
                     keepMounted
                     open={Boolean(anchorEl)}
                     onClose={handleClose}>
-                    <MenuItem 
+                    <MenuItem
                         classes={{ selected: classes.selected }}
                         className={classes.link}
                         component={Link}
@@ -51,39 +51,39 @@ const Navbar = (props) => {
                         onClick={handleClose}
                         selected={pathname === '/'}
                     >
-                  home
+                        home
                     </MenuItem>
-                    <MenuItem 
+                    <MenuItem
                         component={Link}
                         to='/greenroom'
                         onClick={handleClose}
                         selected={pathname === '/greenroom'}
                     >
-                  green room
+                        green room
                     </MenuItem>
-                    <MenuItem 
+                    <MenuItem
                         component={Link}
                         to='/partyroom'
                         onClick={handleClose}
                         selected={pathname === '/partyroom'}
                     >
-                  party room
+                        party room
                     </MenuItem>
-                    <MenuItem 
+                    <MenuItem
                         component={Link}
                         to='/about'
                         onClick={handleClose}
                         selected={pathname === '/about'}
                     >
-                  about
-                    </MenuItem> 
+                        about
+                    </MenuItem>
                 </Menu>
 
                 <Typography variant="h1">beatWaves🌴</Typography>
-        
+
             </Grid>
         </AppBar>
     );
-}; 
+};
 
 export default withRouter(Navbar);

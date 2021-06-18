@@ -7,7 +7,6 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import AddIcon from '@material-ui/icons/Add';
 
-
 const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook, handleAddToQueue }) => {
     useEffect(() => {
 
@@ -23,19 +22,19 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
 
     const handleNextPageChange = () => {
         setCurrentPage(currentPage + 1);
-        
+
         const newPage = displayOnPage();
         setCurrentSongs(newPage);
     };
 
     const handlePrevPageChange = () => {
         setCurrentPage(currentPage - 1);
-        
+
         const newPage = displayOnPage();
         setCurrentSongs(newPage);
     };
 
-    if(loading) return <Spinner />;
+    if (loading) return <Spinner />;
 
     return (
         <Grid container
@@ -46,13 +45,13 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                 direction="row"
                 alignItems="center"
                 justify="space-between">
-                <IconButton 
+                <IconButton
                     onClick={handlePrevPageChange}
                     disabled={currentPage === 1}
                 >
                     <NavigateBeforeIcon />
                 </IconButton>
-                <IconButton 
+                <IconButton
                     onClick={handleNextPageChange}
                     disabled={currentSongs < 20}
                 >

@@ -88,18 +88,7 @@ const Navbar = (props) => {
                         <Typography variant="h1">beatWavez</Typography>
                         <img src={"/assets/beach32.png"} alt="beat wavez logo" className={classes.logo} style={{ marginRight: "1rem" }} />
                     </Grid>
-                </Grid>
-
-                <Grid item>
-                    <Grid container 
-                        direction="row" 
-                        alignItems="center" 
-                        justify="flex-end">
-                        <Typography variant="h1">beatWavez</Typography>
-                        <img src={"public/assets/beach32.png"} alt="beat wavez logo" className={classes.logo} style={{ marginRight: "1rem" }}/>
-                    </Grid>
-                </Grid>
-        
+                </Grid>       
             </Grid>
         </AppBar>
     );

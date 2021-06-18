@@ -63,7 +63,7 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                 {currentSongs.map((song, i) => (
                     <ListItem key={song.title + i}>
 
-                        <Card variant="outlined" style={{ border: "#FD2C7B 3px solid", borderRadius: "1px", boxShadow: "#FD2C7B 0px 0px 8px" }}>
+                        <Card variant="outlined" style={{ width: "100%", border: "#FD2C7B 3px solid", borderRadius: "1px", boxShadow: "#FD2C7B 0px 0px 8px" }}>
                             <Grid container
                                 direction="row"
                                 alignItems="center">

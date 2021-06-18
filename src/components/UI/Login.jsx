@@ -28,7 +28,7 @@ function Login({ handleJoinRoom, handleCreateRoom, roomsArray, handleUpdateRooms
                     justify="center"
                     style={{ position: "relative" }}
                 >
-                    <img src={"public/assets/beach128.png"} alt="beach wavez logo" className={classes.logo} />
+                    <img src={"/assets/beach128.png"} alt="beach wavez logo" className={classes.logo} />
                     <Paper className={classes.logoContainer} />
                 </Grid>
                 <Typography variant="h1" color="secondary" className={classes.logoFont}>
@@ -44,7 +44,6 @@ function Login({ handleJoinRoom, handleCreateRoom, roomsArray, handleUpdateRooms
                     handleUpdateRoomsArray={handleUpdateRoomsArray}
                     roomInfo={roomInfo}
                     setRoomInfo={setRoomInfo}
-
                 />
             </Grid>
 

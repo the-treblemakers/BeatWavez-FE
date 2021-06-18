@@ -4,15 +4,20 @@ import PropTypes from "prop-types";
 import { TextField, Button, Grid, MenuItem, ButtonGroup } from '@material-ui/core';
 import StarRateIcon from '@material-ui/icons/StarRate';
 import MicIcon from '@material-ui/icons/Mic';
+import { useStyles } from '../Styles/homeStyles';
 
-const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
-    const [stageName, setStageName] = useState('');
-    const [roomName, setRoomName] = useState('');
+const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateRoomsArray, roomInfo, setRoomInfo }) => {
     const [inputPasscode, setInputPasscode] = useState('');
     const [showHost, setShowHost] = useState(true);
 
+    const classes = useStyles();
+
     const handleStageNameChange = (e) => {
-        setStageName(e.target.value);
+        setRoomInfo({ ...roomInfo, stageName: e.target.value });
+    };
+
+    const handleRoomNameChange = (e) => {
+        setRoomInfo({ ...roomInfo, roomName: e.target.value });
     };
 
     const handleHostButtonChange = () => {
@@ -23,10 +28,6 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
         setShowHost(false);
     };
 
-    // const handleRoomNameChange = (e) => {
-    //     setRoomName(e.target.value);
-    // };
-
     return (
         <>
             <ButtonGroup
@@ -36,13 +37,16 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
             >
                 <Button
                     onClick={handleHostButtonChange}>
-                    <MicIcon />
+                    <MicIcon className={showHost ? classes.selected : null} />
                     Host
                 </Button>
 
                 <Button
-                    onClick={handleGuestButtonChange}>
-                    <StarRateIcon />
+                    onClick={() => {
+                        handleUpdateRoomsArray();
+                        handleGuestButtonChange();
+                    }}>
+                    <StarRateIcon className={!showHost ? classes.selected : null} />
                     Guest
                 </Button>
             </ButtonGroup>
@@ -56,18 +60,19 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                         fullWidth
                         style={{ marginBottom: '1em' }}
                         onChange={handleStageNameChange}
-                        value={stageName}
+                        value={roomInfo.stageName}
                     />
 
 
                     <Button
+                        className={classes.solidButton}
                         name='create'
                         size="large"
                         variant="contained"
                         color="primary"
                         style={{ marginBottom: '2em' }}
-                        disabled={showHost === false || stageName === ''}
-                        onClick={() => handleCreateRoom({ stageName })}
+                        disabled={showHost === false || roomInfo.stageName === ''}
+                        onClick={() => handleCreateRoom()}
                     >
                         CREATE NEW ROOM!
                     </Button>
@@ -80,7 +85,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                         fullWidth
                         style={{ marginBottom: '1em' }}
                         onChange={handleStageNameChange}
-                        value={stageName}
+                        value={roomInfo.stageName}
                     />
 
                     <TextField
@@ -89,7 +94,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                         margin="dense"
                         style={{ paddingBottom: "3em" }}
                         label="Party Rooms In Session"
-                        onChange={({ target }) => setRoomName(target.value)}
+                        onChange={handleRoomNameChange}
                     >
                         {roomsArray.map((room) => (
                             <MenuItem key={room} value={room}>{room}</MenuItem>
@@ -109,12 +114,13 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                     />
 
                     <Button
+                        className={classes.solidButton}
                         name='join'
                         size="large"
                         variant="contained"
                         color="primary"
-                        disabled={roomName === '' || stageName === '' || inputPasscode === ''}
-                        onClick={() => handleJoinRoom({ stageName, inputPasscode, roomName })}
+                        disabled={roomInfo.roomName === '' || roomInfo.stageName === '' || inputPasscode === ''}
+                        onClick={() => handleJoinRoom(inputPasscode)}
                     >
                         JOIN THE PARTY!
                     </Button>
@@ -130,6 +136,9 @@ LoginForm.propTypes = {
     handleCreateRoom: PropTypes.func.isRequired,
     handleJoinRoom: PropTypes.func.isRequired,
     roomsArray: PropTypes.array.isRequired,
+    handleUpdateRoomsArray: PropTypes.func.isRequired,
+    roomInfo: PropTypes.object.isRequired,
+    setRoomInfo: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

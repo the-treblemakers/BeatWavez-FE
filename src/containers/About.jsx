@@ -11,8 +11,7 @@ const About = () => {
             spacing={1}>
 
             <Typography
-                variant="h2" align="center" style={{ margin: "1.5rem" }}>Meet the KJs</Typography>
-
+                variant="h2" align="center" color="secondary" style={{ margin: "2rem" }}>Meet the KJs</Typography>
             <AboutList />
         </Grid>
     );

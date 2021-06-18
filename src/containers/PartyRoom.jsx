@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Video from '../components/Video/Video';
-import ChatList from '../components/Chat/ChatList';
 import { Grid, Typography } from '@material-ui/core';
 import screenfull from 'screenfull';
 import PropTypes from 'prop-types';
-import Queue from '../components/Queue/Queue';
 import PartyRoomAccordion from '../components/UI/PartyRoomAccordion';
+import { useHistory } from 'react-router-dom';
 
 const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const [roomName, setRoomName] = useState(roomInfo.roomName);
@@ -16,10 +15,14 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     const [messages, setMessages] = useState(messageArray);
     const [queue, setQueue] = useState(queueArray);
 
+    const history = useHistory();
     const videoRef = useRef(null);
 
     useEffect(() => {
-        if(queue.length === 0) {
+        // setMessages(messageArray);
+        if (roomInfo.stageName === '' || roomInfo.roomName === '') {
+            return <>{history.push('/')}</>;
+        } else if (queue.length === 0) {
             setMessages(messageArray);
             setQueue(queueArray);
         } else {
@@ -39,33 +42,33 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
     };
 
     const handleFullscreen = () => {
-        if(screenfull.isEnabled) {
+        if (screenfull.isEnabled) {
             screenfull.request(videoRef.current.wrapper);
         }
     };
 
     const handlePlay = () => {
-        if(playing === false) {
+        if (playing === false) {
             setPlaying(true);
         } else {
             setPlaying(false);
         }
-
     };
 
     return (
         <div>
             <Grid
                 container
-                justify="space-between"
+                justify="flex-end"
                 alignItems="center"
                 direction="column"
-                style={{ minHeight: '93.5vh' }}>
+                style={{ minHeight: '93vh' }}>
 
                 <Grid item>
                     <Typography
                         variant="h2"
                         align="center"
+                        color="secondary"
                         style={{ margin: '1.5rem' }}>
                         {roomName} Room
                     </Typography>
@@ -95,9 +98,9 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
 };
 
 PartyRoom.propTypes = {
+    roomInfo: PropTypes.object.isRequired,
     messageArray: PropTypes.array.isRequired,
     queueArray: PropTypes.array.isRequired,
-    roomInfo: PropTypes.object.isRequired,
 };
 
 export default PartyRoom;

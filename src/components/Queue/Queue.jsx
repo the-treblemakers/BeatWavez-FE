@@ -2,15 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import QueueItem from "./QueueItem";
 import { List, ListItem } from '@material-ui/core';
+import { useStyles } from '../Styles/queueStyles';
 
+//add currentlyPlaying state to track queue
 const Queue = ({ queue }) => {
-
+    const classes = useStyles();
+    
     return (
         <List 
             aria-label="queue"
-            style={{ maxHeight: 200, overflow: 'auto' }}>>
+            style={{ maxHeight: 200, overflow: 'auto' }}>
             {queue.map((item, i) => (
-                <ListItem key={item.title + i}>
+                <ListItem 
+                    key={item.title + i} 
+                    // className={ currentlyPlaying ? classes.current : classes.queueItem }
+                    className={classes.queueItem }
+                    >
                     <QueueItem {...item} />
                 </ListItem>
             ))}
@@ -25,6 +32,7 @@ Queue.propTypes = {
             stageName: PropTypes.string.isRequired,
         })
     ),
+    // currentlyPlaying: PropTypes.number.isRequired,
 };
 
 export default Queue;

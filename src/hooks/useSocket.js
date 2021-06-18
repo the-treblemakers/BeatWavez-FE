@@ -63,7 +63,7 @@ export const useSocket = () => {
     return {
         handleCreateRoom,
         handleNewMessage,
-        // handleAddToQueue,
+        handleAddToQueue,
         handleJoinRoom,
         setRoomsArray,
         setNewMessage,

@@ -2,12 +2,14 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { TextField, Button, Grid, MenuItem, ButtonGroup } from '@material-ui/core';
+import StarRateIcon from '@material-ui/icons/StarRate';;
+import MicIcon from '@material-ui/icons/Mic';
 
 const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
     const [stageName, setStageName] = useState('');
     const [roomName, setRoomName] = useState('');
     const [inputPasscode, setInputPasscode] = useState('');
-    const [showHost, setShowHost] = useState(false);
+    const [showHost, setShowHost] = useState(true);
 
     const handleStageNameChange = (e) => {
         setStageName(e.target.value);
@@ -30,14 +32,17 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
             <ButtonGroup
                 size="large"
                 color="primary"
+                style={{ margin: '2em' }}
             >
                 <Button
                     onClick={handleHostButtonChange}>
+                    <MicIcon />
                     Host
                 </Button>
 
                 <Button
                     onClick={handleGuestButtonChange}>
+                    <StarRateIcon />
                     Guest
                 </Button>
             </ButtonGroup>
@@ -49,7 +54,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                         variant="outlined"
                         label="Enter Stage Name"
                         fullWidth
-                        style={{ marginBottom: '2em' }}
+                        style={{ marginBottom: '1em' }}
                         onChange={handleStageNameChange}
                         value={stageName}
                     />
@@ -73,7 +78,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                         variant="outlined"
                         label="Enter Stage Name"
                         fullWidth
-                        style={{ marginBottom: '2em' }}
+                        style={{ marginBottom: '1em' }}
                         onChange={handleStageNameChange}
                         value={stageName}
                     />
@@ -82,7 +87,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                         select
                         fullWidth
                         margin="dense"
-                        style={{ paddingBottom: "1em" }}
+                        style={{ paddingBottom: "3em" }}
                         label="Party Rooms In Session"
                         onChange={({ target }) => setRoomName(target.value)}
                     >
@@ -95,7 +100,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
 
                     <TextField
                         variant="outlined"
-                        label="Join Room With Passcode"
+                        label="Enter Passcode"
                         type="password"
                         fullWidth
                         style={{ marginBottom: '1em' }}
@@ -115,10 +120,6 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                     </Button>
                 </>
                 }
-
-
-
-
             </Grid>
 
         </>
@@ -129,7 +130,7 @@ LoginForm.propTypes = {
     handleCreateRoom: PropTypes.func.isRequired,
     handleJoinRoom: PropTypes.func.isRequired,
     roomsArray: PropTypes.array.isRequired,
-    setRoomsArray: PropTypes.func.isRequired,
+
 };
 
 export default LoginForm;

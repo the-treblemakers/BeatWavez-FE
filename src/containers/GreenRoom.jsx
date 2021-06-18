@@ -12,7 +12,7 @@ import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
 import { useStyles } from '../components/Styles/greenroomStyles';
 
-const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue }) => {
+const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
     const [songbook, setSongbook] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -21,7 +21,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const [channelFilter, setChannelFilter] = useState('');
     const [filteredSongs, setFilteredSongs] = useState([]);
     const [open, setOpen] = useState(true);
-
+    
     const classes = useStyles();
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     useEffect(() => {
         const filter = () => {
-            const filteredResults = songbook.filter((song) => {
+            const filteredSongs = songbook.filter((song) => {
                 const channelName = song.channelName;
                 return channelName.includes(channelFilter);
             });
@@ -48,7 +48,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     useEffect(() => {
         setCurrentSongs(filteredSongs);
-
     }, [filteredSongs]);
 
     function handleQueryChange(e) {
@@ -245,7 +244,7 @@ GreenRoom.propTypes = {
     messageArray: PropTypes.array.isRequired,
     setNewMessage: PropTypes.func.isRequired,
     queue: PropTypes.array.isRequired,
-    // handleAddToQueue: PropTypes.func.isRequired,
+    handleAddToQueue: PropTypes.func.isRequired,
 };
 
 export default GreenRoom;

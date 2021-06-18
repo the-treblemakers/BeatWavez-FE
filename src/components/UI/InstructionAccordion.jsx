@@ -61,8 +61,6 @@ function InstructionAccordion() {
                     </Typography>
                     <Typography variant='body1'>
                         3. Give your guests the room name and passcode for them to join you.
-
-
                     </Typography>
                 </AccordionDetails>
             </Accordion>

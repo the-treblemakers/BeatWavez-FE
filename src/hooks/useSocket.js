@@ -2,9 +2,8 @@ import { useState, useEffect, } from "react";
 import { useHistory } from 'react-router-dom';
 import io from "socket.io-client";
 
-const socket = io('http://localhost:7890/');
-// const socket = io('https://beatwavez-dev.herokuapp.com/');
-
+// const socket = io('http://localhost:7890/');
+const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 export const useSocket = () => {
     const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '', isHost: false });
@@ -40,13 +39,13 @@ export const useSocket = () => {
     }, []);
 
     const handleCreateRoom = (stageName) => {
-        if (stageName !== '') {
+        if(stageName !== '') {
             socket.emit('CREATE_ROOM', ({ stageName }));
         }
     };
 
     const handleJoinRoom = (stageName, roomName, inputPasscode) => {
-        if (stageName !== '' && roomName !== '') {
+        if(stageName !== '' && roomName !== '') {
             socket.emit('JOIN_ROOM', ({ stageName, roomName, inputPasscode }));
         }
     };

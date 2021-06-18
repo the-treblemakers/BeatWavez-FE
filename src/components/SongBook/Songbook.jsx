@@ -7,7 +7,7 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import AddIcon from '@material-ui/icons/Add';
 
-const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook }) => {
+const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook, handleAddToQueue }) => {
     useEffect(() => {
 
     }, [loading]);

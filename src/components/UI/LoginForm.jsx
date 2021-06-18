@@ -129,7 +129,6 @@ LoginForm.propTypes = {
     handleCreateRoom: PropTypes.func.isRequired,
     handleJoinRoom: PropTypes.func.isRequired,
     roomsArray: PropTypes.array.isRequired,
-    setRoomsArray: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

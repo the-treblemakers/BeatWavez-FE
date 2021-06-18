@@ -14,7 +14,7 @@ const QueueItem = ({ title, stageName }) => (
                 style={{ fontWeight: 500, }}>{stageName}:</Typography>
         </Grid>
         <Grid item>
-            <Typography variant="body1" align="left">{title}</Typography>
+            <Typography variant="body2" align="left">{title}</Typography>
         </Grid>
     </Grid>
 );

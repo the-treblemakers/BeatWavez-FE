@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Video from '../components/Video/Video';
-import ChatList from '../components/Chat/ChatList';
 import { Grid, Typography } from '@material-ui/core';
 import screenfull from 'screenfull';
 import PropTypes from 'prop-types';
-import Queue from '../components/Queue/Queue';
 import PartyRoomAccordion from '../components/UI/PartyRoomAccordion';
 import { useHistory } from 'react-router-dom';
 
@@ -57,22 +55,22 @@ const PartyRoom = ({ roomInfo, messageArray, queueArray }) => {
         } else {
             setPlaying(false);
         }
-
     };
 
     return (
         <div>
             <Grid
                 container
-                justify="space-between"
+                justify="flex-end"
                 alignItems="center"
                 direction="column"
-                style={{ minHeight: '93.5vh' }}>
+                style={{ minHeight: '93vh' }}>
 
                 <Grid item>
                     <Typography
                         variant="h2"
                         align="center"
+                        color="secondary"
                         style={{ margin: '1.5rem' }}>
                         {roomName} Room
                     </Typography>

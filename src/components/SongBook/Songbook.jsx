@@ -72,12 +72,13 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                                 </Grid>
                                 <Grid item xs={2}>
                                     <IconButton
+                                        aria-label="add to queue"
                                         onClick={() => handleAddToQueue(song)}>
                                         <AddIcon />
                                     </IconButton>
-                                </Grid>
-                                {/* <button>Flag as a bad video</button> */}
                             </Grid>
+                            {/* <button>Flag as a bad video</button> */}
+                        </Grid>
                         </Card>
                     </ListItem>
                 ))}

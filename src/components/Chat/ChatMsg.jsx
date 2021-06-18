@@ -7,7 +7,8 @@ const ChatMsg = ({ stageName, message, timeStamp }) => (
         direction="row"
         justify="space-between"
         alignItems="flex-end"
-        spacing={1}>
+        spacing={1}
+        style={{ width: "100%" }}>
         <Grid item>
             <Grid container
                 direction="row"
@@ -17,8 +18,8 @@ const ChatMsg = ({ stageName, message, timeStamp }) => (
             <Grid item>
                 <Typography
                     variant="body1"
-                    align="left"
-                    style={{ fontWeight: 500, }}>
+                    align="left" 
+                    style={{ fontWeight: 500, marginTop: '0.4rem'}}>
                     {stageName}:
                 </Typography>
             </Grid>

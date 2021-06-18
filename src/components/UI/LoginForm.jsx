@@ -4,12 +4,15 @@ import PropTypes from "prop-types";
 import { TextField, Button, Grid, MenuItem, ButtonGroup } from '@material-ui/core';
 import StarRateIcon from '@material-ui/icons/StarRate';
 import MicIcon from '@material-ui/icons/Mic';
+import { useStyles } from '../Styles/homeStyles';
 
 const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateRoomsArray, roomInfo, setRoomInfo }) => {
     // const [stageName, setStageName] = useState('');
     // const [roomName, setRoomName] = useState('');
     const [inputPasscode, setInputPasscode] = useState('');
     const [showHost, setShowHost] = useState(true);
+
+    const classes = useStyles();
 
     const handleStageNameChange = (e) => {
         setRoomInfo({ ...roomInfo, stageName: e.target.value });
@@ -27,6 +30,14 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
         setShowHost(false);
     };
 
+    // const handleSwitch = () => { 
+    //     if (showHost) {
+    //         return (classes.selectedOutlineButton)
+    //     } else {
+    //         return (classes.outlineButton)
+    //     }
+    // };
+
     // const handleRoomNameChange = (e) => {
     //     setRoomName(e.target.value);
     // };
@@ -40,7 +51,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
             >
                 <Button
                     onClick={handleHostButtonChange}>
-                    <MicIcon />
+                    <MicIcon className={ showHost ? classes.selected : null }/>
                     Host
                 </Button>
 
@@ -49,7 +60,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                         handleUpdateRoomsArray();
                         handleGuestButtonChange();
                     }}>
-                    <StarRateIcon />
+                    <StarRateIcon className={ !showHost ? classes.selected : null }/>
                     Guest
                 </Button>
             </ButtonGroup>
@@ -68,6 +79,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
 
 
                     <Button
+                        className={classes.solidButton}
                         name='create'
                         size="large"
                         variant="contained"
@@ -116,6 +128,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateR
                     />
 
                     <Button
+                        className={classes.solidButton}
                         name='join'
                         size="large"
                         variant="contained"

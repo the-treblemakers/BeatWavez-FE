@@ -11,18 +11,21 @@ Project planning can be found on our Miro board (https://miro.com/app/board/o9J_
 BeatWavez is a Jackbox-style karaoke party app that allows users to create and join party rooms, manage a queue, chat with each other, and (most importantly) sing along to lyrics from videos pulled via the YouTube API. This app was built mobile-first with React and Express, utilizing socket.io and material UI.
 
 # Technologies Used
--JavaScript
--Express
--Node
--React:
-    -Material UI
-    -Material UI/Icons
-    -Material UI/System
--Socket.IO(BE)
--SOcket.IO-client(FE)
--PostgreSQL
--Heroku
--Netlify
+- JavaScript
+- Express
+- Node
+- React:
+    - Material UI
+    - Material UI/Icons
+    - Material UI/System
+- Socket.IO(BE)
+- SOcket.IO-client(FE)
+- PostgreSQL
+- Heroku
+- Netlify
+
+- <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<br>
     
 # The Team Behind BeatWavez
 

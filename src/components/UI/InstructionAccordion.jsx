@@ -20,7 +20,7 @@ function InstructionAccordion() {
                 How To Play
             </Typography>
             <Accordion className={classes.root}>
-                <AccordionSummary
+    <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel3a-content"
                 >

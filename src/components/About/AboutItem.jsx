@@ -17,7 +17,8 @@ const AboutItem = ({ name, image, linkedIn, github, twitter, bio }) => {
     };
 
     return (
-        <Card
+
+        <Card 
             variant="outlined"
             style={{ border: "#FD2C7B 3px solid", borderRadius: "1px", boxShadow: "#FD2C7B 0px 0px 10px" }}
             className={classes.bio}>
@@ -26,17 +27,17 @@ const AboutItem = ({ name, image, linkedIn, github, twitter, bio }) => {
                 justify="center"
                 alignItems="center">
                 <Grid item>
-                    <Typography
-                        variant="h1"
+                    <Typography 
+                        variant="h1" 
                         align="center"
                         style={{ margin: '0.5rem' }}>{name}</Typography>
                 </Grid>
-                <Grid item>
+                <Grid item>        
                     <img
                         style={{ borderRadius: "1px", boxShadow: "#13FBD0 8px 8px 7px", }}
-                        className={classes.media}
-                        src={image}
-                        alt={name} />
+                        className={classes.media} 
+                        src={image} 
+                        alt={name}/>
                 </Grid>
             </Grid>
             <CardActions>
@@ -71,9 +72,9 @@ const AboutItem = ({ name, image, linkedIn, github, twitter, bio }) => {
                     </IconButton>
                 </Grid>
             </CardActions>
-            <Collapse
-                in={expanded}
-                timeout="auto"
+            <Collapse 
+                in={expanded} 
+                timeout="auto" 
                 unmountOnExit>
                 <CardContent>
                     <Typography
@@ -87,11 +88,11 @@ const AboutItem = ({ name, image, linkedIn, github, twitter, bio }) => {
 };
 
 AboutItem.propTypes = {
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    linkedIn: PropTypes.string.isRequired,
-    github: PropTypes.string.isRequired,
-    twitter: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired, 
+    image: PropTypes.string.isRequired, 
+    linkedIn: PropTypes.string.isRequired, 
+    github: PropTypes.string.isRequired, 
+    twitter: PropTypes.string.isRequired, 
     bio: PropTypes.string.isRequired
 };
 

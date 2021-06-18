@@ -39,8 +39,6 @@ export const useSocket = () => {
 
     }, []);
 
-
-
     const handleCreateRoom = (stageName) => {
         if (stageName !== '') {
             socket.emit('CREATE_ROOM', ({ stageName }));
@@ -66,7 +64,7 @@ export const useSocket = () => {
     return {
         handleCreateRoom,
         handleNewMessage,
-        handleAddToQueue,
+        // handleAddToQueue,
         handleJoinRoom,
         setRoomsArray,
         setNewMessage,

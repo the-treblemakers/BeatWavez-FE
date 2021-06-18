@@ -8,21 +8,21 @@ import About from '../../containers/About';
 import '../styles/app.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core';
-import theme  from '../styles/theme';
-import TestRoom from '../../containers/TestRoom';
+import theme from '../styles/theme';
 import { useSocket } from '../../hooks/useSocket';
 
 export default function App() {
     const {
-        handleJoinRoom,
         handleCreateRoom,
         handleNewMessage,
-        setNewMessage,
         handleAddToQueue,
-        roomInfo,
+        handleJoinRoom,
+        setNewMessage,
         messageArray,
+        roomsArray,
+        queueArray,
         newMessage,
-        queue
+        roomInfo,
     } = useSocket();
 
     return (
@@ -34,12 +34,13 @@ export default function App() {
                     <Route path="/" exact render={(routerProps) => <Home {...routerProps}
                         handleCreateRoom={handleCreateRoom}
                         handleJoinRoom={handleJoinRoom}
+                        roomsArray={roomsArray}
                     />} />
                     <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps}
                         roomInfo={roomInfo}
                         messageArray={messageArray}
                         newMessage={newMessage}
-                        queue={queue}
+                        queue={queueArray}
                         setNewMessage={setNewMessage}
                         handleNewMessage={handleNewMessage}
                         handleAddToQueue={handleAddToQueue}
@@ -47,10 +48,9 @@ export default function App() {
                     <Route path="/partyroom" render={(routerProps) => <PartyRoom {...routerProps}
                         roomInfo={roomInfo}
                         messageArray={messageArray}
-                        queueArray={queue}
+                        queueArray={queueArray}
                     />} />
                     <Route path="/about" render={(routerProps) => <About {...routerProps} />} />
-                    {/* <Route path="/test" render={(routerProps) => <TestRoom {...routerProps} />} /> */}
                 </Switch>
             </Router>
         </ThemeProvider>

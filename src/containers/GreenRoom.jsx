@@ -40,7 +40,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 const channelName = song.channelName;
                 return channelName.includes(channelFilter);
             });
-
             return filteredSongs;
         };
         const filteredResults = filter();
@@ -54,9 +53,9 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     function handleQueryChange(e) {
         setQuery(e.target.value);
-    }
-
-    function handleDropdownChange(e) {
+    }        
+      
+    function handleDropdownChange(e){
         setChannelFilter(e.target.value);
         setQuery('');
     }
@@ -67,15 +66,14 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setLoading(true);
 
         const search = () => {
-            if (query === '') return filteredSongs;
+            if(query === '') return filteredSongs;
             return filteredSongs.filter((song) => {
                 const title = song.title.toLowerCase();
                 return title.includes(query.toLowerCase());
             });
         };
         const searchResults = search();
-        setTimeout(() => {
-            setCurrentSongs(searchResults);
+        setTimeout(() => {setCurrentSongs(searchResults);
             setLoading(false);
         }, 100);
 
@@ -236,7 +234,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     />
                 </AccordionDetails>
             </Accordion>
-
         </Grid>
     );
 };

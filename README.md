@@ -1,7 +1,8 @@
 # BeatWavez
 
-[BeatWavez App](insert Netlify link here)
-[BeatWaves Server](insert heroku link here)
+![beach128](https://user-images.githubusercontent.com/74560886/122595876-ed5f3200-d01d-11eb-900d-25997455ae79.png)
+
+[BeatWavez App](iwww.beatwavez.com)
 [BeatWavez front-end repo](https://github.com/the-treblemakers/BeatWavez-FE)
 [BeatWavez back-end repo](https://github.com/the-treblemakers/BeatWavez-BE)
 

@@ -42,7 +42,8 @@ export const ADJECTIVES = [
     'Paisley',
     'Glittering',
     'Ghastly',
-    'Swell'
+    'Swell',
+    'Saucy'
 ];
 
 export const NOUNS = [

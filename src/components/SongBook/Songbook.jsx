@@ -8,7 +8,7 @@ import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import AddIcon from '@material-ui/icons/Add';
 
 
-const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook }) => {
+const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurrentSongs, songbook, handleAddToQueue }) => {
     useEffect(() => {
 
     }, [loading]);
@@ -46,12 +46,16 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                 direction="row"
                 alignItems="center"
                 justify="space-between">
-                <IconButton onClick={handlePrevPageChange}>
-                    {/* if currentPage === 1, disable */}
+                <IconButton 
+                    onClick={handlePrevPageChange}
+                    // disabled={currentSongs < 20}
+                >
                     <NavigateBeforeIcon />
                 </IconButton>
-                <IconButton onClick={handleNextPageChange}>
-                    {/* If no more songs after what's on page, disable */}
+                <IconButton 
+                    onClick={handleNextPageChange}
+                    disabled={currentPage}
+                >
                     <NavigateNextIcon />
                 </IconButton>
             </Grid>

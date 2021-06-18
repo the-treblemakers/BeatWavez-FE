@@ -23,31 +23,31 @@ const Chat = ({ messageArray, setNewMessage, handleNewMessage, newMessage }) => 
 
     return (
         <Grid container
-        direction="column" 
-        alignItems="center" 
-        justify="center">
+            direction="column" 
+            alignItems="center" 
+            justify="center">
             <ChatList 
                 messageArray={messageArray} />
             <Grid container
                 direction="row"
                 alignItems="center" 
                 justify="center">
-            <TextField 
-                variant="filled" 
-                label="message"
-                fullWidth
-                style={{ marginBottom: '1em' }}
-                value={newMessage} 
-                onChange={({ target }) => setNewMessage(target.value)} />
+                <TextField 
+                    variant="filled" 
+                    label="message"
+                    fullWidth
+                    style={{ marginBottom: '1em' }}
+                    value={newMessage} 
+                    onChange={({ target }) => setNewMessage(target.value)} />
 
-            <Button 
-                name="send message"
-                size="small"
-                color="primary"
-                style={{ marginBottom: '1em' }}
-                onClick={handleNewMessage}>
+                <Button 
+                    name="send message"
+                    size="small"
+                    color="primary"
+                    style={{ marginBottom: '1em' }}
+                    onClick={handleNewMessage}>
                     Send Message
-            </Button>
+                </Button>
             </Grid>
         </Grid>
     );

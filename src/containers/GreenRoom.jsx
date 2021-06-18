@@ -12,7 +12,7 @@ import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
 import { useStyles } from '../components/styles/greenroomStyles';
 
-const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
+const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue }) => {
     const [query, setQuery] = useState('');
     const [songbook, setSongbook] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -20,7 +20,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const [currentSongs, setCurrentSongs] = useState([]);
     const [channelFilter, setChannelFilter] = useState('');
     const [filteredSongs, setFilteredSongs] = useState([]);
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(true);
 
     const classes = useStyles();
 
@@ -41,15 +41,15 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 return channelName.includes(channelFilter);
             });
 
-            return filteredResults;
+            return filteredSongs;
         };
-        setFilteredSongs(filter());
-        
+        const filteredResults = filter();
+        return filteredResults;
     }, [channelFilter]);
 
     useEffect(() => {
         setCurrentSongs(filteredSongs);
-        
+
     }, [filteredSongs]);
 
     function handleQueryChange(e) {
@@ -67,7 +67,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setLoading(true);
 
         const search = () => {
-            if(query === '') return filteredSongs;
+            if (query === '') return filteredSongs;
             return filteredSongs.filter((song) => {
                 const title = song.title.toLowerCase();
                 return title.includes(query.toLowerCase());
@@ -82,11 +82,11 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     }
 
     function handleClose() {
-        setOpen(false)
+        setOpen(false);
     }
 
     return (
-        <Grid container  
+        <Grid container
             justify="space-between"
             alignItems="center"
             direction="column"
@@ -98,7 +98,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     style={{ margin: '1.5rem' }}>
                     Welcome to the {roomInfo.roomName} room!
                 </Typography>
-                : 
+                :
                 <Typography
                     variant="h2"
                     align="center"
@@ -116,38 +116,38 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 }}
                 message={
                     <>
-                    <Typography 
-                        variant="body1" 
-                        color="secondary" 
-                        style={{ margin: "0.7rem" }}>
-                        Hey {roomInfo.stageName}!
-                    </Typography>
-                    <Typography 
-                        variant="body2"
-                        style={{ margin: "0.7rem" }}>
-                    To find your song, you can flip through songbook or search your heart out and press + to add it to the queue.
-                    </Typography>
-                    <Typography 
-                        style={{ margin: "0.7rem" }}
-                        variant="body2">
-                        Hangout here and chat with your party while the host plays the karaoke queue on a shared screen.
-                    </Typography>
-                    <Typography 
-                        style={{ margin: "0.7rem" }}
-                        variant="body2">
-                        If you're the host, head over to the partyroom to share the karaoke magic with everyone!
-                    </Typography>
+                        <Typography
+                            variant="body1"
+                            color="secondary"
+                            style={{ margin: "0.7rem" }}>
+                            Hey {roomInfo.stageName}!
+                        </Typography>
+                        <Typography
+                            variant="body2"
+                            style={{ margin: "0.7rem" }}>
+                            To find your song, you can flip through songbook or search your heart out and press + to add it to the queue.
+                        </Typography>
+                        <Typography
+                            style={{ margin: "0.7rem" }}
+                            variant="body2">
+                            Hangout here and chat with your party while the host plays the karaoke queue on a shared screen.
+                        </Typography>
+                        <Typography
+                            style={{ margin: "0.7rem" }}
+                            variant="body2">
+                            If you're the host, head over to the partyroom to share the karaoke magic with everyone!
+                        </Typography>
                     </>
                 }
                 autoHideDuration={15000}
                 onClose={handleClose}
                 action={
                     <IconButton onClick={handleClose}>
-                        <CloseSharpIcon color="primary"/>
+                        <CloseSharpIcon color="primary" />
                     </IconButton>
-                }/>
+                } />
 
-            <Accordion 
+            <Accordion
                 className={classes.accordion}
                 defaultExpanded>
                 <AccordionSummary
@@ -159,8 +159,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 </AccordionSummary>
                 <AccordionDetails>
                     <Grid container
-                        direction="column" 
-                        alignItems="center" 
+                        direction="column"
+                        alignItems="center"
                         justify="center">
                             <Grid container
                                 direction="row"
@@ -199,13 +199,13 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 </AccordionDetails>
             </Accordion>
 
-            <Accordion 
-                className={classes.accordion}> 
+            <Accordion
+                className={classes.accordion}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}>
                     <Typography
                         variant="h3" >
-                            Queue
+                        Queue
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -216,8 +216,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                         : null}
                 </AccordionDetails>
             </Accordion>
-            
-            <Accordion 
+
+            <Accordion
                 className={classes.accordion}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -236,7 +236,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     />
                 </AccordionDetails>
             </Accordion>
-            
+
         </Grid>
     );
 };
@@ -248,12 +248,7 @@ GreenRoom.propTypes = {
     messageArray: PropTypes.array.isRequired,
     setNewMessage: PropTypes.func.isRequired,
     queue: PropTypes.array.isRequired,
-    handleAddToQueue: PropTypes.func.isRequired,
-    // handleDropdownChange: PropTypes.func.isRequired,
-    // songbook: PropTypes.array.isRequired,
-    // query: PropTypes.string.isRequired,
-    // handleQueryChange: PropTypes.func.isRequired,
-    // handleSubmit: PropTypes.func.isRequired
+    // handleAddToQueue: PropTypes.func.isRequired,
 };
 
 export default GreenRoom;

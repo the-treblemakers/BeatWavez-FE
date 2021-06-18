@@ -11,7 +11,7 @@ export default function PartyRoomAccordion({ messages, queue }) {
 
     return (
         <div className={classes.base}>
-            <Accordion defaultExpanded className={classes.root}>
+            <Accordion className={classes.root}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}>
                     <Typography variant="h3">

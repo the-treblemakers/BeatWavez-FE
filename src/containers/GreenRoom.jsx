@@ -101,7 +101,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 </Typography>
             }
 
-            <SnackboxAlert roomInfo={roomInfo} />
+            {/* <SnackboxAlert roomInfo={roomInfo} /> */}
 
             <Accordion
                 className={classes.accordion}

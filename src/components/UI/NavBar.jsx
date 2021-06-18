@@ -31,7 +31,7 @@ const Navbar = (props) => {
                     // color="#F96D10"
                     aria-owns={anchorEl ? 'menu' : null}
                     onClick={handleClick}>
-                    <MenuIcon/>
+                    <MenuIcon className={classes.icon}/>
                 </Button>
                 <Menu 
                     id="menu"
@@ -41,8 +41,7 @@ const Navbar = (props) => {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}>
                     <MenuItem 
-                        classes={{ selected: classes.selected }}
-                        className={classes.link}
+                        className={classes.menuItem}
                         component={Link}
                         to='/'
                         onClick={handleClose}
@@ -51,7 +50,7 @@ const Navbar = (props) => {
                   home
                     </MenuItem>
                     <MenuItem
-                        classes={{ selected: classes.selected }} 
+                        className={classes.menuItem} 
                         component={Link}
                         to='/greenroom'
                         onClick={handleClose}
@@ -60,7 +59,7 @@ const Navbar = (props) => {
                   green room
                     </MenuItem>
                     <MenuItem
-                        classes={{ selected: classes.selected }} 
+                        className={classes.menuItem} 
                         component={Link}
                         to='/partyroom'
                         onClick={handleClose}
@@ -69,7 +68,7 @@ const Navbar = (props) => {
                   party room
                     </MenuItem>
                     <MenuItem
-                        classes={{ selected: classes.selected }} 
+                        className={classes.menuItem} 
                         component={Link}
                         to='/about'
                         onClick={handleClose}

@@ -50,8 +50,16 @@ const theme = createMuiTheme({
         }
     },
     overrides: {
-        MuiPaper: {
-            color: "#FFFFFF"
+        MuiMenuItem: {
+            root: {
+                "&$selected": {
+                    borderBottom: "#FD2C7B 3px solid",
+                    borderRadius: "2px",
+                    // boxShadow: "3px 0px 10px #FD2C7B",
+                    color: "#10042B",
+                    background: "transparent",
+                },
+            }
         }
     }
 });

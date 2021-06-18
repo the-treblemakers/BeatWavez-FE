@@ -7,9 +7,16 @@ export const useStyles = makeStyles({
     snackbar: {
         top: '90',
     },
-    filter: {
-        border: 'solid #FFFFFF 2px',
-        borderRadius: '3px',
-        boxShadow: '0px 0px 0px 0px rgb(0 0 0 / 0%)',   
+    channel: {
+        color: "#10042B"
+    },
+    menuItem: {
+        "&:hover": {
+            background: "transparent",
+            borderBottom: "#F96D10 3px solid",
+            borderRadius: "2px",
+            // color: "#10042B",
+            transition: "0.1s ease-in-out"
+        }
     }
 });

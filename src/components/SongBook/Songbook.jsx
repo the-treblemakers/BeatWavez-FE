@@ -80,7 +80,6 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                                 {/* <button>Flag as a bad video</button> */}
                             </Grid>
                         </Card>
-
                     </ListItem>
                 ))}
             </List>

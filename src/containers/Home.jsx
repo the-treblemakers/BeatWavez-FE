@@ -2,14 +2,12 @@ import React from 'react';
 import Login from '../components/UI/Login';
 import PropTypes from 'prop-types';
 
-
 function Home({ handleJoinRoom, handleCreateRoom, roomsArray }) {
     return (
         <Login
             handleJoinRoom={handleJoinRoom}
             handleCreateRoom={handleCreateRoom}
             roomsArray={roomsArray}
- 
         />
     );
 }

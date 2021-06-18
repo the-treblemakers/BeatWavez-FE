@@ -21,10 +21,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const [channelFilter, setChannelFilter] = useState('');
     const [filteredSongs, setFilteredSongs] = useState([]);
     const [open, setOpen] = useState(true);
-
+    
     const classes = useStyles();
-
-
 
     useEffect(() => {
         getAllSongs()
@@ -38,7 +36,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     useEffect(() => {
         const filter = () => {
-            const filteredResults = songbook.filter((song) => {
+            const filteredSongs = songbook.filter((song) => {
                 const channelName = song.channelName;
                 return channelName.includes(channelFilter);
             });

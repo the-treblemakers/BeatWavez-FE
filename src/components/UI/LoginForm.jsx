@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { TextField, Button, Grid, MenuItem, ButtonGroup } from '@material-ui/core';
-import StarRateIcon from '@material-ui/icons/StarRate';;
+import StarRateIcon from '@material-ui/icons/StarRate';
 import MicIcon from '@material-ui/icons/Mic';
 
 const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {

@@ -18,10 +18,6 @@ export default function App() {
         handleAddToQueue,
         handleJoinRoom,
         setNewMessage,
-        messageArray,
-        roomsArray,
-        queueArray,
-        newMessage,
         roomInfo,
     } = useSocket();
 

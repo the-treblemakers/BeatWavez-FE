@@ -189,7 +189,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                                 setCurrentPage={setCurrentPage}
                                 loading={loading}
                                 songbook={filteredSongs}
-
                             />
                         }
                     </Grid>

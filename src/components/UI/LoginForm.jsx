@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { TextField, Button, Grid, MenuItem, ButtonGroup } from '@material-ui/core';
 
-const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
+const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray, handleUpdateRoomsArray }) => {
     const [stageName, setStageName] = useState('');
     const [roomName, setRoomName] = useState('');
     const [inputPasscode, setInputPasscode] = useState('');
@@ -17,9 +17,9 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
         setShowHost(true);
     };
 
-    const handleGuestButtonChange = () => {
-        setShowHost(false);
-    };
+    // const handleGuestButtonChange = () => {
+    //     setShowHost(false);
+    // };
 
     // const handleRoomNameChange = (e) => {
     //     setRoomName(e.target.value);
@@ -37,7 +37,7 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                 </Button>
 
                 <Button
-                    onClick={handleGuestButtonChange}>
+                    onClick={() => handleUpdateRoomsArray()}>
                     Guest
                 </Button>
             </ButtonGroup>
@@ -129,6 +129,7 @@ LoginForm.propTypes = {
     handleCreateRoom: PropTypes.func.isRequired,
     handleJoinRoom: PropTypes.func.isRequired,
     roomsArray: PropTypes.array.isRequired,
+    handleUpdateRoomsArray: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

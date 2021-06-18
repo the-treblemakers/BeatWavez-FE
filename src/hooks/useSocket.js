@@ -15,11 +15,6 @@ export const useSocket = () => {
     const history = useHistory();
 
     useEffect(() => {
-        socket.on('MESSAGE', ({ sender, message }) => {
-            setMessageArray([...messageArray, message]);
-            console.log(messageArray);
-        });
-
         socket.on('ROOM_JOIN_RESULT', ({ roomJoined, stageName, roomName, isHost }) => {
             if (roomJoined) {
                 setRoomInfo({ roomName, stageName, isHost });
@@ -33,13 +28,17 @@ export const useSocket = () => {
             setQueueArray(queueArray);
         });
 
-        socket.on('UPDATE_MESSAGE_ARRAY', ({ message, timeStamp, stageName }) => {
-            setMessageArray([...messageArray, { message, timeStamp, stageName }]);
+        socket.on('UPDATE_MESSAGE_ARRAY', ({ message, stageName }) => {
+            setMessageArray([...messageArray, { message, stageName, timeStamp: new Date().toLocaleTimeString() }]);
         });
-
+        socket.on('UPDATE_ROOMS_ARRAY', ({ roomsResults }) => {
+            setRoomsArray(roomsResults);
+        });
     }, []);
 
-
+    const handleUpdateRoomsArray = () => {
+        socket.emit('UPDATE_ROOMS_ARRAY', null);
+    };
 
     const handleCreateRoom = (stageName) => {
         if (stageName !== '') {
@@ -54,9 +53,8 @@ export const useSocket = () => {
     };
 
     const handleNewMessage = () => {
-        socket.emit('MESSAGE', { message: newMessage, timeStamp: new Date().toLocaleTimeString(), roomName: roomInfo.roomName, stageName: roomInfo.stageName });
+        socket.emit('MESSAGE', { message: newMessage, roomName: roomInfo.roomName, stageName: roomInfo.stageName });
         setNewMessage('');
-        console.log(messageArray, queue, 'CHECK MESSAGE & QUEUE');
     };
 
     const handleAddToQueue = ({ title, vidId, thumbnail }) => {
@@ -64,11 +62,11 @@ export const useSocket = () => {
     };
 
     return {
+        handleUpdateRoomsArray,
         handleCreateRoom,
         handleNewMessage,
         handleAddToQueue,
         handleJoinRoom,
-        setRoomsArray,
         setNewMessage,
         messageArray,
         queueArray,

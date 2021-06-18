@@ -87,7 +87,6 @@ const Navbar = (props) => {
                         justify="flex-end">
                         <Typography variant="h1">beatWavez</Typography>
                         <img src={"/assets/beach32.png"} alt="beat wavez logo" className={classes.logo} style={{ marginRight: "1rem" }} />
-
                     </Grid>
                 </Grid>
 

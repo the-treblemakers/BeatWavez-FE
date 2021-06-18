@@ -6,8 +6,10 @@ function Home({ handleJoinRoom, handleCreateRoom, roomsArray }) {
     return (
         <Login
             handleJoinRoom={handleJoinRoom}
-            handleCreateRoom={handleCreateRoom}
+            handleCreateRoom={handleCreateRoo
+
             roomsArray={roomsArray}
+
         />
     );
 }

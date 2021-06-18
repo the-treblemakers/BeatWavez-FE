@@ -3,7 +3,6 @@ import { Grid, Typography } from '@material-ui/core';
 import AboutList from '../components/About/AboutList';
 
 const About = () => {
-
     return (
         <Grid container
             direction="column"

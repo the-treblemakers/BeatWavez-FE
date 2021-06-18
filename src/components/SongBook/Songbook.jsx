@@ -22,7 +22,7 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
         setCurrentSongs(newPage);
     };
 
-    if (loading) return <Spinner />;
+    if(loading) return <Spinner />;
 
     return (
         <Grid container

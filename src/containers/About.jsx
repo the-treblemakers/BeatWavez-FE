@@ -12,7 +12,6 @@ const About = () => {
 
             <Typography
                 variant="h2" align="center" color="secondary" style={{ margin: "2rem" }}>Meet the KJs</Typography>
-
             <AboutList />
         </Grid>
     );

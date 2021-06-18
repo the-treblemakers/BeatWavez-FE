@@ -13,7 +13,6 @@ import Spinner from '../components/UI/Spinner';
 import { useStyles } from '../components/Styles/greenroomStyles';
 import { useHistory } from 'react-router-dom';
 
-
 const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
     const [songbook, setSongbook] = useState([]);
@@ -80,7 +79,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             setCurrentSongs(searchResults);
             setLoading(false);
         }, 100);
-
     }
 
     return (
@@ -157,7 +155,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                                 setCurrentPage={setCurrentPage}
                                 loading={loading}
                                 songbook={filteredSongs}
-
                             />
                         }
                     </Grid>

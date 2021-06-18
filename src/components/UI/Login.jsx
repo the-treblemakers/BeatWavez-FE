@@ -44,6 +44,7 @@ function Login({ handleJoinRoom, handleCreateRoom, roomsArray, handleUpdateRooms
                     handleUpdateRoomsArray={handleUpdateRoomsArray}
                     roomInfo={roomInfo}
                     setRoomInfo={setRoomInfo}
+
                 />
             </Grid>
 

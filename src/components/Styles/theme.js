@@ -45,10 +45,29 @@ const theme = createMuiTheme({
             fontSize: 14,
         },
         body2: {
-            fontSize: 14,
-            fontWeight: 300,
+          fontSize: 14,
+          fontWeight: 300,
         }
     },
+    overrides: {
+        MuiMenuItem: {
+            root: {
+                "&$selected": {
+                    borderBottom: "#FD2C7B 3px solid",
+                    borderRadius: "2px",
+                    // boxShadow: "3px 0px 10px #FD2C7B",
+                    color: "#10042B",
+                    background: "transparent",
+                },
+            }
+        },
+        MuiAppBar: {
+            root: {
+                borderBottom: "#FFD904 3px solid",
+                boxShadow: "0px 0px 25px #FFD904"
+            }
+        }
+    }
 });
 
 export default theme;

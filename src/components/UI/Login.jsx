@@ -1,25 +1,38 @@
 import React from 'react';
 import {
     Grid,
-    Typography
+    Typography,
+    Paper
 } from '@material-ui/core';
 import LoginForm from '../UI/LoginForm';
 import PropTypes from 'prop-types';
 import InstructionAccordion from '../UI/InstructionAccordion';
+import { useStyles } from '../Styles/homeStyles';
 
 function Login({ handleJoinRoom, handleCreateRoom, roomsArray, handleUpdateRoomsArray, roomInfo, setRoomInfo }) {
+    const classes = useStyles();
+
     return (
         <Grid
             container
-            justify="center"
+            justify="flex-end"
             alignItems="center"
             direction="column"
-            style={{ minHeight: '100vh' }}
+            style={{ minHeight: '95vh' }}
             spacing={5}
         >
-            <Grid item>
-                <Typography variant="h2" color="secondary">
-                    Welcome To BeatWavez!
+            <Grid item style={{ marginTop: "2rem" }}>
+                <Grid container
+                    direction="column"
+                    alignItems="center"
+                    justify="center"
+                    style={{ position: "relative" }}
+                >
+                    <img src={"public/assets/beach128.png"} alt="beach wavez logo" className={classes.logo} />
+                    <Paper className={classes.logoContainer} />
+                </Grid>
+                <Typography variant="h1" color="secondary" className={classes.logoFont}>
+                    beatWavez
                 </Typography>
             </Grid>
 

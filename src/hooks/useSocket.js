@@ -33,7 +33,11 @@ export const useSocket = () => {
         });
 
         socket.on('UPDATE_ROOMS_ARRAY', ({ roomsResults }) => {
-            setRoomsArray(roomsResults);
+            if (roomsResults.length === 0) {
+                setRoomsArray(['No open rooms, host one!']);
+            } else {
+                setRoomsArray(roomsResults);
+            }
         });
 
     }, []);

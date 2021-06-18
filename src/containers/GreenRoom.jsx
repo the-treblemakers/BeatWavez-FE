@@ -84,7 +84,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     return (
         <Grid container
-            justify="space-between"
+            justify="flex-end"
             alignItems="center"
             direction="column"
             style={{ minHeight: '90vh' }}>
@@ -200,7 +200,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             </Accordion>
 
             <Accordion
-                className={classes.accordion}>
+                className={classes.root}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}>
                     <Typography
@@ -218,7 +218,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             </Accordion>
 
             <Accordion
-                className={classes.accordion}>
+                className={classes.root}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >

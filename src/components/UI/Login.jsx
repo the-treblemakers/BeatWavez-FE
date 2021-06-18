@@ -15,10 +15,10 @@ function Login({ handleJoinRoom, handleCreateRoom, roomsArray }) {
     return (
         <Grid
             container
-            justify="center"
+            justify="flex-end"
             alignItems="center"
             direction="column"
-            style={{ minHeight: '100vh' }}
+            style={{ minHeight: '95vh' }}
             spacing={5}
         >
             <Grid item style={{ marginTop: "2rem" }}>

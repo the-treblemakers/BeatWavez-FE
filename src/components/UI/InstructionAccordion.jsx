@@ -14,18 +14,6 @@ import { useStyles } from '../Styles/homeStyles';
 function InstructionAccordion() {
     const classes = useStyles();
 
-    const AccordionProps = {
-        PaperProps: {
-          style: {
-            color: '#10042B',
-            background: 'rgb(245, 255, 253)',
-            border: '#F96D10 3px solid',
-            boxShadow: "3px 0px 10px #F96D10",
-            borderRadius: '2px'
-          }
-        }
-    };
-
     return (
         <div>
             <Typography variant="h3" style={{ margin: '1em'  }}>

@@ -17,17 +17,6 @@ export const useStyles = makeStyles({
         borderRadius: "2px",
         boxShadow: "4px 4px 1px #F96D10",
     },
-    outlineButton: {
-        borderRadius: "2px",
-        border: "#13FBD0 3px solid",
-        transition: "0.3s ease-in"
-    },
-    selectedButton: {
-        borderRadius: "2px",
-        border: "#13FBD0 3px solid",
-        color: "#13FBD0",
-        transition: "0.3s ease-in"
-    },
     selected: {
         transition: "0.3s ease-in",
         color: "#F96D10"

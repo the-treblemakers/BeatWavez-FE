@@ -46,14 +46,12 @@ const LoginForm = ({ handleCreateRoom, handleJoinRoom, roomsArray }) => {
                 style={{ margin: '2em' }}
             >
                 <Button
-                    className={ showHost ? classes.selectedButton : classes.outlineButton}
                     onClick={handleHostButtonChange}>
                     <MicIcon className={ showHost ? classes.selected : null }/>
                     Host
                 </Button>
 
                 <Button
-                    className={ !showHost ? classes.selectedButton : classes.outlineButton}
                     onClick={handleGuestButtonChange}>
                     <StarRateIcon className={ !showHost ? classes.selected : null }/>
                     Guest

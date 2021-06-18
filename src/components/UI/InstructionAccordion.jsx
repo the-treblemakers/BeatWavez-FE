@@ -1,8 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Accordion, 
-    AccordionSummary, 
-    AccordionDetails } from "@material-ui/core";
+import {
+    Accordion,
+    AccordionSummary,
+    AccordionDetails
+} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
@@ -47,11 +49,12 @@ function InstructionAccordion() {
                     aria-controls="panel3a-content"
                 >
                     <Typography variant="h3">
-            Start a New Karaoke Room
+                        Start a New Karaoke Room
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography variant="body1" >
+
             1. Enter your Stage Name to become a host of your virtual karaoke party.
                     </Typography>
                     <Typography variant="body1">
@@ -60,6 +63,7 @@ function InstructionAccordion() {
                     <Typography variant='body1'>
             3. Give your guests the room name and passcode for them to join you.
             
+
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -70,19 +74,19 @@ function InstructionAccordion() {
                     aria-controls="panel2a-content"
                 >
                     <Typography variant="h3">
-            Join a Karaoke Room 
+                        Join a Karaoke Room
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography variant="body1">
-            Enter your Stage Name and the Karaoke Room Name to join your friends
-            and start singing!
+                        Enter your Stage Name and the Karaoke Room Name to join your friends
+                        and start singing!
                     </Typography>
                 </AccordionDetails>
             </Accordion>
 
-           
-            
+
+
         </div>
 
     );

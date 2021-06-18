@@ -6,9 +6,9 @@ import GreenRoom from '../../containers/GreenRoom';
 import PartyRoom from '../../containers/PartyRoom';
 import About from '../../containers/About';
 import '../styles/app.css';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core';
 import theme from '../styles/theme';
+
 import { useSocket } from '../../hooks/useSocket';
 
 export default function App() {
@@ -27,7 +27,6 @@ export default function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline />
             <Router>
                 <NavBar />
                 <Switch>

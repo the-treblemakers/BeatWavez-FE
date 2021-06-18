@@ -11,6 +11,8 @@ import Chat from '../components/Chat/Chat';
 import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
 import { useStyles } from '../components/Styles/greenroomStyles';
+import { useHistory } from 'react-router-dom';
+
 
 const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNewMessage, queue, handleAddToQueue }) => {
     const [query, setQuery] = useState('');
@@ -21,7 +23,8 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const [channelFilter, setChannelFilter] = useState('');
     const [filteredSongs, setFilteredSongs] = useState([]);
     const [open, setOpen] = useState(true);
-    
+
+    const history = useHistory();
     const classes = useStyles();
 
     useEffect(() => {
@@ -52,9 +55,9 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
 
     function handleQueryChange(e) {
         setQuery(e.target.value);
-    }        
-      
-    function handleDropdownChange(e){
+    }
+
+    function handleDropdownChange(e) {
         setChannelFilter(e.target.value);
         setQuery('');
     }
@@ -65,14 +68,15 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setLoading(true);
 
         const search = () => {
-            if(query === '') return filteredSongs;
+            if (query === '') return filteredSongs;
             return filteredSongs.filter((song) => {
                 const title = song.title.toLowerCase();
                 return title.includes(query.toLowerCase());
             });
         };
         const searchResults = search();
-        setTimeout(() => {setCurrentSongs(searchResults);
+        setTimeout(() => {
+            setCurrentSongs(searchResults);
             setLoading(false);
         }, 100);
 
@@ -82,7 +86,12 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setOpen(false);
     }
 
+    if (roomInfo.stageName === '' || roomInfo.roomName === '') {
+        return <>{history.push('/')}</>;
+    }
+
     return (
+
         <Grid container
             justify="space-between"
             alignItems="center"
@@ -93,7 +102,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                     variant="h2"
                     align="center"
                     style={{ margin: '1.5rem' }}>
-                    Welcome to the {roomInfo.roomName} room!
+                    Welcome to the {roomInfo.roomName} room! <small>(code: {roomInfo.passcode})</small>
                 </Typography>
                 :
                 <Typography

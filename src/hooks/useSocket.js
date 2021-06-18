@@ -6,7 +6,7 @@ const socket = io('http://localhost:7890/');
 // const socket = io('https://beatwavez-dev.herokuapp.com/');
 
 export const useSocket = () => {
-    const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '', isHost: false });
+    const [roomInfo, setRoomInfo] = useState({ stageName: '', roomName: '', isHost: false, passcode: null });
     const [queueArray, setQueueArray] = useState([]);
     const [roomsArray, setRoomsArray] = useState([]);
     const [newMessage, setNewMessage] = useState('');
@@ -14,9 +14,9 @@ export const useSocket = () => {
     const history = useHistory();
 
     useEffect(() => {
-        socket.on('ROOM_JOIN_RESULT', ({ roomJoined, stageName, roomName, isHost }) => {
-            if(roomJoined) {
-                setRoomInfo({ roomName, stageName, isHost });
+        socket.on('ROOM_JOIN_RESULT', ({ roomJoined, stageName, roomName, isHost, passcode }) => {
+            if (roomJoined) {
+                setRoomInfo({ roomName, stageName, isHost, passcode });
                 history.push('/greenroom');
             } else {
                 alert('Provided roomname or passcode is incorrect.');
@@ -28,26 +28,29 @@ export const useSocket = () => {
         });
 
         socket.on('UPDATE_MESSAGE_ARRAY', ({ message, stageName }) => {
+            console.log(messageArray, { message, stageName });
             setMessageArray([...messageArray, { message, stageName, timeStamp: new Date().toLocaleTimeString() }]);
         });
+
         socket.on('UPDATE_ROOMS_ARRAY', ({ roomsResults }) => {
             setRoomsArray(roomsResults);
         });
+
     }, []);
 
     const handleUpdateRoomsArray = () => {
         socket.emit('UPDATE_ROOMS_ARRAY');
     };
 
-    const handleCreateRoom = (stageName) => {
-        if (stageName !== '') {
-            socket.emit('CREATE_ROOM', ({ stageName }));
+    const handleCreateRoom = () => {
+        if (roomInfo.stageName !== '') {
+            socket.emit('CREATE_ROOM', ({ stageName: roomInfo.stageName }));
         }
     };
 
-    const handleJoinRoom = (stageName, roomName, inputPasscode) => {
-        if (stageName !== '' && roomName !== '') {
-            socket.emit('JOIN_ROOM', ({ stageName, roomName, inputPasscode }));
+    const handleJoinRoom = (inputPasscode) => {
+        if (roomInfo.stageName !== '' && roomInfo.roomName !== '') {
+            socket.emit('JOIN_ROOM', ({ stageName: roomInfo.stageName, roomName: roomInfo.roomName, inputPasscode }));
         }
     };
 
@@ -67,6 +70,7 @@ export const useSocket = () => {
         handleAddToQueue,
         handleJoinRoom,
         setNewMessage,
+        setRoomInfo,
         messageArray,
         queueArray,
         roomsArray,

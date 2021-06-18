@@ -19,6 +19,7 @@ export default function App() {
         handleAddToQueue,
         handleJoinRoom,
         setNewMessage,
+        setRoomInfo,
         messageArray,
         roomsArray,
         queueArray,
@@ -36,6 +37,8 @@ export default function App() {
                     handleJoinRoom={handleJoinRoom}
                     roomsArray={roomsArray}
                     handleUpdateRoomsArray={handleUpdateRoomsArray}
+                    roomInfo={roomInfo}
+                    setRoomInfo={setRoomInfo}
                 />} />
                 <Route path="/greenroom" render={(routerProps) => <GreenRoom {...routerProps}
                     roomInfo={roomInfo}

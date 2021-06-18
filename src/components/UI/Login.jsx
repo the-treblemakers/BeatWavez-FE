@@ -7,7 +7,7 @@ import LoginForm from '../UI/LoginForm';
 import PropTypes from 'prop-types';
 import InstructionAccordion from '../UI/InstructionAccordion';
 
-function Login({ handleJoinRoom, handleCreateRoom, roomsArray, handleUpdateRoomsArray }) {
+function Login({ handleJoinRoom, handleCreateRoom, roomsArray, handleUpdateRoomsArray, roomInfo, setRoomInfo }) {
     return (
         <Grid
             container
@@ -29,6 +29,8 @@ function Login({ handleJoinRoom, handleCreateRoom, roomsArray, handleUpdateRooms
                     handleCreateRoom={handleCreateRoom}
                     roomsArray={roomsArray}
                     handleUpdateRoomsArray={handleUpdateRoomsArray}
+                    roomInfo={roomInfo}
+                    setRoomInfo={setRoomInfo}
                 />
             </Grid>
 
@@ -44,6 +46,8 @@ Login.propTypes = {
     handleCreateRoom: PropTypes.func.isRequired,
     roomsArray: PropTypes.array.isRequired,
     handleUpdateRoomsArray: PropTypes.func.isRequired,
+    roomInfo: PropTypes.object.isRequired,
+    setRoomInfo: PropTypes.func.isRequired,
 };
 
 export default Login;

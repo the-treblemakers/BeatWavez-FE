@@ -23,7 +23,8 @@ const VideoControls = ({ onPrevious, onPlay, onNext, onFullscreen, queue, queueI
         <Grid item>
             <IconButton 
                 aria-label="play pause" 
-                onClick={onPlay}>
+                onClick={onPlay}
+                disabled={queue.length === 0}>
                 <PlayCircleOutlineIcon />
             </IconButton>
         </Grid>
@@ -36,7 +37,10 @@ const VideoControls = ({ onPrevious, onPlay, onNext, onFullscreen, queue, queueI
             </IconButton>
         </Grid>
         <Grid item>
-            <IconButton aria-label="next" onClick={onFullscreen}>
+            <IconButton 
+                aria-label="fullscreen" 
+                onClick={onFullscreen} 
+                disabled={queue.length === 0}>
                 <FullscreenOutlinedIcon />
             </IconButton>
         </Grid>

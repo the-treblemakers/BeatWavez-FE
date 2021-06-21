@@ -1,7 +1,7 @@
 # BeatWavez
 
 ![beach128](https://user-images.githubusercontent.com/74560886/122595876-ed5f3200-d01d-11eb-900d-25997455ae79.png) </br>
-[BeatWavez App](iwww.beatwavez.com) </br>
+[BeatWavez App](https://beatwavez.com/) </br>
 [BeatWavez front-end repo](https://github.com/the-treblemakers/BeatWavez-FE) </br>
 [BeatWavez back-end repo](https://github.com/the-treblemakers/BeatWavez-BE)
 

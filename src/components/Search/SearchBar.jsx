@@ -12,7 +12,7 @@ const SearchBar = ({ handleQueryChange, query, handleSubmit }) => {
             className={classes.root}
             container
             direction="row"
-            justify="flex-end"
+            justify="center"
             alignItems="center"
             aria-label="searchBar"
             spacing={1}

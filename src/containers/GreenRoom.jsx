@@ -88,24 +88,19 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             alignItems="center"
             direction="column"
             style={{ minHeight: '90vh' }}>
-            {roomInfo.roomName ?
                 <Typography
                     variant="h2"
                     align="center"
-                    style={{ margin: '1.5rem' }}
+                    style={{ marginTop: '1.5rem' }}
                     color="secondary">
                     Welcome to the {roomInfo.roomName} room!
-                    {/* <small>(code: {roomInfo.passcode})</small> */}
                 </Typography>
-                :
                 <Typography
-                    variant="h2"
+                    variant="h3"
                     align="center"
-                    style={{ margin: '1.5rem' }}
-                    color="secondary">
-                    Welcome to the Greenroom!
+                    style={{ margin: '0.5rem' }}>
+                    passcode: {roomInfo.passcode}
                 </Typography>
-            }
 
             {/* <SnackboxAlert roomInfo={roomInfo} /> */}
 
@@ -127,7 +122,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                         <Grid container
                             direction="row"
                             alignItems="center"
-                            justify="space-between"
+                            justify="center"
                             spacing={1}>
                             <Grid item xs={4}>
                                 <SearchFilters

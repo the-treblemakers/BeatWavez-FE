@@ -26,7 +26,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const classes = useStyles();
 
     useEffect(() => {
-        if (roomInfo.stageName === '' || roomInfo.roomName === '') {
+        if(roomInfo.stageName === '' || roomInfo.roomName === '') {
             return <>{history.push('/')}</>;
         } else {
             getAllSongs()
@@ -38,8 +38,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 .finally(() => setLoading(false));
         }
     }, []);
-
-    console.log('>>>', roomInfo.passcode, '<<< ROOM PASSCODE');  // FOR DEMO: DELETE AND UNCOMMENT LINE 100 AFTER
 
     useEffect(() => {
         const filterMethod = songbook.filter((song) => {
@@ -68,7 +66,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setLoading(true);
 
         const search = () => {
-            if (query === '') return filteredSongs;
+            if(query === '') return filteredSongs;
             return filteredSongs.filter((song) => {
                 const title = song.title.toLowerCase();
                 return title.includes(query.toLowerCase());
@@ -88,19 +86,19 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             alignItems="center"
             direction="column"
             style={{ minHeight: '90vh' }}>
-                <Typography
-                    variant="h2"
-                    align="center"
-                    style={{ marginTop: '1.5rem' }}
-                    color="secondary">
+            <Typography
+                variant="h2"
+                align="center"
+                style={{ marginTop: '1.5rem' }}
+                color="secondary">
                     Welcome to the {roomInfo.roomName} room!
-                </Typography>
-                <Typography
-                    variant="h3"
-                    align="center"
-                    style={{ margin: '0.5rem' }}>
+            </Typography>
+            <Typography
+                variant="h3"
+                align="center"
+                style={{ margin: '0.5rem' }}>
                     passcode: {roomInfo.passcode}
-                </Typography>
+            </Typography>
 
             {/* <SnackboxAlert roomInfo={roomInfo} /> */}
 

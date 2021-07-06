@@ -34,7 +34,7 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
         setCurrentSongs(newPage);
     };
 
-    if (loading) return <Spinner />;
+    if(loading) return <Spinner />;
 
     return (
         <Grid container
@@ -76,9 +76,9 @@ const Songbook = ({ loading, currentPage, setCurrentPage, currentSongs, setCurre
                                         onClick={() => handleAddToQueue(song)}>
                                         <AddIcon />
                                     </IconButton>
+                                </Grid>
+                                {/* <button>Flag as a bad video</button> */}
                             </Grid>
-                            {/* <button>Flag as a bad video</button> */}
-                        </Grid>
                         </Card>
                     </ListItem>
                 ))}

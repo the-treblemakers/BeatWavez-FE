@@ -3,20 +3,30 @@ import { render, screen, waitFor } from '@testing-library/react';
 import GreenRoom from '../containers/GreenRoom';
 
 describe('GreenRoom container tests', () => {
-    it('tests for the chat component', () => {
+    it('tests for the header component', () => {
         render(<GreenRoom />);
 
         waitFor(() => {
-            const chatList = screen.findByRole('list', { name: 'chat' });
-            expect(chatList).toMatchSnapshot();
+            const header = screen.findByText('BeatWavez');
+            expect(header).toMatchSnapshot();
         });
     });
+    
+    // it('tests for the chat component', () => {
+    //     render(<GreenRoom />);
+
+    //     waitFor(() => {
+    //         const chatList = screen.findByRole('list', { name: 'chat' });
+    //         expect(chatList).toMatchSnapshot();
+    //     });
+    // });
 
     // it('tests for the songbook', () => {
     //     render(<GreenRoom />);
 
-    //     waitFor(
-
-    //     )
+    //     waitFor(() => {
+    //         const chatList = screen.findByRole('list', { name: 'chat' });
+    //         expect(chatList).toMatchSnapshot();
+    //     });
     // });
 });

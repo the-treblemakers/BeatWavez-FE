@@ -1,7 +1,47 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, useMediaQuery } from '@material-ui/core';
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles(theme => ({
+    // base: {
+    //     root: {
+    //         "& .MuiGrid-container": {
+    //             width: '100%',
+    //             justifyContent: "center",
+    //             alignItems: "center"
+    //         },
+    //     }                
+    // },
     root: {
+        width: "100%",
+        // [theme.breakpoints.up('xs')]: {
+        //     "& .MuiGrid-container": {
+        //         width: '100%',
+                
+        //     },
+        // },
+        // [theme.breakpoints.up('sm')]: {
+        //     "& .MuiGrid-container": {
+        //         width: '50%',
+        //         backgroundColor: "#ffff00"
+        //     },
+        // },
+        // [theme.breakpoints.up('md')]: {
+        //     "& .MuiGrid-container": {
+        //         width: '50%',
+        //         backgroundColor: "#fffff0"
+        //     },
+        // },
+        // [theme.breakpoints.up('lg')]: {
+        //     "& .MuiGrid-container": {
+        //         width: '50%',
+        //         backgroundColor: "#fff000"
+        //     },
+        // },
+        // [theme.breakpoints.up('xl')]: {
+        //     "& .MuiGrid-container": {
+        //         width: '50%',
+        //         backgroundColor: "#ffffff"
+        //     },
+        // },
         "& .MuiAccordionDetails-root": {
             color: '#10042B',
             background: 'rgb(245, 255, 253)',
@@ -39,4 +79,4 @@ export const useStyles = makeStyles({
         fontSize: 40,
         margin: "0.3rem"
     }
-});
+}));

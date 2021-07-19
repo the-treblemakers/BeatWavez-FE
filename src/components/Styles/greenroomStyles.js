@@ -7,7 +7,10 @@ export const useStyles = makeStyles({
             border: '#13FBD0 3px solid',
             boxShadow: "3px 0px 10px #13FBD0",
             borderRadius: '2px'
-        }
+        },
+        "& .MuiGrid-justify-m-flex-end": {
+            justify: "flex-end",
+        },
     },
     accordion: {
         width: "100%",

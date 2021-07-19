@@ -7,7 +7,7 @@ import SearchFilters from '../components/Search/SearchFilters';
 import Songbook from '../components/SongBook/Songbook';
 import Queue from '../components/Queue/Queue';
 import Chat from '../components/Chat/Chat';
-import SnackboxAlert from '../components/UI/SnackboxAlert';
+// import SnackboxAlert from '../components/UI/SnackboxAlert';
 import { getAllSongs } from '../services/apiUtils';
 import Spinner from '../components/UI/Spinner';
 import { useStyles } from '../components/Styles/greenroomStyles';
@@ -26,7 +26,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
     const classes = useStyles();
 
     useEffect(() => {
-        if (roomInfo.stageName === '' || roomInfo.roomName === '') {
+        if(roomInfo.stageName === '' || roomInfo.roomName === '') {
             return <>{history.push('/')}</>;
         } else {
             getAllSongs()
@@ -38,8 +38,6 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                 .finally(() => setLoading(false));
         }
     }, []);
-
-    console.log('>>>', roomInfo.passcode, '<<< ROOM PASSCODE');  // FOR DEMO: DELETE AND UNCOMMENT LINE 100 AFTER
 
     useEffect(() => {
         const filterMethod = songbook.filter((song) => {
@@ -68,7 +66,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
         setLoading(true);
 
         const search = () => {
-            if (query === '') return filteredSongs;
+            if(query === '') return filteredSongs;
             return filteredSongs.filter((song) => {
                 const title = song.title.toLowerCase();
                 return title.includes(query.toLowerCase());
@@ -88,24 +86,19 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
             alignItems="center"
             direction="column"
             style={{ minHeight: '90vh' }}>
-            {roomInfo.roomName ?
-                <Typography
-                    variant="h2"
-                    align="center"
-                    style={{ margin: '1.5rem' }}
-                    color="secondary">
+            <Typography
+                variant="h2"
+                align="center"
+                style={{ marginTop: '1.5rem' }}
+                color="secondary">
                     Welcome to the {roomInfo.roomName} room!
-                    {/* <small>(code: {roomInfo.passcode})</small> */}
-                </Typography>
-                :
-                <Typography
-                    variant="h2"
-                    align="center"
-                    style={{ margin: '1.5rem' }}
-                    color="secondary">
-                    Welcome to the Greenroom!
-                </Typography>
-            }
+            </Typography>
+            <Typography
+                variant="h3"
+                align="center"
+                style={{ margin: '0.5rem' }}>
+                    passcode: {roomInfo.passcode}
+            </Typography>
 
             {/* <SnackboxAlert roomInfo={roomInfo} /> */}
 
@@ -127,7 +120,7 @@ const GreenRoom = ({ handleNewMessage, roomInfo, newMessage, messageArray, setNe
                         <Grid container
                             direction="row"
                             alignItems="center"
-                            justify="space-between"
+                            justify="center"
                             spacing={1}>
                             <Grid item xs={4}>
                                 <SearchFilters

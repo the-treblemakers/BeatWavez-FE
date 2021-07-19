@@ -1,7 +1,7 @@
 [
     {
         "name": "Katy Boyles",
-        "image": "public/assets/KB.png",
+        "image": "/assets/KB.png",
         "linkedIn": "https://www.linkedin.com/in/katy-boyles/",
         "github": "https://github.com/katrinkajb",
         "twitter": "https://twitter.com/KBtrizay",
@@ -9,7 +9,7 @@
     },
     {
         "name": "Nicole Martin",
-        "image": "public/assets/NICOLE.png",
+        "image": "/assets/NICOLE.png",
         "linkedIn": "https://www.linkedin.com/in/nicolemartinpdx/",
         "github": "https://github.com/nicole-m-martin",
         "twitter": "https://twitter.com/nmartinpdx",
@@ -17,7 +17,7 @@
     },
     {
         "name": "Brandon Perard",
-        "image": "public/assets/BRANDON.png",
+        "image": "/assets/BRANDON.png",
         "linkedIn": "https://www.linkedin.com/in/brandonperard/",
         "github": "https://github.com/bperard",
         "twitter": "https://twitter.com/SayYesToExcess",
@@ -25,15 +25,15 @@
     },
     {
         "name": "Soraya Benson",
-        "image": "public/assets/SORAYA.png",
+        "image": "/assets/SORAYA.png",
         "linkedIn": "https://www.linkedin.com/in/soraya-benson/",
         "github": "https://github.com/sorayabenson",
         "twitter": "https://twitter.com/sorayamajd",
-        "bio": "Oh hi, I’m Soraya, a full-stack engineer in Portland, OR. I adore interactive storytelling, accessible design, and creating things with rad people. My go to karaoke song is ‘The One That I Want’ from Grease ⚡"
+        "bio": "Oh hi, I’m Soraya, a full-stack engineer in Portland, OR. I adore interactive storytelling and creating things with rad people. My go to karaoke song is ‘The One That I Want’ from Grease ⚡"
     },
     {
         "name": "Lori Winston",
-        "image": "public/assets/LORI.png",
+        "image": "/assets/LORI.png",
         "linkedIn": "https://www.linkedin.com/in/loriwinston/",
         "github": "https://github.com/LoriWinston",
         "twitter": "https://twitter.com/LoriWinston8",

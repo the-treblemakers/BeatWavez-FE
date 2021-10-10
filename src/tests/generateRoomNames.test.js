@@ -1,19 +1,12 @@
 import generateRoomNames from "../RoomNames/generateRoomNames";
 
-describe.skip('tests the room generator function', () => {
+describe('tests the room generator function', () => {
     it('tests generateRoomNames', () => {
         const randomName = generateRoomNames();
+        const expected = 'string';
+        const actual = typeof(generateRoomNames());
         
         expect(randomName).toBeTruthy();
+        expect.equal(expected, actual);
     });
 });
-
-// use typeof instead?
-// describe('tests the room generator function', () => {
-//     it('tests generateRoomNames', () => {
-//         const expected = 'string';
-//         const actual = typeof(generateRoomNames());
-        
-//         expect.equal(expected, actual);
-//     });
-// })
